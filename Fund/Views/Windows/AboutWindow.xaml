@@ -1,0 +1,46 @@
+﻿<Window 
+    
+    x:Class="Fund.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Fund"
+    mc:Ignorable="d"
+    Title="" Height="400" Width="575"
+    Style="{StaticResource OriginalWindowStyle}"
+    WindowStartupLocation="CenterScreen"
+    MouseLeftButtonDown="Window_MouseLeftButtonDown"
+    Loaded="Window_Loaded"
+    AllowsTransparency="True" Background="Transparent" WindowStyle="None"   
+    >
+    
+    
+    <Grid Width="525" Height="350" Style="{StaticResource GridStyle}">
+        
+        <Border BorderBrush="#FFD1C7C7" BorderThickness="1" CornerRadius="10">
+            
+            <Border.Background>
+                
+                <ImageBrush ImageSource="/Fund;component/Resources/Images/About.png"/>
+                
+            </Border.Background>
+            
+        </Border>
+        
+        <Label Name="CloseButton" Content="x" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,5" Opacity="0.5" MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter" MouseLeftButtonDown="Label_MouseLeftButtonDown">
+            
+            <Label.Effect>
+                
+                <DropShadowEffect BlurRadius="20" Direction="0" Opacity="0.5" ShadowDepth="1"/>
+            
+            </Label.Effect>
+            
+        </Label>
+        
+    </Grid>
+    
+</Window>
+
+    
+    
