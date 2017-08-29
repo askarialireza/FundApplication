@@ -45,7 +45,7 @@
         <Grid Name="MainGrid" Width="auto" Height="auto" Margin="0">
             
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" MinHeight="305"/>
+                <RowDefinition Height="1*" MinHeight="200"/>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="5"/>

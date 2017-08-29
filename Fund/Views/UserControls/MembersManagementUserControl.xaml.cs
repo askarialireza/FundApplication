@@ -3,9 +3,7 @@ using Infrastructure;
 
 namespace Fund
 {
-    /// <summary>
-    /// Interaction logic for UsersViewUserControl.xaml
-    /// </summary>
+
     public partial class MembersManagementUserControl : System.Windows.Controls.UserControl
     {
         public System.Guid CurrentId { get; set; }
@@ -21,47 +19,9 @@ namespace Fund
 
             ButtonsGrid.BlurApply(5);
 
-            DAL.UnitOfWork oUnitOfWork = null;
-
             EditItemsToggleSwitch.IsChecked = false;
 
-            try
-            {
-                oUnitOfWork = new DAL.UnitOfWork();
-
-                MembersGridControl.ItemsSource = oUnitOfWork.MemberRepository
-                    .Get()
-                    .Select(current => new ViewModels.MembersManagementViewModel()
-                    {
-                        Id = current.Id,
-                        FullName = current.FullName,
-                        EmailAddress = current.EmailAddress,
-                        FatherName = current.FatherName,
-                        GenderToString = current.GenderToString,
-                        NationalCode = current.NationalCode,
-                        PersianMembershipDateTime = current.PersianMembershipDateTime,
-                        PhoneNumber = current.PhoneNumber,
-                    })
-                    .OrderBy(current => current.FullName.LastName)
-                    .ThenBy(current => current.FullName.FirstName)
-                    .ToList();
-
-                oUnitOfWork.Save();
-                oUnitOfWork.Dispose();
-                oUnitOfWork = null;
-            }
-            catch (System.Exception ex)
-            {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (oUnitOfWork != null)
-                {
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
-                }
-            }
+            LoadGridControl();
         }
 
         private void ExportToPDFClick(object sender, System.Windows.RoutedEventArgs e)
@@ -404,26 +364,7 @@ namespace Fund
                             defaultResult: System.Windows.MessageBoxResult.OK,
                             options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
                         );
-
-                    MembersGridControl.ItemsSource = oUnitOfWork.MemberRepository
-                    .Get()
-                    .Select(current => new ViewModels.MembersManagementViewModel()
-                    {
-                        Id = current.Id,
-                        FullName = current.FullName,
-                        EmailAddress = current.EmailAddress,
-                        FatherName = current.FatherName,
-                        GenderToString = current.GenderToString,
-                        NationalCode = current.NationalCode,
-                        PersianMembershipDateTime = current.PersianMembershipDateTime,
-                        PhoneNumber = current.PhoneNumber,
-                    })
-                    .OrderBy(current => current.FullName.LastName)
-                    .ThenBy(current => current.FullName.FirstName)
-                    .ToList();
                 }
-
-                oUnitOfWork.Save();
             }
             catch (System.Exception ex)
             {
@@ -437,6 +378,8 @@ namespace Fund
                     oUnitOfWork = null;
                 }
             }
+
+            LoadGridControl();
         }
 
         private void CancelClick(object sender, System.Windows.RoutedEventArgs e)
@@ -483,24 +426,6 @@ namespace Fund
 
                 }
 
-                MembersGridControl.ItemsSource = oUnitOfWork.MemberRepository
-                    .Get()
-                    .Select(current => new ViewModels.MembersManagementViewModel()
-                    {
-                        Id = current.Id,
-                        FullName = current.FullName,
-                        EmailAddress = current.EmailAddress,
-                        FatherName = current.FatherName,
-                        GenderToString = current.GenderToString,
-                        NationalCode = current.NationalCode,
-                        PersianMembershipDateTime = current.PersianMembershipDateTime,
-                        PhoneNumber = current.PhoneNumber,
-                    })
-                    .OrderBy(current => current.FullName.LastName)
-                    .ThenBy(current => current.FullName.FirstName)
-                    .ToList();
-
-                oUnitOfWork.Save();
             }
             catch (System.Exception ex)
             {
@@ -514,6 +439,8 @@ namespace Fund
                     oUnitOfWork = null;
                 }
             }
+
+            LoadGridControl();
         }
 
         private void GroupBoxItems_IsEnabledChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
@@ -562,6 +489,49 @@ namespace Fund
                 MemberImage.Source = new System.Windows.Media.Imaging.BitmapImage(new System.Uri(oOpenFileDialog.FileName));
 
                 IsPictureDeleted = false;
+            }
+        }
+
+        private void LoadGridControl()
+        {
+            DAL.UnitOfWork oUnitOfWork = null;
+
+            try
+            {
+                oUnitOfWork = new DAL.UnitOfWork();
+
+                MembersGridControl.ItemsSource = oUnitOfWork.MemberRepository
+                    .Get()
+                    .Select(current => new ViewModels.MembersManagementViewModel()
+                    {
+                        Id = current.Id,
+                        FullName = current.FullName,
+                        EmailAddress = current.EmailAddress,
+                        FatherName = current.FatherName,
+                        GenderToString = current.GenderToString,
+                        NationalCode = current.NationalCode,
+                        PersianMembershipDateTime = current.PersianMembershipDateTime,
+                        PhoneNumber = current.PhoneNumber,
+                    })
+                    .OrderBy(current => current.FullName.LastName)
+                    .ThenBy(current => current.FullName.FirstName)
+                    .ToList();
+
+                oUnitOfWork.Save();
+                oUnitOfWork.Dispose();
+                oUnitOfWork = null;
+            }
+            catch (System.Exception ex)
+            {
+                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (oUnitOfWork != null)
+                {
+                    oUnitOfWork.Dispose();
+                    oUnitOfWork = null;
+                }
             }
         }
     }
