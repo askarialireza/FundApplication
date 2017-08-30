@@ -24,6 +24,7 @@
             <Setter Property="Height" Value="auto"/>
             <Setter Property="Grid.Column" Value="2"/>
             <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FlowDirection" Value="RightToLeft"/>
             <Setter Property="Margin" Value="3"/>
         </Style>
 
@@ -112,7 +113,7 @@
 
             <dx:SimpleButton x:Name="CloseButton" Content="بستن" Margin="0,0,85,4" Click="CloseClick" Style="{StaticResource CancelButtonStyle}" Height="32" Grid.Column="0"/>
 
-            <dx:SimpleButton x:Name="AcceptButton" Content="تایید" Margin="0,4,0,4" Style="{StaticResource CancelButtonStyle}" Height="32"/>
+            <dx:SimpleButton x:Name="AcceptButton" Content="تایید" Margin="0,4,0,4" Click="AcceptClick" Style="{StaticResource CancelButtonStyle}" Height="32"/>
 
             <Label Content="تکمیل فیلد‌های ستاره‌دار (*) الزامی می‌باشد" TextBlock.Foreground="Red" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
 

@@ -138,7 +138,10 @@
     <Compile Include="Infrastructure\Captcha\Captcha.xaml.cs">
       <DependentUpon>Captcha.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\FontFamily.cs" />
+    <Compile Include="Infrastructure\FontsList.cs" />
     <Compile Include="Infrastructure\Text.cs" />
+    <Compile Include="Infrastructure\ThemeList.cs" />
     <Compile Include="ViewModels\DatabaseBackupViewModel.cs" />
     <Compile Include="ViewModels\FontViewModel.cs" />
     <Compile Include="ViewModels\GenderComboBoxItemViewModel.cs" />

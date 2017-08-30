@@ -166,13 +166,12 @@ namespace Fund
                 }
                 else
                 {
-                    string imagePath = System.Environment.CurrentDirectory + @"\Files\Temp\ImageNull.png";
-                    System.Drawing.Image oImage = System.Drawing.Image.FromFile(imagePath);
+                    System.Drawing.Image oImage = Properties.Resources.ImageNull;
                     oViewModel.Picture = oImage;
                 }
 
 
-                oStiReport.Load(System.Environment.CurrentDirectory + "\\Files\\Reports\\MembershipCardReport.mrt");
+                oStiReport.Load(Properties.Resources.MembershipCardReport);
 
                 oStiReport.RegBusinessObject("MembershipCard", oViewModel);
                 oStiReport.Compile();

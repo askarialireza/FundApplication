@@ -58,7 +58,7 @@
             
             </dxlc:GroupBox>
             
-            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" DragCompleted="GridSplitter_DragCompleted" Opacity="0"/>
+            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" DragCompleted="GridSplitter_DragCompleted" Opacity="0.5"/>
             
             <dxlc:GroupBox Grid.Row="2" Header="یادآور" Style="{DynamicResource GroupBoxStyle}">
 
@@ -66,7 +66,7 @@
 
             </dxlc:GroupBox>
             
-            <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" DragCompleted="GridSplitter_DragCompleted" Opacity="0"/>
+            <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" DragCompleted="GridSplitter_DragCompleted" Opacity="0.5"/>
             
             <dxlc:GroupBox Name="FundDetailsGroupBox" Grid.Row="4" Header="اطلاعات صندوق" Style="{DynamicResource GroupBoxStyle}">
                 

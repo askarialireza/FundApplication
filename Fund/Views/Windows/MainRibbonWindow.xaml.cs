@@ -83,7 +83,6 @@ namespace Fund
             TodayLabel.Content = FarsiLibrary.Utils.PersianDate.Today.ToWritten();
 
             System.Windows.Threading.DispatcherTimer oDispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-
             oDispatcherTimer.IsEnabled = true;
             oDispatcherTimer.Tick += ODispatcherTimer_Tick;
 
@@ -91,6 +90,7 @@ namespace Fund
 
             RefreshUserInterface();
         }
+
 
         private void ODispatcherTimer_Tick(object sender, System.EventArgs e)
         {
@@ -252,6 +252,8 @@ namespace Fund
             UserLoginWindow oUserLoginWindow = new UserLoginWindow();
 
             oUserLoginWindow.Show();
+
+            ShowMessageBox = false; 
         }
 
         private void CreateUserClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -297,6 +299,8 @@ namespace Fund
             UserControlsPanel.Children.Clear();
 
             UserControlsPanel.Children.Add(oDatabaseSettingsUserControl);
+
+            ShowMessageBox = false;
         }
 
         private void SplitterDragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)

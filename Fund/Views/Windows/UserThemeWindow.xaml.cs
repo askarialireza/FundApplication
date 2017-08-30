@@ -14,12 +14,6 @@ namespace Fund
 
         private bool IsThemeChanged = false;
 
-        private System.Collections.Generic.List<ViewModels.ThemeViewModel> ThemesComboBoxList =
-                 new System.Collections.Generic.List<ViewModels.ThemeViewModel>();
-
-        private System.Collections.Generic.List<ViewModels.FontViewModel> FontsComboBoxList =
-             new System.Collections.Generic.List<ViewModels.FontViewModel>();
-
         public UserThemeWindow()
         {
             InitializeComponent();
@@ -34,21 +28,22 @@ namespace Fund
 
             switch (Utility.CurrentUser.UserSetting.Theme.FontFamily)
             {
-                case "B Yagut":
-                    FontComboBox.SelectedIndex = 2;
-                    break;
-
-                case "B Traffic":
+                case Infrastructure.FontFamily.BTraffic:
                     FontComboBox.SelectedIndex = 0;
                     break;
 
-                case "B Nazanin":
+                case Infrastructure.FontFamily.BNazanin:
                     FontComboBox.SelectedIndex = 1;
                     break;
 
-                case "B Yekan":
+                case Infrastructure.FontFamily.BYagut:
+                    FontComboBox.SelectedIndex = 2;
+                    break;
+
+                case Infrastructure.FontFamily.BYekan:
                     FontComboBox.SelectedIndex = 3;
                     break;
+
                 default:
                     break;
             }
@@ -56,8 +51,7 @@ namespace Fund
             ApplicationThemeName = Utility.CurrentUser.UserSetting.Theme.ApplicationTheme;
             FontFamilyName = Utility.CurrentUser.UserSetting.Theme.FontFamily;
 
-            ThemeComboBox.SelectedItem = ThemesComboBoxList
-                .OrderBy(current => current.ApplicationThemeName)
+            ThemeComboBox.SelectedItem = Infrastructure.ThemeList.ApplicationThemesList
                 .Where(current => current.ApplicationThemeName == Utility.CurrentUser.UserSetting.Theme.ApplicationTheme)
                 .FirstOrDefault();
 
@@ -67,114 +61,12 @@ namespace Fund
 
         private void FontsComboBox()
         {
-
-            ViewModels.FontViewModel oViewModel = new ViewModels.FontViewModel();
-
-            oViewModel.FontName = "یاقوت";
-            oViewModel.FontFamily = new System.Windows.Media.FontFamily("B Yagut");
-
-            FontsComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.FontViewModel();
-
-            oViewModel.FontName = "ترافیک";
-            oViewModel.FontFamily = new System.Windows.Media.FontFamily("B Traffic");
-
-            FontsComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.FontViewModel();
-
-            oViewModel.FontName = "نازنین";
-            oViewModel.FontFamily = new System.Windows.Media.FontFamily("B Nazanin");
-
-            FontsComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.FontViewModel();
-
-            oViewModel.FontName = "یکان";
-            oViewModel.FontFamily = new System.Windows.Media.FontFamily("B Yekan");
-
-            FontsComboBoxList.Add(oViewModel);
-
-            FontComboBox.ItemsSource = FontsComboBoxList
-                .OrderBy(current => current.FontName);
+            FontComboBox.ItemsSource = Infrastructure.FontsList.PersianFontsList;
         }
 
         private void ThemesComboBox()
         {
-
-            ViewModels.ThemeViewModel oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.SevenName;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.SevenFullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.VS2010Name;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.VS2010FullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2016ColorfulName;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2016ColorfulFullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2016WhiteName;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2016WhiteFullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2013LightGrayName;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2013LightGrayFullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2010BlueName;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2010BlueFullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2010SilverName;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2010SilverFullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2007BlueName;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2007BlueFullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2007SilverName;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2007SilverFullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            oViewModel = new ViewModels.ThemeViewModel();
-
-            oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.DXStyleName;
-            oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.DXStyleFullName;
-
-            ThemesComboBoxList.Add(oViewModel);
-
-            ThemeComboBox.ItemsSource = ThemesComboBoxList
-                .OrderBy(current => current.DisplayName);
+            ThemeComboBox.ItemsSource = Infrastructure.ThemeList.ApplicationThemesList;
 
             ThemeComboBox.DisplayMember = "DisplayName";
         }
@@ -302,14 +194,15 @@ namespace Fund
 
         private void ResetThemeToDefault(bool doByMessageBox)
         {
-            System.Windows.Media.FontFamily font = new System.Windows.Media.FontFamily("B Yagut");
+            System.Windows.Media.FontFamily font = new System.Windows.Media.FontFamily(Infrastructure.FontFamily.BYekan);
 
             App.Current.Resources[Infrastructure.Text.PersianFontResources] = font;
 
             DevExpress.Xpf.Core.ApplicationThemeHelper.ApplicationThemeName =
                 DevExpress.Xpf.Core.Theme.Office2010BlueName;
 
-            System.Windows.Media.ImageBrush oImageBrush = App.Current.Resources["Office2010BlueBackground"] as System.Windows.Media.ImageBrush;
+            System.Windows.Media.ImageBrush oImageBrush =
+                App.Current.Resources[DevExpress.Xpf.Core.Theme.Office2010BlueName + "Background"] as System.Windows.Media.ImageBrush;
 
             App.Current.Resources[Infrastructure.Text.BackgroundResources] = oImageBrush;
 

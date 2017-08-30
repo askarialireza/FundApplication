@@ -76,78 +76,6 @@ namespace Fund
             Stimulsoft.Base.StiLicense.Key = lic;
         }
 
-        public static void Seed()
-        {
-            DAL.UnitOfWork oUnitOfWork = null;
-
-            try
-            {
-                oUnitOfWork = new DAL.UnitOfWork();
-                Models.User adminUser = oUnitOfWork.UserRepository
-                    .GetAdminUser()
-                    .FirstOrDefault();
-
-                if (adminUser == null)
-                {
-                    Models.User oUser = new Models.User();
-
-                    string password = Dtx.Security.Hashing.GetMD5("admin");
-                    oUser.FullName.FirstName = "Alireza";
-                    oUser.FullName.LastName = "Askari";
-                    oUser.Username = "admin";
-                    oUser.Password = password;
-                    oUser.LastLoginTime = System.DateTime.Now;
-                    oUser.PersianLastLoginTime = System.DateTime.Now.ToPersianDateTime();
-                    oUser.IsAdmin = true;
-                    oUser.IsAdminToString = (oUser.IsAdmin == true) ? "کاربر مدیر" : "کاربر عادی";
-
-                    oUnitOfWork.UserRepository.Insert(oUser);
-
-                    oUnitOfWork.Save();
-
-                    AdminUserId = oUnitOfWork.UserRepository
-                        .GetAdminUser()
-                        .FirstOrDefault()
-                        .Id;
-
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
-
-                }
-            }
-
-            catch (System.Exception ex)
-            {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (oUnitOfWork != null)
-                {
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
-                }
-            }
-        }
-
-        public static void LoadGenderEnumToComboBox(System.Windows.Controls.ComboBox comboBox)
-        {
-            comboBox.ItemsSource =
-                    System.Enum.GetValues(typeof(Models.Gender))
-                    .Cast<System.Enum>()
-                    .Select(Value => new
-                    {
-                        (System.Attribute.GetCustomAttribute(Value.GetType().GetField(Value.ToString()),
-                        typeof(System.ComponentModel.DescriptionAttribute)) as System.ComponentModel.DescriptionAttribute)
-                        .Description,
-                        Value
-                    })
-                    .OrderBy(item => item.Value)
-                    .ToList();
-            comboBox.DisplayMemberPath = "Description";
-            comboBox.SelectedValuePath = "Value";
-        }
-
         public static void ExportToPdf(this Stimulsoft.Report.StiReport report, string reportTitle)
         {
             _saveFileDialog = new Microsoft.Win32.SaveFileDialog();
@@ -268,55 +196,6 @@ namespace Fund
         public static long StringToMoney(this string text)
         {
             return (System.Convert.ToInt64(text.Replace(" ریال", string.Empty).Replace(",", string.Empty)));
-        }
-
-        public static string FullNameToString(string FirstName, string LastName)
-        {
-            string strResult = string.Empty;
-
-            if (string.IsNullOrWhiteSpace(FirstName) == false)
-            {
-                strResult = FirstName.Trim();
-            }
-
-            if (string.IsNullOrWhiteSpace(LastName) == false)
-            {
-                strResult =
-                    string.Format("{0} {1}",
-                    strResult, LastName.Trim()).Trim();
-            }
-
-            return (strResult);
-        }
-
-        public static void WriteSettingsXml()
-        {
-            string xmlPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\Settings.xml";
-            string dbBackupsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + @"\Fund\Backups\";
-
-            if (System.IO.File.Exists(xmlPath) == false)
-            {
-                System.Xml.Linq.XDeclaration _obj = new System.Xml.Linq.XDeclaration("1.0", "utf-8", "");
-                System.Xml.Linq.XElement file =
-                                new System.Xml.Linq.XElement("Settings",
-                                    new System.Xml.Linq.XElement("DatabaseBackup",
-                                        new System.Xml.Linq.XElement("Path", dbBackupsPath)),
-                                    new System.Xml.Linq.XElement("UserInterface",
-                                        new System.Xml.Linq.XElement("MiniPanelWidth", 400),
-                                        new System.Xml.Linq.XElement("MainPanelWidth", 1499)),
-                                    new System.Xml.Linq.XElement("PersianCalendar",
-                                        new System.Xml.Linq.XElement("HijriAdjustment", -1)));
-                file.Save(xmlPath);
-            }
-            else
-            {
-                System.Xml.Linq.XElement oXElement = System.Xml.Linq.XElement.Load(xmlPath);
-
-                DatabaseBackupPath = oXElement.Descendants("DatabaseBackup")
-                    .Select(databaseBackup => databaseBackup.Element("Path").Value)
-                    .FirstOrDefault()
-                    .ToString();
-            }
         }
 
         public static void MoveBackupFiles(string sourcePath, string destinationPath)

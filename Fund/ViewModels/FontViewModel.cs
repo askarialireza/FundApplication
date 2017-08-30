@@ -8,6 +8,7 @@ namespace ViewModels
         }
 
         public string FontName { get; set; }
+
         public System.Windows.Media.FontFamily FontFamily { get; set; }
     }
 }
