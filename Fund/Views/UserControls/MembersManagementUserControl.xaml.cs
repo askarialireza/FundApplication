@@ -6,8 +6,10 @@ namespace Fund
 
     public partial class MembersManagementUserControl : System.Windows.Controls.UserControl
     {
-        public System.Guid CurrentId { get; set; }
-        public bool IsPictureDeleted { get; set; }
+        private System.Guid CurrentId;
+
+        private bool IsPictureDeleted;
+
         public MembersManagementUserControl()
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace Fund
 
                 Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
 
-                usersReport.Load(System.Environment.CurrentDirectory + "\\Files\\Reports\\MembersViewReport.mrt");
+                usersReport.Load(Properties.Resources.MembersViewReport);
                 usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
                 usersReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
                 usersReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
@@ -79,7 +81,7 @@ namespace Fund
 
                 Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
 
-                usersReport.Load(System.Environment.CurrentDirectory + "\\Files\\Reports\\MembersViewReport.mrt");
+                usersReport.Load(Properties.Resources.MembersViewReport);
                 usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
                 usersReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
                 usersReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);

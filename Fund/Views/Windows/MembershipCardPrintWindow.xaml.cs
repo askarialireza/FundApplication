@@ -4,7 +4,7 @@ namespace Fund
 {
     public partial class MembershipCardPrintWindow : DevExpress.Xpf.Core.DXWindow
     {
-        private System.Guid _currentId;
+        private System.Guid CurrentId;
 
         public MembershipCardPrintWindow()
         {
@@ -68,7 +68,7 @@ namespace Fund
                 MemberImage.Source = new System.Windows.Media.Imaging.BitmapImage(uriSource);
             }
 
-            _currentId = oMember.Id;
+            CurrentId = oMember.Id;
         }
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -82,7 +82,7 @@ namespace Fund
                 oUnitOfWork = new DAL.UnitOfWork();
 
                 Models.Member oMember = oUnitOfWork.MemberRepository
-                    .GetById(_currentId);
+                    .GetById(CurrentId);
 
                 ViewModels.MembershipCardViewModel oViewModel =
                     new ViewModels.MembershipCardViewModel();
@@ -104,13 +104,12 @@ namespace Fund
                 }
                 else
                 {
-                    string imagePath = System.Environment.CurrentDirectory + @"\Files\Temp\ImageNull.png";
-                    System.Drawing.Image oImage = System.Drawing.Image.FromFile(imagePath);
+                    System.Drawing.Image oImage = Properties.Resources.ImageNull;
                     oViewModel.Picture = oImage;
                 }
 
 
-                oStiReport.Load(System.Environment.CurrentDirectory + "\\Files\\Reports\\MembershipCardReport.mrt");
+                oStiReport.Load(Properties.Resources.MembershipCardReport);
 
                 oStiReport.RegBusinessObject("MembershipCard", oViewModel);
                 oStiReport.Compile();
@@ -145,7 +144,7 @@ namespace Fund
                 oUnitOfWork = new DAL.UnitOfWork();
 
                 Models.Member oMember = oUnitOfWork.MemberRepository
-                    .GetById(_currentId);
+                    .GetById(CurrentId);
 
                 ViewModels.MembershipCardViewModel oViewModel =
                     new ViewModels.MembershipCardViewModel();
@@ -213,7 +212,7 @@ namespace Fund
                 oUnitOfWork = new DAL.UnitOfWork();
 
                 Models.Member oMember = oUnitOfWork.MemberRepository
-                    .GetById(_currentId);
+                    .GetById(CurrentId);
 
                 ViewModels.MembershipCardViewModel oViewModel =
                     new ViewModels.MembershipCardViewModel();
@@ -235,14 +234,12 @@ namespace Fund
                 }
                 else
                 {
-                    string imagePath = System.Environment.CurrentDirectory + @"\Files\Temp\ImageNull.png";
-                    System.Drawing.Image oImage = System.Drawing.Image.FromFile(imagePath);
+                    System.Drawing.Image oImage = Properties.Resources.ImageNull;
                     oViewModel.Picture = oImage;
                 }
 
 
-                oStiReport.Load(System.Environment.CurrentDirectory + "\\Files\\Reports\\MembershipCardReport.mrt");
-
+                oStiReport.Load(Properties.Resources.MembershipCardReport);
                 oStiReport.RegBusinessObject("MembershipCard", oViewModel);
                 oStiReport.Compile();
                 oStiReport.RenderWithWpf();

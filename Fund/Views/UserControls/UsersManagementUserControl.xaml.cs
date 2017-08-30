@@ -37,7 +37,8 @@ namespace Fund
 
                 Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
 
-                usersReport.Load(System.Environment.CurrentDirectory + "\\Files\\Reports\\UsersViewReport.mrt");
+
+                usersReport.Load(Properties.Resources.UsersViewReport);
                 usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
                 usersReport.RegBusinessObject("Users", varList);
                 usersReport.Compile();
@@ -74,7 +75,7 @@ namespace Fund
 
                 Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
 
-                usersReport.Load(System.Environment.CurrentDirectory + "\\Files\\Reports\\UsersViewReport.mrt");
+                usersReport.Load(Properties.Resources.UsersViewReport);
                 usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
                 usersReport.RegBusinessObject("Users", varList);
                 usersReport.Compile();
@@ -448,5 +449,6 @@ namespace Fund
             .OrderBy(current => current.Username)
             .ToList();
         }
+
     }
 }

@@ -59,5 +59,45 @@ namespace Fund.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImageNull {
+            get {
+                object obj = ResourceManager.GetObject("ImageNull", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MembershipCardReport {
+            get {
+                object obj = ResourceManager.GetObject("MembershipCardReport", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MembersViewReport {
+            get {
+                object obj = ResourceManager.GetObject("MembersViewReport", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UsersViewReport {
+            get {
+                object obj = ResourceManager.GetObject("UsersViewReport", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
