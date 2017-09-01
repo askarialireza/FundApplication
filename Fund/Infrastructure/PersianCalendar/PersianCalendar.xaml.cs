@@ -1029,7 +1029,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Warning,
                         messageBoxText: "لطفا در کادر یادداشتی وارد نمایید",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Warning,
@@ -1100,7 +1100,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Warning,
                         messageBoxText: "لطفا در کادر یادداشتی وارد نمایید",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Warning,
@@ -1178,7 +1178,7 @@ namespace Fund
                     System.Windows.MessageBoxResult oResult =
                         DevExpress.Xpf.Core.DXMessageBox.Show
                             (
-                                caption: "سوال",
+                                caption: Infrastructure.MessageBoxCaption.Question,
                                 messageBoxText: "آیا مطمئن به حذف رویداد می‌باشید؟.",
                                 button: System.Windows.MessageBoxButton.YesNo,
                                 icon: System.Windows.MessageBoxImage.Question,
@@ -1198,7 +1198,7 @@ namespace Fund
                 {
                     DevExpress.Xpf.Core.DXMessageBox.Show
                         (
-                            caption: "خطا",
+                            caption: Infrastructure.MessageBoxCaption.Error,
                             messageBoxText: "رویدادی برای حذف شدن وجود ندارد.",
                             button: System.Windows.MessageBoxButton.OK,
                             icon: System.Windows.MessageBoxImage.Error,
@@ -1242,6 +1242,7 @@ namespace Fund
         #endregion
 
         #region Helper
+
         int GetEventCountOfDay(int year, int month, int day)
         {
 
@@ -1322,7 +1323,6 @@ namespace Fund
                 }
             }
         }
-
         private int ReadHijriAdjustmentValue()
         {
             DAL.UnitOfWork oUnitOfWork = null;
@@ -1342,6 +1342,7 @@ namespace Fund
                 return -1;
             }
         }
+
         #endregion
 
         private void TextBoxEventTextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -1468,7 +1469,7 @@ namespace Fund
                 case "Friday":
                     return "جمعه";
             }
-            return "خطا";
+            return Infrastructure.MessageBoxCaption.Error;
         }
 
         /// <summary>

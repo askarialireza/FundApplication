@@ -7,6 +7,8 @@ namespace Fund
         public UsersCreateUserControl()
         {
             InitializeComponent();
+
+            UserTypeComboBox.ItemsSource = Infrastructure.UserType.UserTypesList;
         }
 
         private void CloseClick(object sender, System.Windows.RoutedEventArgs e)
@@ -23,7 +25,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام کاربری الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -38,7 +40,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد رمز عبور الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -53,7 +55,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد تکرار رمز عبور الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -67,7 +69,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "رمزهای عبور درج شده با یکدیگر مطابقت ندارند.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -95,7 +97,7 @@ namespace Fund
                 {
                     DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "خطا",
+                        caption: Infrastructure.MessageBoxCaption.Error,
                         messageBoxText: "این نام کاربری استفاده شده است. از نام کاربری دیگری استفاده نمایید.",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Error,
@@ -112,10 +114,10 @@ namespace Fund
                     newUser.FullName.LastName = (string.IsNullOrWhiteSpace(LastNameTextBox.Text) == true) ? string.Empty : LastNameTextBox.Text.Trim();
                     newUser.LastLoginTime = System.DateTime.Now;
                     newUser.PersianLastLoginTime = System.DateTime.Now.ToPersianDateTime();
-                    newUser.IsAdminToString = (newUser.IsAdmin == true) ? "کاربر مدیر" : "کاربر عادی";
                     newUser.Username = username;
                     newUser.Password = Dtx.Security.Hashing.GetMD5(PasswordTextBox.Password.Trim());
-                    newUser.IsAdmin = (UserTypeComboBox.SelectedIndex == 0) ? false : true;
+                    newUser.IsAdmin = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).IsAdmin;
+                    newUser.IsAdminToString = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).Description;
 
                     Models.UserSetting oUserSetting = new Models.UserSetting();
 
@@ -130,7 +132,7 @@ namespace Fund
 
                     DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Information,
                         messageBoxText: "حساب کاربری جدید با موفقیت ایجاد گردید.",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Information,

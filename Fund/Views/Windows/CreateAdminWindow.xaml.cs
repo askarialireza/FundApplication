@@ -24,7 +24,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام کاربری الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -39,7 +39,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد رمز عبور الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -54,7 +54,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد تایید رمز عبور الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -68,7 +68,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "رمزهای عبور درج شده با یکدیگر مطابقت ندارند.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -82,7 +82,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد درج کد امنیتی الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -96,7 +96,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "کد امنیتی درج شده صحیح نمی‌باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,

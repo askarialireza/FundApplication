@@ -139,16 +139,20 @@
       <DependentUpon>Captcha.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\FontFamily.cs" />
-    <Compile Include="Infrastructure\FontsList.cs" />
+    <Compile Include="Infrastructure\Font.cs" />
+    <Compile Include="Infrastructure\Gender.cs" />
+    <Compile Include="Infrastructure\MessageBoxCaption.cs" />
     <Compile Include="Infrastructure\Text.cs" />
-    <Compile Include="Infrastructure\ThemeList.cs" />
+    <Compile Include="Infrastructure\Theme.cs" />
+    <Compile Include="Infrastructure\UserType.cs" />
     <Compile Include="ViewModels\DatabaseBackupViewModel.cs" />
     <Compile Include="ViewModels\FontViewModel.cs" />
-    <Compile Include="ViewModels\GenderComboBoxItemViewModel.cs" />
+    <Compile Include="ViewModels\GenderViewModel.cs" />
     <Compile Include="ViewModels\MembershipCardViewModel.cs" />
     <Compile Include="ViewModels\MembersManagementViewModel.cs" />
     <Compile Include="ViewModels\ThemeViewModel.cs" />
     <Compile Include="ViewModels\UsersManagementViewModel.cs" />
+    <Compile Include="ViewModels\UserTypeViewModel.cs" />
     <Compile Include="Views\Windows\UserThemeWindow.xaml.cs">
       <DependentUpon>UserThemeWindow.xaml</DependentUpon>
     </Compile>
@@ -444,6 +448,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Admin30.png" />
+    <Resource Include="Resources\Icons\Person30.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

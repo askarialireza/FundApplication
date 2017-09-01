@@ -13,6 +13,8 @@ namespace Fund
         public MembersManagementUserControl()
         {
             InitializeComponent();
+
+            GendersCombobox.ItemsSource = Infrastructure.Gender.GendersList;
         }
 
         private void UserControlLoaded(object sender, System.Windows.RoutedEventArgs e)
@@ -133,17 +135,10 @@ namespace Fund
                     NationalCodeTextBox.Text = oMember.NationalCode;
                     phoneNumberTextBox.Text = oMember.PhoneNumber;
                     emailAddressTextBox.Text = oMember.EmailAddress;
-                    switch (oMember.GenderType)
-                    {
-                        case Models.Gender.Male:
-                            MaleRadioButton.IsChecked = true;
-                            break;
-                        case Models.Gender.Female:
-                            FemaleRadioButton.IsChecked = true;
-                            break;
-                        default:
-                            break;
-                    }
+                    GendersCombobox.SelectedItem = (GendersCombobox.ItemsSource as System.Collections.Generic.List<ViewModels.GenderViewModel>)
+                        .Where(current => current.Gender == oMember.GenderType)
+                        .FirstOrDefault();
+
                     var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
                     MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
                     CurrentId = oMember.Id;
@@ -187,7 +182,7 @@ namespace Fund
             LastNameTextBox.IsEnabled = true;
             FatherNameTextBox.IsEnabled = true;
             NationalCodeTextBox.IsEnabled = true;
-            RadioButtonsGrid.IsEnabled = true;
+            GendersCombobox.IsEnabled = true;
             phoneNumberTextBox.IsEnabled = true;
             emailAddressTextBox.IsEnabled = true;
 
@@ -218,7 +213,7 @@ namespace Fund
             LastNameTextBox.IsEnabled = false;
             FatherNameTextBox.IsEnabled = false;
             NationalCodeTextBox.IsEnabled = false;
-            RadioButtonsGrid.IsEnabled = false;
+            GendersCombobox.IsEnabled = false;
             phoneNumberTextBox.IsEnabled = false;
             emailAddressTextBox.IsEnabled = false;
 
@@ -237,7 +232,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -253,7 +248,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام خانوادگی الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -269,7 +264,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام پدر الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -285,7 +280,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد کد ملی الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -301,7 +296,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد پست الکترونیکی الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -317,7 +312,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد شماره تلفن الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -346,7 +341,7 @@ namespace Fund
                     oMember.FullName.FirstName = FirstNameTextBox.Text.Trim();
                     oMember.FullName.LastName = LastNameTextBox.Text.Trim();
                     oMember.FatherName = FatherNameTextBox.Text.Trim();
-                    oMember.GenderType = (MaleRadioButton.IsChecked == true) ? Models.Gender.Male : Models.Gender.Female;
+                    oMember.GenderType = (GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender;
                     oMember.GenderToString = (oMember.GenderType == Models.Gender.Male) ? "آقا" : "خانم";
                     oMember.NationalCode = NationalCodeTextBox.Text.Trim();
                     oMember.EmailAddress = emailAddressTextBox.Text.Trim();
@@ -359,7 +354,7 @@ namespace Fund
 
                     DevExpress.Xpf.Core.DXMessageBox.Show
                         (
-                            caption: "پیغام",
+                            caption: Infrastructure.MessageBoxCaption.Information,
                             messageBoxText: "مشخصات عضو صندوق با موفقیت ویرایش گردید.",
                             button: System.Windows.MessageBoxButton.OK,
                             icon: System.Windows.MessageBoxImage.Information,
@@ -402,7 +397,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                         DevExpress.Xpf.Core.DXMessageBox.Show
                         (
-                            caption: "سوال",
+                            caption: Infrastructure.MessageBoxCaption.Question,
                             messageBoxText: "آیا مطمئن به حذف عضو صندوق از سیستم هستید ؟",
                             button: System.Windows.MessageBoxButton.YesNo,
                             icon: System.Windows.MessageBoxImage.Question,
@@ -418,7 +413,7 @@ namespace Fund
 
                     DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Information,
                         messageBoxText: "عضو صندوق با موفقیت از سیستم حذف گردید.",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Information,
@@ -443,33 +438,6 @@ namespace Fund
             }
 
             LoadGridControl();
-        }
-
-        private void GroupBoxItems_IsEnabledChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
-        {
-
-            if (sender is DevExpress.Xpf.Editors.TextEdit)
-            {
-                DevExpress.Xpf.Editors.TextEdit oTextEdit = sender as DevExpress.Xpf.Editors.TextEdit;
-
-                oTextEdit.Opacity = (oTextEdit.IsEnabled) ? 1.0 : 0.5;
-            }
-            if (sender is System.Windows.Controls.Image)
-            {
-                MemberImage.Opacity = (MemberImage.IsEnabled) ? 1.0 : 0.5;
-                switch (MemberImage.IsEnabled)
-                {
-                    case false:
-                        MemberImage.BlurApply(blurRadius: 5);
-                        break;
-                    case true:
-                        MemberImage.BlurDisable();
-                        break;
-                    default:
-                        break;
-                }
-
-            }
         }
 
         private void DeleteImageButton_Click(object sender, System.Windows.RoutedEventArgs e)

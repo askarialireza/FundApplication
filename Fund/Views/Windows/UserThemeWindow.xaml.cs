@@ -51,7 +51,7 @@ namespace Fund
             ApplicationThemeName = Utility.CurrentUser.UserSetting.Theme.ApplicationTheme;
             FontFamilyName = Utility.CurrentUser.UserSetting.Theme.FontFamily;
 
-            ThemeComboBox.SelectedItem = Infrastructure.ThemeList.ApplicationThemesList
+            ThemeComboBox.SelectedItem = Infrastructure.Theme.ThemesList
                 .Where(current => current.ApplicationThemeName == Utility.CurrentUser.UserSetting.Theme.ApplicationTheme)
                 .FirstOrDefault();
 
@@ -61,12 +61,12 @@ namespace Fund
 
         private void FontsComboBox()
         {
-            FontComboBox.ItemsSource = Infrastructure.FontsList.PersianFontsList;
+            FontComboBox.ItemsSource = Infrastructure.Font.FontsList;
         }
 
         private void ThemesComboBox()
         {
-            ThemeComboBox.ItemsSource = Infrastructure.ThemeList.ApplicationThemesList;
+            ThemeComboBox.ItemsSource = Infrastructure.Theme.ThemesList;
 
             ThemeComboBox.DisplayMember = "DisplayName";
         }
@@ -141,7 +141,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Information,
                         messageBoxText: "تنظیمات شخصی سازی با موفقیت ذخیره گردید.",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Information,
@@ -224,8 +224,8 @@ namespace Fund
                     System.Windows.MessageBoxResult oResult =
                         DevExpress.Xpf.Core.DXMessageBox.Show
                         (
+                            caption: Infrastructure.MessageBoxCaption.Warning,
                             messageBoxText: "تنظیمات اعمال شده ذخیره گردند؟",
-                            caption: "سوال",
                             button: System.Windows.MessageBoxButton.YesNoCancel,
                             icon: System.Windows.MessageBoxImage.Warning,
                             defaultResult: System.Windows.MessageBoxResult.Cancel,

@@ -4,21 +4,18 @@ namespace Fund
 {
     public partial class MemberCreateUserControl : System.Windows.Controls.UserControl
     {
-        public bool IsPictureSelected { get; set; }
+        private bool IsPictureSelected;
+
         public MemberCreateUserControl()
         {
             InitializeComponent();
         }
-
-        private System.Collections.Generic.List<ViewModels.GenderComboBoxItemViewModel> Genders
-                    = new System.Collections.Generic.List<ViewModels.GenderComboBoxItemViewModel>();
 
         private void userControlLoaded(object sender, System.Windows.RoutedEventArgs e)
         {
             IsPictureSelected = false;
 
             LoadGenderComboBox();
-
         }
 
         private void AcceptButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -29,7 +26,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -45,7 +42,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام خانوادگی الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -61,7 +58,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام پدر الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -77,7 +74,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد کد ملی الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -93,7 +90,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد پست الکترونیکی الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -109,7 +106,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد شماره تلفن الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -136,7 +133,7 @@ namespace Fund
                 oMember.FullName.FirstName = firstNameTextBox.Text.Trim();
                 oMember.FullName.LastName = lastNameTextBox.Text.Trim();
                 oMember.FatherName = fatherNameTextBox.Text.Trim();
-                oMember.GenderType = (GendersCombobox.SelectedIndex == 0) ? Models.Gender.Male : Models.Gender.Female;
+                oMember.GenderType = ((GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender);
                 oMember.GenderToString = (oMember.GenderType == Models.Gender.Male) ? "آقا" : "خانم";
                 oMember.NationalCode = nationalCodeTextBox.Text.Trim();
                 oMember.EmailAddress = emailAddressTextBox.Text.Trim();
@@ -151,7 +148,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Information,
                         messageBoxText: "عضو جدید با موفقیت در بانک اطلاعاتی ایجاد گردید",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Information,
@@ -205,28 +202,7 @@ namespace Fund
 
         private void LoadGenderComboBox()
         {
-            ViewModels.GenderComboBoxItemViewModel oViewModel
-                 = new ViewModels.GenderComboBoxItemViewModel();
-
-            oViewModel.GenderString = "آقا";
-
-            System.Uri oUri = new System.Uri(@"/Fund;component/Resources/Icons/male32.png" , System.UriKind.Relative);
-            oViewModel.GenderLogo = new System.Windows.Media.Imaging.BitmapImage(oUri);
-
-            Genders.Add(oViewModel);
-
-            oViewModel = new ViewModels.GenderComboBoxItemViewModel();
-
-            oViewModel.GenderString = "خانم";
-
-            oUri = new System.Uri(@"/Fund;component/Resources/Icons/female32.png", System.UriKind.Relative);
-            oViewModel.GenderLogo = new System.Windows.Media.Imaging.BitmapImage(oUri);
-
-            Genders.Add(oViewModel);
-
-            GendersCombobox.ItemsSource = Genders
-                .OrderBy(current => current.GenderString);
-
+            GendersCombobox.ItemsSource = Infrastructure.Gender.GendersList;
         }
     }
 }

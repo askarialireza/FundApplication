@@ -2,93 +2,93 @@
 
 namespace Infrastructure
 {
-    public static class ThemeList
+    public static class Theme
     {
-        static ThemeList()
+        static Theme()
         {
-            ApplicationThemesList = new System.Collections.Generic.List<ViewModels.ThemeViewModel>();
+            ThemesList = new System.Collections.Generic.List<ViewModels.ThemeViewModel>();
 
-            if (ApplicationThemesList.Count == 0)
+            if (ThemesList.Count == 0)
             {
                 ViewModels.ThemeViewModel oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.SevenName;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.SevenFullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
 
                 oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.VS2010Name;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.VS2010FullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
 
                 oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2016ColorfulName;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2016ColorfulFullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
 
                 oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2016WhiteName;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2016WhiteFullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
 
                 oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2013LightGrayName;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2013LightGrayFullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
 
                 oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2010BlueName;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2010BlueFullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
 
                 oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2010SilverName;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2010SilverFullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
 
                 oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2007BlueName;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2007BlueFullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
 
                 oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2007SilverName;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.Office2007SilverFullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
 
                 oViewModel = new ViewModels.ThemeViewModel();
 
                 oViewModel.ApplicationThemeName = DevExpress.Xpf.Core.Theme.DXStyleName;
                 oViewModel.DisplayName = DevExpress.Xpf.Core.Theme.DXStyleFullName;
 
-                ApplicationThemesList.Add(oViewModel);
+                ThemesList.Add(oViewModel);
             }
 
-            ApplicationThemesList = ApplicationThemesList
+            ThemesList = ThemesList
                 .OrderBy(current => current.DisplayName)
                 .ToList();
         }
 
         private static System.Collections.Generic.List<ViewModels.ThemeViewModel> _themesList;
 
-        public static System.Collections.Generic.List<ViewModels.ThemeViewModel> ApplicationThemesList
+        public static System.Collections.Generic.List<ViewModels.ThemeViewModel> ThemesList
         {
             get
             {

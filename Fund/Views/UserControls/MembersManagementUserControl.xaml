@@ -57,6 +57,14 @@
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Opacity" Value="0.5"/>
             <Setter Property="MaskType" Value="RegEx"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Opacity" Value="1"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </UserControl.Resources>
 
@@ -199,30 +207,21 @@
 
                                 <Label x:Name="GenderTypeLabel" Content="جنسیت :" Grid.Row="5" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
-                                <Grid Name="RadioButtonsGrid" Grid.Row="5" Grid.Column="1" Margin="2" IsEnabled="False">
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="1*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <RadioButton Name="MaleRadioButton" Grid.Column="0" FontSize="14" FontWeight="Bold" Content="آقا" Margin="5,0" VerticalAlignment="Center"/>
-
-                                    <RadioButton Name="FemaleRadioButton" Grid.Column="1" FontSize="14" FontWeight="Bold" Content="خانم" Margin="5,0"  VerticalAlignment="Center"/>
-
-                                </Grid>
+                                <dxe:ComboBoxEdit Name="GendersCombobox" Grid.Row="5" Grid.Column="2" Margin="0,2" IsEnabled="False" Style="{DynamicResource GendersComboBoxEditStyle}" />
 
                                 <Label x:Name="EmailAddressLabel" Content="پست الکترونیکی :" Grid.Row="7" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="7"/>
 
-                                <dxe:TextEdit Name="emailAddressTextBox" Grid.Row="7" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" IsEnabledChanged="GroupBoxItems_IsEnabledChanged"  Style="{DynamicResource TextEditsStyle}" />
+                                <dxe:TextEdit Name="emailAddressTextBox" Grid.Row="7" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Style="{DynamicResource TextEditsStyle}">
+
+                                </dxe:TextEdit>
 
                                 <Label x:Name="PhoneNumberLabel" Content="شماره تلفن :" Grid.Row="8" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="8"/>
 
-                                <dxe:TextEdit Name="phoneNumberTextBox" Grid.Row="8" Mask="\d{11}" IsEnabledChanged="GroupBoxItems_IsEnabledChanged" Style="{DynamicResource TextEditsStyle}" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
+                                <dxe:TextEdit Name="phoneNumberTextBox" Grid.Row="8" Mask="\d{11}" Style="{DynamicResource TextEditsStyle}" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
 
                                 <Label x:Name="PictureLabel" Content="عکس :" Grid.Row="10" VerticalAlignment="Top" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
@@ -233,7 +232,7 @@
                                         <RowDefinition Height="30"/>
                                     </Grid.RowDefinitions>
 
-                                    <Image Name="MemberImage"  Grid.Row="0" Width="auto" IsEnabled="False" Margin="3" Stretch="UniformToFill" IsEnabledChanged="GroupBoxItems_IsEnabledChanged"/>
+                                    <Image Name="MemberImage"  Grid.Row="0" Width="auto" IsEnabled="False" Margin="3" Stretch="UniformToFill"/>
 
                                     <Grid Grid.Row="1">
 

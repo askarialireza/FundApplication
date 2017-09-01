@@ -35,7 +35,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام صندوق الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -50,7 +50,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام مدیر صندوق الزامی می‌باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -64,7 +64,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد سال تاسیس الزامی می‌باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -78,7 +78,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد تراز صندوق الزامی می‌باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -92,7 +92,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد سقف برداشت وام الزامی می‌باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -106,7 +106,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد رمز عبور الزامی می‌باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -119,7 +119,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد تکرار رمز عبور الزامی می‌باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -132,7 +132,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "سقف برداشت نمیتواند مقداری بیشتر از تراز صندوق داشته باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -146,7 +146,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "گذرواژه های درج شده با یکدیگر مطابقت ندارند.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -182,7 +182,7 @@ namespace Fund
 
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "پیغام",
+                    caption: Infrastructure.MessageBoxCaption.Information,
                     messageBoxText: "صندوق جدید با موفقیت در بانک اطلاعاتی ایجاد گردید.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Information,

@@ -231,7 +231,104 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+        <Style x:Key="DxComboBoxEdit" TargetType="{x:Type dxe:ComboBoxEdit}">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Opacity" Value="1"/>
+                </Trigger>
+            </Style.Triggers>            
+        </Style>
+
+        <ControlTemplate x:Key="DxTextEdit" TargetType="{x:Type dxe:TextEdit}">
+
+            <dxe:TextEdit />
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Opacity" Value="1"/>
+                </Trigger>
+                
+            </ControlTemplate.Triggers>
+            
+        </ControlTemplate>
+
+        <Style x:Key="GendersComboBoxEditStyle" TargetType="{x:Type dxe:ComboBoxEdit}">
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border Margin="0" Background="Transparent" Height="26">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="26"/>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="1" HorizontalAlignment="Stretch"  Source="{Binding ComboBoxItemLogo}" VerticalAlignment="Center"/>
+                                <Label Grid.Column="2" Content=" - " VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <Label Grid.Column="3" FontWeight="Bold" FontSize="16" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="SelectedIndex" Value="0"/>
+            <Setter Property="IsTextEditable" Value="False"/>
+            <Setter Property="ApplyItemTemplateToSelectedItem" Value="True"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Opacity" Value="1"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="UserTypesComboBoxEditStyle" TargetType="{x:Type dxe:ComboBoxEdit}">
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border Margin="0" Background="Transparent" Height="26">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="26"/>
+                                    <ColumnDefinition Width="15"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="1" HorizontalAlignment="Stretch"  Source="{Binding ComboBoxItemLogo}" VerticalAlignment="Center"/>
+                                <Label Grid.Column="2" Content=" - " VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <Label Grid.Column="3" FontWeight="Bold" FontSize="16" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="SelectedIndex" Value="0"/>
+            <Setter Property="IsTextEditable" Value="False"/>
+            <Setter Property="ApplyItemTemplateToSelectedItem" Value="True"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Opacity" Value="1"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Application.Resources>
     
 </Application>

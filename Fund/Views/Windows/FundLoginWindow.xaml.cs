@@ -59,7 +59,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Information,
                         messageBoxText: "ورود به صندوق با موفقیت انجام گردید.",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Information,
@@ -75,7 +75,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "خطا",
+                        caption: Infrastructure.MessageBoxCaption.Error,
                         messageBoxText: "رمز عبور وارد شده صحیح نمی‌باشد.",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Error,

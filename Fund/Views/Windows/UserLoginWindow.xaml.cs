@@ -14,7 +14,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(usernameTextBox.Text) == true)
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show(
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام کاربری الزامی می‌باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -28,7 +28,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(passwordTextBox.Password) == true)
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show(
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد رمز عبور الزامی می‌باشد.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -60,7 +60,7 @@ namespace Fund
                 {
                     DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Information,
                         messageBoxText: "اطلاعات وارد شده صحیح می‌باشد." +
                               System.Environment.NewLine +
                               "خوش آمدید.",
@@ -89,7 +89,7 @@ namespace Fund
                 {
                     DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "خطا",
+                        caption: Infrastructure.MessageBoxCaption.Error,
                         messageBoxText: "نام کاربری و / یا رمز عبور صحیح نمی‌باشد." +
                               System.Environment.NewLine +
                               "کاربری با مشخصات وارد شده موجود نمی‌باشد.",

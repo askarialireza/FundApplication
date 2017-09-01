@@ -126,7 +126,7 @@ namespace Fund
             DevExpress.Xpf.Core.DXMessageBox.Show
                 (
                     messageBoxText: "تهیه نسخه پشتیبان با موفقیت انجام گردید",
-                    caption: "پیغام",
+                    caption: Infrastructure.MessageBoxCaption.Information,
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Information,
                     defaultResult: System.Windows.MessageBoxResult.OK,
@@ -197,7 +197,7 @@ namespace Fund
                      DevExpress.Xpf.Core.DXMessageBox.Show
                      (
                          messageBoxText: "آیا مطمئن به حذف نسخه پشتیبان هستید؟",
-                         caption: "سوال",
+                         caption: Infrastructure.MessageBoxCaption.Question,
                          button: System.Windows.MessageBoxButton.YesNo,
                          icon: System.Windows.MessageBoxImage.Question,
                          defaultResult: System.Windows.MessageBoxResult.No,
@@ -211,7 +211,7 @@ namespace Fund
                     DevExpress.Xpf.Core.DXMessageBox.Show
                     (
                         messageBoxText: "نسخه پشتیبان با موفقیت حذف گردید",
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Information,
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Information,
                         defaultResult: System.Windows.MessageBoxResult.OK,
@@ -240,7 +240,7 @@ namespace Fund
                      DevExpress.Xpf.Core.DXMessageBox.Show
                      (
                          messageBoxText: "آیا مطمئن به بازیابی نسخه پشتیبان هستید؟",
-                         caption: "سوال",
+                         caption: Infrastructure.MessageBoxCaption.Question,
                          button: System.Windows.MessageBoxButton.YesNo,
                          icon: System.Windows.MessageBoxImage.Question,
                          defaultResult: System.Windows.MessageBoxResult.No,
@@ -255,7 +255,7 @@ namespace Fund
                     DevExpress.Xpf.Core.DXMessageBox.Show
                     (
                         messageBoxText: "نسخه پشتیبان با موفقیت بازیابی گردید" + System.Environment.NewLine + "برنامه با پایگاه جدید بازیابی شده مجددا راه اندازی خواهد شد",
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Information,
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Information,
                         defaultResult: System.Windows.MessageBoxResult.OK,
@@ -276,7 +276,7 @@ namespace Fund
                  DevExpress.Xpf.Core.DXMessageBox.Show
                  (
                      messageBoxText: "آیا مطمئن به حذف تمامی نسخه‌های پشتیبان هستید؟",
-                     caption: "سوال",
+                     caption: Infrastructure.MessageBoxCaption.Question,
                      button: System.Windows.MessageBoxButton.YesNo,
                      icon: System.Windows.MessageBoxImage.Question,
                      defaultResult: System.Windows.MessageBoxResult.No,
@@ -293,7 +293,7 @@ namespace Fund
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
                     messageBoxText: "تمامی نسخه‌های پشتیبان با موفقیت حذف گردیدند",
-                    caption: "پیغام",
+                    caption: Infrastructure.MessageBoxCaption.Information,
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Information,
                     defaultResult: System.Windows.MessageBoxResult.OK,

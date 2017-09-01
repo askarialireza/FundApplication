@@ -40,7 +40,7 @@ namespace Fund
                     DevExpress.Xpf.Core.DXMessageBox.Show
                     (
                         messageBoxText: "آیا مایل به خروج از برنامه هستید؟",
-                        caption: "سوال",
+                        caption: Infrastructure.MessageBoxCaption.Question,
                         button: System.Windows.MessageBoxButton.YesNo,
                         icon: System.Windows.MessageBoxImage.Question,
                         defaultResult: System.Windows.MessageBoxResult.No,
@@ -193,7 +193,7 @@ namespace Fund
             System.Windows.MessageBoxResult oResult =
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "سوال",
+                    caption: Infrastructure.MessageBoxCaption.Question,
                     messageBoxText: "آیا مطمئن به حذف پایگاه داده می‌باشید ؟ "
                                     + System.Environment.NewLine
                                     + "(اطلاعات حذف شده قابل بازیابی نخواهند بود)",
@@ -215,7 +215,7 @@ namespace Fund
 
                         DevExpress.Xpf.Core.DXMessageBox.Show
                         (
-                            caption: "پیغام",
+                            caption: Infrastructure.MessageBoxCaption.Information,
                             messageBoxText: "بانک اطلاعاتی با موفقیت حذف گردید."
                                             + System.Environment.NewLine +
                                             "برنامه مجددا راه اندازی خواهد شد.",

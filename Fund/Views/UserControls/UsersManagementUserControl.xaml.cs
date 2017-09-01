@@ -9,6 +9,8 @@ namespace Fund
         public UsersManagementUserControl()
         {
             InitializeComponent();
+
+            UserTypeComboBox.ItemsSource = Infrastructure.UserType.UserTypesList;
         }
 
         private void UserControlLoaded(object sender, System.Windows.RoutedEventArgs e)
@@ -135,7 +137,9 @@ namespace Fund
                 UsernameTextBox.Text = oUser.Username;
                 FirstNameTextBox.Text = oUser.FullName.FirstName;
                 LastNameTextBox.Text = oUser.FullName.LastName;
-                UserTypeComboBox.SelectedIndex = (oUser.IsAdmin == true) ? 1 : 0;
+                UserTypeComboBox.SelectedItem = (UserTypeComboBox.ItemsSource as System.Collections.Generic.List<ViewModels.UserTypeViewModel>)
+                    .Where(current => current.IsAdmin == oUser.IsAdmin)
+                    .FirstOrDefault();
 
                 CurrentId = oUser.Id;
 
@@ -193,11 +197,6 @@ namespace Fund
 
         }
 
-        private void ComboBoxIsEnabledChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
-        {
-            UserTypeComboBox.Opacity = (UserTypeComboBox.IsEnabled) ? 1.0 : 0.5;
-        }
-
         private void AcceptClick(object sender, System.Windows.RoutedEventArgs e)
         {
             #region Error Handling Messages
@@ -206,7 +205,7 @@ namespace Fund
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (
-                    caption: "خطا",
+                    caption: Infrastructure.MessageBoxCaption.Error,
                     messageBoxText: "تکمیل فیلد نام کاربری الزامی است.",
                     button: System.Windows.MessageBoxButton.OK,
                     icon: System.Windows.MessageBoxImage.Error,
@@ -234,8 +233,8 @@ namespace Fund
                     editedUser.Username = UsernameTextBox.Text.Trim();
                     editedUser.FullName.FirstName = FirstNameTextBox.Text.Trim();
                     editedUser.FullName.LastName = LastNameTextBox.Text.Trim();
-                    editedUser.IsAdmin = (UserTypeComboBox.SelectedIndex == 1) ? true : false;
-                    editedUser.IsAdminToString = (editedUser.IsAdmin == true) ? "کاربر مدیر" : "کاربر عادی";
+                    editedUser.IsAdmin = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).IsAdmin;
+                    editedUser.IsAdminToString = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).Description;
 
                     if (PasswordChangeToggleSwitch.IsChecked == true)
                     {
@@ -245,7 +244,7 @@ namespace Fund
                         {
                             DevExpress.Xpf.Core.DXMessageBox.Show
                             (
-                                caption: "خطا",
+                                caption: Infrastructure.MessageBoxCaption.Error,
                                 messageBoxText: "تکمیل فیلد رمز عبور فعلی الزامی است.",
                                 button: System.Windows.MessageBoxButton.OK,
                                 icon: System.Windows.MessageBoxImage.Error,
@@ -261,7 +260,7 @@ namespace Fund
                         {
                             DevExpress.Xpf.Core.DXMessageBox.Show
                             (
-                                caption: "خطا",
+                                caption: Infrastructure.MessageBoxCaption.Error,
                                 messageBoxText: "تکمیل فیلد رمز عبور جدید الزامی است.",
                                 button: System.Windows.MessageBoxButton.OK,
                                 icon: System.Windows.MessageBoxImage.Error,
@@ -277,7 +276,7 @@ namespace Fund
                         {
                             DevExpress.Xpf.Core.DXMessageBox.Show
                             (
-                                caption: "خطا",
+                                caption: Infrastructure.MessageBoxCaption.Error,
                                 messageBoxText: "تکمیل فیلد تکرار رمز عبور جدید الزامی است.",
                                 button: System.Windows.MessageBoxButton.OK,
                                 icon: System.Windows.MessageBoxImage.Error,
@@ -297,7 +296,7 @@ namespace Fund
                         {
                             DevExpress.Xpf.Core.DXMessageBox.Show
                                 (
-                                    caption: "خطا",
+                                    caption: Infrastructure.MessageBoxCaption.Error,
                                     messageBoxText: "رمز عبور درج شده صحیح نمی‌باشد.",
                                     button: System.Windows.MessageBoxButton.OK,
                                     icon: System.Windows.MessageBoxImage.Error,
@@ -312,7 +311,7 @@ namespace Fund
                         {
                             DevExpress.Xpf.Core.DXMessageBox.Show
                                 (
-                                    caption: "خطا",
+                                    caption: Infrastructure.MessageBoxCaption.Error,
                                     messageBoxText: "رمزهای عبور جدید درج شده با یکدیگر مطابقت ندارند.",
                                     button: System.Windows.MessageBoxButton.OK,
                                     icon: System.Windows.MessageBoxImage.Error,
@@ -332,7 +331,7 @@ namespace Fund
 
                     DevExpress.Xpf.Core.DXMessageBox.Show
                         (
-                            caption: "پیغام",
+                            caption: Infrastructure.MessageBoxCaption.Information,
                             messageBoxText: "مشخصات کاربر با موفقیت ویرایش گردید.",
                             button: System.Windows.MessageBoxButton.OK,
                             icon: System.Windows.MessageBoxImage.Information,
@@ -378,7 +377,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                         DevExpress.Xpf.Core.DXMessageBox.Show
                         (
-                            caption: "سوال",
+                            caption: Infrastructure.MessageBoxCaption.Question,
                             messageBoxText: "آیا مطمئن به حذف کاربر از سیستم هستید ؟",
                             button: System.Windows.MessageBoxButton.YesNo,
                             icon: System.Windows.MessageBoxImage.Question,
@@ -394,7 +393,7 @@ namespace Fund
 
                     DevExpress.Xpf.Core.DXMessageBox.Show
                     (
-                        caption: "پیغام",
+                        caption: Infrastructure.MessageBoxCaption.Information,
                         messageBoxText: "کاربر با موفقیت از سیستم حذف گردید.",
                         button: System.Windows.MessageBoxButton.OK,
                         icon: System.Windows.MessageBoxImage.Information,

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-
+﻿
 namespace Fund
 {
     public static class Utility
@@ -33,7 +32,6 @@ namespace Fund
 
         public static string DatabaseBackupPath { get; set; }
 
-        public static string XmlSettingsPath { get; set; }
 
         #endregion /Properties
 
@@ -106,7 +104,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oDialogResult =
                      DevExpress.Xpf.Core.DXMessageBox.Show
                      (
-                         caption: "سوال",
+                         caption: Infrastructure.MessageBoxCaption.Question,
                          messageBoxText: "خروجی گزارش با موفقیت ذخیره گردید." +
                                System.Environment.NewLine +
                                "آیا مایل به مشاهده خروجی می‌باشید؟",
@@ -153,7 +151,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oDialogResult =
                      DevExpress.Xpf.Core.DXMessageBox.Show
                      (
-                         caption: "سوال",
+                         caption: Infrastructure.MessageBoxCaption.Question,
                          messageBoxText: "خروجی گزارش با موفقیت ذخیره گردید." +
                                System.Environment.NewLine +
                                "آیا مایل به مشاهده خروجی می‌باشید؟",

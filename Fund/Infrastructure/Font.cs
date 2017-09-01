@@ -2,51 +2,51 @@
 
 namespace Infrastructure
 {
-    public static class FontsList
+    public static class Font
     {
-        static FontsList()
+        static Font()
         {
-            PersianFontsList = new System.Collections.Generic.List<ViewModels.FontViewModel>();
+            FontsList = new System.Collections.Generic.List<ViewModels.FontViewModel>();
 
-            if (PersianFontsList.Count == 0)
+            if (FontsList.Count == 0)
             {
                 ViewModels.FontViewModel oViewModel = new ViewModels.FontViewModel();
 
                 oViewModel.FontName = "یاقوت";
-                oViewModel.FontFamily = new System.Windows.Media.FontFamily(FontFamily.BYagut);
+                oViewModel.FontFamily = new System.Windows.Media.FontFamily(Infrastructure.FontFamily.BYagut);
 
-                PersianFontsList.Add(oViewModel);
+                FontsList.Add(oViewModel);
 
                 oViewModel = new ViewModels.FontViewModel();
 
                 oViewModel.FontName = "ترافیک";
-                oViewModel.FontFamily = new System.Windows.Media.FontFamily(FontFamily.BTraffic);
+                oViewModel.FontFamily = new System.Windows.Media.FontFamily(Infrastructure.FontFamily.BTraffic);
 
-                PersianFontsList.Add(oViewModel);
+                FontsList.Add(oViewModel);
 
                 oViewModel = new ViewModels.FontViewModel();
 
                 oViewModel.FontName = "نازنین";
-                oViewModel.FontFamily = new System.Windows.Media.FontFamily(FontFamily.BNazanin);
+                oViewModel.FontFamily = new System.Windows.Media.FontFamily(Infrastructure.FontFamily.BNazanin);
 
-                PersianFontsList.Add(oViewModel);
+                FontsList.Add(oViewModel);
 
                 oViewModel = new ViewModels.FontViewModel();
 
                 oViewModel.FontName = "یکان";
-                oViewModel.FontFamily = new System.Windows.Media.FontFamily(FontFamily.BYekan);
+                oViewModel.FontFamily = new System.Windows.Media.FontFamily(Infrastructure.FontFamily.BYekan);
 
-                PersianFontsList.Add(oViewModel);
+                FontsList.Add(oViewModel);
             }
 
-            PersianFontsList = PersianFontsList
+            FontsList = FontsList
                 .OrderBy(current => current.FontName)
                 .ToList();
         }
 
         private static System.Collections.Generic.List<ViewModels.FontViewModel> _fontsList;
 
-        public static System.Collections.Generic.List<ViewModels.FontViewModel> PersianFontsList
+        public static System.Collections.Generic.List<ViewModels.FontViewModel> FontsList
         {
             get
             {
