@@ -24,6 +24,8 @@ namespace Fund
         }
         public event System.EventHandler SelectedDateTimeChanged;
 
+        public event System.EventHandler Refresh;
+
 
         #region Fields
 
@@ -563,6 +565,11 @@ namespace Fund
                 default:
                     return (string.Format("{0} رویداد ثبت شده است", FarsiLibrary.Utils.ToWords.ToString(count)));
             }
+        }
+
+        public void RefreshMonth()
+        {
+            CalculateMonth(this.currentYear, this.currentMonth);
         }
 
     }

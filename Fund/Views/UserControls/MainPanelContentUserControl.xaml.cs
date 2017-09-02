@@ -31,11 +31,6 @@ namespace Fund
             FundMembersCountValue.Content = (Utility.CurrentFund != null) ? string.Format("{0} نفر", oUnitOfWork.FundRepository.MembersCountByFund(Utility.CurrentFund).ToString()) : string.Empty;
         }
 
-        private void SchedulerGridControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-
-        }
-
         public void RefreshSchedulerListBox()
         {
             DAL.UnitOfWork oUnitOfWork = null;
@@ -161,6 +156,11 @@ namespace Fund
                 }
 
             }
+        }
+
+        private void MiniPersianSchedulerReminder_Refresh(object sender, System.EventArgs e)
+        {
+            RefreshSchedulerListBox();
         }
     }
 }

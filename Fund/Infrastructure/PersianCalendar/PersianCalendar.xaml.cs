@@ -1080,9 +1080,6 @@ namespace Fund
 
             try
             {
-                //System.Windows.Media.Animation.Storyboard hideEventGrid = (System.Windows.Media.Animation.Storyboard)TryFindResource("hideEventGrid");
-
-                //hideEventGrid.Begin();
 
                 CalculateMonth(oPersianDate.Year, oPersianDate.Month);
 
@@ -1148,10 +1145,6 @@ namespace Fund
 
             try
             {
-
-                //System.Windows.Media.Animation.Storyboard hideEventGrid = (System.Windows.Media.Animation.Storyboard)TryFindResource("hideEventGrid");
-
-                //hideEventGrid.Begin();
 
                 CalculateMonth(oPersianDate.Year, oPersianDate.Month);
 
@@ -1221,22 +1214,6 @@ namespace Fund
                 }
             }
 
-            try
-            {
-
-                //System.Windows.Shapes.Rectangle destinationRectangle = FindName("Rectangle" + this.baseName) as System.Windows.Shapes.Rectangle;
-                //if (System.Text.RegularExpressions.Regex.IsMatch(this.baseName, @"Jome", System.Text.RegularExpressions.RegexOptions.IgnoreCase))
-                //    destinationRectangle.Style = FindResource("RectangleStyleForHolydays") as System.Windows.Style;
-                //else
-                //    destinationRectangle.Style = FindResource("RectangleStyle2") as System.Windows.Style;
-            }
-            catch (System.Exception ex)
-            {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
-            }
-
-            //System.Windows.Media.Animation.Storyboard hideEventGrid = (System.Windows.Media.Animation.Storyboard)TryFindResource("hideEventGrid");
-            //hideEventGrid.Begin();
             CalculateMonth(oPersianDate.Year, oPersianDate.Month);
         }
         #endregion
@@ -1309,6 +1286,8 @@ namespace Fund
                 DayEventsChanged?.Invoke(this, System.EventArgs.Empty);
                 TextBoxEventTextChanged(null, null);
 
+                (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).MiniPersianSchedulerReminder.RefreshMonth();
+                (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).RefreshSchedulerListBox();
             }
             catch (System.Exception ex)
             {
