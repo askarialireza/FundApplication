@@ -1274,14 +1274,20 @@ namespace Fund
                 int Month = this.monthPersian;
                 int Day = this.dayPersian;
 
-                EventsListBox.ItemsSource = oUnitOfWork.RemainderRepository
+                var varList = oUnitOfWork.RemainderRepository
                     .GetByPersianDate(Year, Month, Day)
+                    .Select(current => new ViewModels.EventTypeViewModel()
+                    {
+                        Id = current.Id,
+                        Description = current.Description,
+                        EventType = current.EventType,
+                    })
+                    .OrderBy(current => current.EventType)
                     .ToList();
 
                 oUnitOfWork.Save();
 
-                EventsListBox.DisplayMemberPath = "Description";
-                EventsListBox.SelectedValuePath = "Id";
+                EventsListBox.ItemsSource = varList;
 
                 DayEventsChanged?.Invoke(this, System.EventArgs.Empty);
                 TextBoxEventTextChanged(null, null);
@@ -1362,11 +1368,20 @@ namespace Fund
         }
         private void EventsListBoxSelectedChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            Models.Reminder selectedRemainder = EventsListBox.SelectedItem as Models.Reminder;
+            ViewModels.EventTypeViewModel oViewModel = EventsListBox.SelectedItem as ViewModels.EventTypeViewModel;
 
-            if (selectedRemainder != null)
+            if (oViewModel != null)
             {
-                TextBoxEventText.Text = selectedRemainder.Description;
+                DAL.UnitOfWork oUnitOfWork = null;
+
+                oUnitOfWork = new DAL.UnitOfWork();
+
+                Models.Reminder oReminder = oUnitOfWork.RemainderRepository
+                    .GetById(oViewModel.Id);
+
+                TextBoxEventText.Text = oReminder.Description;
+
+                oUnitOfWork.Save();
             }
             else
             {

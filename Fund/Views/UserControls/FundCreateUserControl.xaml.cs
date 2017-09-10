@@ -1,16 +1,13 @@
-﻿using System.Linq;
-
+﻿
 namespace Fund
 {
-    /// <summary>
-    /// Interaction logic for CreateFundUserControl.xaml
-    /// </summary>
     public partial class FundCreateUserControl : System.Windows.Controls.UserControl
     {
         public FundCreateUserControl()
         {
             InitializeComponent();
 
+            PercentCheckBox.IsChecked = false;
         }
 
         private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
@@ -32,126 +29,74 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(fundNameTextBox.Text) == true)
             {
-
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام صندوق الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد نام صندوق الزامی است.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(fundManagerTextBox.Text) == true)
             {
-
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام مدیر صندوق الزامی می‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد نام مدیر صندوق الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(fundBuildYearTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد سال تاسیس الزامی می‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد سال تاسیس الزامی می‌باشد.");
+
                 return;
             }
 
 
             if (string.IsNullOrWhiteSpace(fundBalanceTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد تراز صندوق الزامی می‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد تراز صندوق الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(fundRemovalLimitTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد سقف برداشت وام الزامی می‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد سقف برداشت وام الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(passwordBox.Password) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد رمز عبور الزامی می‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
+
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(againPasswordBox.Password) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد تکرار رمز عبور الزامی می‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد تکرار رمز عبور الزامی می‌باشد.");
+
                 return;
+            }
+
+            if (PercentCheckBox.IsChecked == true)
+            {
+                if (string.IsNullOrWhiteSpace(PercentTextBox.Text.Trim()) == true)
+                {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "در صورت فعال بودن گزینه کارمزد، تکمیل فیلد کارمزد الزامی است.");
+
+                    return;
+                }
             }
 
             if (Utility.StringToMoney(fundBalanceTextBox.Text) <= Utility.StringToMoney(fundRemovalLimitTextBox.Text))
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "سقف برداشت نمیتواند مقداری بیشتر از تراز صندوق داشته باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "سقف برداشت نمیتواند مقداری بیشتر از تراز صندوق داشته باشد.");
 
                 return;
             }
 
             if (passwordBox.Password.Trim() != againPasswordBox.Password.Trim())
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "گذرواژه های درج شده با یکدیگر مطابقت ندارند.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "گذرواژه های درج شده با یکدیگر مطابقت ندارند.");
 
                 return;
             }
@@ -173,6 +118,7 @@ namespace Fund
                 oFund.UserId = Utility.CurrentUser.Id;
                 oFund.RemovalLimit = Utility.StringToMoney(fundRemovalLimitTextBox.Text);
                 oFund.ManagerPassword = Dtx.Security.Hashing.GetMD5(passwordBox.Password.Trim());
+                oFund.Percent = (PercentCheckBox.IsChecked == true) ? System.Convert.ToInt32(PercentTextBox.Text) : 0;
 
                 oUnitOfWork.FundRepository.Insert(oFund);
 
@@ -180,14 +126,7 @@ namespace Fund
                 oUnitOfWork.Dispose();
                 oUnitOfWork = null;
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Information,
-                    messageBoxText: "صندوق جدید با موفقیت در بانک اطلاعاتی ایجاد گردید.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Information,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Information, text: "صندوق جدید با موفقیت در بانک اطلاعاتی ایجاد گردید.");
 
                 Utility.MainWindow.RefreshUserInterface();
             }
@@ -225,6 +164,16 @@ namespace Fund
                 long zero = 0;
                 ((DevExpress.Xpf.Editors.TextEdit)sender).Text = zero.ToRialStringFormat();
             }
+        }
+
+        private void PercentCheckBox_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            PercentTextBox.IsEnabled = true;
+        }
+
+        private void PercentCheckBox_Unchecked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            PercentTextBox.IsEnabled = false;
         }
     }
 }

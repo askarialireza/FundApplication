@@ -27,7 +27,7 @@ namespace DAL
         public IQueryable<Models.Loan> GetPayedLoans()
         {
             var varResult = Get()
-                .Where(current => current.Payments.All(payment => payment.IsPayed == true))
+                .Where(current => current.Installments.All(payment => payment.IsPayed == true))
                 ;
 
             return varResult;

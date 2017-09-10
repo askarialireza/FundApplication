@@ -417,25 +417,9 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <ListBox x:Name="EventsListBox" FlowDirection="RightToLeft" Margin="9,88,10,197" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="EventsListBoxSelectedChanged">
-                    <ListBox.Style>
-                        <Style TargetType="{x:Type ListBox}">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Path=Items.Count,RelativeSource={RelativeSource Self}}"  Value="0">
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate>
-                                                <Border Background="White" Opacity="0.5"  BorderThickness="1" BorderBrush="Gray"  Padding="10">
-                                                    <Label Foreground="Gray" FontSize="16" FontWeight="Bold" Content="هیچ رویدادی  ثبت نشده است" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListBox.Style>
-                </ListBox>
+                
+                <ListBox x:Name="EventsListBox" FlowDirection="RightToLeft" Margin="9,88,10,197" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="EventsListBoxSelectedChanged" Style="{DynamicResource EventsListBoxEditStyle}"/>
+
                 <TextBox x:Name="TextBoxEventText" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FlowDirection="RightToLeft" Language="fa-ir" AcceptsReturn="True" Text="" Margin="12,293,10,55" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextChanged="TextBoxEventTextChanged"/>
                 <TextBlock FlowDirection="RightToLeft" Language="fa-ir" Text="متن رویداد : " TextWrapping="Wrap" FontSize="18" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,258,9,0" RenderTransformOrigin="0.505,-0.1"/>
                 <TextBlock x:Name="TextBlockSelectedDateHijri" FontWeight="Bold" FlowDirection="RightToLeft" Language="fa-ir" Text="قمری" FontSize="13" HorizontalAlignment="Right" TextAlignment="Center" Margin="0,5,271,0" VerticalAlignment="Top" Foreground="#FF000000"  Width="134"/>

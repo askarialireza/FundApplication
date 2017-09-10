@@ -96,7 +96,11 @@
 
                             </dxrt:RibbonPageGroup>
 
-                            <dxrt:RibbonPageGroup x:Name="LoanAndPaymentRibbonPageGroup" Caption="وام و اقساط"/>
+                            <dxrt:RibbonPageGroup x:Name="LoanAndPaymentRibbonPageGroup" Caption="وام و اقساط">
+
+                                <dxb:BarButtonItem Content="پرداخت وام" ItemClick="BarButtonItem_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
+
+                            </dxrt:RibbonPageGroup>
 
                         </dxrt:RibbonPage>
 
@@ -104,7 +108,7 @@
 
                             <dxrt:RibbonPageGroup Caption="گزارشات عمومی">
 
-                                <dxb:BarButtonItem Content="لیست اعضای صندوق" LargeGlyph="pack://application:,,,/Fund;component/Resources/Icons/UserGroupManWoman80.png" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="MembersListButton" Content="لیست اعضای صندوق" LargeGlyph="pack://application:,,,/Fund;component/Resources/Icons/UserGroupManWoman80.png" Style="{DynamicResource LargeButtonStyle}"/>
 
                                 <dxb:BarItemSeparator/>
 
@@ -114,19 +118,15 @@
 
                             <dxrt:RibbonPageGroup Caption="گزارش ریز حساب‌ها">
 
-                                <dxb:BarButtonItem Content="ریز مانده حساب" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="DebtorListButton" Content="ریز مانده حساب" Style="{DynamicResource LargeButtonStyle}" ItemClick="DebtorListButton_ItemClick"/>
 
                                 <dxb:BarItemSeparator/>
 
-                                <dxb:BarButtonItem Content="ریز حساب اعضا" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="MembersTransactionButton" Content="ریز حساب اعضا" Style="{DynamicResource LargeButtonStyle}" ItemClick="MembersTransactionButton_ItemClick"/>
 
                                 <dxb:BarItemSeparator/>
 
-                                <dxb:BarButtonItem Content="ریز حساب صندوق" Style="{DynamicResource SmallButtonStyle}"/>
-
-                                <dxb:BarButtonItem Content="لیست کارمزد‌ها" Style="{DynamicResource SmallButtonStyle}"/>
-
-                                <dxb:BarButtonItem Content="ریز حساب واریز و برداشت" Style="{DynamicResource SmallButtonStyle}"/>
+                                <dxb:BarButtonItem Name="FundTransactionsButton" Content="ریز حساب صندوق" Style="{DynamicResource LargeButtonStyle}" ItemClick="FundTransactionsButton_ItemClick"/>
 
                             </dxrt:RibbonPageGroup>
 
@@ -148,7 +148,7 @@
 
                                 <dxb:BarItemSeparator/>
 
-                                <dxb:BarButtonItem Content="لیست وام‌های پرداختی" RibbonStyle="Large" LargeGlyph="pack://application:,,,/Fund;component/Resources/Icons/ReceiptDone.png" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="PayedLoansList" Content="لیست وام‌های پرداختی" LargeGlyph="pack://application:,,,/Fund;component/Resources/Icons/ReceiptDone.png" Style="{DynamicResource LargeButtonStyle}" ItemClick="PayedLoansList_ItemClick"/>
 
                                 <dxb:BarItemSeparator/>
 

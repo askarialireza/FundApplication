@@ -40,7 +40,7 @@ namespace Fund
                 return;
             }
 
-            if (CaptchaValueTextBox.Text.Trim() != Captcha.CaptchaValue)
+            if (CaptchaValueTextBox.Text.Trim().ToUpper() != Captcha.CaptchaValue.ToUpper())
             {
                 DevExpress.Xpf.Core.DXMessageBox.Show
                 (

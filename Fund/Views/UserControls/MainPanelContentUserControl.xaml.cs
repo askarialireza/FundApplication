@@ -43,14 +43,20 @@ namespace Fund
                 int Month = MiniPersianSchedulerReminder.SelectedDateTime.Month;
                 int Day = MiniPersianSchedulerReminder.SelectedDateTime.Day;
 
-                EventsListBox.ItemsSource = oUnitOfWork.RemainderRepository
+                var varList = oUnitOfWork.RemainderRepository
                     .GetByPersianDate(Year, Month, Day)
+                    .Select(current => new ViewModels.EventTypeViewModel()
+                    {
+                        Id = current.Id,
+                        Description = current.Description,
+                        EventType = current.EventType,
+                    })
+                    .OrderBy(current=>current.EventType)
                     .ToList();
 
                 oUnitOfWork.Save();
 
-                EventsListBox.DisplayMemberPath = "Description";
-                EventsListBox.SelectedValuePath = "Id";
+                EventsListBox.ItemsSource = varList;
 
             }
             catch (System.Exception ex)

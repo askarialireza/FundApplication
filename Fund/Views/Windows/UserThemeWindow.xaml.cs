@@ -28,20 +28,28 @@ namespace Fund
 
             switch (Utility.CurrentUser.UserSetting.Theme.FontFamily)
             {
-                case Infrastructure.FontFamily.BTraffic:
+                case Infrastructure.FontFamily.Arial:
                     FontComboBox.SelectedIndex = 0;
                     break;
 
-                case Infrastructure.FontFamily.BNazanin:
+                case Infrastructure.FontFamily.Tahoma:
                     FontComboBox.SelectedIndex = 1;
                     break;
 
-                case Infrastructure.FontFamily.BYagut:
+                case Infrastructure.FontFamily.BTraffic:
                     FontComboBox.SelectedIndex = 2;
                     break;
 
-                case Infrastructure.FontFamily.BYekan:
+                case Infrastructure.FontFamily.BNazanin:
                     FontComboBox.SelectedIndex = 3;
+                    break;
+
+                case Infrastructure.FontFamily.BYagut:
+                    FontComboBox.SelectedIndex = 4;
+                    break;
+
+                case Infrastructure.FontFamily.BYekan:
+                    FontComboBox.SelectedIndex = 5;
                     break;
 
                 default:

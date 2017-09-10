@@ -78,14 +78,15 @@
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Fund.cs" />
     <Compile Include="Entities\Loan.cs" />
-    <Compile Include="Entities\Manager.cs" />
     <Compile Include="Entities\Member.cs" />
-    <Compile Include="Entities\Note.cs" />
-    <Compile Include="Entities\Payment.cs" />
+    <Compile Include="Entities\Installment.cs" />
     <Compile Include="Entities\Reminder.cs" />
+    <Compile Include="Entities\Transaction.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserSettings.cs" />
+    <Compile Include="EnumTypes\Event.cs" />
     <Compile Include="EnumTypes\Gender.cs" />
+    <Compile Include="EnumTypes\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -140,6 +140,8 @@ namespace Fund
                 oMember.PhoneNumber = phoneNumberTextBox.Text.Trim();
                 System.Windows.Media.Imaging.BmpBitmapEncoder oBmpBitmapEncoder = new System.Windows.Media.Imaging.BmpBitmapEncoder();
                 oMember.Picture = (IsPictureSelected == false) ? null : Utility.ImageToBytes(encoder: oBmpBitmapEncoder, imageSource: MemberImage.Source);
+                oMember.MembershipDateTime = DatePicker.SelectedDateTime;
+                oMember.PersianMembershipDateTime = DatePicker.SelectedDateTime.ToPersianDate();
                 oMember.FundId = Utility.CurrentFund.Id;
 
                 oUnitOfWork.MemberRepository.Insert(oMember);

@@ -63,7 +63,7 @@
             
             <dxlc:GroupBox Grid.Row="2" Header="یادآور" Style="{DynamicResource GroupBoxStyle}">
 
-                <ListBox Name="EventsListBox" Style="{DynamicResource EmptyListBox}"/>
+                <ListBox Name="EventsListBox" Style="{DynamicResource  EventsListBoxEditStyle}"/>
 
             </dxlc:GroupBox>
             

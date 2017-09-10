@@ -29,6 +29,7 @@ namespace Models
         }
         public System.DateTime DateTime { get; set; }
         public string PersianDateTime { get; set; }
+        public Models.Event EventType { get; set; }
         public int Year { get; set; }
         public int Month { get; set; }
         public int Day { get; set; }

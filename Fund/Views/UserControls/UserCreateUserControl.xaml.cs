@@ -95,49 +95,34 @@ namespace Fund
 
                 if (oUser != null)
                 {
-                    DevExpress.Xpf.Core.DXMessageBox.Show
-                    (
-                        caption: Infrastructure.MessageBoxCaption.Error,
-                        messageBoxText: "این نام کاربری استفاده شده است. از نام کاربری دیگری استفاده نمایید.",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Error,
-                        defaultResult: System.Windows.MessageBoxResult.OK
-                    );
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "این نام کاربری استفاده شده است. از نام کاربری دیگری استفاده نمایید.");
 
                     return;
                 }
                 else
                 {
-                    Models.User newUser = new Models.User();
+                    oUser = new Models.User();
 
-                    newUser.FullName.FirstName = (string.IsNullOrWhiteSpace(FirstNameTextBox.Text) == true) ? string.Empty : FirstNameTextBox.Text.Trim();
-                    newUser.FullName.LastName = (string.IsNullOrWhiteSpace(LastNameTextBox.Text) == true) ? string.Empty : LastNameTextBox.Text.Trim();
-                    newUser.LastLoginTime = System.DateTime.Now;
-                    newUser.PersianLastLoginTime = System.DateTime.Now.ToPersianDateTime();
-                    newUser.Username = username;
-                    newUser.Password = Dtx.Security.Hashing.GetMD5(PasswordTextBox.Password.Trim());
-                    newUser.IsAdmin = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).IsAdmin;
-                    newUser.IsAdminToString = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).Description;
+                    oUser.FullName.FirstName = (string.IsNullOrWhiteSpace(FirstNameTextBox.Text) == true) ? string.Empty : FirstNameTextBox.Text.Trim();
+                    oUser.FullName.LastName = (string.IsNullOrWhiteSpace(LastNameTextBox.Text) == true) ? string.Empty : LastNameTextBox.Text.Trim();
+                    oUser.LastLoginTime = System.DateTime.Now;
+                    oUser.RegisterationDate = System.DateTime.Now;
+                    oUser.Username = username;
+                    oUser.Password = PasswordTextBox.Password.Trim();
+                    oUser.IsAdmin = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).IsAdmin;
 
                     Models.UserSetting oUserSetting = new Models.UserSetting();
 
-                    oUserSetting.CanChangeDatabaseBackupPath = newUser.IsAdmin;
+                    oUserSetting.CanChangeDatabaseBackupPath = oUser.IsAdmin;
                     oUserSetting.DatabaseBackupPath = Utility.DatabaseBackupPath;
 
-                    newUser.UserSetting = oUserSetting;
+                    oUser.UserSetting = oUserSetting;
 
-                    oUnitOfWork.UserRepository.Insert(newUser);
+                    oUnitOfWork.UserRepository.Insert(oUser);
 
                     oUnitOfWork.Save();
 
-                    DevExpress.Xpf.Core.DXMessageBox.Show
-                    (
-                        caption: Infrastructure.MessageBoxCaption.Information,
-                        messageBoxText: "حساب کاربری جدید با موفقیت ایجاد گردید.",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Information,
-                        defaultResult: System.Windows.MessageBoxResult.OK
-                    );
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Information, text: "حساب کاربری جدید با موفقیت ایجاد گردید.");
 
                 }
 

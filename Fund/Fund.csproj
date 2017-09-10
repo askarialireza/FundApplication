@@ -56,6 +56,7 @@
     <Reference Include="DevExpress.Mvvm.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Core.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Docking.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Grid.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -134,6 +135,33 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\TransactionViewModel.cs" />
+    <Compile Include="Views\UserControls\FundTransactionsUserControl.xaml.cs">
+      <DependentUpon>FundTransactionsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\DebtorsListUserControl.xaml.cs">
+      <DependentUpon>DebtorsListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\FundSettingsUserControl.xaml.cs">
+      <DependentUpon>FundSettingsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\MessageBox.cs" />
+    <Compile Include="Infrastructure\PersianCalendar\DatePicker.xaml.cs">
+      <DependentUpon>DatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\PersianCalendar\DatePickerPopup.xaml.cs">
+      <DependentUpon>DatePickerPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DebtorViewModel.cs" />
+    <Compile Include="Views\UserControls\ShowConfirmedLoansUserControl.xaml.cs">
+      <DependentUpon>ShowConfirmedLoansUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\EventTypeViewModel.cs" />
+    <Compile Include="ViewModels\InstallmentViewModel.cs" />
+    <Compile Include="ViewModels\LoanViewModel.cs" />
+    <Compile Include="Views\UserControls\CreateLoanUserControl.xaml.cs">
+      <DependentUpon>CreateLoanUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\BlurElementExtension.cs" />
     <Compile Include="Infrastructure\Captcha\Captcha.xaml.cs">
       <DependentUpon>Captcha.xaml</DependentUpon>
@@ -142,6 +170,7 @@
     <Compile Include="Infrastructure\Font.cs" />
     <Compile Include="Infrastructure\Gender.cs" />
     <Compile Include="Infrastructure\MessageBoxCaption.cs" />
+    <Compile Include="Infrastructure\PersianCalendar\PersianDatePicker.cs" />
     <Compile Include="Infrastructure\Text.cs" />
     <Compile Include="Infrastructure\Theme.cs" />
     <Compile Include="Infrastructure\UserType.cs" />
@@ -153,6 +182,9 @@
     <Compile Include="ViewModels\ThemeViewModel.cs" />
     <Compile Include="ViewModels\UsersManagementViewModel.cs" />
     <Compile Include="ViewModels\UserTypeViewModel.cs" />
+    <Compile Include="Views\Windows\ShowInstallmentsListPerLoanWindow.xaml.cs">
+      <DependentUpon>ShowInstallmentsListPerLoanWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\UserThemeWindow.xaml.cs">
       <DependentUpon>UserThemeWindow.xaml</DependentUpon>
     </Compile>
@@ -216,6 +248,34 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\UserControls\FundTransactionsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\DebtorsListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\FundSettingsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Infrastructure\PersianCalendar\DatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Infrastructure\PersianCalendar\DatePickerPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\ShowConfirmedLoansUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\CreateLoanUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Infrastructure\Captcha\Captcha.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -233,6 +293,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\ShowInstallmentsListPerLoanWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -468,6 +532,14 @@
   <ItemGroup>
     <Resource Include="Resources\Icons\Admin30.png" />
     <Resource Include="Resources\Icons\Person30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Collapse Arrow_52px.png" />
+    <Resource Include="Resources\Icons\Expand Arrow_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\EditProperty_30px.png" />
+    <Resource Include="Resources\Icons\Schedule_30px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

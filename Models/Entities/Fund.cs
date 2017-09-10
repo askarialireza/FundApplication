@@ -39,17 +39,25 @@
         [System.ComponentModel.DataAnnotations.StringLength(maximumLength: 32, MinimumLength = 32)]
         public string ManagerPassword { get; set; }
 
-        [System.ComponentModel.DataAnnotations.Range(1000,3000)]
+        [System.ComponentModel.DataAnnotations.Range(1000, 3000)]
         public int FoundationYear { get; set; }
-        
+
         public long Balance { get; set; }
 
         public long RemovalLimit { get; set; }
 
+        [System.ComponentModel.DataAnnotations.Range(minimum: 0, maximum: 100)]
+        public int Percent { get; set; }
+
         public System.Guid UserId { get; set; }
+
         public virtual User User { get; set; }
+
         public virtual System.Collections.Generic.IList<Member> Members { get; set; }
+
         public virtual System.Collections.Generic.IList<Reminder> Reminders { get; set; }
+
+        public virtual System.Collections.Generic.IList<Transaction> Transactions { get; set; }
 
         #endregion /Properties
 

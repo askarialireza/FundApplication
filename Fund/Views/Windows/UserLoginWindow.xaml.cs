@@ -13,28 +13,16 @@ namespace Fund
         {
             if (string.IsNullOrWhiteSpace(usernameTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام کاربری الزامی می‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-                    );
+
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد نام کاربری الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(passwordTextBox.Password) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد رمز عبور الزامی می‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-                    );
+
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
 
                 return;
             }
@@ -58,17 +46,12 @@ namespace Fund
 
                 if (oUser != null)
                 {
-                    DevExpress.Xpf.Core.DXMessageBox.Show
-                    (
-                        caption: Infrastructure.MessageBoxCaption.Information,
-                        messageBoxText: "اطلاعات وارد شده صحیح می‌باشد." +
-                              System.Environment.NewLine +
-                              "خوش آمدید.",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Information,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RtlReading | System.Windows.MessageBoxOptions.RightAlign
-                    );
+
+                    Infrastructure.MessageBox.Show
+                        (
+                            caption: Infrastructure.MessageBoxCaption.Information,
+                            text: "اطلاعات وارد شده صحیح می‌باشد." + System.Environment.NewLine +"خوش آمدید."
+                        );
 
                     oUser.LastLoginTime = System.DateTime.Now;
                     oUser.PersianLastLoginTime = System.DateTime.Now.ToPersianDateTime();
@@ -87,17 +70,11 @@ namespace Fund
 
                 else
                 {
-                    DevExpress.Xpf.Core.DXMessageBox.Show
-                    (
-                        caption: Infrastructure.MessageBoxCaption.Error,
-                        messageBoxText: "نام کاربری و / یا رمز عبور صحیح نمی‌باشد." +
-                              System.Environment.NewLine +
-                              "کاربری با مشخصات وارد شده موجود نمی‌باشد.",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Error,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RtlReading | System.Windows.MessageBoxOptions.RightAlign
-                    );
+                    Infrastructure.MessageBox.Show
+                        (
+                            caption: Infrastructure.MessageBoxCaption.Error,
+                            text: "نام کاربری و / یا رمز عبور صحیح نمی‌باشد." + System.Environment.NewLine + "کاربری با مشخصات وارد شده موجود نمی‌باشد."
+                        );
 
                     usernameTextBox.Focus();
 

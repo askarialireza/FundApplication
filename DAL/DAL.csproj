@@ -63,20 +63,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepositories\IFundRepository.cs" />
+    <Compile Include="IRepositories\IInstallmentRepository.cs" />
     <Compile Include="IRepositories\ILoanRepository.cs" />
     <Compile Include="IRepositories\IMemberRepository.cs" />
-    <Compile Include="IRepositories\INoteRepository.cs" />
     <Compile Include="IRepositories\IReminderRepository.cs" />
     <Compile Include="IRepositories\IRepository.cs" />
+    <Compile Include="IRepositories\ITransactionRepository.cs" />
     <Compile Include="IRepositories\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IRepositories\IUserRepository.cs" />
     <Compile Include="Repositories\FundRepository.cs" />
+    <Compile Include="Repositories\InstallmentRepository.cs" />
     <Compile Include="Repositories\LoanRepository.cs" />
     <Compile Include="Repositories\MemberRepository.cs" />
-    <Compile Include="Repositories\NoteRepository.cs" />
     <Compile Include="Repositories\ReminderRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>

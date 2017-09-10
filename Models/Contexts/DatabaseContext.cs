@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-
+﻿
 namespace Models
 {
     public class DatabaseContext : System.Data.Entity.DbContext
@@ -9,8 +8,6 @@ namespace Models
 
         static DatabaseContext()
         {
-            //System.Data.Entity.Database
-            //    .SetInitializer(new DatabaseContextInitializer());
             System.Data.Entity.Database
                 .SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<DatabaseContext>());
         }
@@ -24,19 +21,27 @@ namespace Models
         #region Properties
 
         public System.Data.Entity.DbSet<User> Users { get; set; }
+
         public System.Data.Entity.DbSet<Fund> Funds { get; set; }
+
         public System.Data.Entity.DbSet<Loan> Loans { get; set; }
+
         public System.Data.Entity.DbSet<Member> Members { get; set; }
+
         public System.Data.Entity.DbSet<Reminder> Reminders { get; set; }
-        public System.Data.Entity.DbSet<Payment> Payments { get; set; }
+
+        public System.Data.Entity.DbSet<Installment> Installments { get; set; }
+
+        public System.Data.Entity.DbSet<Transaction> Transcations { get; set; }
 
         public System.Data.Entity.DbSet<UserSetting> UserSettings { get; set; }
+
 
         #endregion /Properties
 
         #region Methods
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
@@ -45,7 +50,8 @@ namespace Models
             modelBuilder.Configurations.Add(new Loan.Configuration());
             modelBuilder.Configurations.Add(new Member.Configuration());
             modelBuilder.Configurations.Add(new Reminder.Configuration());
-            modelBuilder.Configurations.Add(new Payment.Configuration());
+            modelBuilder.Configurations.Add(new Installment.Configuration());
+            modelBuilder.Configurations.Add(new Transaction.Configuration());
             modelBuilder.Configurations.Add(new UserSetting.Configuration());
         }
 

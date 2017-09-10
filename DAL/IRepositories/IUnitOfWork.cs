@@ -7,7 +7,8 @@
         IFundRepository FundRepository { get; }
         IReminderRepository RemainderRepository { get; }
         IMemberRepository MemberRepository { get; }
-        INoteRepository NoteRepository { get; }
+        IInstallmentRepository InstallmentRepository { get; }
+        ITransactionRepository TransactionRepository { get; }
         void Save();
     }
 }

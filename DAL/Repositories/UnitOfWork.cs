@@ -107,22 +107,39 @@
         }
         //*********************************************************
         //*********************************************************
-        private INoteRepository _noteRepository;
-        public INoteRepository NoteRepository
+        private IInstallmentRepository _installmentRepository;
+        public IInstallmentRepository InstallmentRepository
         {
             get
             {
-                if (_noteRepository == null)
+                if (_installmentRepository == null)
                 {
-                    _noteRepository =
-                        new NoteRepository(DatabaseContext);
+                    _installmentRepository =
+                        new InstallmentRepository(DatabaseContext);
                 }
 
-                return (_noteRepository);
+                return (_installmentRepository);
             }
         }
         //*********************************************************
         //*********************************************************
+        private ITransactionRepository _transactionRepository;
+        public ITransactionRepository TransactionRepository
+        {
+            get
+            {
+                if (_transactionRepository == null)
+                {
+                    _transactionRepository =
+                        new TransactionRepository(DatabaseContext);
+                }
+
+                return (_transactionRepository);
+            }
+        }
+        //*********************************************************
+        //*********************************************************
+
         public void Save()
         {
             DatabaseContext.SaveChanges();

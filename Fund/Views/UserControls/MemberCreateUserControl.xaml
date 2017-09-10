@@ -18,21 +18,19 @@
             <Setter Property="Content" Value="*"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="TextBlock.Foreground" Value="Red"/>
-            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Label.Foreground" Value="Red"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Grid.Column" Value="3"/>
         </Style>
-        <Style x:Key="TextBlocksStyle" TargetType="{x:Type TextBlock}">
+        <Style x:Key="LabelsStyle" TargetType="{x:Type Label}">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="2"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="Margin" Value="5,0,0,5"/>
             <Setter Property="Grid.Column" Value="1"/>
-            <Setter Property="TextAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FlowDirection" Value="RightToLeft"/>
         </Style>
         <Style x:Key="TextBoxesStyle" TargetType="{x:Type TextBox}">
@@ -60,7 +58,7 @@
     
     <Grid>
         <Grid HorizontalAlignment="Stretch" Height="40" Margin="10,10,10,0" VerticalAlignment="Top" Width="auto">
-            <TextBlock x:Name="textBlock" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontSize="20"><Run FlowDirection="RightToLeft" Text="ایجاد عضو جدید"/></TextBlock>
+            <Label Margin="0" FontWeight="Bold" FontSize="20" FlowDirection="RightToLeft" Content="ایجاد عضو جدید"/>
         </Grid>
 
         <Grid Margin="10,50">
@@ -73,55 +71,60 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="firstNameTextBlock" Grid.Row="1" Text="نام :" Style="{DynamicResource TextBlocksStyle}"/>
+            <Label x:Name="firstNameLabel" Grid.Row="1" Content="نام :" Style="{DynamicResource LabelsStyle}"/>
             
             <TextBox x:Name="firstNameTextBox" Grid.Row="1" Style="{DynamicResource TextBoxesStyle}"/>
             
             <Label Grid.Row="1" Style="{DynamicResource StarsStyle}"/>
 
-            <TextBlock x:Name="lastNameTextBlock" Grid.Row="2" Text="نام خانوادگی :" Style="{DynamicResource TextBlocksStyle}"/>
+            <Label x:Name="lastNameLabel" Grid.Row="2" Content="نام خانوادگی :" Style="{DynamicResource LabelsStyle}"/>
             
             <TextBox x:Name="lastNameTextBox" Grid.Row="2" Style="{DynamicResource TextBoxesStyle}"/>
             
             <Label Grid.Row="2" Style="{DynamicResource StarsStyle}"/>
-            
-            <TextBlock x:Name="fatherNameTextBlock" Grid.Row="3" Text="نام پدر :" Style="{DynamicResource TextBlocksStyle}"/>
+
+            <Label x:Name="fatherNameLabel" Grid.Row="3" Content="نام پدر :" Style="{DynamicResource LabelsStyle}"/>
             
             <TextBox x:Name="fatherNameTextBox" Grid.Row="3" Style="{DynamicResource TextBoxesStyle}"/>
             
             <Label Grid.Row="3" Style="{DynamicResource StarsStyle}"/>
-             
-            <TextBlock x:Name="nationalCodeTextBlock" Grid.Row="5" Text="کد ملی :" Style="{DynamicResource TextBlocksStyle}"/>
+
+            <Label Grid.Row="5" Content="کد ملی :" Style="{DynamicResource LabelsStyle}"/>
             
             <dxe:TextEdit Name="nationalCodeTextBox" Grid.Row="5" Mask="\d{10}" Style="{DynamicResource TextEditsStyle}" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
             
             <Label Grid.Row="5" Style="{DynamicResource StarsStyle}"/>
-            
-            <TextBlock x:Name="genderTextBlock" Grid.Row="6" Text="جنسیت :" Style="{DynamicResource TextBlocksStyle}"/>
+
+            <Label Grid.Row="6" Content="جنسیت :" Style="{DynamicResource LabelsStyle}"/>
 
             <dxe:ComboBoxEdit Name="GendersCombobox" Grid.Row="6" Grid.Column="2" Margin="5,0,0,0" Style="{DynamicResource GendersComboBoxEditStyle}" />
 
-            <TextBlock x:Name="phoneNumberTextBlock" Grid.Row="8" Text="شماره تلفن همراه :" Style="{DynamicResource TextBlocksStyle}"/>
+            <Label Grid.Row="8" Content="شماره تلفن همراه :" Style="{DynamicResource LabelsStyle}"/>
             <dxe:TextEdit Name="phoneNumberTextBox" Grid.Row="8" Mask="\d{11}" Style="{DynamicResource TextEditsStyle}" FontFamily="{DynamicResource FaGlobalFontFamily}" />
             <Label Grid.Row="8" Style="{DynamicResource StarsStyle}"/>
-            
-            <TextBlock x:Name="emailTextBlock" Grid.Row="9" Text="پست الکترونیکی :" Style="{DynamicResource TextBlocksStyle}"/>
+
+            <Label Grid.Row="9" Content="پست الکترونیکی :" Style="{DynamicResource LabelsStyle}"/>
             <dxe:TextEdit Name="emailAddressTextBox" Grid.Row="9" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Style="{DynamicResource TextEditsStyle}"/>
             <Label Grid.Row="9" Style="{DynamicResource StarsStyle}"/>
-     
-            <StackPanel Orientation="Horizontal"  Grid.Column="4" Grid.RowSpan="9" Width="240" Height="260" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+
+            <Label Grid.Row="11" Content="تاریخ عضویت :" Style="{DynamicResource LabelsStyle}"/>
+            <local:DatePicker x:Name="DatePicker" Grid.Row="11" Grid.Column="2" Margin="5,0,0,0"/>
+            
+            <StackPanel Orientation="Horizontal"  Grid.Column="4" Grid.RowSpan="11" Width="240" Height="260" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
                 <Image Name="MemberImage" Stretch="Fill"  HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Width="240" Height="260" >
                     <Image.Source>
                         <Binding>
@@ -133,7 +136,7 @@
                 </Image>
             </StackPanel>
 
-            <Grid Grid.Column="4" Grid.Row="9" HorizontalAlignment="Left" Width="240">
+            <Grid Grid.Column="4" Grid.Row="11" HorizontalAlignment="Left" Width="240">
                 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
@@ -151,7 +154,7 @@
         <Grid Height="40" Margin="10,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Width="auto">
             <dx:SimpleButton x:Name="CloseButton" Content="بستن" Height="32" Width="90" FontWeight="Bold" TabIndex="8" IsCancel="True" Margin="0,4,100,4" HorizontalAlignment="Right" Click="CloseButton_Click" />
             <dx:SimpleButton x:Name="AcceptButton" Content="تایید" Height="32" Width="90" FontWeight="Bold" TabIndex="7" IsDefault="True" Margin="0,0,3,0" HorizontalAlignment="Right" Click="AcceptButton_Click"/>
-            <TextBlock x:Name="textBlock_Copy9" TextWrapping="Wrap" Text="تکمیل فیلد‌های ستاره‌دار (*) الزامی می‌باشد" TextAlignment="Left" TextBlock.Foreground="Red" Padding="3" FontWeight="Bold" FontSize="14" Margin="10,4,195,4"/>
+            <Label Content="تکمیل فیلد‌های ستاره‌دار (*) الزامی می‌باشد" HorizontalAlignment="Left" Label.Foreground="Red" Padding="3" FontWeight="Bold" FontSize="14" Margin="10,4,195,4"/>
         </Grid>
     </Grid>
 </UserControl>

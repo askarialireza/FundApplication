@@ -42,11 +42,13 @@
         public bool IsActive { get; set; }
         public bool IsPayed { get; set; }
         public long LoanAmount { get; set; }
+        public long RefundAmount { get; set; }
+        public string Description { get; set; }
 
         public System.Guid MemberId { get; set; }
         public virtual Member Member { get; set; }
 
-        public virtual System.Collections.Generic.IList<Payment> Payments { get; set; }
+        public virtual System.Collections.Generic.IList<Installment> Installments { get; set; }
 
         #endregion /Properties        
 

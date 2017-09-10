@@ -5,7 +5,9 @@ namespace Fund
     {
 
         public string CaptchaValue { get; set; }
+
         public event System.EventHandler CaptchaRefreshed;
+
         public Captcha()
         {
             InitializeComponent();

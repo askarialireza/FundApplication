@@ -88,12 +88,11 @@ namespace Fund
 
                 int thisDay = 1;
                 TextBlockThisMonth.Text = string.Empty;
-                TextBlockThisMonth.Text =
-                    monthForNavigating.ConvertToPersianMonth() + " " +
-                    yearForNavigating.ConvertToPersianNumber();
+                TextBlockThisMonth.Text = monthForNavigating.ConvertToPersianMonth() + " " + yearForNavigating.ConvertToPersianNumber();
 
                 //Different between first place of calendar and first place of this month
                 //اختلاف بین خانه شروع ماه و اولین خانه تقویم            
+
                 string DayOfWeek = persianCalendar.GetDayOfWeek(persianCalendar.ToDateTime(thisYear, thisMonth, 01, 01, 01, 01, 01)).ToString();
 
                 int span = CalculatePersianSpan(DayOfWeek.ConvertToPersianDay());
@@ -111,6 +110,7 @@ namespace Fund
                     persianDate = thisDay.ConvertToPersianNumber();
 
                     DayOfWeek = persianCalendar.GetDayOfWeek(tempDateTime).ToString();
+
                     //RectangleStyleEventedDay
                     if (thisMonth == monthForNavigating) // ماه کنونی 
                     {
@@ -121,7 +121,7 @@ namespace Fund
                                 IntEventedIndex.Add(i);
                             }
 
-                            ChangeProperties(i, persianDate, "RectangleStyleToday", "TextBlockStyle1");
+                            ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.TodayStyle, Infrastructure.Resources.PersianDatePicker.ThisMonthTextBlockStyle);
 
                             SelectedDateTime = new FarsiLibrary.Utils.PersianDate(thisYear, thisMonth, thisDay);
 
@@ -132,11 +132,12 @@ namespace Fund
                         {
                             if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0)
                             {
-                                ChangeProperties(i, persianDate, "RectangleStyleNone", "TextBlockStyle1");
+                                ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.NoneStyle, Infrastructure.Resources.PersianDatePicker.ThisMonthTextBlockStyle);
                             }
                             else
                             {
-                                ChangeProperties(i, persianDate, "RectangleStyleEventedDay", "TextBlockStyle1");
+                                ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.EventedDayStyle, Infrastructure.Resources.PersianDatePicker.ThisMonthTextBlockStyle);
+
                                 IntEventedIndex.Add(i);
                             }
                         }
@@ -144,7 +145,7 @@ namespace Fund
 
                     else // ماه های دیگر
                     {
-                        ChangeProperties(i, persianDate, "RectangleStyleNone", "TextBlockStyleForOtherMonths");
+                        ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.NoneStyle, Infrastructure.Resources.PersianDatePicker.OutOfThisMonthTextBlockStyle);
                     }
 
                     IncreasePersianDay(ref thisYear, ref thisMonth, ref thisDay, 1);
@@ -211,14 +212,20 @@ namespace Fund
         void DecreasePersianDay(ref int year, ref int month, ref int day, int number)
         {
             int tempDay = day;
+
             tempDay -= number;
+
             //شش ماه اول سال
             if (month == 1 && tempDay < 1)
             {
                 if (persianCalendar.IsLeapYear(year - 1))
+                {
                     day = 30 - number + 1;//+1 رو باید اضافه کرد در غیر این صورت محاسبات اشتباه میشوند ، تجربی
+                }
                 else
+                {
                     day = 29 - number + 1;
+                }
                 DecreasePersianMonth(ref year, ref month, 1);
             }
             else if (month <= 7 && month > 1 && tempDay < 1)
@@ -226,6 +233,7 @@ namespace Fund
                 day = 31 - number + 1;
                 month--;
             }
+            
             //6 ماه دوم سال 
             else if (month > 7 && month <= 12 && tempDay < 1)
             {
@@ -233,7 +241,9 @@ namespace Fund
                 DecreasePersianMonth(ref year, ref month, 1);
             }
             else
+            {
                 day -= number;
+            }
 
         }
 

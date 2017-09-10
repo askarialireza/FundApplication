@@ -8,7 +8,6 @@
                 new System.Windows.Media.Effects.BlurEffect() { Radius = blurRadius };
 
             element.Effect = blur;
-
         }
 
         public static void BlurDisable(this System.Windows.UIElement element)

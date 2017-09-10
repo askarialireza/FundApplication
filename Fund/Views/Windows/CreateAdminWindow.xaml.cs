@@ -22,14 +22,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(UsernameTextBox.Text) == true)
             {
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام کاربری الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد نام کاربری الزامی است.");
 
                 return;
             }
@@ -37,14 +30,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(PasswordTextBox.Password) == true)
             {
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد رمز عبور الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد رمز عبور الزامی است.");
 
                 return;
             }
@@ -52,56 +38,28 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(ConfirmPasswordTextBox.Password) == true)
             {
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد تایید رمز عبور الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد تایید رمز عبور الزامی است.");
 
                 return;
             }
 
             if (PasswordTextBox.Password.Trim() != ConfirmPasswordTextBox.Password.Trim())
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "رمزهای عبور درج شده با یکدیگر مطابقت ندارند.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "رمزهای عبور درج شده با یکدیگر مطابقت ندارند.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(CaptchaValueTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد درج کد امنیتی الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد درج کد امنیتی الزامی است.");
 
                 return;
             }
 
-            if (CaptchaValueTextBox.Text.Trim()!= Captcha.CaptchaValue)
+            if (CaptchaValueTextBox.Text.Trim().ToUpper() != Captcha.CaptchaValue.ToUpper())
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
-                (
-                    caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "کد امنیتی درج شده صحیح نمی‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
-                );
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "کد امنیتی درج شده صحیح نمی‌باشد.");
 
                 return;
             }
@@ -121,11 +79,10 @@ namespace Fund
                 oUser.FullName.FirstName = FirstNameTextBox.Text.Trim();
                 oUser.FullName.LastName = LastNameTextBox.Text.Trim();
                 oUser.Username = UsernameTextBox.Text.Trim();
-                oUser.Password = Dtx.Security.Hashing.GetMD5(PasswordTextBox.Password.Trim());
+                oUser.Password = Dtx.Security.Hashing.GetMD5(PasswordTextBox.Password);
                 oUser.LastLoginTime = System.DateTime.Now;
-                oUser.PersianLastLoginTime = System.DateTime.Now.ToPersianDateTime();
+                oUser.RegisterationDate = System.DateTime.Now;
                 oUser.IsAdmin = true;
-                oUser.IsAdminToString = (oUser.IsAdmin == true) ? "کاربر مدیر" : "کاربر عادی";
                 oUser.CanBeDeleted = false;
 
                 Models.UserSetting oUserSetting = new Models.UserSetting();

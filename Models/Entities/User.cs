@@ -20,16 +20,9 @@
         {
             FullName = new ComplexTypes.FullName();
 
-            RegisterationDate = System.DateTime.Now;
-
-            PersianRegisterationDate =  FarsiLibrary.Utils.PersianDateConverter
-                .ToPersianDate(System.DateTime.Now).ToString("d");
-
             IsAdmin = false;
 
             CanBeDeleted = true;
-
-            IsAdminToString = (IsAdmin == true) ?"کاربر مدیر":"کاربر عادی";
         }
 
         #endregion /Constructor
@@ -55,8 +48,20 @@
 
         //********
         //********
+        private bool _isAdmin;
+        public bool IsAdmin
+        {
+            get
+            {
+                return _isAdmin;
+            }
+            set
+            {
+                _isAdmin = value;
 
-        public bool IsAdmin { get; set; }
+                IsAdminPropertyChanged(_isAdmin);
+            }
+        }
 
         //********
         //********
@@ -65,12 +70,37 @@
 
         //********
         //********
-        public System.DateTime RegisterationDate { get; set; }
+        private System.DateTime _registerationDate;
+        public System.DateTime RegisterationDate
+        {
+            get
+            {
+                return _registerationDate;
+            }
+            set
+            {
+                _registerationDate = System.DateTime.Now;
+
+                RegisterationDatePropertyChanged(_registerationDate);
+            }
+        }
 
         //********
         //********
+        private System.DateTime _lastLoginTime;
+        public System.DateTime LastLoginTime
+        {
+            get
+            {
+                return _lastLoginTime;
+            }
+            set
+            {
+                _lastLoginTime = value;
 
-        public System.DateTime LastLoginTime { get; set; }
+                LastLoginTimePropertyChanged(_lastLoginTime);
+            }
+        }
 
         //********
         //********
@@ -100,6 +130,23 @@
         #endregion /Properties
 
         #region Methods
+
+        private void IsAdminPropertyChanged(bool isAdmin)
+        {
+            IsAdminToString = (isAdmin == true) ? "کاربر مدیر" : "کاربر عادی";
+        }
+
+        private void RegisterationDatePropertyChanged(System.DateTime dateTime)
+        {
+            PersianRegisterationDate = FarsiLibrary.Utils.PersianDateConverter
+               .ToPersianDate(dateTime).ToString("d");
+        }
+
+        private void LastLoginTimePropertyChanged(System.DateTime dateTime)
+        {
+            PersianLastLoginTime = FarsiLibrary.Utils.PersianDateConverter
+               .ToPersianDate(dateTime).ToString();
+        }
 
         #endregion /Methods
 

@@ -30,7 +30,6 @@
 
     <ImageBrush x:Key="VS2010Background" ImageSource="/Fund;component/Resources/Images/WindowBackVS2010.png" Stretch="UniformToFill"/>
 
-
     <LinearGradientBrush x:Key="DefaultPanelGradient" EndPoint="0.504,1.5" StartPoint="0.504,0.03">
         <GradientStop Color="#FFd5dee8" Offset="0.7"/>
         <GradientStop Color="#FFd5dee8" Offset="0"/>

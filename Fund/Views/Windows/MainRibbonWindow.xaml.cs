@@ -403,5 +403,46 @@ namespace Fund
 
             oUserThemeWindow.ShowDialog();
         }
+
+        private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            CreateLoanUserControl oCreateLoanUserControl = new CreateLoanUserControl();
+
+            UserControlsPanel.Children.Clear();
+
+            UserControlsPanel.Children.Add(oCreateLoanUserControl);
+        }
+
+        private void PayedLoansList_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            ShowConfirmedLoansUserControl oShowConfirmedLoansUserControl = new ShowConfirmedLoansUserControl();
+
+            UserControlsPanel.Children.Clear();
+
+            UserControlsPanel.Children.Add(oShowConfirmedLoansUserControl);
+        }
+
+        private void DebtorListButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            DebtorsListUserControl oDebtorsListUserControl = new DebtorsListUserControl();
+
+            UserControlsPanel.Children.Clear();
+
+            UserControlsPanel.Children.Add(oDebtorsListUserControl);
+        }
+
+        private void FundTransactionsButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            FundTransactionsUserControl oFundTransactionsUserControl = new FundTransactionsUserControl();
+
+            UserControlsPanel.Children.Clear();
+
+            UserControlsPanel.Children.Add(oFundTransactionsUserControl);
+        }
+
+        private void MembersTransactionButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

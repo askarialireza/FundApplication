@@ -172,7 +172,7 @@ namespace Fund
         {
             string result = string.Empty;
 
-            result = FarsiLibrary.Utils.PersianDateConverter.ToPersianDate(dateTime).ToString("d");
+            result = new FarsiLibrary.Utils.PersianDate(dateTime).ToString("d");
 
             return result;
         }
@@ -181,19 +181,26 @@ namespace Fund
         {
             string result = string.Empty;
 
-            result = FarsiLibrary.Utils.PersianDateConverter.ToPersianDate(dateTime).ToString("g");
+            result = new FarsiLibrary.Utils.PersianDate(dateTime).ToString("g");
 
             return result;
         }
 
         public static string ToRialStringFormat(this long value)
         {
-            return value.ToString("#,##0 ریال");
+            char comma = (char)44;
+            char nullchar = (char)0;
+
+            return value.ToString("#" + comma + "##0 ریال");
+
         }
 
         public static long StringToMoney(this string text)
         {
-            return (System.Convert.ToInt64(text.Replace(" ریال", string.Empty).Replace(",", string.Empty)));
+            char comma = (char)44;
+            char nullchar = (char)0;
+
+            return (System.Convert.ToInt64(text.Replace(" ریال", string.Empty).Replace(comma, nullchar)));
         }
 
         public static void MoveBackupFiles(string sourcePath, string destinationPath)

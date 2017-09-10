@@ -17,5 +17,9 @@
 
         public const string BTraffic = "B Traffic";
 
+        public const string Tahoma = "Tahoma";
+
+        public const string Arial = "Arial";
+
     }
 }
