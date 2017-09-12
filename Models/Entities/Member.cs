@@ -29,15 +29,11 @@
         {
             FullName = new ComplexTypes.FullName();
 
-            MembershipDateTime = System.DateTime.Now;
-
-            PersianMembershipDateTime = FarsiLibrary.Utils.PersianDateConverter
-                .ToPersianDate(System.DateTime.Now).ToString("d");
+            MembershipDate = System.DateTime.Now;
         }
 
         #endregion /Constructor
 
-        #region Properties
 
         public ComplexTypes.FullName FullName { get; set; }
 
@@ -47,32 +43,23 @@
         [System.ComponentModel.DataAnnotations.MaxLength(10)]
         public string NationalCode { get; set; }
 
-        public Gender GenderType { get; set; }
+        public Gender Gender { get; set; }
 
-        public string GenderToString { get; set; }
-
-        [System.ComponentModel.DataAnnotations.RegularExpression
-            (pattern: Dtx.Text.RegularExpressions.Patterns.Email)]
+        [System.ComponentModel.DataAnnotations.RegularExpression(pattern: Dtx.Text.RegularExpressions.Patterns.Email)]
         public string EmailAddress { get; set; }
 
         public string PhoneNumber { get; set; }
 
-        public System.DateTime MembershipDateTime { get; set; }
-
-        public string PersianMembershipDateTime { get; set; }
+        public System.DateTime MembershipDate { get; set; }
 
         [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "image")]
         public byte[] Picture { get; set; }
 
         public System.Guid FundId { get; set; }
+
         public virtual Fund Fund { get; set; }
 
         public virtual System.Collections.Generic.IList<Loan> Loans { get; set; }
-        #endregion /Properties        
-
-        #region Methods
-
-        #endregion /Methods
-
+      
     }
 }

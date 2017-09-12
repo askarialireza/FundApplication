@@ -23,9 +23,9 @@ namespace DAL
         public IQueryable<Reminder> GetByPersianDate(int year, int month, int day)
         {
             var varResult = Get()
-                            .Where(current => current.Year == year)
-                            .Where(current => current.Month == month)
-                            .Where(current => current.Day == day)
+                            .Where(current => current.PersianDate.Year == year)
+                            .Where(current => current.PersianDate.Month == month)
+                            .Where(current => current.PersianDate.Day == day)
                             ;
             return varResult;
         }

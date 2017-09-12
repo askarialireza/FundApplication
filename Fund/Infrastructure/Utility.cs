@@ -102,16 +102,10 @@ namespace Fund
                 report.ExportDocument(Stimulsoft.Report.StiExportFormat.Pdf, path);
 
                 System.Windows.MessageBoxResult oDialogResult =
-                     DevExpress.Xpf.Core.DXMessageBox.Show
+                     Infrastructure.MessageBox.Show
                      (
                          caption: Infrastructure.MessageBoxCaption.Question,
-                         messageBoxText: "خروجی گزارش با موفقیت ذخیره گردید." +
-                               System.Environment.NewLine +
-                               "آیا مایل به مشاهده خروجی می‌باشید؟",
-                         button: System.Windows.MessageBoxButton.YesNo,
-                         icon: System.Windows.MessageBoxImage.Question,
-                         defaultResult: System.Windows.MessageBoxResult.No,
-                         options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                         text: "خروجی گزارش با موفقیت ذخیره گردید." + System.Environment.NewLine + "آیا مایل به مشاهده خروجی می‌باشید؟"
                      );
 
                 if (oDialogResult == System.Windows.MessageBoxResult.Yes)
@@ -149,16 +143,10 @@ namespace Fund
                 report.ExportDocument(Stimulsoft.Report.StiExportFormat.Image, path);
 
                 System.Windows.MessageBoxResult oDialogResult =
-                     DevExpress.Xpf.Core.DXMessageBox.Show
+                     Infrastructure.MessageBox.Show
                      (
                          caption: Infrastructure.MessageBoxCaption.Question,
-                         messageBoxText: "خروجی گزارش با موفقیت ذخیره گردید." +
-                               System.Environment.NewLine +
-                               "آیا مایل به مشاهده خروجی می‌باشید؟",
-                         button: System.Windows.MessageBoxButton.YesNo,
-                         icon: System.Windows.MessageBoxImage.Question,
-                         defaultResult: System.Windows.MessageBoxResult.No,
-                         options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                         text: "خروجی گزارش با موفقیت ذخیره گردید." + System.Environment.NewLine + "آیا مایل به مشاهده خروجی می‌باشید؟"
                      );
 
                 if (oDialogResult == System.Windows.MessageBoxResult.Yes)
@@ -282,6 +270,38 @@ namespace Fund
             Utility.MainWindow.UserControlsPanel.Children.Add(userControl);
         }
 
+        public static void DoAction(this Stimulsoft.Report.StiReport report, Infrastructure.ReportType action, string fileName = null)
+        {
+            switch (action)
+            {
+                case Infrastructure.ReportType.Print:
+                    {
+                        report.Print();
+                        break;
+                    }
+
+                case Infrastructure.ReportType.ExportToPDF:
+                    {
+                        report.ExportToPdf(fileName);
+                        break;
+                    }
+
+                case Infrastructure.ReportType.SaveAsImage:
+                    {
+                        report.ExportToImage(fileName);
+                        break;
+                    }
+
+                case Infrastructure.ReportType.Show:
+                    {
+                        report.ShowWithWpfRibbonGUI();
+                        break;
+                    }
+
+                default:
+                    break;
+            }
+        }
         #endregion /Methods
 
     }

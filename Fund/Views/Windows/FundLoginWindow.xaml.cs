@@ -57,14 +57,10 @@ namespace Fund
 
             if (selectedFund.ManagerPassword == password)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                     (
                         caption: Infrastructure.MessageBoxCaption.Information,
-                        messageBoxText: "ورود به صندوق با موفقیت انجام گردید.",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Information,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                        text: "ورود به صندوق با موفقیت انجام گردید."
                     );
 
                 Utility.CurrentFund = selectedFund;
@@ -73,14 +69,10 @@ namespace Fund
             }
             else
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                     (
                         caption: Infrastructure.MessageBoxCaption.Error,
-                        messageBoxText: "رمز عبور وارد شده صحیح نمی‌باشد.",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Error,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                        text: "رمز عبور وارد شده صحیح نمی‌باشد."
                     );
                 return;
             }

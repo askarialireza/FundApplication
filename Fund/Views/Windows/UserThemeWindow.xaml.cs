@@ -143,14 +143,10 @@ namespace Fund
 
                 oUnitOfWork.Save();
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                     (
                         caption: Infrastructure.MessageBoxCaption.Information,
-                        messageBoxText: "تنظیمات شخصی سازی با موفقیت ذخیره گردید.",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Information,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RtlReading | System.Windows.MessageBoxOptions.RightAlign
+                        text: "تنظیمات شخصی سازی با موفقیت ذخیره گردید."
                     );
 
                 ignoreMessageBox = true;
@@ -255,14 +251,10 @@ namespace Fund
                 if (IsThemeChanged == true)
                 {
                     System.Windows.MessageBoxResult oResult =
-                        DevExpress.Xpf.Core.DXMessageBox.Show
+                        Infrastructure.MessageBox.Show
                         (
                             caption: Infrastructure.MessageBoxCaption.Warning,
-                            messageBoxText: "تنظیمات اعمال شده ذخیره گردند؟",
-                            button: System.Windows.MessageBoxButton.YesNoCancel,
-                            icon: System.Windows.MessageBoxImage.Warning,
-                            defaultResult: System.Windows.MessageBoxResult.Cancel,
-                            options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                            text: "تنظیمات اعمال شده ذخیره گردند؟"
                         );
 
                     if (oResult == System.Windows.MessageBoxResult.Yes)

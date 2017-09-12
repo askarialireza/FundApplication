@@ -14,13 +14,10 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(passwordBox.Password) == true)
             {
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد رمز عبور الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
+                    text: "تکمیل فیلد رمز عبور الزامی است."
                 );
 
                 return;
@@ -28,13 +25,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(CaptchaValueTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد درج کد امنیتی الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
+                    text: "تکمیل فیلد درج کد امنیتی الزامی است."
                 );
 
                 return;
@@ -42,13 +36,10 @@ namespace Fund
 
             if (CaptchaValueTextBox.Text.Trim().ToUpper() != Captcha.CaptchaValue.ToUpper())
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "کد امنیتی درج شده صحیح نمی‌باشد.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
+                    text: "کد امنیتی درج شده صحیح نمی‌باشد."
                 );
 
                 return;
@@ -63,14 +54,10 @@ namespace Fund
             }
             else
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                     (
                         caption: Infrastructure.MessageBoxCaption.Error,
-                        messageBoxText: "رمز عبور وارد شده صحیح نمی‌باشد !",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Error,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign| System.Windows.MessageBoxOptions.RtlReading
+                        text: "رمز عبور وارد شده صحیح نمی‌باشد !"
                     );
 
                 passwordBox.SelectAll();

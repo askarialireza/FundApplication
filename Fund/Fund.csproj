@@ -135,10 +135,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\ReportType.cs" />
     <Compile Include="Views\UserControls\MemberLoansStatusUserControl.xaml.cs">
       <DependentUpon>MemberLoansStatusUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\TransactionViewModel.cs" />
     <Compile Include="Views\UserControls\FundTransactionsUserControl.xaml.cs">
       <DependentUpon>FundTransactionsUserControl.xaml</DependentUpon>
     </Compile>
@@ -155,13 +155,9 @@
     <Compile Include="Infrastructure\PersianCalendar\DatePickerPopup.xaml.cs">
       <DependentUpon>DatePickerPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\DebtorViewModel.cs" />
     <Compile Include="Views\UserControls\ShowConfirmedLoansUserControl.xaml.cs">
       <DependentUpon>ShowConfirmedLoansUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\EventTypeViewModel.cs" />
-    <Compile Include="ViewModels\InstallmentViewModel.cs" />
-    <Compile Include="ViewModels\LoanViewModel.cs" />
     <Compile Include="Views\UserControls\CreateLoanUserControl.xaml.cs">
       <DependentUpon>CreateLoanUserControl.xaml</DependentUpon>
     </Compile>
@@ -177,14 +173,6 @@
     <Compile Include="Infrastructure\Text.cs" />
     <Compile Include="Infrastructure\Theme.cs" />
     <Compile Include="Infrastructure\UserType.cs" />
-    <Compile Include="ViewModels\DatabaseBackupViewModel.cs" />
-    <Compile Include="ViewModels\FontViewModel.cs" />
-    <Compile Include="ViewModels\GenderViewModel.cs" />
-    <Compile Include="ViewModels\MembershipCardViewModel.cs" />
-    <Compile Include="ViewModels\MembersManagementViewModel.cs" />
-    <Compile Include="ViewModels\ThemeViewModel.cs" />
-    <Compile Include="ViewModels\UsersManagementViewModel.cs" />
-    <Compile Include="ViewModels\UserTypeViewModel.cs" />
     <Compile Include="Views\Windows\ShowInstallmentsListPerLoanWindow.xaml.cs">
       <DependentUpon>ShowInstallmentsListPerLoanWindow.xaml</DependentUpon>
     </Compile>
@@ -460,6 +448,10 @@
       <Project>{28c0d26a-9de5-4071-92d1-a3c935ab9b72}</Project>
       <Name>Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{2c2abeac-4bbe-4110-99ca-b51fa395a671}</Project>
+      <Name>ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Close32.png" />
@@ -548,6 +540,7 @@
     <Resource Include="Resources\Icons\EditProperty_30px.png" />
     <Resource Include="Resources\Icons\Schedule_30px.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

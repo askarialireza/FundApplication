@@ -167,15 +167,15 @@
                                 <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row"  ShowAutoFilterRow="False"  ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
                             </dxg:GridControl.View>
 
-                            <dxg:GridColumn Header="مبلغ وام" Binding="{Binding LoanAmount, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                            <dxg:GridColumn Header="مبلغ وام" Binding="{Binding LoanAmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
-                            <dxg:GridColumn Header="تاریخ پرداخت" Binding="{Binding StartDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                            <dxg:GridColumn Header="تاریخ پرداخت" Binding="{Binding PersianStartDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
                             <dxg:GridColumn Header="تعداد اقساط" Binding="{Binding InstallmentsCount, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
-                            <dxg:GridColumn Header="بازپرداخت" Binding="{Binding RefundAmount, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                            <dxg:GridColumn Header="بازپرداخت" Binding="{Binding RefundAmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
-                            <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding EndDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                            <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding PersianEndDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
                             <dxg:GridColumn Header="توضیحات" Binding="{Binding Description, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 

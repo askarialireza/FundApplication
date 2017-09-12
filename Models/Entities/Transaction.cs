@@ -24,22 +24,7 @@
 
         }
 
-        private System.DateTime _date;
-        public System.DateTime Date
-        {
-            get
-            {
-                return _date;
-            }
-            set
-            {
-                _date = value;
-
-                PersianDate =
-                    new FarsiLibrary.Utils.PersianDate(_date).ToString("d");
-            }
-        }
-        public string PersianDate { get; set; }
+        public System.DateTime Date { get; set; }
 
         public long Amount { get; set; }
 
@@ -48,7 +33,6 @@
         public Models.TransactionType TransactionType { get; set; }
 
         public string Description { get; set; }
-
 
         public virtual Models.Fund Fund { get; set; }
 

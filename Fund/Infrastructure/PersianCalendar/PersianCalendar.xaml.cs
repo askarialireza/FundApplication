@@ -1027,14 +1027,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(TextBoxEventText.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Warning,
-                        messageBoxText: "لطفا در کادر یادداشتی وارد نمایید",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Warning,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                        caption: Infrastructure.MessageBoxCaption.Error,
+                        text: "لطفا در کادر یادداشتی وارد نمایید"
                     );
                 return;
             }
@@ -1050,11 +1046,10 @@ namespace Fund
                 oUnitOfWork = new DAL.UnitOfWork();
 
                 Models.Reminder oReminder = new Models.Reminder();
-                oReminder.Year = oPersianDate.Year;
-                oReminder.Month = oPersianDate.Month;
-                oReminder.Day = oPersianDate.Day;
+                oReminder.PersianDate.Year = oPersianDate.Year;
+                oReminder.PersianDate.Month = oPersianDate.Month;
+                oReminder.PersianDate.Day = oPersianDate.Day;
                 oReminder.DateTime = FarsiLibrary.Utils.PersianDateConverter.ToGregorianDateTime(oPersianDate);
-                oReminder.PersianDateTime = oPersianDate.ToString("d");
                 oReminder.Description = TextBoxEventText.Text.Trim();
                 oReminder.FundId = Utility.CurrentFund.Id;
                 oUnitOfWork.RemainderRepository.Insert(oReminder);
@@ -1095,14 +1090,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(TextBoxEventText.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Warning,
-                        messageBoxText: "لطفا در کادر یادداشتی وارد نمایید",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Warning,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                        caption: Infrastructure.MessageBoxCaption.Error,
+                        text: "لطفا در کادر یادداشتی وارد نمایید"
                     );
                 return;
             }
@@ -1169,14 +1160,10 @@ namespace Fund
                 if (currentRemainder != null)
                 {
                     System.Windows.MessageBoxResult oResult =
-                        DevExpress.Xpf.Core.DXMessageBox.Show
+                        Infrastructure.MessageBox.Show
                             (
                                 caption: Infrastructure.MessageBoxCaption.Question,
-                                messageBoxText: "آیا مطمئن به حذف رویداد می‌باشید؟.",
-                                button: System.Windows.MessageBoxButton.YesNo,
-                                icon: System.Windows.MessageBoxImage.Question,
-                                defaultResult: System.Windows.MessageBoxResult.No,
-                                options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                                text: "آیا مطمئن به حذف رویداد می‌باشید؟."
                             );
                     if (oResult == System.Windows.MessageBoxResult.Yes)
                     {
@@ -1189,14 +1176,10 @@ namespace Fund
                 }
                 else
                 {
-                    DevExpress.Xpf.Core.DXMessageBox.Show
+                    Infrastructure.MessageBox.Show
                         (
                             caption: Infrastructure.MessageBoxCaption.Error,
-                            messageBoxText: "رویدادی برای حذف شدن وجود ندارد.",
-                            button: System.Windows.MessageBoxButton.OK,
-                            icon: System.Windows.MessageBoxImage.Error,
-                            defaultResult: System.Windows.MessageBoxResult.OK,
-                            options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                            text: "رویدادی برای حذف شدن وجود ندارد."
                         );
                     return;
                 }

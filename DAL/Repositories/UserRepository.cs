@@ -20,23 +20,6 @@ namespace DAL
             return varResult;
         }
 
-
-        public IQueryable<object> UsersToReport()
-        {
-            var varResult = Get()
-                .OrderBy(current => current.Username)
-                .Select(current => new
-                {
-                    current.Username,
-                    current.PersianRegisterationDate,
-                    IsAdmin = (current.IsAdmin == true) ? "کاربر مدیر" : "کاربر عادی",
-                    current.PersianLastLoginTime
-                })
-                ;
-
-            return varResult;
-        }
-
         public IQueryable<Models.User> FindUser(string username, string password)
         {
             var varResult = Get()

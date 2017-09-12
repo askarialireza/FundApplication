@@ -27,7 +27,7 @@ namespace Fund
                     {
                         Id = current.Id,
                         Amount = current.PaymentAmount,
-                        InstallmentDate = current.PersianInstallmentDate,
+                        InstallmentDate = current.InstallmentDate,
                         IsActive = !(current.IsPayed),
                         IsPayed = current.IsPayed,
                     })
@@ -81,7 +81,7 @@ namespace Fund
                         Infrastructure.MessageBox.Show
                             (
                                 caption: Infrastructure.MessageBoxCaption.Error,
-                                text: string.Format("ابتدا بایست قسط تاریخ {0} پرداخت شود.", varList.Select(current => current.PersianInstallmentDate).FirstOrDefault().ToString())
+                                text: string.Format("ابتدا بایست قسط تاریخ {0} پرداخت شود.", varList.Select(current => current.InstallmentDate).FirstOrDefault().ToPersianDate())
                             );
 
                         return;

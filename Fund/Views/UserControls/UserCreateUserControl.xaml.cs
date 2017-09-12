@@ -23,13 +23,10 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(UsernameTextBox.Text) == true)
             {
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام کاربری الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
+                    text: "تکمیل فیلد نام کاربری الزامی است."
                 );
 
                 return;
@@ -38,13 +35,10 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(PasswordTextBox.Password) == true)
             {
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد رمز عبور الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
+                    text: "تکمیل فیلد رمز عبور الزامی است."
                 );
 
                 return;
@@ -53,13 +47,10 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(AgainPasswordTextBox.Password) == true)
             {
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد تکرار رمز عبور الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
+                    text: "تکمیل فیلد تکرار رمز عبور الزامی است."
                 );
 
                 return;
@@ -67,13 +58,10 @@ namespace Fund
 
             if (PasswordTextBox.Password.Trim() != AgainPasswordTextBox.Password.Trim())
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "رمزهای عبور درج شده با یکدیگر مطابقت ندارند.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK
+                    text: "رمزهای عبور درج شده با یکدیگر مطابقت ندارند."
                 );
 
                 return;

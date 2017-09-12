@@ -103,9 +103,9 @@
 
                     <dxg:GridColumn Header="کد ملی" Binding="{Binding NationalCode, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
 
-                    <dxg:GridColumn Header="تاریخ عضویت" Binding="{Binding PersianMembershipDateTime, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                    <dxg:GridColumn Header="تاریخ عضویت" Binding="{Binding PersianMembershipDate, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
 
-                    <dxg:GridColumn Header="جنسیت" Binding="{Binding GenderToString, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                    <dxg:GridColumn Header="جنسیت" Binding="{Binding GenderDescription, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
 
                     <dxg:GridColumn Header="پست الکترونیکی" Binding="{Binding EmailAddress, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
 

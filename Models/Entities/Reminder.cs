@@ -25,17 +25,21 @@ namespace Models
         #endregion /Configuration
         public Reminder()
         {
-
+            PersianDate = new ComplexTypes.PersianDate();
         }
+
         public System.DateTime DateTime { get; set; }
-        public string PersianDateTime { get; set; }
+
+        public Models.ComplexTypes.PersianDate PersianDate { get; set; }
+
         public Models.Event EventType { get; set; }
-        public int Year { get; set; }
-        public int Month { get; set; }
-        public int Day { get; set; }
+
         public string Description { get; set; }
+
         public System.Guid FundId { get; set; }
+
         public System.Guid? InstallmentId { get; set; }
+
         public virtual Fund Fund { get; set; }
 
     }

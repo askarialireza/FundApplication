@@ -12,6 +12,7 @@ namespace Fund
         private void Captcha_CaptchaRefreshed(object sender, System.EventArgs e)
         {
             FirstNameTextBox.Focus();
+
             CaptchaValueTextBox.Clear();
         }
 
@@ -80,7 +81,7 @@ namespace Fund
                 oUser.FullName.LastName = LastNameTextBox.Text.Trim();
                 oUser.Username = UsernameTextBox.Text.Trim();
                 oUser.Password = Dtx.Security.Hashing.GetMD5(PasswordTextBox.Password);
-                oUser.LastLoginTime = System.DateTime.Now;
+                oUser.LastLoginTime = null ;
                 oUser.RegisterationDate = System.DateTime.Now;
                 oUser.IsAdmin = true;
                 oUser.CanBeDeleted = false;
@@ -116,7 +117,6 @@ namespace Fund
                     oUnitOfWork.Dispose();
                     oUnitOfWork = null;
                 }
-
             }
 
             #endregion

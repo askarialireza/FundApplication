@@ -4,14 +4,11 @@ namespace Fund
 {
     public partial class CreateLoanUserControl : System.Windows.Controls.UserControl
     {
-
-
         public CreateLoanUserControl()
         {
             InitializeComponent();
 
             RefreshListBox();
-
         }
 
         private void RefreshListBox()
@@ -61,7 +58,7 @@ namespace Fund
             {
                 MemberNameLabel.Content = string.Format("{0} فرزند {1}", oMember.FullName, oMember.FatherName);
                 MemberNationalCodeLabel.Content = string.Format("کد ملی {0}", oMember.NationalCode);
-                MembershipDateLabel.Content = string.Format("تاریخ عضویت {0}", oMember.PersianMembershipDateTime);
+                MembershipDateLabel.Content = string.Format("تاریخ عضویت {0}", oMember.MembershipDate.ToPersianDate());
 
                 var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
                 MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
@@ -270,12 +267,12 @@ namespace Fund
                     .Select(current => new ViewModels.LoanViewModel()
                     {
                         Id = current.Id,
-                        StartDate = current.PersianStartDate,
-                        EndDate = current.PersianEndDate,
+                        StartDate = current.StartDate,
+                        EndDate = current.EndDate,
                         IsPayed = current.IsPayed,
                         LoanAmount = current.LoanAmount,
                         RefundAmount = current.RefundAmount,
-                        InstallmentsCount = current.PaymentCount,
+                        InstallmentsCount = current.InstallmentsCount,
                         Description = current.Description,
                         MemberId = current.MemberId,
                     })
@@ -383,12 +380,10 @@ namespace Fund
                     oLoan.IsActive = true;
                     oLoan.IsPayed = false;
                     oLoan.MemberId = Utility.CurrentMember.Id;
-                    oLoan.PaymentCount = System.Convert.ToInt32(InstallmentsCountTextBox.Text.Trim());
+                    oLoan.InstallmentsCount = System.Convert.ToInt32(InstallmentsCountTextBox.Text.Trim());
                     oLoan.RefundAmount = LoanAmountTextBox.Text.StringToMoney();
                     oLoan.StartDate = LoanDateTimeDatePicker.SelectedDateTime;
-                    oLoan.PersianStartDate = LoanDateTimeDatePicker.SelectedPersianDateTime.ToString("d");
                     oLoan.EndDate = LoanDateTimeDatePicker.SelectedDateTime;
-                    oLoan.PersianEndDate = LoanDateTimeDatePicker.SelectedPersianDateTime.ToString("d");
                     oLoan.Description = DescriptionTextBox.Text.Trim();
 
                     oUnitOfWork.LoanRepository.Insert(oLoan);
@@ -415,9 +410,9 @@ namespace Fund
 
                     int percent = (CalculatePercentCheckBox.IsChecked == true) ? Utility.CurrentFund.Percent : 0;
 
-                    long[] installmentsAmountArray = CalculateInstallmentsAmount(oLoan.LoanAmount, oLoan.PaymentCount, percent);
+                    long[] installmentsAmountArray = CalculateInstallmentsAmount(oLoan.LoanAmount, oLoan.InstallmentsCount, percent);
 
-                    for (int index = 0; index < oLoan.PaymentCount; index++)
+                    for (int index = 0; index < oLoan.InstallmentsCount; index++)
                     {
                         Models.Installment oInstallment = new Models.Installment();
 
@@ -434,10 +429,9 @@ namespace Fund
                         FarsiLibrary.Utils.PersianDate oPersianDate = new FarsiLibrary.Utils.PersianDate(oInstallment.InstallmentDate);
 
                         oReminder.DateTime = oInstallment.InstallmentDate;
-                        oReminder.PersianDateTime = oInstallment.InstallmentDate.ToPersianDate();
-                        oReminder.Year = oPersianDate.Year;
-                        oReminder.Month = oPersianDate.Month;
-                        oReminder.Day = oPersianDate.Day;
+                        oReminder.PersianDate.Year = oPersianDate.Year;
+                        oReminder.PersianDate.Month = oPersianDate.Month;
+                        oReminder.PersianDate.Day = oPersianDate.Day;
                         oReminder.EventType = Models.Event.Installment;
                         oReminder.Description = string.Format("قسط {0} وام {1} به مبلغ {2}",
                             FarsiLibrary.Utils.ToWords.ToString(index + 1), Utility.CurrentMember.FullName, oInstallment.PaymentAmount.ToRialStringFormat());
@@ -449,10 +443,9 @@ namespace Fund
                         (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).MiniPersianSchedulerReminder.RefreshMonth();
                         (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).RefreshSchedulerListBox();
 
-                        if (index == oLoan.PaymentCount - 1)
+                        if (index == oLoan.InstallmentsCount - 1)
                         {
                             oLoan.EndDate = oInstallment.InstallmentDate;
-                            oLoan.PersianEndDate = oInstallment.PersianInstallmentDate;
                             oLoan.RefundAmount = installmentsAmountArray[installmentsAmountArray.Length - 1];
 
                             oUnitOfWork.LoanRepository.Update(oLoan);

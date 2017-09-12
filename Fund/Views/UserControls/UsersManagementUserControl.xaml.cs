@@ -5,99 +5,38 @@ namespace Fund
 {
     public partial class UsersManagementUserControl : System.Windows.Controls.UserControl
     {
-        public System.Guid CurrentId { get; set; }
+        private System.Guid _currentId;
+
         public UsersManagementUserControl()
         {
             InitializeComponent();
 
             UserTypeComboBox.ItemsSource = Infrastructure.UserType.UserTypesList;
-        }
 
-        private void UserControlLoaded(object sender, System.Windows.RoutedEventArgs e)
-        {
             EditItemsToggleSwitch.IsChecked = false;
+
             PasswordChangeToggleSwitch.IsChecked = false;
 
             MainGroupBoxGrid.BlurApply(5);
+
             ButtonsGrid.BlurApply(5);
 
             RefreshGridControl();
         }
 
-        private void ExportToPDFClick(object sender, System.Windows.RoutedEventArgs e)
+        private void UserControlLoaded(object sender, System.Windows.RoutedEventArgs e)
         {
 
-            DAL.UnitOfWork oUnitOfWork = null;
+        }
 
-            try
-            {
-                oUnitOfWork = new DAL.UnitOfWork();
-
-                var varList = oUnitOfWork.UserRepository
-                    .UsersToReport()
-                    .ToList();
-
-                Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
-
-
-                usersReport.Load(Properties.Resources.UsersViewReport);
-                usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
-                usersReport.RegBusinessObject("Users", varList);
-                usersReport.Compile();
-                usersReport.RenderWithWpf();
-                usersReport.ExportToPdf("لیست کاربران");
-
-                oUnitOfWork.Save();
-            }
-            catch (System.Exception ex)
-            {
-                Infrastructure.MessageBox.Show(ex.Message);;
-            }
-            finally
-            {
-                if (oUnitOfWork != null)
-                {
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
-                }
-            }
+        private void ExportToPDFClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ShowReport(reportType: ReportType.ExportToPDF);
         }
 
         private void PrintClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            DAL.UnitOfWork oUnitOfWork = null;
-
-            try
-            {
-                oUnitOfWork = new DAL.UnitOfWork();
-
-                var varList = oUnitOfWork.UserRepository
-                    .UsersToReport()
-                    .ToList();
-
-                Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
-
-                usersReport.Load(Properties.Resources.UsersViewReport);
-                usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
-                usersReport.RegBusinessObject("Users", varList);
-                usersReport.Compile();
-                usersReport.RenderWithWpf();
-                usersReport.Print();
-
-                oUnitOfWork.Save();
-            }
-            catch (System.Exception ex)
-            {
-                Infrastructure.MessageBox.Show(ex.Message);;
-            }
-            finally
-            {
-                if (oUnitOfWork != null)
-                {
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
-                }
-            }
+            ShowReport(reportType: ReportType.Print);
         }
 
         private void CloseClick(object sender, System.Windows.RoutedEventArgs e)
@@ -123,8 +62,7 @@ namespace Fund
 
         private void GridControlItemChanged(object sender, DevExpress.Xpf.Grid.SelectedItemChangedEventArgs e)
         {
-            ViewModels.UsersManagementViewModel oViewModel = UsersGridControl.SelectedItem as ViewModels.UsersManagementViewModel;
-            
+            ViewModels.UserViewModel oViewModel = UsersGridControl.SelectedItem as ViewModels.UserViewModel;
 
             if (oViewModel != null)
             {
@@ -134,15 +72,18 @@ namespace Fund
                     .GetById(oViewModel.Id);
 
                 UsernameTextBox.Text = oUser.Username;
+
                 FirstNameTextBox.Text = oUser.FullName.FirstName;
+
                 LastNameTextBox.Text = oUser.FullName.LastName;
+
                 UserTypeComboBox.SelectedItem = (UserTypeComboBox.ItemsSource as System.Collections.Generic.List<ViewModels.UserTypeViewModel>)
                     .Where(current => current.IsAdmin == oUser.IsAdmin)
                     .FirstOrDefault();
 
-                CurrentId = oUser.Id;
+                _currentId = oUser.Id;
 
-                DeleteButton.IsEnabled = (EditItemsToggleSwitch.IsChecked == true) ? ((Utility.AdminUserId == CurrentId) ? false : true) : false;
+                DeleteButton.IsEnabled = (EditItemsToggleSwitch.IsChecked == true) ? ((Utility.AdminUserId == _currentId) ? false : true) : false;
             }
         }
 
@@ -167,8 +108,7 @@ namespace Fund
             MainGroupBoxGrid.BlurDisable();
             ButtonsGrid.BlurDisable();
 
-            DeleteButton.IsEnabled = (Utility.AdminUserId == CurrentId) ? false : true;
-
+            DeleteButton.IsEnabled = (Utility.AdminUserId == _currentId) ? false : true;
         }
 
         private void EditItemsToggleSwitchUnchecked(object sender, System.Windows.RoutedEventArgs e)
@@ -202,15 +142,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(UsernameTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام کاربری الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد نام کاربری الزامی است."
                 );
 
                 return;
@@ -224,16 +159,15 @@ namespace Fund
             {
                 oUnitOfWork = new DAL.UnitOfWork();
 
-                Models.User editedUser = oUnitOfWork.UserRepository
-                    .GetById(CurrentId);
+                Models.User oUser = oUnitOfWork.UserRepository
+                    .GetById(_currentId);
 
-                if (editedUser != null)
+                if (oUser != null)
                 {
-                    editedUser.Username = UsernameTextBox.Text.Trim();
-                    editedUser.FullName.FirstName = FirstNameTextBox.Text.Trim();
-                    editedUser.FullName.LastName = LastNameTextBox.Text.Trim();
-                    editedUser.IsAdmin = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).IsAdmin;
-                    editedUser.IsAdminToString = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).Description;
+                    oUser.Username = UsernameTextBox.Text.Trim();
+                    oUser.FullName.FirstName = FirstNameTextBox.Text.Trim();
+                    oUser.FullName.LastName = LastNameTextBox.Text.Trim();
+                    oUser.IsAdmin = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).IsAdmin;
 
                     if (PasswordChangeToggleSwitch.IsChecked == true)
                     {
@@ -241,15 +175,10 @@ namespace Fund
 
                         if (string.IsNullOrWhiteSpace(OldPasswordTextBox.Password) == true)
                         {
-                            DevExpress.Xpf.Core.DXMessageBox.Show
+                            Infrastructure.MessageBox.Show
                             (
                                 caption: Infrastructure.MessageBoxCaption.Error,
-                                messageBoxText: "تکمیل فیلد رمز عبور فعلی الزامی است.",
-                                button: System.Windows.MessageBoxButton.OK,
-                                icon: System.Windows.MessageBoxImage.Error,
-                                defaultResult: System.Windows.MessageBoxResult.OK,
-                                options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                                text: "تکمیل فیلد رمز عبور فعلی الزامی است."
                             );
 
                             return;
@@ -257,15 +186,10 @@ namespace Fund
 
                         if (string.IsNullOrWhiteSpace(PasswordTextBox.Password) == true)
                         {
-                            DevExpress.Xpf.Core.DXMessageBox.Show
+                            Infrastructure.MessageBox.Show
                             (
                                 caption: Infrastructure.MessageBoxCaption.Error,
-                                messageBoxText: "تکمیل فیلد رمز عبور جدید الزامی است.",
-                                button: System.Windows.MessageBoxButton.OK,
-                                icon: System.Windows.MessageBoxImage.Error,
-                                defaultResult: System.Windows.MessageBoxResult.OK,
-                                options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                                text: "تکمیل فیلد رمز عبور جدید الزامی است."
                             );
 
                             return;
@@ -273,15 +197,10 @@ namespace Fund
 
                         if (string.IsNullOrWhiteSpace(AgainPasswordTextBox.Password) == true)
                         {
-                            DevExpress.Xpf.Core.DXMessageBox.Show
+                            Infrastructure.MessageBox.Show
                             (
                                 caption: Infrastructure.MessageBoxCaption.Error,
-                                messageBoxText: "تکمیل فیلد تکرار رمز عبور جدید الزامی است.",
-                                button: System.Windows.MessageBoxButton.OK,
-                                icon: System.Windows.MessageBoxImage.Error,
-                                defaultResult: System.Windows.MessageBoxResult.OK,
-                                options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                                text: "تکمیل فیلد تکرار رمز عبور جدید الزامی است."
                             );
 
                             return;
@@ -291,16 +210,12 @@ namespace Fund
 
                         string password = Dtx.Security.Hashing.GetMD5(OldPasswordTextBox.Password.Trim());
 
-                        if (password != editedUser.Password)
+                        if (password != oUser.Password)
                         {
-                            DevExpress.Xpf.Core.DXMessageBox.Show
+                            Infrastructure.MessageBox.Show
                                 (
                                     caption: Infrastructure.MessageBoxCaption.Error,
-                                    messageBoxText: "رمز عبور درج شده صحیح نمی‌باشد.",
-                                    button: System.Windows.MessageBoxButton.OK,
-                                    icon: System.Windows.MessageBoxImage.Error,
-                                    defaultResult: System.Windows.MessageBoxResult.OK,
-                                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                                    text: "رمز عبور درج شده صحیح نمی‌باشد."
                                 );
 
                             return;
@@ -308,34 +223,26 @@ namespace Fund
 
                         if (PasswordTextBox.Password.Trim() != AgainPasswordTextBox.Password.Trim())
                         {
-                            DevExpress.Xpf.Core.DXMessageBox.Show
+                            Infrastructure.MessageBox.Show
                                 (
                                     caption: Infrastructure.MessageBoxCaption.Error,
-                                    messageBoxText: "رمزهای عبور جدید درج شده با یکدیگر مطابقت ندارند.",
-                                    button: System.Windows.MessageBoxButton.OK,
-                                    icon: System.Windows.MessageBoxImage.Error,
-                                    defaultResult: System.Windows.MessageBoxResult.OK,
-                                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                                    text: "رمزهای عبور جدید درج شده با یکدیگر مطابقت ندارند."
                                 );
 
                             return;
                         }
 
-                        editedUser.Password = Dtx.Security.Hashing.GetMD5(PasswordTextBox.Password.Trim());
+                        oUser.Password = Dtx.Security.Hashing.GetMD5(PasswordTextBox.Password.Trim());
 
                     }
 
-                    oUnitOfWork.UserRepository.Update(editedUser);
+                    oUnitOfWork.UserRepository.Update(oUser);
                     oUnitOfWork.Save();
 
-                    DevExpress.Xpf.Core.DXMessageBox.Show
+                    Infrastructure.MessageBox.Show
                         (
                             caption: Infrastructure.MessageBoxCaption.Information,
-                            messageBoxText: "مشخصات کاربر با موفقیت ویرایش گردید.",
-                            button: System.Windows.MessageBoxButton.OK,
-                            icon: System.Windows.MessageBoxImage.Information,
-                            defaultResult: System.Windows.MessageBoxResult.OK,
-                            options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                            text: "مشخصات کاربر با موفقیت ویرایش گردید."
                         );
 
                 }
@@ -344,7 +251,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -374,33 +281,25 @@ namespace Fund
                 oUnitOfWork = new DAL.UnitOfWork();
 
                 System.Windows.MessageBoxResult oResult =
-                        DevExpress.Xpf.Core.DXMessageBox.Show
+                        Infrastructure.MessageBox.Show
                         (
                             caption: Infrastructure.MessageBoxCaption.Question,
-                            messageBoxText: "آیا مطمئن به حذف کاربر از سیستم هستید ؟",
-                            button: System.Windows.MessageBoxButton.YesNo,
-                            icon: System.Windows.MessageBoxImage.Question,
-                            defaultResult: System.Windows.MessageBoxResult.No,
-                            options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                            text: "آیا مطمئن به حذف کاربر از سیستم هستید ؟"
                         );
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
                 {
-                    oUnitOfWork.UserRepository.DeleteById(CurrentId);
+                    oUnitOfWork.UserRepository.DeleteById(_currentId);
 
                     oUnitOfWork.Save();
 
-                    DevExpress.Xpf.Core.DXMessageBox.Show
+                    Infrastructure.MessageBox.Show
                     (
                         caption: Infrastructure.MessageBoxCaption.Information,
-                        messageBoxText: "کاربر با موفقیت از سیستم حذف گردید.",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Information,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                        text: "کاربر با موفقیت از سیستم حذف گردید."
                     );
 
-                    if (CurrentId == Utility.CurrentUser.Id)
+                    if (_currentId == Utility.CurrentUser.Id)
                     {
                         UserLoginWindow oUserLoginWindow = new UserLoginWindow();
 
@@ -415,7 +314,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -435,17 +334,75 @@ namespace Fund
 
             UsersGridControl.ItemsSource = oUnitOfWork.UserRepository
             .Get()
-            .Select(current => new ViewModels.UsersManagementViewModel
+            .Select(current => new ViewModels.UserViewModel()
             {
                 Id = current.Id,
                 Username = current.Username,
                 FullName = current.FullName,
-                PersianRegisterationDate = current.PersianRegisterationDate,
-                IsAdminToString = current.IsAdminToString,
-                PersianLastLoginTime = current.PersianLastLoginTime,
+                RegisterationDate = current.RegisterationDate,
+                IsAdmin = current.IsAdmin,
+                LastLoginTime = current.LastLoginTime,
             })
             .OrderBy(current => current.Username)
             .ToList();
+        }
+
+        private void ShowReport(Infrastructure.ReportType reportType)
+        {
+            DAL.UnitOfWork oUnitOfWork = null;
+
+            try
+            {
+                oUnitOfWork = new DAL.UnitOfWork();
+
+                var varList = oUnitOfWork.UserRepository
+                    .Get()
+                    .OrderBy(current => current.Username)
+                    .Select(current => new ViewModels.UserViewModel()
+                    {
+                        Id = current.Id,
+                        Username = current.Username,
+                        RegisterationDate = current.RegisterationDate,
+                        IsAdmin = current.IsAdmin,
+                        LastLoginTime = current.LastLoginTime,
+                    })
+                    .ToList();
+
+                var varListToReport = varList
+                    .OrderBy(current => current.Username)
+                    .Select(current => new
+                    {
+                        Username = current.Username,
+                        PersianRegisterationDate = current.PersianRegisterationDate,
+                        IsAdminDescription = current.IsAdminDescription,
+                        PersianLastLoginTime = current.PersianLastLoginTime,
+                    })
+                    .ToList();
+
+                Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
+
+                usersReport.Load(Properties.Resources.UsersViewReport);
+                usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
+                usersReport.RegBusinessObject("Users", varListToReport);
+                usersReport.Compile();
+                usersReport.RenderWithWpf();
+
+                usersReport.DoAction(reportType, "گزارش کاربران");
+
+                oUnitOfWork.Save();
+            }
+            catch (System.Exception ex)
+            {
+                Infrastructure.MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (oUnitOfWork != null)
+                {
+                    oUnitOfWork.Dispose();
+                    oUnitOfWork = null;
+                }
+            }
         }
 
     }

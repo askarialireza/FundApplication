@@ -10,7 +10,7 @@ namespace Infrastructure
 
         public static System.Windows.MessageBoxResult Show(string text)
         {
-            return DevExpress.Xpf.Core.DXMessageBox.Show(text);
+            return Infrastructure.MessageBox.Show(text);
         }
 
         public static System.Windows.MessageBoxResult Show(string caption, string text)
@@ -57,12 +57,12 @@ namespace Infrastructure
 
             return DevExpress.Xpf.Core.DXMessageBox.Show
                  (
-                  caption: caption,
-                  messageBoxText: text,
-                  button: oButton,
-                  icon: oImage,
-                  defaultResult: oResult,
-                  options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                    caption: caption,
+                    messageBoxText: text,
+                    button: oButton,
+                    icon: oImage,
+                    defaultResult: oResult,
+                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
                  );
         }
     }

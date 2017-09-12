@@ -21,7 +21,9 @@
         public UserSetting() : base()
         {
             GridWidth = new ComplexTypes.GridWidth();
+
             GridHeight = new ComplexTypes.GridHeight();
+
             Theme = new ComplexTypes.Theme();
         }
 

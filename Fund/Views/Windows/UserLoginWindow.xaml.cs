@@ -54,7 +54,6 @@ namespace Fund
                         );
 
                     oUser.LastLoginTime = System.DateTime.Now;
-                    oUser.PersianLastLoginTime = System.DateTime.Now.ToPersianDateTime();
                     Utility.CurrentUser = oUser;
 
                     oUnitOfWork.Save();

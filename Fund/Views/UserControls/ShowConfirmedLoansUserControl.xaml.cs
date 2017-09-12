@@ -44,12 +44,12 @@ namespace Fund
                     .Select(current => new ViewModels.LoanViewModel()
                     {
                         Id = current.Id,
-                        StartDate = current.PersianStartDate,
+                        StartDate = current.StartDate,
                         LoanAmount = current.LoanAmount,
-                        InstallmentsCount = current.PaymentCount,
+                        InstallmentsCount = current.InstallmentsCount,
                         Description = current.Description,
                         RefundAmount = current.RefundAmount,
-                        EndDate = current.PersianEndDate,
+                        EndDate = current.EndDate,
                         MemberId = current.MemberId,
                     })
                     .ToList();

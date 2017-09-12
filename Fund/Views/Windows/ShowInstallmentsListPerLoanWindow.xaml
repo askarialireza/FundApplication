@@ -37,7 +37,7 @@
 
                 <dxg:GridColumn Header="مبلغ قسط" Binding="{Binding AmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="مهلت پرداخت قسط" Binding="{Binding InstallmentDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="مهلت پرداخت قسط" Binding="{Binding PersianInstallmentDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
                 <dxg:GridColumn Header="تسویه حساب شده است" Binding="{Binding IsPayedDescription, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 

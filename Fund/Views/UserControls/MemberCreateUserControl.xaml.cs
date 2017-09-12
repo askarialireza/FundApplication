@@ -9,13 +9,15 @@ namespace Fund
         public MemberCreateUserControl()
         {
             InitializeComponent();
+
+            IsPictureSelected = false;
+
+            LoadGenderComboBox();
         }
 
         private void userControlLoaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            IsPictureSelected = false;
 
-            LoadGenderComboBox();
         }
 
         private void AcceptButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -24,14 +26,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(firstNameTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                    text: "تکمیل فیلد نام الزامی است."
 
                 );
 
@@ -40,15 +38,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(lastNameTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام خانوادگی الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد نام خانوادگی الزامی است."
                 );
 
                 return;
@@ -56,15 +49,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(fatherNameTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام پدر الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد نام پدر الزامی است."
                 );
 
                 return;
@@ -72,15 +60,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(nationalCodeTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد کد ملی الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد کد ملی الزامی است."
                 );
 
                 return;
@@ -88,15 +71,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(emailAddressTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد پست الکترونیکی الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد پست الکترونیکی الزامی است."
                 );
 
                 return;
@@ -104,15 +82,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد شماره تلفن الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد شماره تلفن الزامی است."
                 );
 
                 return;
@@ -133,29 +106,23 @@ namespace Fund
                 oMember.FullName.FirstName = firstNameTextBox.Text.Trim();
                 oMember.FullName.LastName = lastNameTextBox.Text.Trim();
                 oMember.FatherName = fatherNameTextBox.Text.Trim();
-                oMember.GenderType = ((GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender);
-                oMember.GenderToString = (oMember.GenderType == Models.Gender.Male) ? "آقا" : "خانم";
+                oMember.Gender = ((GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender);
                 oMember.NationalCode = nationalCodeTextBox.Text.Trim();
                 oMember.EmailAddress = emailAddressTextBox.Text.Trim();
                 oMember.PhoneNumber = phoneNumberTextBox.Text.Trim();
                 System.Windows.Media.Imaging.BmpBitmapEncoder oBmpBitmapEncoder = new System.Windows.Media.Imaging.BmpBitmapEncoder();
                 oMember.Picture = (IsPictureSelected == false) ? null : Utility.ImageToBytes(encoder: oBmpBitmapEncoder, imageSource: MemberImage.Source);
-                oMember.MembershipDateTime = DatePicker.SelectedDateTime;
-                oMember.PersianMembershipDateTime = DatePicker.SelectedDateTime.ToPersianDate();
+                oMember.MembershipDate = DatePicker.SelectedDateTime;
                 oMember.FundId = Utility.CurrentFund.Id;
 
                 oUnitOfWork.MemberRepository.Insert(oMember);
 
                 oUnitOfWork.Save();
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                     (
                         caption: Infrastructure.MessageBoxCaption.Information,
-                        messageBoxText: "عضو جدید با موفقیت در بانک اطلاعاتی ایجاد گردید",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Information,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                        text: "عضو جدید با موفقیت در بانک اطلاعاتی ایجاد گردید"
                     );
 
                 Utility.MainWindow.RefreshUserInterface();
@@ -178,7 +145,7 @@ namespace Fund
 
         private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            (this.Parent as System.Windows.Controls.Panel).Children.Remove(this);
+            this.Close();
         }
 
         private void DeleteImageButton_Click(object sender, System.Windows.RoutedEventArgs e)

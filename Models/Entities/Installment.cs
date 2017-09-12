@@ -23,60 +23,16 @@
         }
         #endregion /Configuration
 
-        #region Constructor
-
         public Installment() : base()
         {
             IsPayed = false;
         }
 
-        #endregion /Constructor
+        public System.DateTime InstallmentDate { get; set; }
 
-        #region Properties
-        private System.DateTime _installDate;
-        public System.DateTime InstallmentDate
-        {
-            get
-            {
-                return _installDate;
-            }
-            set
-            {
-                _installDate = value;
-
-                PersianInstallmentDate =
-                    new FarsiLibrary.Utils.PersianDate(_installDate).ToString("d");
-            }
-        }
-
-        private System.DateTime? _paymentDate;
-        public System.DateTime? PaymentDate
-        {
-            get
-            {
-                return _paymentDate;
-            }
-            set
-            {
-                _paymentDate = value;
-
-                if (value != null)
-                {
-                    PersianPaymentDate =
-                        new FarsiLibrary.Utils.PersianDate((System.DateTime)_paymentDate).ToString("d");
-                }
-                else
-                {
-                    PersianPaymentDate = string.Empty;
-                }
-            }
-        }
+        public System.DateTime? PaymentDate { get; set; }
 
         public long PaymentAmount { get; set; }
-
-        public string PersianPaymentDate { get; set; }
-
-        public string PersianInstallmentDate { get; set; }
 
         public bool IsPayed { get; set; }
 
@@ -85,12 +41,6 @@
         public System.Guid LoanId { get; set; }
 
         public virtual Loan Loan { get; set; }
-
-        #endregion /Properties
-
-        #region Methods
-
-        #endregion /Methods
 
     }
 }

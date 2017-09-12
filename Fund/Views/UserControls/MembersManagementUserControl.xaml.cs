@@ -30,88 +30,17 @@ namespace Fund
 
         private void ExportToPDFClick(object sender, System.Windows.RoutedEventArgs e)
         {
-
-            DAL.UnitOfWork oUnitOfWork = null;
-
-            try
-            {
-                oUnitOfWork = new DAL.UnitOfWork();
-
-                var varList = oUnitOfWork.MemberRepository
-                    .MembersToReport()
-                    .ToList();
-
-                Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
-
-                usersReport.Load(Properties.Resources.MembersViewReport);
-                usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
-                usersReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
-                usersReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
-                usersReport.RegBusinessObject("Members", varList);
-                usersReport.Compile();
-                usersReport.RenderWithWpf();
-
-                usersReport.ExportToPdf(string.Format("گزارش اعضا ({0}) ", Utility.CurrentFund.Name));
-
-                oUnitOfWork.Save();
-            }
-            catch (System.Exception ex)
-            {
-                Infrastructure.MessageBox.Show(ex.Message);;
-            }
-            finally
-            {
-                if (oUnitOfWork != null)
-                {
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
-                }
-            }
+            ShowReport(ReportType.ExportToPDF);
         }
 
         private void PrintClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            DAL.UnitOfWork oUnitOfWork = null;
-
-            try
-            {
-                oUnitOfWork = new DAL.UnitOfWork();
-
-                var varList = oUnitOfWork.MemberRepository
-                    .MembersToReport()
-                    .ToList();
-
-                Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
-
-                usersReport.Load(Properties.Resources.MembersViewReport);
-                usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
-                usersReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
-                usersReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
-                usersReport.RegBusinessObject("Members", varList);
-                usersReport.Compile();
-                usersReport.RenderWithWpf();
-                usersReport.Print();
-
-                oUnitOfWork.Save();
-            }
-            catch (System.Exception ex)
-            {
-                Infrastructure.MessageBox.Show(ex.Message);;
-            }
-            finally
-            {
-                if (oUnitOfWork != null)
-                {
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
-                }
-            }
+            ShowReport(reportType: ReportType.Print);
         }
 
         private void CloseClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            System.Windows.Controls.Panel oPanel = this.Parent as System.Windows.Controls.Panel;
-            oPanel.Children.Remove(this);
+            this.Close();
         }
 
         private void GridControlItemChanged(object sender, DevExpress.Xpf.Grid.SelectedItemChangedEventArgs e)
@@ -136,7 +65,7 @@ namespace Fund
                     phoneNumberTextBox.Text = oMember.PhoneNumber;
                     emailAddressTextBox.Text = oMember.EmailAddress;
                     GendersCombobox.SelectedItem = (GendersCombobox.ItemsSource as System.Collections.Generic.List<ViewModels.GenderViewModel>)
-                        .Where(current => current.Gender == oMember.GenderType)
+                        .Where(current => current.Gender == oMember.Gender)
                         .FirstOrDefault();
 
                     var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
@@ -230,15 +159,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد نام الزامی است."
                 );
 
                 return;
@@ -246,15 +170,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(LastNameTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام خانوادگی الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد نام خانوادگی الزامی است."
                 );
 
                 return;
@@ -262,15 +181,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(FatherNameTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد نام پدر الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد نام پدر الزامی است."
                 );
 
                 return;
@@ -278,15 +192,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(NationalCodeTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد کد ملی الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد کد ملی الزامی است."
                 );
 
                 return;
@@ -294,15 +203,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(emailAddressTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد پست الکترونیکی الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
+                    text: "تکمیل فیلد پست الکترونیکی الزامی است."
                 );
 
                 return;
@@ -310,16 +214,10 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) == true)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    messageBoxText: "تکمیل فیلد شماره تلفن الزامی است.",
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Error,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
-
-                );
+                    text: "تکمیل فیلد شماره تلفن الزامی است."   );
 
                 return;
             }
@@ -341,8 +239,7 @@ namespace Fund
                     oMember.FullName.FirstName = FirstNameTextBox.Text.Trim();
                     oMember.FullName.LastName = LastNameTextBox.Text.Trim();
                     oMember.FatherName = FatherNameTextBox.Text.Trim();
-                    oMember.GenderType = (GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender;
-                    oMember.GenderToString = (oMember.GenderType == Models.Gender.Male) ? "آقا" : "خانم";
+                    oMember.Gender = (GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender;
                     oMember.NationalCode = NationalCodeTextBox.Text.Trim();
                     oMember.EmailAddress = emailAddressTextBox.Text.Trim();
                     oMember.PhoneNumber = phoneNumberTextBox.Text.Trim();
@@ -352,14 +249,10 @@ namespace Fund
                     oUnitOfWork.MemberRepository.Update(oMember);
                     oUnitOfWork.Save();
 
-                    DevExpress.Xpf.Core.DXMessageBox.Show
+                    Infrastructure.MessageBox.Show
                         (
                             caption: Infrastructure.MessageBoxCaption.Information,
-                            messageBoxText: "مشخصات عضو صندوق با موفقیت ویرایش گردید.",
-                            button: System.Windows.MessageBoxButton.OK,
-                            icon: System.Windows.MessageBoxImage.Information,
-                            defaultResult: System.Windows.MessageBoxResult.OK,
-                            options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                            text: "مشخصات عضو صندوق با موفقیت ویرایش گردید."
                         );
                 }
             }
@@ -395,14 +288,10 @@ namespace Fund
                 oUnitOfWork = new DAL.UnitOfWork();
 
                 System.Windows.MessageBoxResult oResult =
-                        DevExpress.Xpf.Core.DXMessageBox.Show
+                        Infrastructure.MessageBox.Show
                         (
                             caption: Infrastructure.MessageBoxCaption.Question,
-                            messageBoxText: "آیا مطمئن به حذف عضو صندوق از سیستم هستید ؟",
-                            button: System.Windows.MessageBoxButton.YesNo,
-                            icon: System.Windows.MessageBoxImage.Question,
-                            defaultResult: System.Windows.MessageBoxResult.No,
-                            options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                            text: "آیا مطمئن به حذف عضو صندوق از سیستم هستید ؟"
                         );
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
@@ -411,14 +300,10 @@ namespace Fund
 
                     oUnitOfWork.Save();
 
-                    DevExpress.Xpf.Core.DXMessageBox.Show
+                    Infrastructure.MessageBox.Show
                     (
                         caption: Infrastructure.MessageBoxCaption.Information,
-                        messageBoxText: "عضو صندوق با موفقیت از سیستم حذف گردید.",
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Information,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                        text: "عضو صندوق با موفقیت از سیستم حذف گردید."
                     );
 
                 }
@@ -478,10 +363,10 @@ namespace Fund
                         FullName = current.FullName,
                         EmailAddress = current.EmailAddress,
                         FatherName = current.FatherName,
-                        GenderToString = current.GenderToString,
+                        Gender = current.Gender,
                         NationalCode = current.NationalCode,
-                        PersianMembershipDateTime = current.PersianMembershipDateTime,
                         PhoneNumber = current.PhoneNumber,
+                        MembershipDate = current.MembershipDate,
                     })
                     .OrderBy(current => current.FullName.LastName)
                     .ThenBy(current => current.FullName.FirstName)
@@ -502,6 +387,47 @@ namespace Fund
                     oUnitOfWork.Dispose();
                     oUnitOfWork = null;
                 }
+            }
+        }
+
+        private void ShowReport(Infrastructure.ReportType reportType)
+        {
+            DAL.UnitOfWork oUnitOfWork = null;
+
+            try
+            {
+                oUnitOfWork = new DAL.UnitOfWork();
+
+                var varList = oUnitOfWork.MemberRepository
+                    .MembersToReport()
+                    .ToList();
+
+                Stimulsoft.Report.StiReport oReport = new Stimulsoft.Report.StiReport();
+
+                oReport.Load(Properties.Resources.MembersViewReport);
+                oReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
+                oReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
+                oReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
+                oReport.RegBusinessObject("Members", varList);
+                oReport.Compile();
+                oReport.RenderWithWpf();
+
+                oReport.DoAction(reportType, string.Format("گزارش اعضا ({0}) ", Utility.CurrentFund.Name));
+
+                oUnitOfWork.Save();
+            }
+            catch (System.Exception ex)
+            {
+                Infrastructure.MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (oUnitOfWork != null)
+                {
+                    oUnitOfWork.Dispose();
+                    oUnitOfWork = null;
+                }
+
             }
         }
     }

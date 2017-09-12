@@ -25,8 +25,9 @@
         public Loan() : base()
         {
             StartDate = System.DateTime.Today;
-            PersianStartDate = FarsiLibrary.Utils.PersianDateConverter.ToPersianDate(StartDate).ToString("g");
+
             IsActive = true;
+
             IsPayed = false;
         }
 
@@ -35,17 +36,23 @@
         #region Properties
 
         public System.DateTime StartDate { get; set; }
+
         public System.DateTime EndDate { get; set; }
-        public string PersianStartDate { get; set; }
-        public string PersianEndDate { get; set; }
-        public int PaymentCount { get; set; }
+
+        public int InstallmentsCount { get; set; }
+
         public bool IsActive { get; set; }
+
         public bool IsPayed { get; set; }
+
         public long LoanAmount { get; set; }
+
         public long RefundAmount { get; set; }
+
         public string Description { get; set; }
 
         public System.Guid MemberId { get; set; }
+
         public virtual Member Member { get; set; }
 
         public virtual System.Collections.Generic.IList<Installment> Installments { get; set; }

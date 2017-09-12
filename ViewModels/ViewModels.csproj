@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8200C799-E26F-4034-8217-B0F7E9AC2488}</ProjectGuid>
+    <ProjectGuid>{2C2ABEAC-4BBE-4110-99CA-B51FA395A671}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ViewModels</RootNamespace>
     <AssemblyName>ViewModels</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dtx, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dtx.1.0.1\lib\net45\Dtx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FarsiLibrary.Localization, Version=2.7.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Farsi.Library.2.7.0\lib\net46\FarsiLibrary.Localization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FarsiLibrary.Utils, Version=2.7.0.0, Culture=neutral, PublicKeyToken=def7c46cace23f8f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Farsi.Library.2.7.0\lib\net46\FarsiLibrary.Utils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -42,19 +56,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseBackupViewModel.cs" />
-    <Compile Include="FontViewModel.cs" />
-    <Compile Include="MembershipCardViewModel.cs" />
-    <Compile Include="MembersManagementViewModel.cs" />
+    <Compile Include="ViewModels\DatabaseBackupViewModel.cs" />
+    <Compile Include="ViewModels\DebtorViewModel.cs" />
+    <Compile Include="ViewModels\EventTypeViewModel.cs" />
+    <Compile Include="ViewModels\FontViewModel.cs" />
+    <Compile Include="ViewModels\GenderViewModel.cs" />
+    <Compile Include="ViewModels\InstallmentViewModel.cs" />
+    <Compile Include="ViewModels\LoanViewModel.cs" />
+    <Compile Include="ViewModels\MembershipCardViewModel.cs" />
+    <Compile Include="ViewModels\MembersManagementViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThemeViewModel.cs" />
-    <Compile Include="UsersManagementViewModel.cs" />
+    <Compile Include="ViewModels\ThemeViewModel.cs" />
+    <Compile Include="ViewModels\TransactionViewModel.cs" />
+    <Compile Include="ViewModels\UserTypeViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{abea8c25-5692-4ff0-829e-20e6bf002c36}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{28c0d26a-9de5-4071-92d1-a3c935ab9b72}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace DAL
 {
-    public class MemberRepository : Repository<Models.Member> ,IMemberRepository
+    public class MemberRepository : Repository<Models.Member>, IMemberRepository
     {
         public MemberRepository(Models.DatabaseContext databaseContext) : base(databaseContext)
         {
-                
+
         }
 
         public System.Linq.IQueryable<object> MembersToReport()
@@ -21,7 +21,7 @@ namespace DAL
                 {
                     FullName = current.FullName.FirstName + " " + current.FullName.LastName,
                     current.FatherName,
-                    Gender = current.GenderToString,
+                    Gender = (current.Gender == Models.Gender.Male) ? "آقا" : "خانم",
                     current.NationalCode,
                     current.EmailAddress,
                     current.PhoneNumber

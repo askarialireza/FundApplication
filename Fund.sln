@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fund", "Fund\Fund.csproj", 
 EndProject
 Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Setup", "Setup\Setup.aiproj", "{CBDFAAB9-61EF-4549-BE15-CB5D65EFC69D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{2C2ABEAC-4BBE-4110-99CA-B51FA395A671}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,12 @@ Global
 		{CBDFAAB9-61EF-4549-BE15-CB5D65EFC69D}.DefaultBuild|Any CPU.Build.0 = DefaultBuild
 		{CBDFAAB9-61EF-4549-BE15-CB5D65EFC69D}.Release|Any CPU.ActiveCfg = DefaultBuild
 		{CBDFAAB9-61EF-4549-BE15-CB5D65EFC69D}.Release|Any CPU.Build.0 = DefaultBuild
+		{2C2ABEAC-4BBE-4110-99CA-B51FA395A671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C2ABEAC-4BBE-4110-99CA-B51FA395A671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C2ABEAC-4BBE-4110-99CA-B51FA395A671}.DefaultBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C2ABEAC-4BBE-4110-99CA-B51FA395A671}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
+		{2C2ABEAC-4BBE-4110-99CA-B51FA395A671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C2ABEAC-4BBE-4110-99CA-B51FA395A671}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

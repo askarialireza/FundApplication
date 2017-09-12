@@ -106,7 +106,7 @@
 
                         <dxg:GridColumn Header="تاریخ عضویت" Binding="{Binding PersianRegisterationDate, Mode=OneTime}" Style="{StaticResource GridColumnStyle}"/>
 
-                        <dxg:GridColumn Header="نوع کاربر" Binding="{Binding IsAdminToString, Mode=OneTime}" Style="{StaticResource GridColumnStyle}"/>
+                        <dxg:GridColumn Header="نوع کاربر" Binding="{Binding IsAdminDescription, Mode=OneTime}" Style="{StaticResource GridColumnStyle}"/>
 
                         <dxg:GridColumn Header="آخرین ورود" Binding="{Binding PersianLastLoginTime, Mode=OneTime}" Style="{StaticResource GridColumnStyle}"/>
 

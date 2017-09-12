@@ -123,14 +123,10 @@ namespace Fund
 
             System.IO.File.Copy(sourcePath, destinationPath);
 
-            DevExpress.Xpf.Core.DXMessageBox.Show
+            Infrastructure.MessageBox.Show
                 (
-                    messageBoxText: "تهیه نسخه پشتیبان با موفقیت انجام گردید",
-                    caption: Infrastructure.MessageBoxCaption.Information,
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Information,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                    text: "تهیه نسخه پشتیبان با موفقیت انجام گردید",
+                    caption: Infrastructure.MessageBoxCaption.Information
                 );
 
             LoadGridControl();
@@ -194,28 +190,20 @@ namespace Fund
             {
 
                 System.Windows.MessageBoxResult oResult =
-                     DevExpress.Xpf.Core.DXMessageBox.Show
+                     Infrastructure.MessageBox.Show
                      (
-                         messageBoxText: "آیا مطمئن به حذف نسخه پشتیبان هستید؟",
-                         caption: Infrastructure.MessageBoxCaption.Question,
-                         button: System.Windows.MessageBoxButton.YesNo,
-                         icon: System.Windows.MessageBoxImage.Question,
-                         defaultResult: System.Windows.MessageBoxResult.No,
-                         options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                         text: "آیا مطمئن به حذف نسخه پشتیبان هستید؟",
+                         caption: Infrastructure.MessageBoxCaption.Question
                      );
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
                 {
                     oFile.Delete();
 
-                    DevExpress.Xpf.Core.DXMessageBox.Show
+                    Infrastructure.MessageBox.Show
                     (
-                        messageBoxText: "نسخه پشتیبان با موفقیت حذف گردید",
-                        caption: Infrastructure.MessageBoxCaption.Information,
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Information,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                        text: "نسخه پشتیبان با موفقیت حذف گردید",
+                        caption: Infrastructure.MessageBoxCaption.Information
                     );
                 }
 
@@ -237,14 +225,10 @@ namespace Fund
             if (oFile != null)
             {
                 System.Windows.MessageBoxResult oResult =
-                     DevExpress.Xpf.Core.DXMessageBox.Show
+                     Infrastructure.MessageBox.Show
                      (
-                         messageBoxText: "آیا مطمئن به بازیابی نسخه پشتیبان هستید؟",
-                         caption: Infrastructure.MessageBoxCaption.Question,
-                         button: System.Windows.MessageBoxButton.YesNo,
-                         icon: System.Windows.MessageBoxImage.Question,
-                         defaultResult: System.Windows.MessageBoxResult.No,
-                         options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                         text: "آیا مطمئن به بازیابی نسخه پشتیبان هستید؟",
+                         caption: Infrastructure.MessageBoxCaption.Question
                      );
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
@@ -252,14 +236,10 @@ namespace Fund
                     string destinationFileName = System.Environment.CurrentDirectory + "\\Files\\Database\\FundDatabase.sdf";
                     oFile.CopyTo(destFileName: destinationFileName, overwrite: true);
 
-                    DevExpress.Xpf.Core.DXMessageBox.Show
+                    Infrastructure.MessageBox.Show
                     (
-                        messageBoxText: "نسخه پشتیبان با موفقیت بازیابی گردید" + System.Environment.NewLine + "برنامه با پایگاه جدید بازیابی شده مجددا راه اندازی خواهد شد",
-                        caption: Infrastructure.MessageBoxCaption.Information,
-                        button: System.Windows.MessageBoxButton.OK,
-                        icon: System.Windows.MessageBoxImage.Information,
-                        defaultResult: System.Windows.MessageBoxResult.OK,
-                        options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                        text: "نسخه پشتیبان با موفقیت بازیابی گردید" + System.Environment.NewLine + "برنامه با پایگاه جدید بازیابی شده مجددا راه اندازی خواهد شد",
+                        caption: Infrastructure.MessageBoxCaption.Information
                     );
 
                     System.Diagnostics.Process.Start(System.Windows.Application.ResourceAssembly.Location);
@@ -273,14 +253,10 @@ namespace Fund
             System.IO.DirectoryInfo oDirectoryInfo = new System.IO.DirectoryInfo(Utility.DatabaseBackupPath);
 
             System.Windows.MessageBoxResult oResult =
-                 DevExpress.Xpf.Core.DXMessageBox.Show
+                 Infrastructure.MessageBox.Show
                  (
-                     messageBoxText: "آیا مطمئن به حذف تمامی نسخه‌های پشتیبان هستید؟",
-                     caption: Infrastructure.MessageBoxCaption.Question,
-                     button: System.Windows.MessageBoxButton.YesNo,
-                     icon: System.Windows.MessageBoxImage.Question,
-                     defaultResult: System.Windows.MessageBoxResult.No,
-                     options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                     text: "آیا مطمئن به حذف تمامی نسخه‌های پشتیبان هستید؟",
+                     caption: Infrastructure.MessageBoxCaption.Question
                  );
 
             if (oResult == System.Windows.MessageBoxResult.Yes)
@@ -290,14 +266,10 @@ namespace Fund
                     oFileInfo.Delete();
                 }
 
-                DevExpress.Xpf.Core.DXMessageBox.Show
+                Infrastructure.MessageBox.Show
                 (
-                    messageBoxText: "تمامی نسخه‌های پشتیبان با موفقیت حذف گردیدند",
-                    caption: Infrastructure.MessageBoxCaption.Information,
-                    button: System.Windows.MessageBoxButton.OK,
-                    icon: System.Windows.MessageBoxImage.Information,
-                    defaultResult: System.Windows.MessageBoxResult.OK,
-                    options: System.Windows.MessageBoxOptions.RightAlign | System.Windows.MessageBoxOptions.RtlReading
+                    text: "تمامی نسخه‌های پشتیبان با موفقیت حذف گردیدند",
+                    caption: Infrastructure.MessageBoxCaption.Information
                 );
             }
 
