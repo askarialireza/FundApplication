@@ -188,19 +188,12 @@ namespace Fund
 
         public static string ToRialStringFormat(this long value)
         {
-            char comma = (char)44;
-            char nullchar = (char)0;
-
-            return value.ToString("#" + comma + "##0 ریال");
-
+            return value.ToString("#,##0 ریال");
         }
 
         public static long StringToMoney(this string text)
         {
-            char comma = (char)44;
-            char nullchar = (char)0;
-
-            return (System.Convert.ToInt64(text.Replace(" ریال", string.Empty).Replace(comma, nullchar)));
+            return (System.Convert.ToInt64(text.Replace(" ریال", string.Empty).Replace(",", string.Empty)));
         }
 
         public static void MoveBackupFiles(string sourcePath, string destinationPath)
@@ -248,17 +241,6 @@ namespace Fund
             return imgSrc;
         }
 
-        public static System.Drawing.Bitmap ConvertToBitmap(System.Windows.Media.Imaging.BitmapSource bitmapSource)
-        {
-            var width = bitmapSource.PixelWidth;
-            var height = bitmapSource.PixelHeight;
-            var stride = width * ((bitmapSource.Format.BitsPerPixel + 7) / 8);
-            var memoryBlockPointer = System.Runtime.InteropServices.Marshal.AllocHGlobal(height * stride);
-            bitmapSource.CopyPixels(new System.Windows.Int32Rect(0, 0, width, height), memoryBlockPointer, height * stride, stride);
-            var bitmap = new System.Drawing.Bitmap(width, height, stride, System.Drawing.Imaging.PixelFormat.Format32bppPArgb, memoryBlockPointer);
-            return bitmap;
-        }
-
         public static void SetUserTheme()
         {
             System.Windows.Media.FontFamily font = new System.Windows.Media.FontFamily(CurrentUser.UserSetting.Theme.FontFamily);
@@ -284,6 +266,20 @@ namespace Fund
                 App.Current.Resources[applicationThemeName + "PanelGradient"] as System.Windows.Media.LinearGradientBrush;
 
             App.Current.Resources[Infrastructure.Text.GradientResources] = oLinearGradientBrush;
+        }
+
+        public static void Close(this System.Windows.Controls.UserControl userControl)
+        {
+            System.Windows.Controls.Panel oPanel = userControl.Parent as System.Windows.Controls.Panel;
+
+            oPanel.Children.Remove(userControl);
+        }
+
+        public static void Show(this System.Windows.Controls.UserControl userControl)
+        {
+            Utility.MainWindow.UserControlsPanel.Children.Clear();
+
+            Utility.MainWindow.UserControlsPanel.Children.Add(userControl);
         }
 
         #endregion /Methods

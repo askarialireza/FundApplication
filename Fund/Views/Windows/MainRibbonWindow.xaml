@@ -152,7 +152,7 @@
 
                                 <dxb:BarItemSeparator/>
 
-                                <dxb:BarButtonItem Content="وضعیت وام اعضا" RibbonStyle="Large" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="MemberLonasStatus" Content="وضعیت وام اعضا" RibbonStyle="Large" Style="{DynamicResource LargeButtonStyle}" ItemClick="MemberLonasStatus_ItemClick"/>
 
                                 <dxb:BarItemSeparator/>
 

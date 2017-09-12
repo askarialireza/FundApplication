@@ -27,6 +27,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Content="لیست اقساط" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" HorizontalAlignment="Left" Margin="10,0"/>
@@ -53,6 +54,12 @@
                 </dxg:GridColumn>
 
             </dxg:GridControl>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <dx:SimpleButton x:Name="PrintButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Click="PrintButton_Click"  Glyph="/Fund;component/Resources/Icons/Print32.png" ToolTip="چاپ" Margin="0,0,10,8" />
+
+            <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48"  Click="ExportToPdfButton_Click"  Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF" Margin="0,0,63,8"/>
         </Grid>
     </Grid>
     

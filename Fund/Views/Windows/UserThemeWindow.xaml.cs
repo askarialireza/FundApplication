@@ -32,24 +32,20 @@ namespace Fund
                     FontComboBox.SelectedIndex = 0;
                     break;
 
-                case Infrastructure.FontFamily.Tahoma:
+                case Infrastructure.FontFamily.BTraffic:
                     FontComboBox.SelectedIndex = 1;
                     break;
 
-                case Infrastructure.FontFamily.BTraffic:
+                case Infrastructure.FontFamily.BNazanin:
                     FontComboBox.SelectedIndex = 2;
                     break;
 
-                case Infrastructure.FontFamily.BNazanin:
+                case Infrastructure.FontFamily.BYagut:
                     FontComboBox.SelectedIndex = 3;
                     break;
 
-                case Infrastructure.FontFamily.BYagut:
-                    FontComboBox.SelectedIndex = 4;
-                    break;
-
                 case Infrastructure.FontFamily.BYekan:
-                    FontComboBox.SelectedIndex = 5;
+                    FontComboBox.SelectedIndex = 4;
                     break;
 
                 default:
@@ -167,7 +163,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -202,17 +198,46 @@ namespace Fund
 
         private void ResetThemeToDefault(bool doByMessageBox)
         {
-            System.Windows.Media.FontFamily font = new System.Windows.Media.FontFamily(Infrastructure.FontFamily.BYekan);
+            System.Windows.Media.FontFamily font = new System.Windows.Media.FontFamily(Infrastructure.FontFamily.BYagut);
 
             App.Current.Resources[Infrastructure.Text.PersianFontResources] = font;
 
-            DevExpress.Xpf.Core.ApplicationThemeHelper.ApplicationThemeName =
-                DevExpress.Xpf.Core.Theme.Office2010BlueName;
+            DevExpress.Xpf.Core.ApplicationThemeHelper.ApplicationThemeName = DevExpress.Xpf.Core.Theme.Office2010BlueName;
 
-            System.Windows.Media.ImageBrush oImageBrush =
-                App.Current.Resources[DevExpress.Xpf.Core.Theme.Office2010BlueName + "Background"] as System.Windows.Media.ImageBrush;
+            Utility.SetThemeBackground(DevExpress.Xpf.Core.Theme.Office2010BlueName);
 
-            App.Current.Resources[Infrastructure.Text.BackgroundResources] = oImageBrush;
+            DAL.UnitOfWork oUnitOfWork = null;
+
+            try
+            {
+                oUnitOfWork = new DAL.UnitOfWork();
+
+                Models.User oUser = oUnitOfWork.UserRepository
+                   .GetById(Utility.CurrentUser.Id);
+
+                oUser.UserSetting.Theme.FontFamily = Infrastructure.FontFamily.BYagut;
+
+                oUser.UserSetting.Theme.ApplicationTheme = DevExpress.Xpf.Core.Theme.Office2010BlueName;
+
+                oUnitOfWork.UserRepository.Update(oUser);
+
+                Utility.CurrentUser = oUser;
+
+                oUnitOfWork.Save();
+            }
+            catch (System.Exception ex)
+            {
+                Infrastructure.MessageBox.Show(ex.Message);;
+            }
+            finally
+            {
+                if (oUnitOfWork != null)
+                {
+                    oUnitOfWork.Dispose();
+                    oUnitOfWork = null;
+                }
+
+            }
 
             ignoreMessageBox = true;
 

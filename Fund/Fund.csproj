@@ -135,6 +135,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\UserControls\MemberLoansStatusUserControl.xaml.cs">
+      <DependentUpon>MemberLoansStatusUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\TransactionViewModel.cs" />
     <Compile Include="Views\UserControls\FundTransactionsUserControl.xaml.cs">
       <DependentUpon>FundTransactionsUserControl.xaml</DependentUpon>
@@ -248,6 +251,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\UserControls\MemberLoansStatusUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\FundTransactionsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -90,7 +90,7 @@ namespace Fund
                 }
                 catch (System.Exception ex)
                 {
-                    System.Windows.MessageBox.Show(ex.Message);
+                    Infrastructure.MessageBox.Show(ex.Message);;
                 }
                 finally
                 {
@@ -164,7 +164,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {

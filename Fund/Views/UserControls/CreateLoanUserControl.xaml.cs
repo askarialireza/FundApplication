@@ -12,7 +12,6 @@ namespace Fund
 
             RefreshListBox();
 
-            string text = LoanAmountTextBox.Text;
         }
 
         private void RefreshListBox()
@@ -37,7 +36,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -135,7 +134,7 @@ namespace Fund
                 }
                 catch (System.Exception ex)
                 {
-                    System.Windows.MessageBox.Show(ex.Message);
+                    Infrastructure.MessageBox.Show(ex.Message);;
                 }
                 finally
                 {
@@ -168,8 +167,6 @@ namespace Fund
                 long zero = 0;
                 ((DevExpress.Xpf.Editors.TextEdit)sender).Text = zero.ToRialStringFormat();
             }
-
-            string text = LoanAmountTextBox.Text;
         }
 
         private void AcceptButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -290,7 +287,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -444,6 +441,7 @@ namespace Fund
                         oReminder.EventType = Models.Event.Installment;
                         oReminder.Description = string.Format("قسط {0} وام {1} به مبلغ {2}",
                             FarsiLibrary.Utils.ToWords.ToString(index + 1), Utility.CurrentMember.FullName, oInstallment.PaymentAmount.ToRialStringFormat());
+                        oReminder.InstallmentId = oInstallment.Id;
                         oReminder.FundId = Utility.CurrentFund.Id;
 
                         oUnitOfWork.RemainderRepository.Insert(oReminder);
@@ -472,7 +470,7 @@ namespace Fund
                 }
                 catch (System.Exception ex)
                 {
-                    System.Windows.MessageBox.Show(ex.Message);
+                    Infrastructure.MessageBox.Show(ex.Message);;
                 }
                 finally
                 {
@@ -492,6 +490,7 @@ namespace Fund
         private void CancelButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             System.Windows.Controls.Panel oPanel = this.Parent as System.Windows.Controls.Panel;
+
             oPanel.Children.Remove(this);
         }
     }

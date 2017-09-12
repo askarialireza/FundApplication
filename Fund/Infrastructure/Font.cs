@@ -44,13 +44,6 @@ namespace Infrastructure
                 oViewModel.FontFamily = new System.Windows.Media.FontFamily(Infrastructure.FontFamily.Arial);
 
                 FontsList.Add(oViewModel);
-
-                oViewModel = new ViewModels.FontViewModel();
-
-                oViewModel.FontName = "تاهوما";
-                oViewModel.FontFamily = new System.Windows.Media.FontFamily(Infrastructure.FontFamily.Tahoma);
-
-                FontsList.Add(oViewModel);
             }
 
             FontsList = FontsList

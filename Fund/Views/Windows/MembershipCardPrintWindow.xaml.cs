@@ -35,7 +35,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -120,7 +120,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -182,7 +182,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -248,7 +248,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {

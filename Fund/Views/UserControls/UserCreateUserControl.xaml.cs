@@ -108,7 +108,7 @@ namespace Fund
                     oUser.LastLoginTime = System.DateTime.Now;
                     oUser.RegisterationDate = System.DateTime.Now;
                     oUser.Username = username;
-                    oUser.Password = PasswordTextBox.Password.Trim();
+                    oUser.Password = Dtx.Security.Hashing.GetMD5(PasswordTextBox.Password.Trim());
                     oUser.IsAdmin = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).IsAdmin;
 
                     Models.UserSetting oUserSetting = new Models.UserSetting();
@@ -130,7 +130,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {

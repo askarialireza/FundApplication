@@ -31,7 +31,7 @@ namespace Fund
                         IsActive = !(current.IsPayed),
                         IsPayed = current.IsPayed,
                     })
-                    .OrderBy(current=>current.InstallmentDate)
+                    .OrderBy(current => current.InstallmentDate)
                     .ToList();
 
                 InstallmentPerLoanGridControl.ItemsSource = varList;
@@ -40,7 +40,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -68,6 +68,25 @@ namespace Fund
                     Models.Installment oInstallment = oUnitOfWork.InstallmentRepository
                         .GetById(oViewModel.Id);
 
+                    var varList = oUnitOfWork.InstallmentRepository
+                        .Get()
+                        .Where(current => current.LoanId == oInstallment.LoanId)
+                        .Where(current => current.IsPayed == false)
+                        .Where(current => current.InstallmentDate < oInstallment.InstallmentDate)
+                        .OrderBy(current => current.InstallmentDate)
+                        .ToList();
+
+                    if (varList.Count != 0)
+                    {
+                        Infrastructure.MessageBox.Show
+                            (
+                                caption: Infrastructure.MessageBoxCaption.Error,
+                                text: string.Format("ابتدا بایست قسط تاریخ {0} پرداخت شود.", varList.Select(current => current.PersianInstallmentDate).FirstOrDefault().ToString())
+                            );
+
+                        return;
+                    }
+
                     oInstallment.IsPayed = true;
                     oInstallment.PaymentDate = System.DateTime.Now;
 
@@ -87,20 +106,32 @@ namespace Fund
                     oTransaction.Amount = oInstallment.PaymentAmount;
                     oTransaction.Balance = oFund.Balance;
                     oTransaction.Date = System.DateTime.Now;
-                    oTransaction.Description = string.Format("پرداخت قسط به مبلغ {0} ریال از {1}", oInstallment.PaymentAmount,Utility.CurrentMember.FullName);
+                    oTransaction.Description = string.Format("پرداخت قسط به مبلغ {0} ریال از {1}", oInstallment.PaymentAmount, oInstallment.Loan.Member.FullName);
                     oTransaction.TransactionType = Models.TransactionType.Installment;
-                    oTransaction.MemberId = Utility.CurrentMember.Id;
+                    oTransaction.MemberId = oInstallment.Loan.Member.Id;
                     oTransaction.FundId = oFund.Id;
 
                     oUnitOfWork.TransactionRepository.Insert(oTransaction);
 
+                    Models.Reminder oReminder = oUnitOfWork.RemainderRepository
+                        .Get()
+                        .Where(current => current.InstallmentId == oInstallment.Id)
+                        .FirstOrDefault();
+
+                    if (oReminder != null)
+                    {
+                        oUnitOfWork.RemainderRepository.Delete(oReminder);
+                    }
+
                     oUnitOfWork.Save();
 
                     Utility.MainWindow.RefreshUserInterface();
+                    (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).MiniPersianSchedulerReminder.RefreshMonth();
+                    (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).RefreshSchedulerListBox();
                 }
                 catch (System.Exception ex)
                 {
-                    System.Windows.MessageBox.Show(ex.Message);
+                    Infrastructure.MessageBox.Show(ex.Message);;
                 }
                 finally
                 {
@@ -114,6 +145,16 @@ namespace Fund
 
                 RefreshInstallmentGridControl();
             }
+        }
+
+        private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
         }
     }
 }

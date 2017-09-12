@@ -35,6 +35,7 @@ namespace Models
         public int Day { get; set; }
         public string Description { get; set; }
         public System.Guid FundId { get; set; }
+        public System.Guid? InstallmentId { get; set; }
         public virtual Fund Fund { get; set; }
 
     }

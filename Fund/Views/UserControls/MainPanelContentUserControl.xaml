@@ -46,14 +46,14 @@
         <Grid Name="MainGrid" Width="auto" Height="auto" Margin="0">
             
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" MinHeight="200"/>
+                <RowDefinition Height="auto" MinHeight="200"/>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <dxlc:GroupBox Grid.Row="0" Header="ماه نگار" Style="{DynamicResource GroupBoxStyle}">
+            <dxlc:GroupBox Grid.Row="0" Header="ماه نگار" Style="{DynamicResource GroupBoxStyle}" Height="auto">
                 
                 <local:PersianDatePicker x:Name="MiniPersianSchedulerReminder" FlowDirection="LeftToRight" SelectedDateTimeChanged="MiniPersianSchedulerReminder_SelectedDateTimeChanged" Refresh="MiniPersianSchedulerReminder_Refresh"/>
             

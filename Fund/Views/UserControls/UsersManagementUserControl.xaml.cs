@@ -51,7 +51,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -88,7 +88,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -102,8 +102,7 @@ namespace Fund
 
         private void CloseClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            System.Windows.Controls.Panel oPanel = this.Parent as System.Windows.Controls.Panel;
-            oPanel.Children.Remove(this);
+            this.Close();
         }
 
         private void PasswordGroupBoxSwitchChecked(object sender, System.Windows.RoutedEventArgs e)
@@ -345,7 +344,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
@@ -416,7 +415,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                DevExpress.Xpf.Core.DXMessageBox.Show(ex.Message);
+                Infrastructure.MessageBox.Show(ex.Message);;
             }
             finally
             {
