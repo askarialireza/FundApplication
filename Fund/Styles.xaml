@@ -77,13 +77,11 @@
 
     <Style x:Key="LtrTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxStyle}">
         <Setter Property="FlowDirection" Value="LeftToRight"/>
-        <Setter Property="FontFamily" Value="{DynamicResource EnGlobalFontFamily}"/>
         <Setter Property="TextAlignment" Value="Left"/>
     </Style>
 
     <Style x:Key="PasswordBoxStyle" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource TextBoxStyle}">
         <Setter Property="FlowDirection" Value="LeftToRight"/>
-        <Setter Property="FontFamily" Value="{DynamicResource EnGlobalFontFamily}"/>
         <Setter Property="TextBlock.TextAlignment" Value="Left"/>
     </Style>
 

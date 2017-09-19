@@ -80,7 +80,7 @@
 
                                 <dxb:BarButtonItem x:Name="FundLoginButton" Content="ورود به صندوق" ItemClick="FundLoginClick" Glyph="pack://application:,,,/Fund;component/Resources/Icons/SafeIn32.png" Style="{DynamicResource SmallButtonStyle}"/>
 
-                                <dxb:BarButtonItem x:Name="FundSettingsButton" Content="تنظیمات صندوق" Glyph="pack://application:,,,/Fund;component/Resources/Icons/SafeSettings32.png" Style="{DynamicResource SmallButtonStyle}"/>
+                                <dxb:BarButtonItem x:Name="FundSettingsButton" Content="تنظیمات صندوق" ItemClick="FundSettingsButton_ItemClick" Glyph="pack://application:,,,/Fund;component/Resources/Icons/SafeSettings32.png" Style="{DynamicResource SmallButtonStyle}"/>
 
                                 <dxb:BarButtonItem x:Name="FundLogoutButton" Content="خروج از صندوق" ItemClick="FundLogoutClick" Glyph="pack://application:,,,/Fund;component/Resources/Icons/SafeOut32.png" Style="{DynamicResource SmallButtonStyle}"/>
 
@@ -100,11 +100,15 @@
 
                                 <dxb:BarButtonItem Content="پرداخت وام" ItemClick="BarButtonItem_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
 
+                                <dxb:BarButtonItem Name="LoanManagements" Content="مدیریت وام ها" ItemClick="LoanManagements_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
+
+                                <dxb:BarButtonItem Name="InstallmentsManagent" Content="مدیریت اقساط" ItemClick="InstallmentsManagent_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
+
                             </dxrt:RibbonPageGroup>
 
                         </dxrt:RibbonPage>
 
-                        <dxrt:RibbonPage Caption="گزارشات">
+                        <dxrt:RibbonPage Name="ReportsRibbonPage" Caption="گزارشات">
 
                             <dxrt:RibbonPageGroup Caption="گزارشات عمومی">
 
@@ -136,15 +140,13 @@
 
                                 <dxb:BarItemSeparator/>
 
-                                <dxb:BarButtonItem Content="تراز مالی اعضا" Style="{DynamicResource SmallButtonStyle}" />
-
-                                <dxb:BarButtonItem Content="تراز مالی همه اعضا" Style="{DynamicResource SmallButtonStyle}" />
+                                <dxb:BarButtonItem Content="تراز مالی اعضا" Style="{DynamicResource LargeButtonStyle}" />
 
                             </dxrt:RibbonPageGroup>
 
                             <dxrt:RibbonPageGroup Caption="گزارش وام‌ها">
 
-                                <dxb:BarButtonItem Content="لیست اقساط معوق" Glyph="pack://application:,,,/Fund;component/Resources/Icons/MoneyUndone100.png" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="DelayedInstallmentsListButton" Content="لیست اقساط معوق" Glyph="pack://application:,,,/Fund;component/Resources/Icons/MoneyUndone100.png" Style="{DynamicResource LargeButtonStyle}" ItemClick="DelayedInstallmentsListButton_ItemClick"/>
 
                                 <dxb:BarItemSeparator/>
 
@@ -153,14 +155,6 @@
                                 <dxb:BarItemSeparator/>
 
                                 <dxb:BarButtonItem Name="MemberLonasStatus" Content="وضعیت وام اعضا" RibbonStyle="Large" Style="{DynamicResource LargeButtonStyle}" ItemClick="MemberLonasStatus_ItemClick"/>
-
-                                <dxb:BarItemSeparator/>
-
-                                <dxb:BarButtonItem Content="لیست وام‌های جاری" RibbonStyle="SmallWithText" Style="{DynamicResource SmallButtonStyle}" />
-
-                                <dxb:BarButtonItem Content="لیست وام‌های تسویه‌شده" RibbonStyle="SmallWithText" Style="{DynamicResource SmallButtonStyle}" />
-
-                                <dxb:BarButtonItem Content="لیست اعضای وام نگرفته" RibbonStyle="SmallWithText" Style="{DynamicResource SmallButtonStyle}" />
 
                             </dxrt:RibbonPageGroup>
                         </dxrt:RibbonPage>

@@ -10,7 +10,7 @@ namespace Infrastructure
 
         public static System.Windows.MessageBoxResult Show(string text)
         {
-            return Infrastructure.MessageBox.Show(text);
+            return DevExpress.Xpf.Core.DXMessageBox.Show(text);
         }
 
         public static System.Windows.MessageBoxResult Show(string caption, string text)

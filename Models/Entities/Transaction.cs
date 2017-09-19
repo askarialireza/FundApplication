@@ -38,7 +38,7 @@
 
         public System.Guid FundId { get; set; }
 
-        public System.Guid MemberId { get; set; }
+        public System.Guid? MemberId { get; set; }
 
 
     }

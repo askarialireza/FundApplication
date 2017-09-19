@@ -2,32 +2,33 @@
 <StiSerializer version="1.02" type="Net" application="StiReport">
   <Dictionary Ref="1" type="Dictionary" isKey="true">
     <BusinessObjects isList="true" count="1">
-      <Members Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObject" isKey="true">
-        <Alias>Members</Alias>
+      <Transactions Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObject" isKey="true">
+        <Alias>Transactions</Alias>
         <BusinessObjects isList="true" count="0" />
         <Category />
-        <Columns isList="true" count="6">
-          <value>FullName,System.String</value>
-          <value>FatherName,System.String</value>
-          <value>NationalCode,System.String</value>
-          <value>Gender,System.String</value>
-          <value>EmailAddress,System.String</value>
-          <value>PhoneNumber,System.String</value>
+        <Columns isList="true" count="5">
+          <value>PersianDate,System.String</value>
+          <value>AmountRialFormat,System.String</value>
+          <value>BalanceRialFormat,System.String</value>
+          <value>TransactionDescription,System.String</value>
+          <value>MemberFullName,System.String</value>
         </Columns>
         <Dictionary isRef="1" />
-        <Guid>c6e4655254a649a1a1413f3d1fcc086c</Guid>
-        <Name>Members</Name>
-      </Members>
+        <Guid>f017ea6787a249d78aa9ec3feb61e8b2</Guid>
+        <Name>Transactions</Name>
+      </Transactions>
     </BusinessObjects>
     <Databases isList="true" count="0" />
     <DataSources isList="true" count="0" />
     <Relations isList="true" count="0" />
     <Report isRef="0" />
     <Resources isList="true" count="0" />
-    <Variables isList="true" count="3">
-      <value>,Today,Today,,System.String,,False,False,False,False</value>
-      <value>,FundName,FundName,,System.String,,False,False,False,False</value>
+    <Variables isList="true" count="5">
       <value>,FundManagerName,FundManagerName,,System.String,,False,False,False,False</value>
+      <value>,FundName,FundName,,System.String,,False,False,False,False</value>
+      <value>,Today,Today,,System.String,,False,False,False,False</value>
+      <value>,FromDate,FromDate,,System.String,,False,False,False,False</value>
+      <value>,ToDate,ToDate,,System.String,,False,False,False,False</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
@@ -40,30 +41,30 @@
       <Components isList="true" count="4">
         <HeaderBand1 Ref="4" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.2,7.49,1.6</ClientRectangle>
-          <Components isList="true" count="9">
+          <ClientRectangle>0,0.2,7.49,2.1</ClientRectangle>
+          <Components isList="true" count="13">
             <Text1 Ref="5" type="Text" isKey="true">
               <Brush>[0:255:255:255]</Brush>
-              <ClientRectangle>0.1,0,7.2,0.7</ClientRectangle>
+              <ClientRectangle>0.1,0,7.3,0.7</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,22,Bold</Font>
-              <Guid>42d3614f5ca346279b03ce579d4ff51b</Guid>
+              <Guid>7c491994ab424fc5ab43ed8d0cd98811</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
               <Page isRef="3" />
               <Parent isRef="4" />
-              <Text>گزارش اعضا صندوق</Text>
+              <Text>گزارش ریز حساب صندوق</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text1>
             <Text2 Ref="6" type="Text" isKey="true">
               <Brush>[0:255:255:255]</Brush>
-              <ClientRectangle>1.1,1,0.6,0.3</ClientRectangle>
+              <ClientRectangle>1.3,1,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
-              <Guid>8c91e8f5959f4844b98ce77436bb12c6</Guid>
+              <Guid>5d78a63fbf0744f2886d1af0c7ecc3df</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="3" />
@@ -75,10 +76,10 @@
             </Text2>
             <Text3 Ref="7" type="Text" isKey="true">
               <Brush>[0:255:255:255]</Brush>
-              <ClientRectangle>1.1,1.3,0.6,0.3</ClientRectangle>
+              <ClientRectangle>1.3,1.3,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
-              <Guid>cf87efb1ac404e77a9423ed9db7b5b20</Guid>
+              <Guid>40c9cdeef3a64bffadaa41b24cc229dd</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
               <Page isRef="3" />
@@ -90,11 +91,11 @@
             </Text3>
             <Text4 Ref="8" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.1,1,0.9,0.3</ClientRectangle>
+              <ClientRectangle>0.1,1,1.1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
-              <Guid>9aa027c72a3b42c79c0b3fdded893902</Guid>
-              <HorAlignment>Center</HorAlignment>
+              <Guid>a1a7252a477345e9a2b8391d2ffc5145</Guid>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
               <Page isRef="3" />
@@ -105,28 +106,26 @@
             </Text4>
             <Text5 Ref="9" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.1,1.3,0.9,0.3</ClientRectangle>
+              <ClientRectangle>0.1,1.3,1.1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
-              <Guid>357b09c882b54564b3ec68ac3b17d818</Guid>
-              <HorAlignment>Center</HorAlignment>
+              <Guid>c1c178bd49e04465b115f3cb10a81549</Guid>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
               <Page isRef="3" />
               <Parent isRef="4" />
               <Text>{Time}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="10" type="TimeFormat" isKey="true">
-                <StringFormat>HH:mm:ss</StringFormat>
-              </TextFormat>
+              <TextFormat Ref="10" type="TimeFormat" isKey="true" />
               <VertAlignment>Center</VertAlignment>
             </Text5>
             <Text6 Ref="11" type="Text" isKey="true">
               <Brush>[0:255:255:255]</Brush>
-              <ClientRectangle>6.6,1.3,0.8,0.3</ClientRectangle>
+              <ClientRectangle>6.4,1.3,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
-              <Guid>9b9a6a8c5616453c8e7b5c5a6c0804e5</Guid>
+              <Guid>3c6e5572648745f58b64fd854f56919c</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
               <Page isRef="3" />
@@ -138,10 +137,10 @@
             </Text6>
             <Text7 Ref="12" type="Text" isKey="true">
               <Brush>[0:255:255:255]</Brush>
-              <ClientRectangle>6.6,1,0.8,0.3</ClientRectangle>
+              <ClientRectangle>6.4,1,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
-              <Guid>1b1622091d2f407386b4e5cf4bbdc6af</Guid>
+              <Guid>8f4cc1da15c64056b475d875eb228b6a</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
               <Page isRef="3" />
@@ -153,9 +152,10 @@
             </Text7>
             <Text8 Ref="13" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.7,1.3,4.8,0.3</ClientRectangle>
+              <ClientRectangle>1.8,1.3,4.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
+              <Guid>5fc6c56e6d874168a020fa4d6aba4abd</Guid>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
@@ -167,9 +167,10 @@
             </Text8>
             <Text9 Ref="14" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.7,1,4.8,0.3</ClientRectangle>
+              <ClientRectangle>1.8,1,4.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
+              <Guid>61ca19c834c546708c0ec033d66dfa10</Guid>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
@@ -179,266 +180,289 @@
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </Text9>
+            <Text10 Ref="15" type="Text" isKey="true">
+              <Brush>[0:255:255:255]</Brush>
+              <ClientRectangle>5.7,1.8,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yagut,11,Bold</Font>
+              <Guid>d49e7a7d5bee420787193bf5def5eb4b</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>: لیست تراکنش‌ها  از تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text11 Ref="16" type="Text" isKey="true">
+              <Brush>[0:255:255:255]</Brush>
+              <ClientRectangle>4,1.8,0.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yagut,11,Bold</Font>
+              <Guid>e59f803db68b43409261204cca50bd15</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>: تا تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text14 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.6,1.8,1.1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yagut,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{FromDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="18" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3,1.8,1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yagut,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{ToDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
           </Components>
           <Conditions isList="true" count="0" />
-          <Guid>5a7cb8e769764d68ad582b2818e90910</Guid>
           <Name>HeaderBand1</Name>
           <Page isRef="3" />
           <Parent isRef="3" />
+          <PrintOnAllPages>False</PrintOnAllPages>
         </HeaderBand1>
-        <Header Ref="15" type="HeaderBand" isKey="true">
+        <Header Ref="19" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,2.2,7.49,0.3</ClientRectangle>
-          <Components isList="true" count="7">
-            <HeaderMembers_FullName Ref="16" type="Text" isKey="true">
+          <ClientRectangle>0,2.7,7.49,0.3</ClientRectangle>
+          <Components isList="true" count="6">
+            <HeaderTransactions_AmountRialFormat Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[219:238:243]</Brush>
-              <ClientRectangle>5.4,0,1.4,0.3</ClientRectangle>
+              <Brush>[242:220:219]</Brush>
+              <ClientRectangle>1.3,0,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>HeaderMembers_FullName</Name>
+              <Name>HeaderTransactions_AmountRialFormat</Name>
               <Page isRef="3" />
-              <Parent isRef="15" />
+              <Parent isRef="19" />
+              <Text>مقدار تراکنش</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderTransactions_AmountRialFormat>
+            <HeaderTransactions_BalanceRialFormat Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:220:219]</Brush>
+              <ClientRectangle>0.1,0,1.2,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yagut,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderTransactions_BalanceRialFormat</Name>
+              <Page isRef="3" />
+              <Parent isRef="19" />
+              <Text>موجودی صندوق</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderTransactions_BalanceRialFormat>
+            <HeaderTransactions_TransactionDescription Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:220:219]</Brush>
+              <ClientRectangle>4.1,0,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yagut,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderTransactions_TransactionDescription</Name>
+              <Page isRef="3" />
+              <Parent isRef="19" />
+              <Text>نوع تراکنش</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderTransactions_TransactionDescription>
+            <HeaderTransactions_MemberFullName Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:220:219]</Brush>
+              <ClientRectangle>2.7,0,1.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Yagut,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderTransactions_MemberFullName</Name>
+              <Page isRef="3" />
+              <Parent isRef="19" />
               <Text>نام و نام خانوادگی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </HeaderMembers_FullName>
-            <HeaderMembers_FatherName Ref="17" type="Text" isKey="true">
+            </HeaderTransactions_MemberFullName>
+            <HeaderTransactions_PersianDate Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[219:238:243]</Brush>
-              <ClientRectangle>4.5,0,0.9,0.3</ClientRectangle>
+              <Brush>[242:220:219]</Brush>
+              <ClientRectangle>5.6,0,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>HeaderMembers_FatherName</Name>
+              <Name>HeaderTransactions_PersianDate</Name>
               <Page isRef="3" />
-              <Parent isRef="15" />
-              <Text>نام پدر</Text>
+              <Parent isRef="19" />
+              <Text>تاریخ</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </HeaderMembers_FatherName>
-            <HeaderMembers_NationalCode Ref="18" type="Text" isKey="true">
+            </HeaderTransactions_PersianDate>
+            <Text12 Ref="25" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[219:238:243]</Brush>
-              <ClientRectangle>3.2,0,0.7,0.3</ClientRectangle>
+              <Brush>[242:220:219]</Brush>
+              <ClientRectangle>6.6,0,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
+              <Guid>204814a059b1423da28613c711bfb88d</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>HeaderMembers_NationalCode</Name>
+              <Name>Text12</Name>
               <Page isRef="3" />
-              <Parent isRef="15" />
-              <Text>کد ملی</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </HeaderMembers_NationalCode>
-            <HeaderMembers_Gender Ref="19" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[219:238:243]</Brush>
-              <ClientRectangle>3.9,0,0.6,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Yagut,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>HeaderMembers_Gender</Name>
-              <Page isRef="3" />
-              <Parent isRef="15" />
-              <Text>جنسیت</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </HeaderMembers_Gender>
-            <HeaderMembers_EmailAddress Ref="20" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[219:238:243]</Brush>
-              <ClientRectangle>0.1,0,2.1,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Yagut,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>HeaderMembers_EmailAddress</Name>
-              <Page isRef="3" />
-              <Parent isRef="15" />
-              <Text>پست الکترونیکی</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </HeaderMembers_EmailAddress>
-            <HeaderMembers_PhoneNumber Ref="21" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[219:238:243]</Brush>
-              <ClientRectangle>2.2,0,1,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Yagut,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>HeaderMembers_PhoneNumber</Name>
-              <Page isRef="3" />
-              <Parent isRef="15" />
-              <Text>شماره تلفن همراه</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </HeaderMembers_PhoneNumber>
-            <Text10 Ref="22" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[219:238:243]</Brush>
-              <ClientRectangle>6.8,0,0.6,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Yagut,10,Bold</Font>
-              <Guid>2ad705941e044c5b92ccb9f48522a81d</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text10</Name>
-              <Page isRef="3" />
-              <Parent isRef="15" />
+              <Parent isRef="19" />
               <Text>ردیف</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text10>
+            </Text12>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>Header</Name>
           <Page isRef="3" />
           <Parent isRef="3" />
         </Header>
-        <Data Ref="23" type="DataBand" isKey="true">
+        <Data Ref="26" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
-          <BusinessObjectGuid>c6e4655254a649a1a1413f3d1fcc086c</BusinessObjectGuid>
-          <ClientRectangle>0,2.9,7.49,0.3</ClientRectangle>
-          <Components isList="true" count="7">
-            <DataMembers_FullName Ref="24" type="Text" isKey="true">
+          <BusinessObjectGuid>f017ea6787a249d78aa9ec3feb61e8b2</BusinessObjectGuid>
+          <ClientRectangle>0,3.4,7.49,0.3</ClientRectangle>
+          <Components isList="true" count="6">
+            <DataTransactions_AmountRialFormat Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.4,0,1.4,0.3</ClientRectangle>
+              <ClientRectangle>1.3,0,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>DataMembers_FullName</Name>
+              <Name>DataTransactions_AmountRialFormat</Name>
               <Page isRef="3" />
-              <Parent isRef="23" />
-              <Text>{Members.FullName}</Text>
+              <Parent isRef="26" />
+              <Text>{Transactions.AmountRialFormat}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </DataMembers_FullName>
-            <DataMembers_FatherName Ref="25" type="Text" isKey="true">
+            </DataTransactions_AmountRialFormat>
+            <DataTransactions_BalanceRialFormat Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.5,0,0.9,0.3</ClientRectangle>
+              <ClientRectangle>0.1,0,1.2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>DataMembers_FatherName</Name>
+              <Name>DataTransactions_BalanceRialFormat</Name>
               <Page isRef="3" />
-              <Parent isRef="23" />
-              <Text>{Members.FatherName}</Text>
+              <Parent isRef="26" />
+              <Text>{Transactions.BalanceRialFormat}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </DataMembers_FatherName>
-            <DataMembers_NationalCode Ref="26" type="Text" isKey="true">
+            </DataTransactions_BalanceRialFormat>
+            <DataTransactions_TransactionDescription Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.2,0,0.7,0.3</ClientRectangle>
+              <ClientRectangle>4.1,0,1.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>DataMembers_NationalCode</Name>
+              <Name>DataTransactions_TransactionDescription</Name>
               <Page isRef="3" />
-              <Parent isRef="23" />
-              <Text>{Members.NationalCode}</Text>
+              <Parent isRef="26" />
+              <Text>{Transactions.TransactionDescription}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </DataMembers_NationalCode>
-            <DataMembers_Gender Ref="27" type="Text" isKey="true">
+            </DataTransactions_TransactionDescription>
+            <DataTransactions_MemberFullName Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.9,0,0.6,0.3</ClientRectangle>
+              <ClientRectangle>2.7,0,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>DataMembers_Gender</Name>
+              <Name>DataTransactions_MemberFullName</Name>
               <Page isRef="3" />
-              <Parent isRef="23" />
-              <Text>{Members.Gender}</Text>
+              <Parent isRef="26" />
+              <Text>{Transactions.MemberFullName}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </DataMembers_Gender>
-            <DataMembers_EmailAddress Ref="28" type="Text" isKey="true">
+            </DataTransactions_MemberFullName>
+            <DataTransactions_PersianDate Ref="31" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>0.1,0,2.1,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>Arial,10</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>DataMembers_EmailAddress</Name>
-              <Page isRef="3" />
-              <Parent isRef="23" />
-              <Text>{Members.EmailAddress}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <VertAlignment>Center</VertAlignment>
-            </DataMembers_EmailAddress>
-            <DataMembers_PhoneNumber Ref="29" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>2.2,0,1,0.3</ClientRectangle>
+              <ClientRectangle>5.6,0,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>DataMembers_PhoneNumber</Name>
+              <Name>DataTransactions_PersianDate</Name>
               <Page isRef="3" />
-              <Parent isRef="23" />
-              <Text>{Members.PhoneNumber}</Text>
+              <Parent isRef="26" />
+              <Text>{Transactions.PersianDate}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </DataMembers_PhoneNumber>
-            <Text11 Ref="30" type="Text" isKey="true">
+            </DataTransactions_PersianDate>
+            <Text13 Ref="32" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>6.8,0,0.6,0.3</ClientRectangle>
+              <ClientRectangle>6.6,0,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text11</Name>
+              <Name>Text13</Name>
               <Page isRef="3" />
-              <Parent isRef="23" />
+              <Parent isRef="26" />
               <Text>{LineThrough}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
-            </Text11>
+            </Text13>
           </Components>
           <Conditions isList="true" count="0" />
           <DataSourceName isNull="true" />
@@ -448,94 +472,80 @@
           <Parent isRef="3" />
           <Sort isList="true" count="0" />
         </Data>
-        <Footer Ref="31" type="FooterBand" isKey="true">
+        <Footer Ref="33" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,3.6,7.49,0.3</ClientRectangle>
-          <Components isList="true" count="6">
-            <FooterMembers_FullName Ref="32" type="Text" isKey="true">
+          <ClientRectangle>0,4.1,7.49,0.3</ClientRectangle>
+          <Components isList="true" count="5">
+            <FooterTransactions_PersianDate Ref="34" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.1,0,1.2,0.3</ClientRectangle>
+              <ClientRectangle>0.1,0,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>FooterMembers_FullName</Name>
+              <Name>FooterTransactions_PersianDate</Name>
               <Page isRef="3" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </FooterMembers_FullName>
-            <FooterMembers_FatherName Ref="33" type="Text" isKey="true">
+            </FooterTransactions_PersianDate>
+            <FooterTransactions_AmountRialFormat Ref="35" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.3,0,1.3,0.3</ClientRectangle>
+              <ClientRectangle>1.5,0,1.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>FooterMembers_FatherName</Name>
+              <Name>FooterTransactions_AmountRialFormat</Name>
               <Page isRef="3" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </FooterMembers_FatherName>
-            <FooterMembers_NationalCode Ref="34" type="Text" isKey="true">
+            </FooterTransactions_AmountRialFormat>
+            <FooterTransactions_BalanceRialFormat Ref="36" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.6,0,1.2,0.3</ClientRectangle>
+              <ClientRectangle>3,0,1.3,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>FooterMembers_NationalCode</Name>
+              <Name>FooterTransactions_BalanceRialFormat</Name>
               <Page isRef="3" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </FooterMembers_NationalCode>
-            <FooterMembers_Gender Ref="35" type="Text" isKey="true">
+            </FooterTransactions_BalanceRialFormat>
+            <FooterTransactions_TransactionDescription Ref="37" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.8,0,1.2,0.3</ClientRectangle>
+              <ClientRectangle>4.3,0,1.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>FooterMembers_Gender</Name>
+              <Name>FooterTransactions_TransactionDescription</Name>
               <Page isRef="3" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </FooterMembers_Gender>
-            <FooterMembers_EmailAddress Ref="36" type="Text" isKey="true">
+            </FooterTransactions_TransactionDescription>
+            <FooterTransactions_MemberFullName Ref="38" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>5,0,1.2,0.3</ClientRectangle>
+              <ClientRectangle>5.8,0,1.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>FooterMembers_EmailAddress</Name>
+              <Name>FooterTransactions_MemberFullName</Name>
               <Page isRef="3" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </FooterMembers_EmailAddress>
-            <FooterMembers_PhoneNumber Ref="37" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>6.2,0,1.2,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>Arial,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>FooterMembers_PhoneNumber</Name>
-              <Page isRef="3" />
-              <Parent isRef="31" />
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <VertAlignment>Center</VertAlignment>
-            </FooterMembers_PhoneNumber>
+            </FooterTransactions_MemberFullName>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>Footer</Name>
@@ -544,21 +554,21 @@
         </Footer>
       </Components>
       <Conditions isList="true" count="0" />
-      <Guid>9eecdacca0da49df8a080768480b6818</Guid>
+      <Guid>be88944636dd41ed9ca25cfa7815db79</Guid>
       <Margins>0.39,0.39,0.39,0.39</Margins>
       <Name>Page1</Name>
       <PageHeight>11.69</PageHeight>
       <PageWidth>8.27</PageWidth>
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
-      <Watermark Ref="38" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="39" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
   <PreviewSettings>268435455</PreviewSettings>
-  <PrinterSettings Ref="39" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="40" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -570,10 +580,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>9/13/2017 3:16:46 PM</ReportChanged>
-  <ReportCreated>7/14/2017 5:35:15 PM</ReportCreated>
-  <ReportFile>C:\Users\Alireza\Documents\Visual Studio 2015\Projects\Fund\Fund\Resources\Reports\MembersViewReport.mrt</ReportFile>
-  <ReportGuid>9ba039af943c4e468e4416cbd1438ffc</ReportGuid>
+  <ReportChanged>9/13/2017 3:24:33 PM</ReportChanged>
+  <ReportCreated>9/13/2017 11:15:53 AM</ReportCreated>
+  <ReportFile>C:\Users\Alireza\Documents\Visual Studio 2015\Projects\Fund\Fund\Resources\Reports\TransactionsReport.mrt</ReportFile>
+  <ReportGuid>a1fdc67ac581432a9cd24c3a3d73a873</ReportGuid>
   <ReportImage isNull="true" />
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>

@@ -19,6 +19,7 @@ namespace Fund
             DateValueTextEdit.Text = SelectedPersianDateTime.ToString("d");
 
             Text = DateValueTextEdit.Text;
+
         }
 
         private void SimpleButton_Checked(object sender, System.Windows.RoutedEventArgs e)
@@ -62,9 +63,9 @@ namespace Fund
             {
                 DatePickerPopupCalendar.GoToDate(SelectedPersianDateTime);
 
-                SelectedDateTime = FarsiLibrary.Utils.PersianDateConverter.ToGregorianDateTime(FarsiLibrary.Utils.PersianDate.Now);
+                SelectedDateTime = FarsiLibrary.Utils.PersianDateConverter.ToGregorianDateTime(FarsiLibrary.Utils.PersianDate.Today);
 
-                SelectedPersianDateTime = FarsiLibrary.Utils.PersianDate.Now;
+                SelectedPersianDateTime = FarsiLibrary.Utils.PersianDate.Today;
             }
 
             Text = DateValueTextEdit.Text;

@@ -14,7 +14,7 @@
                 HasRequired(current => current.Member)
                     .WithMany(member => member.Loans)
                     .HasForeignKey(current => current.MemberId)
-                    .WillCascadeOnDelete(false);
+                    .WillCascadeOnDelete(true);
             }
         }
 

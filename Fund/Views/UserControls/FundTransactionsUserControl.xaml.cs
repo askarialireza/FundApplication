@@ -22,7 +22,7 @@ namespace Fund
                 var varList = oUnitOfWork.TransactionRepository
                     .Get()
                     .Where(current => current.FundId == Utility.CurrentFund.Id)
-                    .OrderBy(current=>current.Date)
+                    .OrderBy(current => current.Date)
                     .Select(current => new ViewModels.TransactionViewModel()
                     {
                         Id = current.Id,
@@ -36,13 +36,23 @@ namespace Fund
                     })
                     .ToList();
 
+                if (varList.Count == 0)
+                {
+                    Infrastructure.MessageBox.Show("تراکنشی برای صندوق در سیسستم ثبت نگردیده است .");
+
+                    this.Close();
+                }
+
                 GridControl.ItemsSource = varList;
+
+                fromDatePicker.DateValueTextEdit.Text = varList.Select(current => current.Date).FirstOrDefault().ToPersianDate();
+                toDatePicker.DateValueTextEdit.Text = varList.Select(current => current.Date).LastOrDefault().ToPersianDate();
 
                 oUnitOfWork.Save();
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -59,7 +69,7 @@ namespace Fund
         {
             #region Error Handling Messages
 
-            if(toDatePicker.SelectedDateTime < fromDatePicker.SelectedDateTime)
+            if (toDatePicker.SelectedDateTime < fromDatePicker.SelectedDateTime)
             {
                 Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "بازه زمانی درج شده نامعتبر می باشد.");
 
@@ -96,7 +106,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -112,6 +122,61 @@ namespace Fund
         private void ShowAllButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             LoadGridControl();
+        }
+
+        private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ShowReport(reportType: Infrastructure.ReportType.Print);
+        }
+
+        private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ShowReport(reportType: Infrastructure.ReportType.ExportToPDF);
+        }
+
+        private void ShowReport(Infrastructure.ReportType reportType)
+        {
+            var varList =
+                (GridControl.ItemsSource as System.Collections.Generic.List<ViewModels.TransactionViewModel>)
+                .OrderBy(current => current.Date)
+                .Select(current => new
+                {
+                    current.AmountRialFormat,
+                    current.BalanceRialFormat,
+                    current.PersianDate,
+                    current.TransactionDescription,
+                    MemberFullName = current.MemberFullName.ToString(),
+                })
+                .ToList();
+
+            if (varList.Count == 0)
+            {
+                Infrastructure.MessageBox.Show
+                    (
+                        caption: Infrastructure.MessageBoxCaption.Error,
+                        text: "اطلاعاتی برای تهیه گزارش در جدول موجود نمی‌باشد. " + System.Environment.NewLine + "لطفا بازه زمانی دیگری را انتخاب نمایید."
+                    );
+
+                return;
+            }
+
+            Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
+
+            oStiReport.Load(Properties.Resources.TransactionsReport);
+            oStiReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
+            oStiReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
+            oStiReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
+            oStiReport.Dictionary.Variables.Add("FromDate", varList.Select(current => current.PersianDate).FirstOrDefault());
+            oStiReport.Dictionary.Variables.Add("ToDate", varList.Select(current => current.PersianDate).LastOrDefault());
+            oStiReport.RegBusinessObject("Transactions", varList);
+            oStiReport.Compile();
+            oStiReport.RenderWithWpf();
+            oStiReport.DoAction(action: reportType, fileName: "گزارش ریز حساب صندوق");
+        }
+
+        private void closeButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

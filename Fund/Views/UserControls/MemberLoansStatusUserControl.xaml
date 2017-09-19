@@ -59,18 +59,18 @@
 
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="45"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1.5*"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0" Margin="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1.5*"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Content="جستجوی اعضا :" Grid.Column="0" Margin="5" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Right"/>
+                    <Label Content="جستجوی اعضا :" Grid.Column="0" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right" Margin="5,0"/>
 
                     <TextBox x:Name="SearchMemberTextBox" Grid.Column="1" Margin="0,2" Style="{DynamicResource RtlTextBoxStyle}" TextAlignment="Left" Height="auto" TextChanged="SearchMemberTextBox_TextChanged" />
 
@@ -91,7 +91,7 @@
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
 
-                            <Border Grid.Row="0" Height="150" Width="150" BorderBrush="DarkGray" BorderThickness="1">
+                            <Border Grid.Row="0" Height="150" Width="150" BorderBrush="DarkGray" BorderThickness="0">
                                 <Image Name="MemberImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Stretch="UniformToFill"/>
                             </Border>
 
@@ -120,7 +120,12 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <ComboBox Grid.Column="0" Height="AUTO" Margin="5"/>
+
+                    <ComboBox Name="LoanStatusComboBox" Grid.Column="0" Height="AUTO" Width="140" Margin="5" SelectedIndex="0" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="14" FontWeight="Bold" SelectionChanged="LoanStatusComboBox_SelectionChanged" IsEditable="False">
+                        <ComboBoxItem Content="همه وام‌های ثبت شده" VerticalAlignment="Center" />
+                        <ComboBoxItem Content="وام‌های جاری" VerticalAlignment="Center"/>
+                        <ComboBoxItem Content="وام‌های تسویه شده" VerticalAlignment="Center"/>
+                    </ComboBox>
 
                 </Grid>
                 
@@ -132,17 +137,27 @@
                             <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row"  ShowAutoFilterRow="False"  ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
                         </dxg:GridControl.View>
 
-                        <dxg:GridColumn Header="مبلغ وام" Binding="{Binding LoanAmount, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="مبلغ وام" Binding="{Binding LoanAmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="تاریخ پرداخت" Binding="{Binding StartDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تاریخ پرداخت" Binding="{Binding PersianStartDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
                         <dxg:GridColumn Header="تعداد اقساط" Binding="{Binding InstallmentsCount, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="بازپرداخت" Binding="{Binding RefundAmount, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="بازپرداخت" Binding="{Binding RefundAmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding EndDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding PersianEndDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
+                        <dxg:GridColumn Header="تسویه حساب شده است" Binding="{Binding IsPayedDescrption, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        
                         <dxg:GridColumn Header="توضیحات" Binding="{Binding Description, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+
+                        <dxg:GridColumn Header="اقساط" Binding="{Binding Description, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}">
+                            <dxg:GridColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="InstallmentsOfLoan" IsEnabled="{Binding RowData.Row.IsActive}" Content="نمایش لیست اقساط" Click="InstallmentsOfLoan_Click"/>
+                                </DataTemplate>
+                            </dxg:GridColumn.CellTemplate>
+                        </dxg:GridColumn>
 
                         <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
 
@@ -161,6 +176,10 @@
         </Grid>
 
         <Grid Grid.Row="2">
+
+            <dx:SimpleButton x:Name="PrintButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/Print32.png" ToolTip="چاپ" Margin="0,0,90,4" Click="PrintButton_Click" />
+
+            <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF" Margin="0,0,143,4" Click="ExportToPdfButton_Click"/>
 
             <dx:SimpleButton x:Name="CancelButton" Style="{DynamicResource CancelButtonStyle}" Height="32" Grid.Column="0" Click="CancelButton_Click" Margin="0,0,5,4"/>
 

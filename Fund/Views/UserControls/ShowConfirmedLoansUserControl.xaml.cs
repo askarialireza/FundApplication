@@ -22,12 +22,12 @@ namespace Fund
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            ShowReport(Infrastructure.ReportType.ExportToPDF);
         }
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            ShowReport(Infrastructure.ReportType.ExportToPDF);
         }
 
         private void LoadGridControl()
@@ -40,6 +40,7 @@ namespace Fund
 
                 var varList = oUnitOfWork.LoanRepository
                     .Get()
+                    .Where(current=>current.Member.FundId == Utility.CurrentFund.Id)
                     .OrderBy(current => current.StartDate)
                     .Select(current => new ViewModels.LoanViewModel()
                     {
@@ -51,6 +52,7 @@ namespace Fund
                         RefundAmount = current.RefundAmount,
                         EndDate = current.EndDate,
                         MemberId = current.MemberId,
+                        IsPayed = current.IsPayed,
                     })
                     .ToList();
 
@@ -69,7 +71,6 @@ namespace Fund
                     oUnitOfWork.Dispose();
                     oUnitOfWork = null;
                 }
-
             }
         }
 
@@ -91,6 +92,47 @@ namespace Fund
 
                 oShowInstallmentsListPerLoanWindow.ShowDialog();
             }
+        }
+
+        private void ShowReport(Infrastructure.ReportType reportType)
+        {
+            var varList = (LoansGridControl.ItemsSource as System.Collections.Generic.List<ViewModels.LoanViewModel>)
+                .OrderBy(current => current.StartDate)
+                .Select(current => new
+                {
+                    current.LoanAmountRialFormat,
+                    current.RefundAmountRialFormat,
+                    current.PersianEndDate,
+                    current.PersianStartDate,
+                    current.InstallmentsCount,
+                    current.IsPayedDescrption,
+                    FullName = current.FullName.ToString(),
+                })
+                .ToList();
+
+            if (varList.Count == 0)
+            {
+                Infrastructure.MessageBox.Show
+                    (
+                        caption: Infrastructure.MessageBoxCaption.Error,
+                        text: "اطلاعاتی برای تهیه گزارش در جدول موجود نمی‌باشد. "
+                    );
+
+                return;
+            }
+
+            Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
+
+            oStiReport.Load(Properties.Resources.ConfirmedLoansListReport);
+
+            oStiReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
+            oStiReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
+            oStiReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
+            oStiReport.RegBusinessObject("Loans", varList);
+            oStiReport.Compile();
+            oStiReport.RenderWithWpf();
+
+            oStiReport.DoAction(action: reportType, fileName: "گزارش وام‌های پرداختی");
         }
     }
 }

@@ -2,56 +2,13 @@
 
 namespace Fund
 {
-    public partial class ShowInstallmentsListPerLoanWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class DelayedInstallmentsListUserControl : System.Windows.Controls.UserControl
     {
-
-        public ShowInstallmentsListPerLoanWindow()
+        public DelayedInstallmentsListUserControl()
         {
             InitializeComponent();
 
-            RefreshInstallmentGridControl();
-        }
-
-        private void RefreshInstallmentGridControl()
-        {
-            DAL.UnitOfWork oUnitOfWork = null;
-
-            try
-            {
-                oUnitOfWork = new DAL.UnitOfWork();
-
-                var varList = oUnitOfWork.InstallmentRepository
-                    .Get()
-                    .Where(current => current.LoanId == Utility.CurrentLoan.Id)
-                    .Select(current => new ViewModels.InstallmentViewModel()
-                    {
-                        Id = current.Id,
-                        Amount = current.PaymentAmount,
-                        InstallmentDate = current.InstallmentDate,
-                        PaymentDate = current.PaymentDate,
-                        IsActive = !(current.IsPayed),
-                        IsPayed = current.IsPayed,
-                    })
-                    .OrderBy(current => current.InstallmentDate)
-                    .ToList();
-
-                InstallmentPerLoanGridControl.ItemsSource = varList;
-
-                oUnitOfWork.Save();
-            }
-            catch (System.Exception ex)
-            {
-                Infrastructure.MessageBox.Show(ex.Message); ;
-            }
-            finally
-            {
-                if (oUnitOfWork != null)
-                {
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
-                }
-
-            }
+            RefreshGridControl();
         }
 
         private void PayInstallmentsButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -157,10 +114,7 @@ namespace Fund
                         oUnitOfWork.Dispose();
                         oUnitOfWork = null;
                     }
-
                 }
-
-                RefreshInstallmentGridControl();
             }
         }
 
@@ -174,33 +128,97 @@ namespace Fund
             ShowReport(Infrastructure.ReportType.ExportToPDF);
         }
 
+        private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void ShowReport(Infrastructure.ReportType reportType)
         {
-            var varList = (InstallmentPerLoanGridControl.ItemsSource as System.Collections.Generic.List<ViewModels.InstallmentViewModel>)
-                .Select(current=> new
+
+        }
+
+        private void RefreshGridControl()
+        {
+            DAL.UnitOfWork oUnitOfWork = null;
+
+            try
+            {
+                oUnitOfWork = new DAL.UnitOfWork();
+
+                var varList = oUnitOfWork.InstallmentRepository
+                    .Get()
+                    .Where(current => current.Loan.Member.FundId == Utility.CurrentFund.Id)
+                    .Where(current => current.IsPayed == false)
+                    .Where(current => current.InstallmentDate < System.DateTime.Today)
+                    .OrderBy(current => current.InstallmentDate)
+                    .Select(current => new ViewModels.InstallmentViewModel()
+                    {
+                        Id = current.Id,
+                        Amount = current.PaymentAmount,
+                        InstallmentDate = current.InstallmentDate,
+                        PaymentDate = current.PaymentDate,
+                        MemberId = current.Loan.MemberId,
+                        IsPayed = current.IsPayed,
+                    })
+                    .ToList();
+
+                InstallmentPerLoanGridControl.ItemsSource = varList;
+
+                oUnitOfWork.Save();
+            }
+            catch (System.Exception ex)
+            {
+                Infrastructure.MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (oUnitOfWork != null)
                 {
-                    current.AmountRialFormat,
-                    current.PersianInstallmentDate,
-                    current.PersianPaymentDate,
-                    current.IsPayedDescription,
-                })
-                .ToList();
+                    oUnitOfWork.Dispose();
+                    oUnitOfWork = null;
+                }
+            }
+        }
 
-            Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
+        private void LoanOfInstallmentDetailsButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ViewModels.InstallmentViewModel oInstallmentViewModel = InstallmentPerLoanGridControl.SelectedItem as ViewModels.InstallmentViewModel;
 
-            oStiReport.Load(Properties.Resources.InstallmentListReport);
+            if (oInstallmentViewModel != null)
+            {
+                DAL.UnitOfWork oUnitOfWork = null;
 
-            oStiReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
-            oStiReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
-            oStiReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
-            oStiReport.Dictionary.Variables.Add("MemberName", Utility.CurrentLoan.Member.FullName.ToString());
-            oStiReport.Dictionary.Variables.Add("LoanAmount", (new ViewModels.LoanViewModel { LoanAmount = Utility.CurrentLoan.LoanAmount }).LoanAmountRialFormat);
-            oStiReport.Dictionary.Variables.Add("RefundAmount", (new ViewModels.LoanViewModel { RefundAmount = Utility.CurrentLoan.RefundAmount }).RefundAmountRialFormat);
+                try
+                {
+                    oUnitOfWork = new DAL.UnitOfWork();
 
-            oStiReport.RegBusinessObject("InstallmentsList", varList);
-            oStiReport.Compile();
-            oStiReport.RenderWithWpf();
-            oStiReport.DoAction(action: reportType, fileName: "گزارش لیست اقساط");
+                    System.Guid LoanId = oUnitOfWork.InstallmentRepository
+                        .GetById(oInstallmentViewModel.Id).LoanId;
+
+                    Models.Loan oLoan = oUnitOfWork.LoanRepository
+                        .GetById(LoanId);
+
+                    oUnitOfWork.Save();
+
+                    LoanDetailsWindow oLoanDetailsWindow = new LoanDetailsWindow(oLoan.Id);
+
+                    oLoanDetailsWindow.ShowDialog();
+
+                }
+                catch (System.Exception ex)
+                {
+                    Infrastructure.MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (oUnitOfWork != null)
+                    {
+                        oUnitOfWork.Dispose();
+                        oUnitOfWork = null;
+                    }
+                }
+            }
         }
     }
 }

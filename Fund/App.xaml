@@ -13,6 +13,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes.xaml"/>
                 <ResourceDictionary Source="Styles.xaml"/>
+                <ResourceDictionary Source="UserControlLayout.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         

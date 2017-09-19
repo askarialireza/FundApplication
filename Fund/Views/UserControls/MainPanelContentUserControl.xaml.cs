@@ -19,16 +19,23 @@ namespace Fund
 
             DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
 
-            FundManagerNameLabel.Content = (Utility.CurrentFund != null) ? FundManagerNameLabel.Content : string.Empty;
-            FundBalanceLabel.Content = (Utility.CurrentFund != null) ? FundBalanceLabel.Content : string.Empty;
-            FundRemovalLimitLabel.Content = (Utility.CurrentFund != null) ? FundRemovalLimitLabel.Content : string.Empty;
-            FundMembersCountLabel.Content = (Utility.CurrentFund != null) ? FundMembersCountLabel.Content : string.Empty;
+            FundDetailsGroupBox.Header = Utility.CurrentFund.Name;
 
-            FundDetailsGroupBox.Header = (Utility.CurrentFund != null) ? Utility.CurrentFund.Name : string.Empty;
-            FundManagerNameValue.Content = (Utility.CurrentFund != null) ? Utility.CurrentFund.ManagerName : string.Empty;
-            FundBalanceValue.Content = (Utility.CurrentFund != null) ? Utility.CurrentFund.Balance.ToRialStringFormat() : string.Empty;
-            FundRemovalLimitValue.Content = (Utility.CurrentFund != null) ? Utility.CurrentFund.RemovalLimit.ToRialStringFormat() : string.Empty;
-            FundMembersCountValue.Content = (Utility.CurrentFund != null) ? string.Format("{0} نفر", oUnitOfWork.FundRepository.MembersCountByFund(Utility.CurrentFund).ToString()) : string.Empty;
+            FundManagerNameValue.Content = Utility.CurrentFund.ManagerName;
+
+            FundBalanceValue.Content = Utility.CurrentFund.Balance.ToRialStringFormat();
+
+            FundRemovalLimitValue.Content = Utility.CurrentFund.RemovalLimit.ToRialStringFormat();
+
+            FundMembersCountValue.Content = string.Format("{0} نفر", oUnitOfWork.FundRepository.MembersCountByFund(Utility.CurrentFund));
+
+            FundPercentValue.Content = string.Format("{0} درصد", Utility.CurrentFund.Percent);
+
+            LoansCountValue.Content = string.Format("{0} وام", oUnitOfWork.LoanRepository.Get().Where(current => current.Member.FundId == Utility.CurrentFund.Id).Count());
+
+            PayedLoansCountValue.Content = string.Format("{0} وام", oUnitOfWork.LoanRepository.Get().Where(current => current.Member.FundId == Utility.CurrentFund.Id).Where(current=>current.IsPayed==true).Count());
+
+            CurrentLoansCountValue.Content = string.Format("{0} وام", oUnitOfWork.LoanRepository.Get().Where(current => current.Member.FundId == Utility.CurrentFund.Id).Where(current => current.IsPayed == false).Count());
         }
 
         public void RefreshSchedulerListBox()

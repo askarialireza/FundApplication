@@ -1,0 +1,92 @@
+﻿<ResourceDictionary 
+    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Fund"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    >
+
+    <Style x:Key="TextEdit" TargetType="{x:Type dxe:TextEdit}">
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FlowDirection" Value="RightToLeft"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="0,5"/>
+    </Style>
+
+    <Style x:Key="TextEditCol0" TargetType="{x:Type dxe:TextEdit}" BasedOn="{StaticResource TextEdit}">
+        <Setter Property="Grid.Column" Value="0"/>
+    </Style>
+
+    <Style x:Key="TextEditCol1" TargetType="{x:Type dxe:TextEdit}" BasedOn="{StaticResource TextEdit}">
+        <Setter Property="Grid.Column" Value="1"/>
+    </Style>
+
+    <Style x:Key="TextEditCol2" TargetType="{x:Type dxe:TextEdit}" BasedOn="{StaticResource TextEdit}">
+        <Setter Property="Grid.Column" Value="2"/>
+    </Style>
+
+    <Style x:Key="TextEditCol3" TargetType="{x:Type dxe:TextEdit}" BasedOn="{StaticResource TextEdit}">
+        <Setter Property="Grid.Column" Value="3"/>
+    </Style>
+
+    <Style x:Key="TextEditCol4" TargetType="{x:Type dxe:TextEdit}" BasedOn="{StaticResource TextEdit}">
+        <Setter Property="Grid.Column" Value="4"/>
+    </Style>
+
+    <Style x:Key="TextEditCol5" TargetType="{x:Type dxe:TextEdit}" BasedOn="{StaticResource TextEdit}">
+        <Setter Property="Grid.Column" Value="5"/>
+    </Style>
+
+    <Style x:Key="TextEditCol6" TargetType="{x:Type dxe:TextEdit}" BasedOn="{StaticResource TextEdit}">
+        <Setter Property="Grid.Column" Value="6"/>
+    </Style>
+
+    <Style x:Key="Label" TargetType="{x:Type Label}">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Grid.ColumnSpan" Value="1"/>
+        <Setter Property="Margin" Value="5,0"/>
+    </Style>
+
+    <Style x:Key="LabelCol0" TargetType="{x:Type Label}" BasedOn="{StaticResource Label}">
+        <Setter Property="Grid.Column" Value="0"/>
+    </Style>
+
+    <Style x:Key="LabelCol1" TargetType="{x:Type Label}" BasedOn="{StaticResource Label}">
+        <Setter Property="Grid.Column" Value="1"/>
+    </Style>
+
+    <Style x:Key="LabelCol2" TargetType="{x:Type Label}" BasedOn="{StaticResource Label}">
+        <Setter Property="Grid.Column" Value="2"/>
+    </Style>
+
+    <Style x:Key="LabelCol3" TargetType="{x:Type Label}" BasedOn="{StaticResource Label}">
+        <Setter Property="Grid.Column" Value="3"/>
+    </Style>
+
+    <Style x:Key="LabelCol4" TargetType="{x:Type Label}" BasedOn="{StaticResource Label}">
+        <Setter Property="Grid.Column" Value="4"/>
+    </Style>
+
+    <Style x:Key="LabelCol5" TargetType="{x:Type Label}" BasedOn="{StaticResource Label}">
+        <Setter Property="Grid.Column" Value="5"/>
+    </Style>
+
+    <Style x:Key="LabelCol6" TargetType="{x:Type Label}" BasedOn="{StaticResource Label}">
+        <Setter Property="Grid.Column" Value="6"/>
+    </Style>
+
+    <Style x:Key="Button" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="0,6"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Grid.Column" Value="2"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Content" Value="حذف"/>
+    </Style>
+
+</ResourceDictionary>

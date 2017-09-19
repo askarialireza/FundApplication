@@ -47,6 +47,7 @@ namespace Fund
                 oUnitOfWork.Save();
 
                 long sum = 0;
+
                  sum = varList
                     .Select(current => current.DebtAmount)
                     .Sum();
@@ -69,25 +70,27 @@ namespace Fund
                     oUnitOfWork.Dispose();
                     oUnitOfWork = null;
                 }
-
             }
-
         }
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            ShowReport(reportType: Infrastructure.ReportType.Print);
         }
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ShowReport(reportType: Infrastructure.ReportType.ExportToPDF);
+        }
+
+        private void ShowReport(Infrastructure.ReportType reportType)
         {
 
         }
 
         private void closeButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            System.Windows.Controls.Panel oPanel = this.Parent as System.Windows.Controls.Panel;
-            oPanel.Children.Remove(this);
+            this.Close();
         }
     }
 }

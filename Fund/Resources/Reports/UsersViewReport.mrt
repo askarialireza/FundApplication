@@ -36,11 +36,11 @@
       <Components isList="true" count="4">
         <HeaderBand1 Ref="4" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.2,7.72,1.6</ClientRectangle>
+          <ClientRectangle>0,0.2,7.49,1.6</ClientRectangle>
           <Components isList="true" count="5">
             <Text1 Ref="5" type="Text" isKey="true">
               <Brush>[0:255:255:255]</Brush>
-              <ClientRectangle>0,0,7.7,0.7</ClientRectangle>
+              <ClientRectangle>0.1,0,7.3,0.7</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,22,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -55,7 +55,7 @@
             </Text1>
             <Text2 Ref="6" type="Text" isKey="true">
               <Brush>[0:255:255:255]</Brush>
-              <ClientRectangle>1.4,1,0.6,0.3</ClientRectangle>
+              <ClientRectangle>1.5,1,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
               <Guid>b13fda780dfa4c999d2a813eeb4e4980</Guid>
@@ -71,7 +71,7 @@
             </Text2>
             <Text3 Ref="7" type="Text" isKey="true">
               <Brush>[0:255:255:255]</Brush>
-              <ClientRectangle>1.4,1.3,0.6,0.3</ClientRectangle>
+              <ClientRectangle>1.5,1.3,0.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
               <Guid>1223efcae1204e8d9a373cf17e44fe86</Guid>
@@ -87,7 +87,7 @@
             </Text3>
             <Text4 Ref="8" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.4,1,1,0.3</ClientRectangle>
+              <ClientRectangle>0.5,1,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -101,7 +101,7 @@
             </Text4>
             <Text5 Ref="9" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.4,1.3,1,0.3</ClientRectangle>
+              <ClientRectangle>0.5,1.3,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -124,12 +124,12 @@
         </HeaderBand1>
         <Header Ref="11" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,2.2,7.72,0.3</ClientRectangle>
+          <ClientRectangle>0,2.2,7.49,0.3</ClientRectangle>
           <Components isList="true" count="5">
             <HeaderUsers_PersianLastLoginTime Ref="12" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
-              <ClientRectangle>0,0,1.8,0.3</ClientRectangle>
+              <ClientRectangle>0.1,0,1.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -163,7 +163,7 @@
             <HeaderUsers_PersianRegisterationDate Ref="14" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
-              <ClientRectangle>3.1,0,1.9,0.3</ClientRectangle>
+              <ClientRectangle>3.1,0,1.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -180,7 +180,7 @@
             <HeaderUsers_Username Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
-              <ClientRectangle>5,0,1.6,0.3</ClientRectangle>
+              <ClientRectangle>4.9,0,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -197,7 +197,7 @@
             <Text6 Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
-              <ClientRectangle>6.6,0,1.1,0.3</ClientRectangle>
+              <ClientRectangle>6.3,0,1.1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
               <Guid>75c1937918b044e89991c24f05e55f5b</Guid>
@@ -221,12 +221,12 @@
         <Data Ref="17" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid>92161360c7df4106b2942967f6679f08</BusinessObjectGuid>
-          <ClientRectangle>0,2.9,7.72,0.3</ClientRectangle>
+          <ClientRectangle>0,2.9,7.49,0.3</ClientRectangle>
           <Components isList="true" count="5">
             <Text7 Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>6.6,0,1.1,0.3</ClientRectangle>
+              <ClientRectangle>6.3,0,1.1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10</Font>
               <HorAlignment>Center</HorAlignment>
@@ -256,7 +256,7 @@
             <Text9 Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>5,0,1.6,0.3</ClientRectangle>
+              <ClientRectangle>4.9,0,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,10</Font>
               <HorAlignment>Center</HorAlignment>
@@ -271,7 +271,7 @@
             <Text10 Ref="21" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,1.8,0.3</ClientRectangle>
+              <ClientRectangle>0.1,0,1.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10</Font>
               <HorAlignment>Center</HorAlignment>
@@ -286,7 +286,7 @@
             <Text11 Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.1,0,1.9,0.3</ClientRectangle>
+              <ClientRectangle>3.1,0,1.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10</Font>
               <HorAlignment>Center</HorAlignment>
@@ -309,11 +309,11 @@
         </Data>
         <Footer Ref="23" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,3.6,7.72,0.3</ClientRectangle>
+          <ClientRectangle>0,3.6,7.49,0.3</ClientRectangle>
           <Components isList="true" count="4">
             <FooterUsers_PersianLastLoginTime Ref="24" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,1.9,0.3</ClientRectangle>
+              <ClientRectangle>0.1,0,1.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -341,7 +341,7 @@
             </FooterUsers_IsAdmin>
             <FooterUsers_PersianRegisterationDate Ref="26" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.8,0,1.9,0.3</ClientRectangle>
+              <ClientRectangle>3.8,0,1.7,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -355,7 +355,7 @@
             </FooterUsers_PersianRegisterationDate>
             <FooterUsers_Username Ref="27" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.7,0,2,0.3</ClientRectangle>
+              <ClientRectangle>5.5,0,1.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Yagut,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -378,9 +378,9 @@
       <Guid>4608fd4de75546ca9fc7f0218fb15a3c</Guid>
       <Margins>0.39,0.39,0.39,0.39</Margins>
       <Name>Page1</Name>
-      <PageHeight>11</PageHeight>
-      <PageWidth>8.5</PageWidth>
-      <PaperSize>Letter</PaperSize>
+      <PageHeight>11.69</PageHeight>
+      <PageWidth>8.27</PageWidth>
+      <PaperSize>A4</PaperSize>
       <Report isRef="0" />
       <Watermark Ref="28" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
@@ -401,10 +401,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>9/12/2017 3:25:19 PM</ReportChanged>
+  <ReportChanged>9/13/2017 3:18:32 PM</ReportChanged>
   <ReportCreated>7/6/2017 11:07:07 PM</ReportCreated>
   <ReportFile>C:\Users\Alireza\Documents\Visual Studio 2015\Projects\Fund\Fund\Resources\Reports\UsersViewReport.mrt</ReportFile>
-  <ReportGuid>3d2fe996d7334a07a685d8d1fffaabf8</ReportGuid>
+  <ReportGuid>827e292e8bf84201b2c48535ac5c000b</ReportGuid>
   <ReportImage isNull="true" />
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>

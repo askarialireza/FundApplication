@@ -33,7 +33,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -42,7 +42,6 @@ namespace Fund
                     oUnitOfWork.Dispose();
                     oUnitOfWork = null;
                 }
-
             }
 
             MembersListBox.SelectedIndex = 0;
@@ -67,7 +66,6 @@ namespace Fund
 
                 RefreshGridControl();
             }
-
         }
 
         private void SearchMemberTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -131,7 +129,7 @@ namespace Fund
                 }
                 catch (System.Exception ex)
                 {
-                    Infrastructure.MessageBox.Show(ex.Message);;
+                    Infrastructure.MessageBox.Show(ex.Message); ;
                 }
                 finally
                 {
@@ -140,7 +138,6 @@ namespace Fund
                         oUnitOfWork.Dispose();
                         oUnitOfWork = null;
                     }
-
                 }
             }
         }
@@ -264,6 +261,7 @@ namespace Fund
                 var varList = oUnitOfWork.LoanRepository
                     .Get()
                     .Where(current => current.MemberId == Utility.CurrentMember.Id)
+                    .OrderBy(current => current.StartDate)
                     .Select(current => new ViewModels.LoanViewModel()
                     {
                         Id = current.Id,
@@ -284,7 +282,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -293,70 +291,53 @@ namespace Fund
                     oUnitOfWork.Dispose();
                     oUnitOfWork = null;
                 }
-
             }
         }
 
-        private long[] CalculateInstallmentsAmount(long LoanAmount, int InstallmentCount, int Percent = 0)
-        {
-            long[] InstallmentsArray = new long[InstallmentCount + 1];
 
-            long karmozd = (Percent == 0) ? 0 : (long)System.Math.Round(((double)Percent / 100) * LoanAmount);
+        private ViewModels.CreateLoanViewModel CalculateLoanParameters(long LoanAmount, int InstallmentsCount, int Percent = 0)
+        {
+            ViewModels.CreateLoanViewModel oCreateLoanViewModel = new ViewModels.CreateLoanViewModel();
+
+            oCreateLoanViewModel.InstallmentsCount = InstallmentsCount;
+            oCreateLoanViewModel.LoanAmount = LoanAmount;
+            oCreateLoanViewModel.CommissionAmount = (Percent == 0) ? 0 : (long)System.Math.Round(((double)Percent / 100) * LoanAmount);
+            oCreateLoanViewModel.RefundAmount = oCreateLoanViewModel.LoanAmount + oCreateLoanViewModel.CommissionAmount;
+
+            LoanAmount += oCreateLoanViewModel.CommissionAmount;
 
             long InstallmentValue = 0;
 
             decimal temp = 0;
 
-            if (LoanAmount % InstallmentCount == 0)
+            if (LoanAmount % InstallmentsCount == 0)
             {
-                temp = LoanAmount / InstallmentCount;
+                temp = LoanAmount / InstallmentsCount;
 
-                for (int i = 0; i < InstallmentsArray.Length; i++)
+                while (LoanAmount >= temp)
                 {
-                    InstallmentsArray[i] = (long)temp;
+                    oCreateLoanViewModel.Installments.Add((long)temp);
 
-                    if (i == InstallmentCount - 1)
-                    {
-                        InstallmentsArray[i] += karmozd;
-                    }
+                    LoanAmount -= (long)temp;
                 }
-
-                InstallmentsArray[InstallmentsArray.Length - 1] = karmozd + LoanAmount;
-
-                return InstallmentsArray;
             }
             else
             {
-                temp = LoanAmount / InstallmentCount;
+                temp = LoanAmount / InstallmentsCount;
 
-                InstallmentValue = (long)System.Math.Round((System.Math.Round(temp) / 1000)) * 1000;
+                InstallmentValue = (long)System.Math.Round((System.Math.Round(temp) / 10000)) * 10000;
 
-                for (int i = 1; i <= InstallmentsArray.Length; i++)
+                while (LoanAmount >= InstallmentValue)
                 {
-                    if (LoanAmount >= InstallmentValue)
-                    {
-                        if (i != InstallmentCount)
-                        {
-                            LoanAmount = LoanAmount - InstallmentValue;
-                            InstallmentsArray[i - 1] = InstallmentValue;
-                        }
+                    oCreateLoanViewModel.Installments.Add(InstallmentValue);
 
-                        if (i == InstallmentCount)
-                        {
-                            InstallmentsArray[i - 1] = LoanAmount + karmozd;
-                        }
-                    }
-                    else
-                    {
-                        InstallmentsArray[i - 1] = LoanAmount + karmozd;
-                    }
-
+                    LoanAmount -= InstallmentValue;
                 }
 
-                InstallmentsArray[InstallmentsArray.Length - 1] = karmozd + LoanAmount;
-
-                return InstallmentsArray;
+                oCreateLoanViewModel.Installments.Add(LoanAmount);
             }
+
+            return oCreateLoanViewModel;
         }
 
         private void Transaction()
@@ -367,8 +348,6 @@ namespace Fund
 
                 try
                 {
-
-
                     oUnitOfWork = new DAL.UnitOfWork();
 
                     Models.Fund oFund = oUnitOfWork.FundRepository
@@ -410,13 +389,13 @@ namespace Fund
 
                     int percent = (CalculatePercentCheckBox.IsChecked == true) ? Utility.CurrentFund.Percent : 0;
 
-                    long[] installmentsAmountArray = CalculateInstallmentsAmount(oLoan.LoanAmount, oLoan.InstallmentsCount, percent);
+                    ViewModels.CreateLoanViewModel oCreateLoanViewModel = CalculateLoanParameters(oLoan.LoanAmount, oLoan.InstallmentsCount, percent);
 
                     for (int index = 0; index < oLoan.InstallmentsCount; index++)
                     {
                         Models.Installment oInstallment = new Models.Installment();
 
-                        oInstallment.PaymentAmount = installmentsAmountArray[index];
+                        oInstallment.PaymentAmount = oCreateLoanViewModel.Installments.ElementAt(index);
                         oInstallment.IsPayed = false;
                         oInstallment.InstallmentDate = oLoan.StartDate.AddMonths(index + 1);
                         oInstallment.PaymentDate = null;
@@ -440,20 +419,20 @@ namespace Fund
 
                         oUnitOfWork.RemainderRepository.Insert(oReminder);
 
-                        (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).MiniPersianSchedulerReminder.RefreshMonth();
-                        (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).RefreshSchedulerListBox();
-
                         if (index == oLoan.InstallmentsCount - 1)
                         {
                             oLoan.EndDate = oInstallment.InstallmentDate;
-                            oLoan.RefundAmount = installmentsAmountArray[installmentsAmountArray.Length - 1];
+                            oLoan.RefundAmount = oCreateLoanViewModel.RefundAmount;
 
                             oUnitOfWork.LoanRepository.Update(oLoan);
                         }
 
+                        oUnitOfWork.Save();
                     }
 
-                    oUnitOfWork.Save();
+
+                    (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).MiniPersianSchedulerReminder.RefreshMonth();
+                    (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).RefreshSchedulerListBox();
 
                     Infrastructure.MessageBox.Show
                         (
@@ -463,7 +442,7 @@ namespace Fund
                 }
                 catch (System.Exception ex)
                 {
-                    Infrastructure.MessageBox.Show(ex.Message);;
+                    Infrastructure.MessageBox.Show(ex.Message); ;
                 }
                 finally
                 {
@@ -482,9 +461,7 @@ namespace Fund
 
         private void CancelButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            System.Windows.Controls.Panel oPanel = this.Parent as System.Windows.Controls.Panel;
-
-            oPanel.Children.Remove(this);
+            this.Close();
         }
     }
 }

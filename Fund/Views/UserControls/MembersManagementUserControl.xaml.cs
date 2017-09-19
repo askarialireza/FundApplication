@@ -10,11 +10,15 @@ namespace Fund
 
         private bool IsPictureDeleted;
 
+        private bool IsPictureChanged;
+
         public MembersManagementUserControl()
         {
             InitializeComponent();
 
             GendersCombobox.ItemsSource = Infrastructure.Gender.GendersList;
+
+            IsPictureChanged = false;
         }
 
         private void UserControlLoaded(object sender, System.Windows.RoutedEventArgs e)
@@ -45,110 +49,180 @@ namespace Fund
 
         private void GridControlItemChanged(object sender, DevExpress.Xpf.Grid.SelectedItemChangedEventArgs e)
         {
+            if (MembersGridControl.ItemsSource == null)
+            {
+                return;
+            }
+
             ViewModels.MembersManagementViewModel oViewModel = MembersGridControl.SelectedItem as ViewModels.MembersManagementViewModel;
 
-            DAL.UnitOfWork oUnitOfWork = null;
-
-            try
+            if (oViewModel != null)
             {
-                oUnitOfWork = new DAL.UnitOfWork();
+                DAL.UnitOfWork oUnitOfWork = null;
 
-                Models.Member oMember = oUnitOfWork.MemberRepository
-                    .GetById(oViewModel.Id);
-
-                if (oMember != null)
+                try
                 {
-                    FirstNameTextBox.Text = oMember.FullName.FirstName;
-                    LastNameTextBox.Text = oMember.FullName.LastName;
-                    FatherNameTextBox.Text = oMember.FatherName;
-                    NationalCodeTextBox.Text = oMember.NationalCode;
-                    phoneNumberTextBox.Text = oMember.PhoneNumber;
-                    emailAddressTextBox.Text = oMember.EmailAddress;
-                    GendersCombobox.SelectedItem = (GendersCombobox.ItemsSource as System.Collections.Generic.List<ViewModels.GenderViewModel>)
-                        .Where(current => current.Gender == oMember.Gender)
-                        .FirstOrDefault();
+                    oUnitOfWork = new DAL.UnitOfWork();
 
-                    var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
-                    MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
-                    CurrentId = oMember.Id;
+                    Models.Member oMember = oUnitOfWork.MemberRepository
+                        .GetById(oViewModel.Id);
+
+                    if (oMember != null)
+                    {
+                        FirstNameTextBox.Text = oMember.FullName.FirstName;
+                        LastNameTextBox.Text = oMember.FullName.LastName;
+                        FatherNameTextBox.Text = oMember.FatherName;
+                        NationalCodeTextBox.Text = oMember.NationalCode;
+                        phoneNumberTextBox.Text = oMember.PhoneNumber;
+                        emailAddressTextBox.Text = oMember.EmailAddress;
+                        GendersCombobox.SelectedItem = (GendersCombobox.ItemsSource as System.Collections.Generic.List<ViewModels.GenderViewModel>)
+                            .Where(current => current.Gender == oMember.Gender)
+                            .FirstOrDefault();
+
+                        var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
+                        MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
+                        CurrentId = oMember.Id;
+                    }
+
+                    oUnitOfWork.Save();
                 }
-
-                oUnitOfWork.Save();
-            }
-            catch (System.Exception ex)
-            {
-                Infrastructure.MessageBox.Show(ex.Message);;
-            }
-            finally
-            {
-                if (oUnitOfWork != null)
+                catch (System.Exception ex)
                 {
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
+                    Infrastructure.MessageBox.Show(ex.Message); ;
                 }
-
+                finally
+                {
+                    if (oUnitOfWork != null)
+                    {
+                        oUnitOfWork.Dispose();
+                        oUnitOfWork = null;
+                    }
+                }
             }
         }
 
         private void EditItemsToggleSwitchChecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            AcceptButton.IsEnabled = true;
-            CancelButton.IsEnabled = true;
-            DeleteButton.IsEnabled = true;
-            PickImageButton.IsEnabled = true;
-            DeleteImageButton.IsEnabled = true;
+            var TextBoxes = MainGroupBoxGrid.Children
+                .OfType<System.Windows.Controls.TextBox>()
+                .AsEnumerable()
+                ;
 
-            FirstNameLabel.IsEnabled = true;
-            LastNameLabel.IsEnabled = true;
-            FatherNameLabel.IsEnabled = true;
-            NationalCodeLabel.IsEnabled = true;
-            GenderTypeLabel.IsEnabled = true;
-            PhoneNumberLabel.IsEnabled = true;
-            EmailAddressLabel.IsEnabled = true;
-            PictureLabel.IsEnabled = true;
+            var TextEdites = MainGroupBoxGrid.Children
+                .OfType<DevExpress.Xpf.Editors.TextEdit>()
+                .AsEnumerable()
+                ;
 
-            FirstNameTextBox.IsEnabled = true;
-            LastNameTextBox.IsEnabled = true;
-            FatherNameTextBox.IsEnabled = true;
-            NationalCodeTextBox.IsEnabled = true;
+            var Lables = MainGroupBoxGrid.Children
+                .OfType<System.Windows.Controls.Label>()
+                .AsEnumerable()
+                ;
+
+            var Buttons1 = ButtonsGrid.Children
+                .OfType<DevExpress.Xpf.Core.SimpleButton>()
+                .AsEnumerable()
+                ;
+
+            var Buttons2 = MemberButtonsGrid.Children
+                .OfType<DevExpress.Xpf.Core.SimpleButton>()
+                .AsEnumerable()
+                ;
+
+            foreach (System.Windows.Controls.TextBox textbox in TextBoxes)
+            {
+                textbox.IsEnabled = true;
+            }
+
+            foreach (DevExpress.Xpf.Editors.TextEdit textedit in TextEdites)
+            {
+                textedit.IsEnabled = true;
+            }
+
+            foreach (System.Windows.Controls.Label label in Lables)
+            {
+                label.IsEnabled = true;
+            }
+
+            foreach (DevExpress.Xpf.Core.SimpleButton button in Buttons1)
+            {
+                button.IsEnabled = true;
+            }
+
+            foreach (DevExpress.Xpf.Core.SimpleButton button in Buttons2)
+            {
+                button.IsEnabled = true;
+            }
+
             GendersCombobox.IsEnabled = true;
-            phoneNumberTextBox.IsEnabled = true;
-            emailAddressTextBox.IsEnabled = true;
 
             MemberImage.IsEnabled = true;
 
-            MainGroupBoxGrid.BlurDisable();
-            ButtonsGrid.BlurDisable();
+            if (MembersGridControl.ItemsSource != null)
+            {
+                MainGroupBoxGrid.BlurDisable();
+                ButtonsGrid.BlurDisable();
+            }
+
         }
 
         private void EditItemsToggleSwitchUnchecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            AcceptButton.IsEnabled = false;
-            CancelButton.IsEnabled = false;
-            DeleteButton.IsEnabled = false;
-            PickImageButton.IsEnabled = false;
-            DeleteImageButton.IsEnabled = false;
+            var TextBoxes = MainGroupBoxGrid.Children
+                .OfType<System.Windows.Controls.TextBox>()
+                .AsEnumerable()
+                ;
 
-            FirstNameLabel.IsEnabled = false;
-            LastNameLabel.IsEnabled = false;
-            FatherNameLabel.IsEnabled = false;
-            NationalCodeLabel.IsEnabled = false;
-            GenderTypeLabel.IsEnabled = false;
-            PhoneNumberLabel.IsEnabled = false;
-            EmailAddressLabel.IsEnabled = false;
-            PictureLabel.IsEnabled = false;
+            var TextEdites = MainGroupBoxGrid.Children
+                .OfType<DevExpress.Xpf.Editors.TextEdit>()
+                .AsEnumerable()
+                ;
 
-            FirstNameTextBox.IsEnabled = false;
-            LastNameTextBox.IsEnabled = false;
-            FatherNameTextBox.IsEnabled = false;
-            NationalCodeTextBox.IsEnabled = false;
+            var Lables = MainGroupBoxGrid.Children
+                .OfType<System.Windows.Controls.Label>()
+                .AsEnumerable()
+                ;
+
+            var Buttons1 = ButtonsGrid.Children
+                .OfType<DevExpress.Xpf.Core.SimpleButton>()
+                .AsEnumerable()
+                ;
+
+            var Buttons2 = MemberButtonsGrid.Children
+                .OfType<DevExpress.Xpf.Core.SimpleButton>()
+                .AsEnumerable()
+                ;
+
+            foreach (System.Windows.Controls.TextBox textbox in TextBoxes)
+            {
+                textbox.IsEnabled = false;
+            }
+
+            foreach (DevExpress.Xpf.Editors.TextEdit textedit in TextEdites)
+            {
+                textedit.IsEnabled = false;
+            }
+
+            foreach (System.Windows.Controls.Label label in Lables)
+            {
+                label.IsEnabled = false;
+            }
+
+            foreach (DevExpress.Xpf.Core.SimpleButton button in Buttons1)
+            {
+                button.IsEnabled = true;
+            }
+
+            foreach (DevExpress.Xpf.Core.SimpleButton button in Buttons2)
+            {
+                button.IsEnabled = true;
+            }
+
             GendersCombobox.IsEnabled = false;
-            phoneNumberTextBox.IsEnabled = false;
-            emailAddressTextBox.IsEnabled = false;
 
             MemberImage.IsEnabled = false;
 
             MainGroupBoxGrid.BlurApply(5);
+
             ButtonsGrid.BlurApply(5);
 
         }
@@ -217,7 +291,7 @@ namespace Fund
                 Infrastructure.MessageBox.Show
                 (
                     caption: Infrastructure.MessageBoxCaption.Error,
-                    text: "تکمیل فیلد شماره تلفن الزامی است."   );
+                    text: "تکمیل فیلد شماره تلفن الزامی است.");
 
                 return;
             }
@@ -244,7 +318,11 @@ namespace Fund
                     oMember.EmailAddress = emailAddressTextBox.Text.Trim();
                     oMember.PhoneNumber = phoneNumberTextBox.Text.Trim();
                     System.Windows.Media.Imaging.BmpBitmapEncoder oBmpBitmapEncoder = new System.Windows.Media.Imaging.BmpBitmapEncoder();
-                    oMember.Picture = (IsPictureDeleted == true) ? null : Utility.ImageToBytes(encoder: oBmpBitmapEncoder, imageSource: MemberImage.Source);
+
+                    if (IsPictureChanged == true)
+                    {
+                        oMember.Picture = (IsPictureDeleted == true) ? null : Utility.ImageToBytes(encoder: oBmpBitmapEncoder, imageSource: MemberImage.Source);
+                    }
 
                     oUnitOfWork.MemberRepository.Update(oMember);
                     oUnitOfWork.Save();
@@ -258,7 +336,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -296,9 +374,23 @@ namespace Fund
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
                 {
-                    oUnitOfWork.MemberRepository.DeleteById(CurrentId);
+                    Models.Member oMember = oUnitOfWork.MemberRepository
+                        .GetById(CurrentId);
 
-                    oUnitOfWork.Save();
+                    if (oMember != null)
+                    {
+                        oUnitOfWork.MemberRepository.Delete(oMember);
+                    }
+
+                    var varList = oUnitOfWork.TransactionRepository
+                        .Get()
+                        .Where(current => current.MemberId == oMember.Id)
+                        .ToList();
+
+                    foreach (Models.Transaction oTransaction in varList)
+                    {
+                        oUnitOfWork.TransactionRepository.Delete(oTransaction);
+                    }
 
                     Infrastructure.MessageBox.Show
                     (
@@ -306,30 +398,32 @@ namespace Fund
                         text: "عضو صندوق با موفقیت از سیستم حذف گردید."
                     );
 
+                    oUnitOfWork.Save();
+
+                    LoadGridControl();
+                }
+
+                if (oResult == System.Windows.MessageBoxResult.No)
+                {
+                    return;
                 }
 
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
-            finally
-            {
-                if (oUnitOfWork != null)
-                {
-                    oUnitOfWork.Dispose();
-                    oUnitOfWork = null;
-                }
-            }
-
-            LoadGridControl();
         }
 
         private void DeleteImageButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
+
             MemberImage.Source = new System.Windows.Media.Imaging.BitmapImage(uriSource);
+
             IsPictureDeleted = true;
+
+            IsPictureChanged = true;
         }
 
         private void PickImageButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -344,6 +438,8 @@ namespace Fund
                 MemberImage.Source = new System.Windows.Media.Imaging.BitmapImage(new System.Uri(oOpenFileDialog.FileName));
 
                 IsPictureDeleted = false;
+
+                IsPictureChanged = true;
             }
         }
 
@@ -355,8 +451,27 @@ namespace Fund
             {
                 oUnitOfWork = new DAL.UnitOfWork();
 
-                MembersGridControl.ItemsSource = oUnitOfWork.MemberRepository
+                var varData = oUnitOfWork.MemberRepository
                     .Get()
+                    .Where(current => current.FundId == Utility.CurrentFund.Id)
+                    .AsQueryable();
+
+                var varList = varData.ToList();
+
+                if (varList.Count == 0)
+                {
+                    MembersGridControl.ItemsSource = null;
+                    EditItemsToggleSwitch.IsChecked = false;
+                    Clear();
+
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "محتوایی برای نمایش وجود ندارد. صفحه بسته خواهد شد.");
+
+                    this.Close();
+
+                    return;
+                }
+
+                MembersGridControl.ItemsSource = varData
                     .Select(current => new ViewModels.MembersManagementViewModel()
                     {
                         Id = current.Id,
@@ -378,7 +493,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -411,7 +526,6 @@ namespace Fund
                 oReport.RegBusinessObject("Members", varList);
                 oReport.Compile();
                 oReport.RenderWithWpf();
-
                 oReport.DoAction(reportType, string.Format("گزارش اعضا ({0}) ", Utility.CurrentFund.Name));
 
                 oUnitOfWork.Save();
@@ -429,6 +543,33 @@ namespace Fund
                 }
 
             }
+        }
+
+        private void Clear()
+        {
+            var TextBoxes = MainGroupBoxGrid.Children
+                .OfType<System.Windows.Controls.TextBox>()
+                .AsEnumerable()
+                ;
+
+            var TextEdites = MainGroupBoxGrid.Children
+                .OfType<DevExpress.Xpf.Editors.TextEdit>()
+                .AsEnumerable()
+                ;
+
+            foreach (System.Windows.Controls.TextBox textbox in TextBoxes)
+            {
+                textbox.Clear();
+            }
+
+            foreach (DevExpress.Xpf.Editors.TextEdit textedit in TextEdites)
+            {
+                textedit.Clear();
+            }
+
+            var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
+
+            MemberImage.Source = new System.Windows.Media.Imaging.BitmapImage(uriSource);
         }
     }
 }

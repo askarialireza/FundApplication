@@ -8,6 +8,7 @@
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
     x:Class="Fund.FundCreateUserControl"
     mc:Ignorable="d" 
+    d:DesignHeight="800" d:DesignWidth="1500"
     Style="{DynamicResource UserControlStyle}"
     Loaded="UserControl_Loaded"
     >
@@ -43,98 +44,109 @@
 
     <Grid Style="{StaticResource GridStyle}">
 
-        <Grid HorizontalAlignment="Stretch" Height="40" Margin="10,10,10,0" VerticalAlignment="Top" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
             
             <Label Content="ایجاد صندوق جدید" FontWeight="Bold" FontSize="20"/>
             
         </Grid>
 
-        <Grid Margin="10,50">
-            
+        <Grid Grid.Row="2">
+
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="0.6*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2.5*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
-            <Label Content="نام صندوق :" Grid.Row="1" Style="{DynamicResource LabelStyleExtension}"/>
+            <Label Content="نام صندوق :" Grid.Row="0" Style="{DynamicResource LabelCol1}"/>
 
-            <TextBox x:Name="fundNameTextBox" Margin="3"  FontSize="14" Grid.Column="2" Grid.Row="1"/>
+            <dxe:TextEdit x:Name="fundNameTextBox" Grid.Row="0" Style="{DynamicResource TextEditCol2}"/>
+
+            <Label Grid.Row="0" Style="{DynamicResource StarsStyle}"/>
+
+            <Label Content="سال تاسیس صندوق :" Grid.Row="1" Style="{DynamicResource LabelCol1}"/>
+
+            <dxe:TextEdit x:Name="fundBuildYearTextBox" Style="{DynamicResource TextEditCol2}" MaskType="Numeric" Mask="####" Grid.Row="1"/>
 
             <Label Grid.Row="1" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Content="سال تاسیس صندوق :" Grid.Row="2" Style="{DynamicResource LabelStyleExtension}"/>
+            <Label Content="مدیر صندوق :" Grid.Row="2" Style="{DynamicResource LabelCol1}"/>
 
-            <dxe:TextEdit x:Name="fundBuildYearTextBox" Grid.Column="2" Margin="3" MaskType="Numeric" FontSize="14" MaskCulture="fa-IR" Mask="####" Grid.Row="2"/>
+            <dxe:TextEdit x:Name="fundManagerTextBox" Grid.Row="2" Style="{DynamicResource TextEditCol2}"/>
 
             <Label Grid.Row="2" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Content="مدیر صندوق :" Grid.Row="3" Style="{DynamicResource LabelStyleExtension}"/>
+            <Label Content="سرمایه صندوق :" Grid.Row="4" Style="{DynamicResource LabelCol1}"/>
 
-            <TextBox x:Name="fundManagerTextBox" Margin="3" FontSize="14" Grid.Column="2" Grid.Row="3"/>
+            <dxe:TextEdit Name="fundBalanceTextBox" Grid.Row="4" MaskType="Numeric" EditorActivated="TextBoxEditorActivated" Validate="TextBoxValidate" Mask="################" Style="{DynamicResource TextEditCol2}"/>
 
-            <Label Grid.Row="3" Style="{DynamicResource StarsStyle}"/>
+            <Label Grid.Row="4" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Content="سرمایه صندوق :" Grid.Row="5" Style="{DynamicResource LabelStyleExtension}"/>
+            <Label Content="سقف پرداخت وام :" Grid.Row="5" Style="{DynamicResource LabelCol1}"/>
 
-            <dxe:TextEdit Name="fundBalanceTextBox" Grid.Column="2" Margin="3" MaskType="Numeric" FontFamily="{StaticResource EnGlobalFontFamily}" FontSize="14" EditorActivated="TextBoxEditorActivated" Validate="TextBoxValidate" MaskCulture="fa-IR" Mask="################" Grid.Row="5"/>
+            <dxe:TextEdit x:Name="fundRemovalLimitTextBox" MaskType="Numeric" EditorActivated="TextBoxEditorActivated" Validate="TextBoxValidate" Mask="################" Grid.Row="5" Style="{DynamicResource TextEditCol2}"/>
 
             <Label Grid.Row="5" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Content="سقف پرداخت وام :" Grid.Row="6" Style="{DynamicResource LabelStyleExtension}"/>
-
-            <dxe:TextEdit x:Name="fundRemovalLimitTextBox" Grid.Column="2" Margin="3" MaskType="Numeric" FontFamily="{StaticResource EnGlobalFontFamily}" FontSize="14" EditorActivated="TextBoxEditorActivated" Validate="TextBoxValidate" MaskCulture="fa-IR" Mask="################" Grid.Row="6"/>
-
-            <Label Grid.Row="6" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Content="رمز عبور :" Grid.Row="8" Style="{DynamicResource LabelStyleExtension}"/>
+            <Label Content="رمز عبور :" Grid.Row="7" Style="{DynamicResource LabelCol1}"/>
             
-            <PasswordBox x:Name="passwordBox" Grid.Column="2" Grid.Row="8" Style="{DynamicResource PasswordBoxStyle}" Height="auto" Margin="3"/>
+            <PasswordBox x:Name="passwordBox" Grid.Column="2" Grid.Row="7" Style="{DynamicResource PasswordBoxStyle}" Height="auto" Margin="0,3"/>
+            
+            <Label Grid.Row="7" Style="{DynamicResource StarsStyle}"/>
+
+            <Label Content="تایید رمز عبور :" Grid.Row="8" Style="{DynamicResource LabelCol1}"/>
+
+            <PasswordBox x:Name="againPasswordBox" Grid.Row="8" Style="{DynamicResource PasswordBoxStyle}" Height="auto" Margin="0,3" Grid.Column="2"/>
             
             <Label Grid.Row="8" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Content="تایید رمز عبور :" Grid.Row="9" Style="{DynamicResource LabelStyleExtension}"/>
+            <Label Grid.Row="9" Content="کارمزد :" Style="{DynamicResource LabelCol1}"/>
 
-            <PasswordBox x:Name="againPasswordBox" Grid.Row="9" Style="{DynamicResource PasswordBoxStyle}" Height="auto" Margin="3" Grid.Column="2"/>
-            
-            <Label Grid.Row="9" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="10" Content="کارمزد :" Style="{DynamicResource LabelStyleExtension}"/>
-
-            <Grid Grid.Column="2" Grid.Row="10" Margin="3">
+            <Grid Grid.Column="2" Grid.Row="9" Margin="0,3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
 
-                <CheckBox Name="PercentCheckBox" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="PercentCheckBox_Checked" Unchecked="PercentCheckBox_Unchecked" FontSize="17"/>
+                <dxe:ToggleSwitch Name="PercentCheckBox" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="13" CheckedStateContent="فعال" UncheckedStateContent="" ContentPlacement="Inside" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" />
 
-                <dxe:TextEdit Name="PercentTextBox" Grid.Column="1" VerticalAlignment="Center" MaskType="Numeric" IsEnabled="False"  Mask="###" Style="{DynamicResource DxTextEdit}" FontSize="17" Margin="2,0"/>
+                <dxe:TextEdit Name="PercentTextBox" Grid.Column="1" VerticalAlignment="Center" MaskType="Numeric"  Mask="###" Style="{DynamicResource DxTextEdit}" FontSize="17" Margin="2,0" Visibility="Hidden"/>
 
-                <Label Grid.Column="2" Content="درصد" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Name="PercentLabel" Grid.Column="2" Content="درصد" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" />
 
             </Grid>
 
         </Grid>
 
-        <Grid Height="40" Margin="10,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Width="auto">
+        <Grid Grid.Row="4">
             
             <dx:SimpleButton x:Name="CloseButton" Content="بستن" Margin="0,0,85,4" Click="CloseClick" Style="{StaticResource CancelButtonStyle}" Height="32" Grid.Column="0"/>
 

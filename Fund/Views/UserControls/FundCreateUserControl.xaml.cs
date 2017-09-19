@@ -166,14 +166,17 @@ namespace Fund
             }
         }
 
-        private void PercentCheckBox_Checked(object sender, System.Windows.RoutedEventArgs e)
+        private void ToggleSwitch_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
-            PercentTextBox.IsEnabled = true;
+            PercentTextBox.Visibility = System.Windows.Visibility.Visible;
+            PercentLabel.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void PercentCheckBox_Unchecked(object sender, System.Windows.RoutedEventArgs e)
+        private void ToggleSwitch_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            PercentTextBox.IsEnabled = false;
+            PercentTextBox.Visibility = System.Windows.Visibility.Hidden;
+            PercentLabel.Visibility = System.Windows.Visibility.Hidden;
+
         }
     }
 }

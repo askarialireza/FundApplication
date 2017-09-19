@@ -6,10 +6,10 @@
     xmlns:local="clr-namespace:Fund"
     xmlns:resource="clr-namespace:Fund.Properties"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
-    xmlns:wpfViewer="schemas-stimulsoft-com:wpf-viewer" 
-    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+    xmlns:wpfViewer="schemas-stimulsoft-com:wpf-viewer" 
     xmlns:sti="clr-namespace:Stimulsoft.Report;assembly=Stimulsoft.Report"
     x:Class="Fund.MembersManagementUserControl"
     mc:Ignorable="d" 
@@ -65,7 +65,7 @@
         
     </UserControl.Resources>
 
-    <Grid Style="{StaticResource GridStyle}">
+    <Grid Style="{DynamicResource GridStyle}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -231,7 +231,7 @@
 
                                     <Image Name="MemberImage"  Grid.Row="0" Width="auto" IsEnabled="False" Margin="3" Stretch="UniformToFill"/>
 
-                                    <Grid Grid.Row="1">
+                                    <Grid Name="MemberButtonsGrid" Grid.Row="1">
 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="1*"/>

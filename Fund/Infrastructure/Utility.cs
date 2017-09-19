@@ -5,9 +5,12 @@ namespace Fund
     {
 
         #region Constructor
+
         static Utility()
         {
+
         }
+
         #endregion /Constructor
 
         #region Fields
@@ -179,9 +182,75 @@ namespace Fund
             return value.ToString("#,##0 ریال");
         }
 
+        public static string ToRial(this long value)
+        {
+            if (value == 0)
+            {
+                return ("0 ریال");
+            }
+
+            string strValue = System.Convert.ToString(value);
+
+            int commaCount = strValue.Length / 3;
+
+            string result = string.Empty;
+
+            if (strValue.Length % 3 == 0)
+            {
+                while (strValue.Length != 0)
+                {
+                    result = result + strValue.Substring(0, 3);
+
+                    if (commaCount != 1)
+                    {
+                        result = result + ",";
+
+                        commaCount--;
+                    }
+
+                    strValue = strValue.Substring(3);
+                }
+            }
+            else
+            {
+                result = strValue.Substring(0, (strValue.Length % 3));
+
+                strValue = strValue.Substring((strValue.Length % 3));
+
+                result = result + ",";
+
+                commaCount--;
+
+                while (strValue.Length != 0)
+                {
+                    result = result + strValue.Substring(0, 3);
+
+                    if (commaCount != 0)
+                    {
+                        result = result + ",";
+
+                        commaCount--;
+                    }
+
+                    strValue = strValue.Substring(3);
+                }
+            }
+
+            result = result + " ریال";
+
+            return result;
+        }
+
         public static long StringToMoney(this string text)
         {
-            return (System.Convert.ToInt64(text.Replace(" ریال", string.Empty).Replace(",", string.Empty)));
+            if (string.IsNullOrWhiteSpace(text) == true)
+            {
+                return 0;
+            }
+            else
+            {
+                return (System.Convert.ToInt64(text.Replace(" ریال", string.Empty).Replace(",", string.Empty)));
+            }
         }
 
         public static void MoveBackupFiles(string sourcePath, string destinationPath)

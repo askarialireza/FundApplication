@@ -133,4 +133,16 @@
   <data name="UsersViewReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\reports\usersviewreport.mrt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="TransactionsReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\reports\transactionsreport.mrt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="InstallmentListReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\reports\installmentlistreport.mrt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MembersLoansListReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\reports\membersloanslistreport.mrt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ConfirmedLoansListReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\reports\confirmedloanslistreport.mrt;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

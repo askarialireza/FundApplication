@@ -11,7 +11,7 @@ namespace ViewModels
         {
             get
             {
-               return _amount;
+                return _amount;
             }
             set
             {
@@ -35,6 +35,8 @@ namespace ViewModels
                 _isPayed = value;
 
                 IsPayedDescription = (_isPayed == true) ? "بله" : "خیر";
+
+                IsActive = !(_isPayed);
             }
         }
 
@@ -76,6 +78,29 @@ namespace ViewModels
                 }
             }
         }
+
+        private System.Guid _memberId;
+
+        public System.Guid MemberId
+        {
+            get
+            {
+                return _memberId;
+            }
+            set
+            {
+                _memberId = value;
+
+                DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
+
+                Models.Member oMember = oUnitOfWork.MemberRepository
+                    .GetById(_memberId);
+
+                MemberFullName = oMember.FullName.FirstName + " " + oMember.FullName.LastName;
+            }
+        }
+
+        public string MemberFullName { get; set; }
 
         public string IsPayedDescription { get; set; }
 

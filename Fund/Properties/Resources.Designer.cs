@@ -61,12 +61,32 @@ namespace Fund.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ConfirmedLoansListReport {
+            get {
+                object obj = ResourceManager.GetObject("ConfirmedLoansListReport", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ImageNull {
             get {
                 object obj = ResourceManager.GetObject("ImageNull", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] InstallmentListReport {
+            get {
+                object obj = ResourceManager.GetObject("InstallmentListReport", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -93,9 +113,29 @@ namespace Fund.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] MembersLoansListReport {
+            get {
+                object obj = ResourceManager.GetObject("MembersLoansListReport", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] MembersViewReport {
             get {
                 object obj = ResourceManager.GetObject("MembersViewReport", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] TransactionsReport {
+            get {
+                object obj = ResourceManager.GetObject("TransactionsReport", resourceCulture);
                 return ((byte[])(obj));
             }
         }

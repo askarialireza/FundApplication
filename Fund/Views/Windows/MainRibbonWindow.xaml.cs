@@ -80,6 +80,9 @@ namespace Fund
         {
             Utility.CurrentFund = null;
             Utility.CurrentMember = null;
+            Utility.CurrentLoan = null;
+
+            UserControlsPanel.Children.Clear();
 
             this.RefreshUserInterface();
         }
@@ -107,9 +110,26 @@ namespace Fund
 
         private void MembersViewClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            MembersManagementUserControl oMembersManagementUserControl = new MembersManagementUserControl();
+            DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
 
-            oMembersManagementUserControl.Show();
+            int membersCount = oUnitOfWork.MemberRepository
+                .Get()
+                .Where(current => current.FundId == Utility.CurrentFund.Id)
+                .Count();
+
+            if (membersCount != 0)
+            {
+                MembersManagementUserControl oMembersManagementUserControl = new MembersManagementUserControl();
+
+                oMembersManagementUserControl.Show();
+            }
+            else
+            {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
+
+                return;
+            }
+
         }
 
         private void SchedulerButtonClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -180,9 +200,27 @@ namespace Fund
 
         private void FundTransactionsButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            FundTransactionsUserControl oFundTransactionsUserControl = new FundTransactionsUserControl();
+            DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
 
-            oFundTransactionsUserControl.Show();
+            int transactionsCount = oUnitOfWork.TransactionRepository
+                .Get()
+                .Where(current => current.FundId == Utility.CurrentFund.Id)
+                .Count();
+
+            if (transactionsCount != 0)
+            {
+                FundTransactionsUserControl oFundTransactionsUserControl = new FundTransactionsUserControl();
+
+                oFundTransactionsUserControl.Show();
+            }
+            else
+            {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "هیچ تراکنشی در صندوق ثبت نشده است، اطلاعاتی برای نمایش وجود ندارد.");
+
+                return;
+            }
+
+
         }
 
         private void MembersTransactionButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -192,6 +230,10 @@ namespace Fund
 
         private void MemberLonasStatus_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+
+            Utility.CurrentMember = null;
+            Utility.CurrentLoan = null;
+
             MemberLoansStatusUserControl oMemberLoansStatusUserControl = new MemberLoansStatusUserControl();
 
             oMemberLoansStatusUserControl.Show();
@@ -230,7 +272,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -290,7 +332,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -359,7 +401,7 @@ namespace Fund
             }
 
             int fundCountByUser;
-            //int memberCountByFund;
+            int memberCountByFund;
 
             DAL.UnitOfWork oUnitOfWork = null;
             try
@@ -378,6 +420,7 @@ namespace Fund
                     FundLogoutButton.IsVisible = false;
                     LargeFundLoginButton.IsVisible = false;
                     ToolsPageGroup.IsVisible = false;
+                    ReportsRibbonPage.IsVisible = false;
                     SthPanel.Children.Clear();
                 }
 
@@ -392,16 +435,23 @@ namespace Fund
                         FundLogoutButton.IsVisible = false;
                         LargeFundLoginButton.IsVisible = true;
                         ToolsPageGroup.IsVisible = false;
+                        ReportsRibbonPage.IsVisible = false;
                         SthPanel.Children.Clear();
                     }
                     else // یک صندوق لاگین شده است
                     {
+                        memberCountByFund = oUnitOfWork.MemberRepository
+                            .Get()
+                            .Where(current => current.FundId == Utility.CurrentFund.Id)
+                            .Count();
+
                         MembersRibbonPageGroup.IsVisible = true;
                         LoanAndPaymentRibbonPageGroup.IsVisible = true;
                         FundLoginButton.IsVisible = true;
                         FundSettingsButton.IsVisible = true;
                         FundLogoutButton.IsVisible = true;
                         LargeFundLoginButton.IsVisible = false;
+                        ReportsRibbonPage.IsVisible = true;
                         ToolsPageGroup.IsVisible = true;
 
                         MainPanelContentUserControl oMainPanelContentUserControl = new MainPanelContentUserControl();
@@ -419,6 +469,30 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show(ex.Message); ;
             }
+        }
+
+        private void DelayedInstallmentsListButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            DelayedInstallmentsListUserControl oDelayedInstallmentsListUserControl = new DelayedInstallmentsListUserControl();
+
+            oDelayedInstallmentsListUserControl.Show();
+        }
+
+        private void InstallmentsManagent_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void LoanManagements_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void FundSettingsButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            FundSettingsUserControl oFundSettingsUserControl = new FundSettingsUserControl();
+
+            oFundSettingsUserControl.Show();
         }
     }
 }

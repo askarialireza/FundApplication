@@ -4,8 +4,7 @@ using System.Data.Entity;
 namespace DAL
 {
 
-    public class Repository<T> :
-        System.Object, IRepository<T> where T : Models.BaseEntity
+    public class Repository<T> : System.Object, IRepository<T> where T : Models.BaseEntity
     {
         public Repository(Models.DatabaseContext databaseContext)
         {
@@ -115,6 +114,19 @@ namespace DAL
             // **************************************************
             // /Just For Debug!
             // **************************************************
+        }
+
+        public virtual void DeleteByList(System.Collections.Generic.List<T> entities)
+        {
+            if (entities == null)
+            {
+                throw (new System.ArgumentNullException("entities"));
+            }
+
+            foreach (T item in entities)
+            {
+                Delete(item);
+            }
         }
 
         public virtual bool DeleteById(System.Guid id)

@@ -40,7 +40,7 @@ namespace ViewModels
                 switch (TransactionType)
                 {
                     case Models.TransactionType.Loan:
-                        AmountRialFormat = string.Format("{0} - ریال" ,_amount.ToString("#,##0"));
+                        AmountRialFormat = string.Format("{0} - ریال", _amount.ToString("#,##0"));
                         break;
                     case Models.TransactionType.Installment:
                         AmountRialFormat = string.Format("{0} + ریال", _amount.ToString("#,##0"));
@@ -108,8 +108,8 @@ namespace ViewModels
 
         public System.Guid FundId { get; set; }
 
-        private System.Guid _memberId;
-        public System.Guid MemberId
+        private System.Guid? _memberId;
+        public System.Guid? MemberId
         {
             get
             {
@@ -119,13 +119,20 @@ namespace ViewModels
             {
                 _memberId = value;
 
+                if (_memberId.HasValue == true)
+                {
+                    DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
 
-                DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
+                    MemberFullName = oUnitOfWork.MemberRepository
+                        .GetById((System.Guid)_memberId).FullName;
 
-                MemberFullName = oUnitOfWork.MemberRepository
-                    .GetById(_memberId).FullName;
+                    oUnitOfWork.Dispose();
+                }
+                else
+                {
+                    MemberFullName = null;
+                }
 
-                oUnitOfWork.Dispose();
             }
         }
 

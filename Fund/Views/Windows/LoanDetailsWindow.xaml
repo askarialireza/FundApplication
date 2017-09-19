@@ -1,0 +1,132 @@
+﻿<dx:DXWindow
+    x:Class="Fund.LoanDetailsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    Title="جزییات وام" Height="300" Width="550"
+    WindowStartupLocation="CenterScreen"
+    Style="{DynamicResource WindowStyle}"
+    >
+
+    <dx:DXWindow.Resources>
+
+        <Style x:Key="TitlesStyle" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="ResultsLabelStyle" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+        </Style>
+
+        <Style x:Key="LabelCol0" TargetType="{x:Type Label}" BasedOn="{StaticResource TitlesStyle}">
+            <Setter Property="Grid.Column" Value="0"/>
+        </Style>
+
+        <Style x:Key="LabelCol1" TargetType="{x:Type Label}" BasedOn="{StaticResource ResultsLabelStyle}">
+            <Setter Property="Grid.Column" Value="1"/>
+        </Style>
+
+        <Style x:Key="LabelCol2" TargetType="{x:Type Label}" BasedOn="{StaticResource TitlesStyle}">
+            <Setter Property="Grid.Column" Value="2"/>
+        </Style>
+
+        <Style x:Key="LabelCol3" TargetType="{x:Type Label}" BasedOn="{StaticResource ResultsLabelStyle}">
+            <Setter Property="Grid.Column" Value="3"/>
+        </Style>
+
+        <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+    </dx:DXWindow.Resources>
+
+    <Grid Style="{DynamicResource GridStyle}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="1" Grid.RowSpan="5" BorderThickness="0,0,1,0" Grid.Column="2" Style="{DynamicResource BorderStyle}" Background="White" Opacity="0.5"/>
+        <Border Grid.RowSpan="6" Grid.ColumnSpan="1" Style="{DynamicResource BorderStyle}" Background="White" Opacity="0.5"/>
+        <Border Grid.Row="1" Grid.RowSpan="5" BorderThickness="0,0,1,0" Grid.Column="2" Style="{DynamicResource BorderStyle}"/>
+        <Border Grid.RowSpan="6" Grid.ColumnSpan="1" Style="{DynamicResource BorderStyle}"/>
+        <Border Grid.RowSpan="6" Grid.ColumnSpan="4" Style="{DynamicResource BorderStyle}"/>
+        <Border Grid.RowSpan="5" Grid.ColumnSpan="4" Style="{DynamicResource BorderStyle}"/>
+        <Border Grid.RowSpan="4" Grid.ColumnSpan="4" Style="{DynamicResource BorderStyle}"/>
+        <Border Grid.RowSpan="3" Grid.ColumnSpan="4" Style="{DynamicResource BorderStyle}"/>
+        <Border Grid.RowSpan="2" Grid.ColumnSpan="4" Style="{DynamicResource BorderStyle}"/>
+        <Border Grid.RowSpan="1" Grid.ColumnSpan="4" Style="{DynamicResource BorderStyle}"/>
+        <Border Grid.Row="1" Grid.RowSpan="5" BorderThickness="1,0" Grid.ColumnSpan="2" Style="{DynamicResource BorderStyle}"/>
+        <Label Content="گیرنده وام" Grid.Row="0" Style="{DynamicResource LabelCol0}"/>
+
+        <Label Name="MemberNameLabel" Grid.ColumnSpan="3" Content="نام و نام خانوادگی" Style="{DynamicResource LabelCol1}"/>
+
+        <Label Content="تاریخ پرداخت وام" Grid.Row="1" Style="{DynamicResource LabelCol0}"/>
+
+        <Label Name="StartDatelLabel" Content="1396/06/06" Grid.Row="1" Style="{DynamicResource LabelCol1}"/>
+
+        <Label Content="تاریخ  پایان وام" Grid.Row="1" Style="{DynamicResource LabelCol2}"/>
+
+        <Label Name="EndDatelLabel" Content="1396/06/06" Grid.Row="1" Style="{DynamicResource LabelCol3}"/>
+
+        <Label Content="مبلغ وام" Grid.Row="2" Style="{DynamicResource LabelCol0}"/>
+
+        <Label Name="LoanAmountLabel" Content="2,780,000 ریال" Grid.Row="2" Style="{DynamicResource LabelCol1}"/>
+
+        <Label Content="بازپرداخت" Grid.Row="2" Style="{DynamicResource LabelCol2}"/>
+
+        <Label Name="RefundAmountLabel" Content="2,780,000 ریال" Grid.Row="2" Style="{DynamicResource LabelCol3}"/>
+
+        <Label Content="تعداد اقساط" Grid.Row="3" Style="{DynamicResource LabelCol0}"/>
+
+        <Label Name="InstallmentCountLabel" Content="3 قسط" Grid.Row="3" Style="{DynamicResource LabelCol1}"/>
+
+        <Label Content="آخرین پرداختی" Grid.Row="3" Style="{DynamicResource LabelCol2}"/>
+
+        <Label Name="LastPayedInstallmentLabel" Content="1396/06/06" Grid.Row="3" Style="{DynamicResource LabelCol3}"/>
+
+        <Label Content="اقساط پرداخت شده" Grid.Row="4" Style="{DynamicResource LabelCol0}"/>
+
+        <Label Name="PayedInstallmentCountLabel" Content="3 قسط" Grid.Row="4" Style="{DynamicResource LabelCol1}"/>
+
+        <Label Content="مجموع" Grid.Row="4" Style="{DynamicResource LabelCol2}"/>
+
+        <Label Name="SumOfPayedInstallmentsLabel" Content="2,780,000 ریال" Grid.Row="4" Style="{DynamicResource LabelCol3}"/>
+
+        <Label Content="اقساط پرداخت نشده" Grid.Row="5" Style="{DynamicResource LabelCol0}"/>
+
+        <Label Name="UnpayedInstallmentCountLabel" Content="3 قسط" Grid.Row="5" Style="{DynamicResource LabelCol1}"/>
+
+        <Label Content="مجموع" Grid.Row="5" Style="{DynamicResource LabelCol2}"/>
+
+        <Label Name="SumOfUnpayedInstallmentsLabel" Content="2,780,000 ریال" Grid.Row="5" Style="{DynamicResource LabelCol3}"/>
+
+        <Button Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="4" Width="100" HorizontalAlignment="Right" Margin="0,5" Content="بستن" FontSize="14" FontWeight="Bold" Click="Button_Click"/>
+
+        <Button Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Width="100" HorizontalAlignment="Right" Margin="0,5,105,5" Content="لیست اقساط" FontSize="14" FontWeight="Bold" Click="Button_Click_1"/>
+    </Grid>
+
+</dx:DXWindow>

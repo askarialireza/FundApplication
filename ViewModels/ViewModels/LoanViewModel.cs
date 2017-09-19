@@ -40,9 +40,31 @@ namespace ViewModels
         }
 
         public string PersianStartDate { get; set; }
+
         public string PersianEndDate { get; set; }
+
         public int InstallmentsCount { get; set; }
-        public bool IsPayed { get; set; }
+
+
+        private bool _isPayed;
+        public bool IsPayed
+        {
+            get
+            {
+                return _isPayed;
+            }
+            set
+            {
+                _isPayed = value;
+
+                IsPayedDescrption = (_isPayed == true) ? "بله" : "خیر";
+
+                IsActive = !(_isPayed);
+            }
+        }
+
+        public bool IsActive { get; set; }
+        public string IsPayedDescrption { get; set; }
 
         private long _loanAmount;
         public long LoanAmount

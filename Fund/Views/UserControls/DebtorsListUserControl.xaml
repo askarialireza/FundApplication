@@ -1,4 +1,5 @@
-﻿<UserControl xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  
+﻿<UserControl 
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  
     x:Class="Fund.DebtorsListUserControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

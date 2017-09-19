@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\CreateLoanViewModel.cs" />
     <Compile Include="ViewModels\DatabaseBackupViewModel.cs" />
     <Compile Include="ViewModels\DebtorViewModel.cs" />
     <Compile Include="ViewModels\EventTypeViewModel.cs" />

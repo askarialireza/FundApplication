@@ -15,6 +15,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -50,6 +50,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>App.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -135,6 +138,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\UserControls\MembersListUserControl.xaml.cs">
+      <DependentUpon>MembersListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\LoanDetailsWindow.xaml.cs">
+      <DependentUpon>LoanDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\DelayedInstallmentsListUserControl.xaml.cs">
+      <DependentUpon>DelayedInstallmentsListUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\ReportType.cs" />
     <Compile Include="Views\UserControls\MemberLoansStatusUserControl.xaml.cs">
       <DependentUpon>MemberLoansStatusUserControl.xaml</DependentUpon>
@@ -239,6 +251,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\UserControls\MembersListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlLayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\LoanDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\DelayedInstallmentsListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\MemberLoansStatusUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -387,12 +415,19 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\Reports\ConfirmedLoansListReport.mrt" />
+    <None Include="Resources\Reports\InstallmentListReport.mrt" />
+    <None Include="Resources\Reports\MembersLoansListReport.mrt" />
+    <None Include="Resources\Reports\TransactionsReport.mrt" />
     <Resource Include="Resources\Reports\MembershipCardReport.mrt" />
     <Resource Include="Resources\Reports\MembersViewReport.mrt" />
     <Resource Include="Resources\Reports\UsersViewReport.mrt" />

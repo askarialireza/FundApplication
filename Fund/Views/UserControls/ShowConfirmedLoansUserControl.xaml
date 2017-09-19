@@ -38,12 +38,14 @@
 
                 <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding PersianEndDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
+                <dxg:GridColumn Header="تسویه حساب شده است" Binding="{Binding IsPayedDescrption, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+
                 <dxg:GridColumn Header="توضیحات" Binding="{Binding Description, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
 
                 <dxg:GridColumn Header="اقساط" Binding="{Binding Description, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}">
                     <dxg:GridColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="InstallmentsOfLoan" Content="نمایش لیست اقساط" Click="InstallmentsOfLoan_Click"/>
+                            <Button Name="InstallmentsOfLoan" IsEnabled="{Binding RowData.Row.IsActive}" Content="نمایش لیست اقساط" Click="InstallmentsOfLoan_Click"/>
                         </DataTemplate>
                     </dxg:GridColumn.CellTemplate>
                 </dxg:GridColumn>

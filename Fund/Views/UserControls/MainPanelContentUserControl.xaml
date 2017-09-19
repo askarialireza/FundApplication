@@ -39,75 +39,131 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+
+        <Style x:Key="LabelCol0Style" TargetType="{x:Type Label}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3,0"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="LabelCol1Style" TargetType="{x:Type Label}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3,0"/>
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Content" Value=""/>
+        </Style>
+
+        <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
     </UserControl.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        
+
         <Grid Name="MainGrid" Width="auto" Height="auto" Margin="0">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" MinHeight="200"/>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="5"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="275" MinHeight="275" MaxHeight="275"/>
             </Grid.RowDefinitions>
 
             <dxlc:GroupBox Grid.Row="0" Header="ماه نگار" Style="{DynamicResource GroupBoxStyle}" Height="auto">
-                
+
                 <local:PersianDatePicker x:Name="MiniPersianSchedulerReminder" FlowDirection="LeftToRight" SelectedDateTimeChanged="MiniPersianSchedulerReminder_SelectedDateTimeChanged" Refresh="MiniPersianSchedulerReminder_Refresh"/>
-            
+
             </dxlc:GroupBox>
-            
+
             <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" DragCompleted="GridSplitter_DragCompleted" Opacity="0.5"/>
-            
+
             <dxlc:GroupBox Grid.Row="2" Header="یادآور" Style="{DynamicResource GroupBoxStyle}">
 
                 <ListBox Name="EventsListBox" Style="{DynamicResource  EventsListBoxEditStyle}"/>
 
             </dxlc:GroupBox>
-            
+
             <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" DragCompleted="GridSplitter_DragCompleted" Opacity="0.5"/>
-            
+
             <dxlc:GroupBox Name="FundDetailsGroupBox" Grid.Row="4" Header="اطلاعات صندوق" Style="{DynamicResource GroupBoxStyle}">
-                
-                <Grid VerticalAlignment="Top" Margin="10">
-                    
+
+                <Grid VerticalAlignment="Top" Margin="0">
+
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.7*"/>
+                        <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="25"/>
-                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
                     </Grid.RowDefinitions>
+
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="8" Background="White" Opacity="0.5"/>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="8" Style="{DynamicResource BorderStyle}"/>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="8" Style="{DynamicResource BorderStyle}"/>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="7" Style="{DynamicResource BorderStyle}"/>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="6" Style="{DynamicResource BorderStyle}"/>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Style="{DynamicResource BorderStyle}"/>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Style="{DynamicResource BorderStyle}"/>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Style="{DynamicResource BorderStyle}"/>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{DynamicResource BorderStyle}"/>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="1" Style="{DynamicResource BorderStyle}"/>
                     
-                    <Label Name="FundManagerNameLabel" Grid.Row="0" Grid.Column="0" Content="مدیر صندوق :" FontSize="12" HorizontalAlignment="Right" Margin="10,0" />
+                    <Label Grid.Row="0" Content="مدیر صندوق" Style="{DynamicResource LabelCol0Style}"/>
+
+                    <Label Grid.Row="1" Content="موجودی صندوق" Style="{DynamicResource LabelCol0Style}"/>
+
+                    <Label Grid.Row="2" Content="سقف پرداخت وام" Style="{DynamicResource LabelCol0Style}"/>
+
+                    <Label Grid.Row="3" Content="کارمزد صندوق" Style="{DynamicResource LabelCol0Style}"/>
+
+                    <Label Grid.Row="4" Content="تعداد اعضاء" Style="{DynamicResource LabelCol0Style}"/>
+
+                    <Label Grid.Row="5" Content="وام های پرداختی" Style="{DynamicResource LabelCol0Style}"/>
+
+                    <Label Grid.Row="6" Content="وام های جاری" Style="{DynamicResource LabelCol0Style}"/>
+
+                    <Label Grid.Row="7" Content="وام های تسویه شده" Style="{DynamicResource LabelCol0Style}"/>
                     
-                    <Label Name="FundBalanceLabel" Grid.Row="1" Grid.Column="0" Content="تراز مالی صندوق :" FontSize="12" HorizontalAlignment="Right" Margin="10,0" />
                     
-                    <Label Name="FundRemovalLimitLabel" Grid.Row="2" Grid.Column="0" Content="سقف پرداخت وام :" FontSize="12" HorizontalAlignment="Right" Margin="10,0" />
-                    
-                    <Label Name="FundMembersCountLabel" Grid.Row="3" Grid.Column="0" Content="تعداد اعضاء صندوق :" FontSize="12" HorizontalAlignment="Right" Margin="10,0" />
-                    
-                    <Label Name="FundManagerNameValue" Grid.Row="0" Grid.Column="1" Content="" FontSize="12" Margin="10,0,0,0" HorizontalAlignment="Left" Width="203"/>
-                    
-                    <Label Name="FundBalanceValue" Grid.Row="1" Grid.Column="1" Content="" FontFamily="{StaticResource EnGlobalFontFamily}" FontSize="12" Margin="0" HorizontalAlignment="Left" Width="203"/>
-                    
-                    <Label Name="FundRemovalLimitValue" Grid.Row="2" Grid.Column="1" Content="" FontFamily="{StaticResource EnGlobalFontFamily}" FontSize="12" Margin="0" HorizontalAlignment="Left" Width="203"/>
-                    
-                    <Label Name="FundMembersCountValue" Grid.Row="3" Grid.Column="1" Content="" FontSize="12" Margin="0" HorizontalAlignment="Left" Width="203"/>
-               
+                    <Label Name="FundManagerNameValue" Grid.Row="0" Style="{DynamicResource LabelCol1Style}"/>
+
+                    <Label Name="FundBalanceValue" Grid.Row="1" Style="{DynamicResource LabelCol1Style}"/>
+
+                    <Label Name="FundRemovalLimitValue" Grid.Row="2" Style="{DynamicResource LabelCol1Style}"/>
+
+                    <Label Name="FundPercentValue" Grid.Row="3" Style="{DynamicResource LabelCol1Style}"/>
+
+                    <Label Name="FundMembersCountValue" Grid.Row="4" Style="{DynamicResource LabelCol1Style}"/>
+
+                    <Label Name="LoansCountValue" Grid.Row="5" Style="{DynamicResource LabelCol1Style}"/>
+
+                    <Label Name="CurrentLoansCountValue" Grid.Row="6" Style="{DynamicResource LabelCol1Style}"/>
+
+                    <Label Name="PayedLoansCountValue" Grid.Row="7" Style="{DynamicResource LabelCol1Style}"/>
+
                 </Grid>
-                
+
             </dxlc:GroupBox>
 
         </Grid>
-        
+
     </ScrollViewer>
-    
+
 </UserControl>
