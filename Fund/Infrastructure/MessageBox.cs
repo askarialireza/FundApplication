@@ -23,28 +23,28 @@ namespace Infrastructure
 
             switch (caption)
             {
-                case Infrastructure.MessageBoxCaption.Error:
+                case Infrastructure.Caption.Error:
                     {
                         oButton = System.Windows.MessageBoxButton.OK;
                         oImage = System.Windows.MessageBoxImage.Error;
                         oResult = System.Windows.MessageBoxResult.OK;
                         break;
                     }
-                case Infrastructure.MessageBoxCaption.Information:
+                case Infrastructure.Caption.Information:
                     {
                         oButton = System.Windows.MessageBoxButton.OK;
                         oImage = System.Windows.MessageBoxImage.Information;
                         oResult = System.Windows.MessageBoxResult.OK;
                         break;
                     }
-                case Infrastructure.MessageBoxCaption.Question:
+                case Infrastructure.Caption.Question:
                     {
                         oButton = System.Windows.MessageBoxButton.YesNo;
                         oImage = System.Windows.MessageBoxImage.Question;
                         oResult = System.Windows.MessageBoxResult.No;
                         break;
                     }
-                case Infrastructure.MessageBoxCaption.Warning:
+                case Infrastructure.Caption.Warning:
                     {
                         oButton = System.Windows.MessageBoxButton.YesNoCancel;
                         oImage = System.Windows.MessageBoxImage.Warning;

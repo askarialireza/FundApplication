@@ -38,7 +38,7 @@ namespace Fund
                     {
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.MessageBoxCaption.Error,
+                                caption: Infrastructure.Caption.Error,
                                 text: string.Format("ابتدا بایست قسط تاریخ {0} پرداخت شود.", varList.Select(current => current.InstallmentDate).FirstOrDefault().ToPersianDate())
                             );
 

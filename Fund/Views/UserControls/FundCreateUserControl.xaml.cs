@@ -29,21 +29,21 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(fundNameTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد نام صندوق الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام صندوق الزامی است.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(fundManagerTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد نام مدیر صندوق الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام مدیر صندوق الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(fundBuildYearTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد سال تاسیس الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد سال تاسیس الزامی می‌باشد.");
 
                 return;
             }
@@ -51,28 +51,28 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(fundBalanceTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد تراز صندوق الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد تراز صندوق الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(fundRemovalLimitTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد سقف برداشت وام الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد سقف برداشت وام الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(passwordBox.Password) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(againPasswordBox.Password) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد تکرار رمز عبور الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد تکرار رمز عبور الزامی می‌باشد.");
 
                 return;
             }
@@ -81,7 +81,7 @@ namespace Fund
             {
                 if (string.IsNullOrWhiteSpace(PercentTextBox.Text.Trim()) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "در صورت فعال بودن گزینه کارمزد، تکمیل فیلد کارمزد الزامی است.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "در صورت فعال بودن گزینه کارمزد، تکمیل فیلد کارمزد الزامی است.");
 
                     return;
                 }
@@ -89,14 +89,14 @@ namespace Fund
 
             if (Utility.StringToMoney(fundBalanceTextBox.Text) <= Utility.StringToMoney(fundRemovalLimitTextBox.Text))
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "سقف برداشت نمیتواند مقداری بیشتر از تراز صندوق داشته باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "سقف برداشت نمیتواند مقداری بیشتر از تراز صندوق داشته باشد.");
 
                 return;
             }
 
             if (passwordBox.Password.Trim() != againPasswordBox.Password.Trim())
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "گذرواژه های درج شده با یکدیگر مطابقت ندارند.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "گذرواژه های درج شده با یکدیگر مطابقت ندارند.");
 
                 return;
             }
@@ -126,7 +126,7 @@ namespace Fund
                 oUnitOfWork.Dispose();
                 oUnitOfWork = null;
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Information, text: "صندوق جدید با موفقیت در بانک اطلاعاتی ایجاد گردید.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Information, text: "صندوق جدید با موفقیت در بانک اطلاعاتی ایجاد گردید.");
 
                 Utility.MainWindow.RefreshUserInterface();
             }

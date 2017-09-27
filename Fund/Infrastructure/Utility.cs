@@ -21,6 +21,8 @@ namespace Fund
 
         #region Properties
 
+        private static System.Net.Mail.SmtpException Exception { get; set; }
+
         public static Models.User CurrentUser { get; set; }
 
         public static Models.Fund CurrentFund { get; set; }
@@ -35,6 +37,7 @@ namespace Fund
 
         public static string DatabaseBackupPath { get; set; }
 
+        public static bool EmailSentSuccessfully { get; set; }
 
         #endregion /Properties
 
@@ -107,7 +110,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oDialogResult =
                      Infrastructure.MessageBox.Show
                      (
-                         caption: Infrastructure.MessageBoxCaption.Question,
+                         caption: Infrastructure.Caption.Question,
                          text: "خروجی گزارش با موفقیت ذخیره گردید." + System.Environment.NewLine + "آیا مایل به مشاهده خروجی می‌باشید؟"
                      );
 
@@ -148,7 +151,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oDialogResult =
                      Infrastructure.MessageBox.Show
                      (
-                         caption: Infrastructure.MessageBoxCaption.Question,
+                         caption: Infrastructure.Caption.Question,
                          text: "خروجی گزارش با موفقیت ذخیره گردید." + System.Environment.NewLine + "آیا مایل به مشاهده خروجی می‌باشید؟"
                      );
 
@@ -371,6 +374,165 @@ namespace Fund
                     break;
             }
         }
+
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (System.Net.WebClient oWebClient = new System.Net.WebClient())
+                using (System.IO.Stream oStream = oWebClient.OpenRead("http://www.google.com"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static void SendEmail(string senderEmail, string senderPassword, string displayName, string receiverEmail, string subject, string body, System.IO.Stream attachment, string attachmentName)
+        {
+            ViewModels.EmailViewModel oEmailViewModel = new ViewModels.EmailViewModel();
+
+            oEmailViewModel.Attachment = attachment;
+            oEmailViewModel.SenderEmail = senderEmail;
+            oEmailViewModel.SenderPassword = senderPassword;
+            oEmailViewModel.DisplayName = displayName;
+            oEmailViewModel.ReceiverEmail = receiverEmail;
+            oEmailViewModel.Subject = subject;
+            oEmailViewModel.Body = body;
+            oEmailViewModel.AttachmentFileName = attachmentName;
+
+            System.ComponentModel.BackgroundWorker oBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+
+            oBackgroundWorker.DoWork += OBackgroundWorker_DoWork;
+            oBackgroundWorker.RunWorkerCompleted += OBackgroundWorker_RunWorkerCompleted;
+
+            oBackgroundWorker.RunWorkerAsync(oEmailViewModel);
+        }
+
+        private static void OBackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            Utility.MainWindow.MainProgressBar.IsIndeterminate = false;
+
+            Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Hidden;
+
+            if (Utility.EmailSentSuccessfully == true)
+            {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Information, text: "پست الکترونیکی با موفقیت ارسال گردید.");
+            }
+            else
+            {
+                if (Utility.Exception.StatusCode == System.Net.Mail.SmtpStatusCode.MailboxUnavailable)
+                {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "پست الکترونیکی مقصد وجود ندارد");
+                }
+
+                if (Utility.Exception.StatusCode == System.Net.Mail.SmtpStatusCode.TransactionFailed)
+                {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "ارسال پست الکترونیکی ناموفق");
+                }
+
+                if (Utility.Exception.StatusCode == System.Net.Mail.SmtpStatusCode.MustIssueStartTlsFirst)
+                {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "اتصال امن برقرار نیست / پست الکترونیکی با رمزعبور درج شده احراز هویت نشد.");
+                }
+            }
+        }
+
+        private static void OBackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            ViewModels.EmailViewModel oEmailViewModel = e.Argument as ViewModels.EmailViewModel;
+
+            string smtpAddress = FindSTMPAddress(oEmailViewModel.SenderEmail);
+            int portNumber = 587;
+            bool enableSSL = true;
+
+            System.Net.Mail.MailAddress oFromMailAddress = new System.Net.Mail.MailAddress(oEmailViewModel.SenderEmail, oEmailViewModel.DisplayName, System.Text.Encoding.UTF8);
+
+            System.Net.Mail.MailAddress oToMailAddress = new System.Net.Mail.MailAddress(oEmailViewModel.ReceiverEmail);
+
+            System.Net.Mail.MailMessage oMailMessage = new System.Net.Mail.MailMessage(oFromMailAddress, oToMailAddress);
+
+            oMailMessage.Subject = oEmailViewModel.Subject;
+
+            oMailMessage.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            oMailMessage.Body = oEmailViewModel.Body;
+
+            oMailMessage.IsBodyHtml = false;
+
+            oMailMessage.Attachments.Add(new System.Net.Mail.Attachment(contentStream: oEmailViewModel.Attachment, name: oEmailViewModel.AttachmentFileName + ".pdf", mediaType: "application/pdf"));
+
+            System.Net.Mail.SmtpClient oSmtpClient = new System.Net.Mail.SmtpClient(smtpAddress, portNumber);
+
+            oSmtpClient.Credentials = new System.Net.NetworkCredential(oEmailViewModel.SenderEmail, oEmailViewModel.SenderPassword);
+
+            oSmtpClient.EnableSsl = enableSSL;
+
+            try
+            {
+                oSmtpClient.Send(oMailMessage);
+
+                Utility.EmailSentSuccessfully = true;
+            }
+            catch (System.Net.Mail.SmtpException ex)
+            {
+
+                Utility.Exception = ex;
+                
+                Utility.EmailSentSuccessfully = false;
+            }
+        }
+
+        public static string FindSTMPAddress(string emailAddress)
+        {
+            string result = string.Empty;
+
+            int from = emailAddress.IndexOf('@');
+            int to = emailAddress.LastIndexOf('.');
+
+            string stmpServer = emailAddress.Substring(from + 1, (to - from - 1));
+
+            if (string.Compare(stmpServer, "gmail", true) == 0)
+            {
+                result = "smtp.gmail.com";
+            }
+            else if (string.Compare(stmpServer, "yahoo", true) == 0)
+            {
+                result = "smtp.mail.yahoo.com";
+            }
+            else if (string.Compare(stmpServer, "hotmail", true) == 0)
+            {
+                result = "smtp.live.com";
+            }
+
+            return (result);
+        }
+
+        public static void Show(this System.Windows.Controls.Primitives.Popup popup)
+        {
+            popup.IsOpen = true;
+
+            System.Windows.Threading.DispatcherTimer oDispatcherTimer = new System.Windows.Threading.DispatcherTimer()
+            {
+                Interval = System.TimeSpan.FromSeconds(5)
+            };
+
+            oDispatcherTimer.Tick += delegate (object sender, System.EventArgs e)
+            {
+                oDispatcherTimer.Stop();
+
+                if (popup.IsOpen == true)
+                {
+                    popup.IsOpen = false;
+                }
+            };
+
+            oDispatcherTimer.Start();
+        }
+
         #endregion /Methods
 
     }

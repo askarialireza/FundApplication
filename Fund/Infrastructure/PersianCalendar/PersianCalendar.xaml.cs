@@ -63,141 +63,135 @@ namespace Fund
 
         void CalculateMonth(int thisYear, int thisMonth)
         {
-            try
+            yearForNavigating = thisYear;
+            monthForNavigating = thisMonth;
+
+            System.DateTime tempDateTime = persianCalendar.ToDateTime(yearForNavigating, monthForNavigating, 15, 01, 01, 01, 01);
+
+            int thisDay = 1;
+
+
+            TextBlockThisMonth.Text = string.Empty;
+
+            TextBlockThisMonth.Text = monthForNavigating.ConvertToPersianMonth() + " " + yearForNavigating.ConvertToPersianNumber();
+
+
+            //Different between first place of calendar and first place of this month
+            //اختلاف بین خانه شروع ماه و اولین خانه تقویم            
+            string DayOfWeek = persianCalendar.GetDayOfWeek(persianCalendar.ToDateTime(thisYear, thisMonth, 01, 01, 01, 01, 01)).ToString();
+
+            int span = CalculatePersianSpan(DayOfWeek.ConvertToPersianDay());
+
+            DecreasePersianDay(ref thisYear, ref thisMonth, ref thisDay, span);
+
+            string persianDate;//حاوی تاریخ روزهای شمسی Contains the date of Persian
+            string christianDate;//حاوی تاریخ روزهای میلادی Contains the date of Christian
+            string hijriDate;//حاوی تاریخ روزهای قمری Contains the date of Hijri
+
+            string TooltipContext = string.Empty;//Contains the text of tooltip
+
+            for (int i = 0; i < 6 * 7; i++)
             {
-                yearForNavigating = thisYear;
-                monthForNavigating = thisMonth;
+                tempDateTime = persianCalendar.ToDateTime(thisYear, thisMonth, thisDay, 01, 01, 01, 01);
 
-                System.DateTime tempDateTime = persianCalendar.ToDateTime(yearForNavigating, monthForNavigating, 15, 01, 01, 01, 01);
+                christianDate = tempDateTime.Day.ToString() + " " + EnglishMonthName(tempDateTime.Month) + " " + tempDateTime.Year.ToString();
+                hijriDate = hijriCalendar.GetDayOfMonth(tempDateTime).ConvertToPersianNumber() + " " + hijriCalendar.GetMonth(tempDateTime).ConvertToHigriMonth() + " " + hijriCalendar.GetYear(tempDateTime).ConvertToPersianNumber();
+                persianDate = thisDay.ConvertToPersianNumber();
 
-                int thisDay = 1;
-                TextBlockThisMonth.Text = string.Empty;
-                TextBlockThisMonth.Text =
-                    monthForNavigating.ConvertToPersianMonth() + " " +
-                    yearForNavigating.ConvertToPersianNumber();
+                DayOfWeek = persianCalendar.GetDayOfWeek(tempDateTime).ToString();
 
-                //Different between first place of calendar and first place of this month
-                //اختلاف بین خانه شروع ماه و اولین خانه تقویم            
-                string DayOfWeek = persianCalendar.GetDayOfWeek(persianCalendar.ToDateTime(thisYear, thisMonth, 01, 01, 01, 01, 01)).ToString();
-                int span = CalculatePersianSpan(DayOfWeek.ConvertToPersianDay());
+                TooltipContext = string.Empty;
 
-                DecreasePersianDay(ref thisYear, ref thisMonth, ref thisDay, span);
-
-                string persianDate;//حاوی تاریخ روزهای شمسی Contains the date of Persian
-                string christianDate;//حاوی تاریخ روزهای میلادی Contains the date of Christian
-                string hijriDate;//حاوی تاریخ روزهای قمری Contains the date of Hijri
-
-                string TooltipContext = string.Empty;//Contains the text of tooltip
-
-                ////////////////////////////////////
-
-                for (int i = 0; i < 6 * 7; i++)
+                if (thisMonth == monthForNavigating) // ماه کنونی 
                 {
-                    tempDateTime = persianCalendar.ToDateTime(thisYear, thisMonth, thisDay, 01, 01, 01, 01);
 
-                    christianDate = tempDateTime.Day.ToString() + " " + EnglishMonthName(tempDateTime.Month) + " " + tempDateTime.Year.ToString();
-                    hijriDate = hijriCalendar.GetDayOfMonth(tempDateTime).ConvertToPersianNumber() + " " + hijriCalendar.GetMonth(tempDateTime).ConvertToHigriMonth() + " " + hijriCalendar.GetYear(tempDateTime).ConvertToPersianNumber();
-                    persianDate = thisDay.ConvertToPersianNumber();
-
-                    DayOfWeek = persianCalendar.GetDayOfWeek(tempDateTime).ToString();
-
-                    TooltipContext = string.Empty;
-
-                    if (thisMonth == monthForNavigating) // ماه کنونی 
-                    {
-
-                        if (thisDay == currentDay && thisMonth == currentMonth && thisYear == currentYear) // امروز
-                        {
-                            TooltipContext = GetTextOfMemo(thisYear, thisMonth, thisDay);
-
-                            if (DayOfWeek.ConvertToPersianDay() == "جمعه") // امروز جمعه است
-                            {
-                                if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // امروز جمعه رویدادی ندارد
-                                {
-                                    ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForFridayToday", "TextBlockStyle3", "TextBlockStyle12", "TextBlockStyle8", TooltipContext);
-                                }
-                                else // امروز جمعه رویداد دارد
-                                {
-                                    ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForEventedFridayToday", "TextBlockStyle3", "TextBlockStyle12", "TextBlockStyle8", TooltipContext);
-                                }
-                            }
-                            else // امروز جمعه نیست
-                            {
-                                if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // امروز رویدادی ندارد
-                                {
-                                    ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleToday", "TextBlockStyle5", "TextBlockStyle10", "TextBlockStyle6", TooltipContext);
-                                }
-                                else // امروز رویداد دارد
-                                {
-                                    ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleEventedToday", "TextBlockStyle5", "TextBlockStyle10", "TextBlockStyle6", TooltipContext);
-                                }
-
-                            }
-                        }
-
-                        else // سایر روزهای ماه کنونی
-                        {
-                            TooltipContext = GetTextOfMemo(thisYear, thisMonth, thisDay);
-
-                            if (DayOfWeek.ConvertToPersianDay() == "جمعه") // روز جمعه است
-                            {
-                                if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // روز جمعه رویداد ندارد
-                                {
-                                    ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForHolydays", "TextBlockStyle3", "TextBlockStyle12", "TextBlockStyle8", TooltipContext);
-                                }
-                                else // روز جمعه رویداد دارد
-                                {
-                                    ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForEventedFriday", "TextBlockStyle3", "TextBlockStyle12", "TextBlockStyle8", TooltipContext);
-                                }
-                            }
-                            else // روز جمعه نیست
-                            {
-                                if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // روز عادی رویداد ندارد
-                                {
-                                    ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyle2", "TextBlockStyle5", "TextBlockStyle10", "TextBlockStyle6", TooltipContext);
-                                }
-                                else // روز عادی رویداد دارد
-                                {
-                                    ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleEventedDay", "TextBlockStyle5", "TextBlockStyle10", "TextBlockStyle6", TooltipContext);
-                                }
-                            }
-                        }
-                    }
-
-                    else // ماه های دیگر
+                    if (thisDay == currentDay && thisMonth == currentMonth && thisYear == currentYear) // امروز
                     {
                         TooltipContext = GetTextOfMemo(thisYear, thisMonth, thisDay);
 
-                        if (DayOfWeek.ConvertToPersianDay() == "جمعه")// روز جمعه در ماه های دیگر
+                        if (DayOfWeek.ConvertToPersianDay() == "جمعه") // امروز جمعه است
                         {
-                            if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // رویداد نداشتن روز جمعه در ماه های دیگر
+                            if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // امروز جمعه رویدادی ندارد
                             {
-                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForOtherHolydays", "TextBlockStyle4", "TextBlockStyle13", "TextBlockStyle9", TooltipContext);
+                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForFridayToday", "TextBlockStyle3", "TextBlockStyle12", "TextBlockStyle8", TooltipContext);
                             }
-                            else // رویداد داشتن روز جمعه در ماه های دیگر
+                            else // امروز جمعه رویداد دارد
                             {
-                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForOtherEventedFriday", "TextBlockStyle4", "TextBlockStyle13", "TextBlockStyle9", TooltipContext);
+                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForEventedFridayToday", "TextBlockStyle3", "TextBlockStyle12", "TextBlockStyle8", TooltipContext);
                             }
                         }
-                        else // سایر روز های هفته در ماه های دیگر
+                        else // امروز جمعه نیست
                         {
-                            if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // رویداد نداشتن روزهای هفته در ماه های دیگر
+                            if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // امروز رویدادی ندارد
                             {
-                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleOtherMonths", "TextBlockStyle2", "TextBlockStyle11", "TextBlockStyle7", TooltipContext);
+                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleToday", "TextBlockStyle5", "TextBlockStyle10", "TextBlockStyle6", TooltipContext);
                             }
-                            else // رویداد داشتن سایر روزهای هفته در ماه های دیگر
+                            else // امروز رویداد دارد
                             {
-                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleEventedOtherMonths", "TextBlockStyle2", "TextBlockStyle11", "TextBlockStyle7", TooltipContext);
+                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleEventedToday", "TextBlockStyle5", "TextBlockStyle10", "TextBlockStyle6", TooltipContext);
                             }
+
                         }
                     }
 
-                    IncreasePersianDay(ref thisYear, ref thisMonth, ref thisDay, 1);
+                    else // سایر روزهای ماه کنونی
+                    {
+                        TooltipContext = GetTextOfMemo(thisYear, thisMonth, thisDay);
+
+                        if (DayOfWeek.ConvertToPersianDay() == "جمعه") // روز جمعه است
+                        {
+                            if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // روز جمعه رویداد ندارد
+                            {
+                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForHolydays", "TextBlockStyle3", "TextBlockStyle12", "TextBlockStyle8", TooltipContext);
+                            }
+                            else // روز جمعه رویداد دارد
+                            {
+                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForEventedFriday", "TextBlockStyle3", "TextBlockStyle12", "TextBlockStyle8", TooltipContext);
+                            }
+                        }
+                        else // روز جمعه نیست
+                        {
+                            if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // روز عادی رویداد ندارد
+                            {
+                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyle2", "TextBlockStyle5", "TextBlockStyle10", "TextBlockStyle6", TooltipContext);
+                            }
+                            else // روز عادی رویداد دارد
+                            {
+                                ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleEventedDay", "TextBlockStyle5", "TextBlockStyle10", "TextBlockStyle6", TooltipContext);
+                            }
+                        }
+                    }
                 }
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.Message, "Exception", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+
+                else // ماه های دیگر
+                {
+                    TooltipContext = GetTextOfMemo(thisYear, thisMonth, thisDay);
+
+                    if (DayOfWeek.ConvertToPersianDay() == "جمعه")// روز جمعه در ماه های دیگر
+                    {
+                        if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // رویداد نداشتن روز جمعه در ماه های دیگر
+                        {
+                            ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForOtherHolydays", "TextBlockStyle4", "TextBlockStyle13", "TextBlockStyle9", TooltipContext);
+                        }
+                        else // رویداد داشتن روز جمعه در ماه های دیگر
+                        {
+                            ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleForOtherEventedFriday", "TextBlockStyle4", "TextBlockStyle13", "TextBlockStyle9", TooltipContext);
+                        }
+                    }
+                    else // سایر روز های هفته در ماه های دیگر
+                    {
+                        if (GetEventCountOfDay(thisYear, thisMonth, thisDay) == 0) // رویداد نداشتن روزهای هفته در ماه های دیگر
+                        {
+                            ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleOtherMonths", "TextBlockStyle2", "TextBlockStyle11", "TextBlockStyle7", TooltipContext);
+                        }
+                        else // رویداد داشتن سایر روزهای هفته در ماه های دیگر
+                        {
+                            ChangeProperties(i, persianDate, hijriDate, christianDate, "RectangleStyleEventedOtherMonths", "TextBlockStyle2", "TextBlockStyle11", "TextBlockStyle7", TooltipContext);
+                        }
+                    }
+                }
+
+                IncreasePersianDay(ref thisYear, ref thisMonth, ref thisDay, 1);
             }
         }
 
@@ -945,7 +939,7 @@ namespace Fund
                 }
                 catch (System.Exception ex)
                 {
-                    Infrastructure.MessageBox.Show(ex.Message);;
+                    Infrastructure.MessageBox.Show(ex.Message); ;
                 }
                 finally
                 {
@@ -1029,7 +1023,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Error,
+                        caption: Infrastructure.Caption.Error,
                         text: "لطفا در کادر یادداشتی وارد نمایید"
                     );
                 return;
@@ -1062,7 +1056,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -1081,7 +1075,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
         }
         void saveButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -1092,7 +1086,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Error,
+                        caption: Infrastructure.Caption.Error,
                         text: "لطفا در کادر یادداشتی وارد نمایید"
                     );
                 return;
@@ -1123,7 +1117,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -1142,7 +1136,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
         }
         void ButtonDelete_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -1162,7 +1156,7 @@ namespace Fund
                     System.Windows.MessageBoxResult oResult =
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.MessageBoxCaption.Question,
+                                caption: Infrastructure.Caption.Question,
                                 text: "آیا مطمئن به حذف رویداد می‌باشید؟."
                             );
                     if (oResult == System.Windows.MessageBoxResult.Yes)
@@ -1178,7 +1172,7 @@ namespace Fund
                 {
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.MessageBoxCaption.Error,
+                            caption: Infrastructure.Caption.Error,
                             text: "رویدادی برای حذف شدن وجود ندارد."
                         );
                     return;
@@ -1186,7 +1180,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -1280,7 +1274,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -1446,7 +1440,7 @@ namespace Fund
                 case "Friday":
                     return "جمعه";
             }
-            return Infrastructure.MessageBoxCaption.Error;
+            return Infrastructure.Caption.Error;
         }
 
         /// <summary>

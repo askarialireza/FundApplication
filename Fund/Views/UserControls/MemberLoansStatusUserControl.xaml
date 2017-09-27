@@ -34,7 +34,6 @@
 
     </UserControl.Resources>
 
-
     <Grid Style="{DynamicResource GridStyle}">
         
         <Grid.RowDefinitions>
@@ -137,21 +136,21 @@
                             <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row"  ShowAutoFilterRow="False"  ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
                         </dxg:GridControl.View>
 
-                        <dxg:GridColumn Header="مبلغ وام" Binding="{Binding LoanAmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="مبلغ وام" Binding="{Binding LoanAmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="تاریخ پرداخت" Binding="{Binding PersianStartDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تاریخ پرداخت" Binding="{Binding PersianStartDate}"  Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="تعداد اقساط" Binding="{Binding InstallmentsCount, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تعداد اقساط" Binding="{Binding InstallmentsCount}"  Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="بازپرداخت" Binding="{Binding RefundAmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="بازپرداخت" Binding="{Binding RefundAmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding PersianEndDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding PersianEndDate}"  Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="تسویه حساب شده است" Binding="{Binding IsPayedDescrption, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تسویه حساب شده است" Binding="{Binding IsPayedDescrption}"  Style="{StaticResource GridColumnStyle}" />
                         
-                        <dxg:GridColumn Header="توضیحات" Binding="{Binding Description, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="توضیحات" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="اقساط" Binding="{Binding Description, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}">
+                        <dxg:GridColumn Header="اقساط" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}">
                             <dxg:GridColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Name="InstallmentsOfLoan" IsEnabled="{Binding RowData.Row.IsActive}" Content="نمایش لیست اقساط" Click="InstallmentsOfLoan_Click"/>
@@ -181,6 +180,8 @@
 
             <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF" Margin="0,0,143,4" Click="ExportToPdfButton_Click"/>
 
+            <dx:SimpleButton x:Name="SendEmailButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/Email_30px.png" ToolTip="ارسال پست الکترونیکی" Margin="0,0,196,4" Click="SendEmailButton_Click"/>
+            
             <dx:SimpleButton x:Name="CancelButton" Style="{DynamicResource CancelButtonStyle}" Height="32" Grid.Column="0" Click="CancelButton_Click" Margin="0,0,5,4"/>
 
         </Grid>

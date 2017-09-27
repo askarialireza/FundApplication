@@ -21,7 +21,7 @@ namespace ViewModels
                 _date = value;
 
                 PersianDate =
-                    new FarsiLibrary.Utils.PersianDate(_date).ToString("d");
+                    new FarsiLibrary.Utils.PersianDate(_date).ToString();
             }
         }
         public string PersianDate { get; set; }

@@ -67,7 +67,6 @@ namespace Fund
                 Models.Fund oFund = oUnitOfWork.FundRepository
                     .GetById(Utility.CurrentFund.Id);
 
-
                 FundNameTextBox.Text = oFund.Name;
                 FundManagerNameTextBox.Text = oFund.ManagerName;
                 FundBuildYearTextBox.Text = oFund.FoundationYear.ToString();
@@ -145,21 +144,21 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(FundNameTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد نام صندوق الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام صندوق الزامی است.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(FundManagerNameTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد نام مدیر صندوق الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام مدیر صندوق الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(FundBuildYearTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد سال تاسیس الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد سال تاسیس الزامی می‌باشد.");
 
                 return;
             }
@@ -168,21 +167,21 @@ namespace Fund
             {
                 if (string.IsNullOrWhiteSpace(CurrentPasswordBox.Password) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد رمز عبور فعلی الزامی می‌باشد.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد رمز عبور فعلی الزامی می‌باشد.");
 
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(NewPasswordBox.Password) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد رمز عبور جدید الزامی می‌باشد.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد رمز عبور جدید الزامی می‌باشد.");
 
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(ConfirmPasswordBox.Password) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد تایید رمز عبور جدید الزامی می‌باشد.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد تایید رمز عبور جدید الزامی می‌باشد.");
 
                     return;
                 }
@@ -193,7 +192,7 @@ namespace Fund
             {
                 if (string.IsNullOrWhiteSpace(FundDepositBalanceTextBox.Text) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "در صورت فعال بودن گزینه افزایش موجودی، تکمیل فیلد افزایش موجودی الزامی است.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "در صورت فعال بودن گزینه افزایش موجودی، تکمیل فیلد افزایش موجودی الزامی است.");
 
                     return;
                 }
@@ -203,7 +202,7 @@ namespace Fund
             {
                 if (string.IsNullOrWhiteSpace(FundRemovalLimitTextBox.Text) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "در صورت فعال بودن گزینه تغییر سقف برداشت وام، تکمیل فیلد تغییر سقف پرداخت وام الزامی است.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "در صورت فعال بودن گزینه تغییر سقف برداشت وام، تکمیل فیلد تغییر سقف پرداخت وام الزامی است.");
 
                     return;
                 }
@@ -213,7 +212,7 @@ namespace Fund
             {
                 if (string.IsNullOrWhiteSpace(FundPercentTextBox.Text.Trim()) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "در صورت فعال بودن گزینه کارمزد، تکمیل فیلد کارمزد الزامی است.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "در صورت فعال بودن گزینه کارمزد، تکمیل فیلد کارمزد الزامی است.");
 
                     return;
                 }
@@ -240,13 +239,13 @@ namespace Fund
                     {
                         if (Dtx.Security.Hashing.GetMD5(CurrentPasswordBox.Password.Trim()) != oFund.ManagerPassword)
                         {
-                            Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "رمز عبور درج شده صحیح نمی‌باشد.");
+                            Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "رمز عبور درج شده صحیح نمی‌باشد.");
 
                             return;
                         }
-                        if(NewPasswordBox.Password.Trim()!= ConfirmPasswordBox.Password.Trim())
+                        if (NewPasswordBox.Password.Trim() != ConfirmPasswordBox.Password.Trim())
                         {
-                            Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "رمزهای عبور جدید درج شده دارای مطابقت نمی‌باشد.");
+                            Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "رمزهای عبور جدید درج شده دارای مطابقت نمی‌باشد.");
 
                             return;
                         }
@@ -266,7 +265,7 @@ namespace Fund
                         oTransaction.FundId = oFund.Id;
                         oTransaction.MemberId = null;
                         oTransaction.TransactionType = Models.TransactionType.Deposit;
-                        oTransaction.Description = string.Format("افزایش موجودی صندوق به مبلغ {0}",oTransaction.Amount.ToRialStringFormat());
+                        oTransaction.Description = string.Format("افزایش موجودی صندوق به مبلغ {0}", oTransaction.Amount.ToRialStringFormat());
 
                         oUnitOfWork.TransactionRepository.Insert(oTransaction);
 
@@ -288,7 +287,7 @@ namespace Fund
 
                 oUnitOfWork.Save();
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Information, text: "اطلاعات صندوق با موفقیت ویرایش گردید");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Information, text: "اطلاعات صندوق با موفقیت ویرایش گردید");
 
                 Utility.CurrentFund = oFund;
 
@@ -320,27 +319,75 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Question,
+                        caption: Infrastructure.Caption.Question,
                         text: "آیا مطمئن به حذف اعضای صندوق می‌باشید؟"
                     );
 
-                if(oResult == System.Windows.MessageBoxResult.Yes)
+                if (oResult == System.Windows.MessageBoxResult.Yes)
                 {
                     var varList = oUnitOfWork.MemberRepository
                         .Get()
                         .Where(current => current.FundId == Utility.CurrentFund.Id)
                         .ToList();
 
-                    foreach (Models.Member oMember in varList)
+                    var varList2 = oUnitOfWork.RemainderRepository
+                        .Get()
+                        .Where(current => current.FundId == Utility.CurrentFund.Id)
+                        .Where(current => current.EventType == Models.Event.Installment)
+                        .ToList();
+
+                    var varList3 = oUnitOfWork.TransactionRepository
+                        .Get()
+                        .Where(current => current.FundId == Utility.CurrentFund.Id)
+                        .Where(current => current.TransactionType != Models.TransactionType.Deposit)
+                        .ToList();
+
+                    if (varList != null)
                     {
-                        oUnitOfWork.MemberRepository.Delete(oMember);
+                        foreach (Models.Member oMember in varList)
+                        {
+                            oUnitOfWork.MemberRepository.Delete(oMember);
+
+                            oUnitOfWork.Save();
+                        }
+
+                        Infrastructure.MessageBox.Show
+                            (
+                                caption: Infrastructure.Caption.Information,
+                                text: "اعضای صندوق با موفقیت حذف شدند."
+                            );
                     }
+                    if (varList2 != null)
+                    {
+                        foreach (Models.Reminder oReminder in varList2)
+                        {
+                            oUnitOfWork.RemainderRepository.Delete(oReminder);
+
+                            oUnitOfWork.Save();
+                        }
+                    }
+                    if (varList3 != null)
+                    {
+                        foreach (Models.Transaction oTransaction in varList3)
+                        {
+                            oUnitOfWork.TransactionRepository.Delete(oTransaction);
+
+                            oUnitOfWork.Save();
+                        }
+                    }
+
+                }
+                if (oResult == System.Windows.MessageBoxResult.No)
+                {
+                    return;
                 }
 
                 oUnitOfWork.Save();
 
                 Utility.CurrentMember = null;
                 Utility.CurrentLoan = null;
+
+                Utility.MainWindow.RefreshUserInterface();
             }
             catch (System.Exception ex)
             {
@@ -368,16 +415,72 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Question,
+                        caption: Infrastructure.Caption.Question,
                         text: "آیا مطمئن به حذف وام‌های صندوق می‌باشید؟"
                     );
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
                 {
+                    var varList = oUnitOfWork.LoanRepository
+                        .Get()
+                        .Where(current => current.Member.FundId == Utility.CurrentFund.Id)
+                        .ToList();
 
+                    var varList2 = oUnitOfWork.RemainderRepository
+                        .Get()
+                        .Where(current => current.FundId == Utility.CurrentFund.Id)
+                        .Where(current => current.EventType == Models.Event.Installment)
+                        .ToList();
+
+                    var varTransactions = oUnitOfWork.TransactionRepository
+                        .Get()
+                        .Where(current => current.FundId == Utility.CurrentFund.Id)
+                        .Where(current => current.TransactionType != Models.TransactionType.Deposit)
+                        .ToList();
+
+                    if (varList != null)
+                    {
+                        foreach (Models.Loan oLoan in varList)
+                        {
+                            oUnitOfWork.LoanRepository.Delete(oLoan);
+
+                            oUnitOfWork.Save();
+                        }
+
+                        Infrastructure.MessageBox.Show
+                            (
+                                caption: Infrastructure.Caption.Information,
+                                text: "وام های پرداخت شده صندوق با موفقیت حذف شدند."
+                            );
+                    }
+                    if (varList2 != null)
+                    {
+                        foreach (Models.Reminder oReminder in varList2)
+                        {
+                            oUnitOfWork.RemainderRepository.Delete(oReminder);
+
+                            oUnitOfWork.Save();
+                        }
+                    }
+                    if (varTransactions != null)
+                    {
+                        foreach (Models.Transaction oTransaction in varTransactions)
+                        {
+                            oUnitOfWork.TransactionRepository.Delete(oTransaction);
+
+                            oUnitOfWork.Save();
+                        }
+
+                    }
+                }
+                if (oResult == System.Windows.MessageBoxResult.No)
+                {
+                    return;
                 }
 
                 oUnitOfWork.Save();
+
+                Utility.MainWindow.RefreshUserInterface();
             }
             catch (System.Exception ex)
             {
@@ -405,13 +508,40 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Question,
+                        caption: Infrastructure.Caption.Question,
                         text: "آیا مطمئن به حذف رویدادهای صندوق می‌باشید؟"
                     );
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
                 {
+                    var varList = oUnitOfWork.RemainderRepository
+                        .Get()
+                        .Where(current => current.FundId == Utility.CurrentFund.Id)
+                        .Where(current => current.EventType == Models.Event.Text)
+                        .ToList();
 
+                    if (varList != null)
+                    {
+                        foreach (Models.Reminder oReminder in varList)
+                        {
+                            oUnitOfWork.RemainderRepository.Delete(oReminder);
+
+                            oUnitOfWork.Save();
+                        }
+
+                        Infrastructure.MessageBox.Show
+                            (
+                                caption: Infrastructure.Caption.Information,
+                                text: "رویدادهای متنی اضافه شده به صندوق با موفقیت حذف شدند."
+                        );
+
+                        Utility.MainWindow.RefreshUserInterface();
+
+                    }
+                }
+                if (oResult == System.Windows.MessageBoxResult.No)
+                {
+                    return;
                 }
 
                 oUnitOfWork.Save();
@@ -442,13 +572,31 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Question,
+                        caption: Infrastructure.Caption.Question,
                         text: "آیا مطمئن به حذف صندوق می‌باشید؟"
                     );
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
                 {
+                    Models.Fund oFund = oUnitOfWork.FundRepository
+                        .GetById(Utility.CurrentFund.Id);
 
+                    if (oFund != null)
+                    {
+                        oUnitOfWork.FundRepository.Delete(oFund);
+
+                        oUnitOfWork.Save();
+
+                        Infrastructure.MessageBox.Show
+                            (
+                                caption: Infrastructure.Caption.Information,
+                                text: "صندوق با موفقیت حذف گردید."
+                            );
+
+                        Utility.CurrentFund = null;
+
+                        Utility.MainWindow.RefreshUserInterface();
+                    }
                 }
 
                 oUnitOfWork.Save();
@@ -466,6 +614,8 @@ namespace Fund
                 }
 
             }
+
+            this.Close();
         }
     }
 }

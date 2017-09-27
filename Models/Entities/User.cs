@@ -33,6 +33,9 @@
         [System.ComponentModel.DataAnnotations.StringLength(maximumLength: 32, MinimumLength = 32)]
         public string Password { get; set; }
 
+        [System.ComponentModel.DataAnnotations.RegularExpression(pattern: Dtx.Text.RegularExpressions.Patterns.Email)]
+        public string EmailAddress { get; set; }
+
         public bool IsAdmin { get; set; }
 
         public bool CanBeDeleted { get; set; }

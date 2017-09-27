@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:Fund"
+        xmlns:converter="clr-namespace:Infrastructure.Converter"
         mc:Ignorable="d"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
@@ -38,7 +39,7 @@
 
             <Label FontSize="17" FontWeight="Bold" Grid.Column="3" Content="جنسیت :" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,105,0" />
 
-            <ComboBox Grid.Column="3" Width="100" HorizontalContentAlignment="Center" FontSize="17" FontWeight="Bold" HorizontalAlignment="Right" SelectedIndex="0">
+            <ComboBox Name="GenderComboBox" Grid.Column="3" Width="100" HorizontalContentAlignment="Center" FontSize="17" FontWeight="Bold" HorizontalAlignment="Right" SelectionChanged="ComboBox_SelectionChanged">
                 <ComboBoxItem Content="نمایش همه" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <ComboBoxItem Content="آقا" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <ComboBoxItem Content="خانم" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
@@ -50,19 +51,25 @@
 
             <dxg:GridControl x:Name="MembersGridControl" Grid.Row="0" Style="{DynamicResource GridControlStyle}" FontWeight="Bold">
 
-                <dxg:GridColumn Header="نام و نام خانوادگی" Binding="{Binding FullName, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="نام و نام خانوادگی" Binding="{Binding FullName}" Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="نام پدر" Binding="{Binding FatherName, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="نام پدر" Binding="{Binding FatherName}" Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="کد ملی" Binding="{Binding NationalCode, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="کد ملی" Binding="{Binding NationalCode}" Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="تاریخ عضویت" Binding="{Binding PersianMembershipDate, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="تاریخ عضویت" Binding="{Binding MembershipDate, Converter={converter:DateTimeToShortPersianDateStringConverter}}" Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="جنسیت" Binding="{Binding GenderDescription, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="جنسیت" Binding="{Binding Gender, Converter={converter:GenderToStringConverter}}" Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="پست الکترونیکی" Binding="{Binding EmailAddress, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="پست الکترونیکی" Binding="{Binding EmailAddress}" Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="شماره تلفن" Binding="{Binding PhoneNumber, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="شماره تلفن" Binding="{Binding PhoneNumber}"  Style="{StaticResource GridColumnStyle}" />
+
+                <dxg:GridColumn Header="عکس"  Width="50" Binding="{Binding Picture, Converter={converter:ByteToImageConverter}}" Style="{StaticResource GridColumnStyle}">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:ImageEditSettings ShowMenu="False"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
                 <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
 

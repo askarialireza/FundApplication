@@ -145,7 +145,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Information,
+                        caption: Infrastructure.Caption.Information,
                         text: "تنظیمات شخصی سازی با موفقیت ذخیره گردید."
                     );
 
@@ -253,7 +253,7 @@ namespace Fund
                     System.Windows.MessageBoxResult oResult =
                         Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.MessageBoxCaption.Warning,
+                            caption: Infrastructure.Caption.Warning,
                             text: "تنظیمات اعمال شده ذخیره گردند؟"
                         );
 

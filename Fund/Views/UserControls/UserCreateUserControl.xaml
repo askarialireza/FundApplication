@@ -80,6 +80,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
             <Label Content="نام :" Grid.Row="0" Style="{DynamicResource LabelCol1}"/>
@@ -111,6 +112,34 @@
             <PasswordBox x:Name="AgainPasswordTextBox" Grid.Column="2" Margin="3" Grid.Row="7" Height="auto" Style="{StaticResource PasswordBoxStyle}"/>
 
             <Label Grid.Row="7" Style="{DynamicResource StarsStyle}"/>
+
+            <Label Grid.Row="9" Content="پست الکترونیکی :" Style="{DynamicResource LabelCol1}"/>
+
+            <Grid Grid.Row="9" Grid.Column="2">
+
+                <dxe:TextEdit Name="emailAddressTextBox" Grid.Row="0" MaskType="RegEx" FontSize="14" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" FlowDirection="LeftToRight" GotKeyboardFocus="emailAddressTextBox_GotKeyboardFocus" LostKeyboardFocus="emailAddressTextBox_LostKeyboardFocus" FontFamily="{DynamicResource EnGlobalFontFamily}" Grid.Column="2" Margin="3" />
+
+                <Popup Grid.Row="10" Grid.Column="2" Name="EmailPopup" IsOpen="False" StaysOpen="True" PopupAnimation="Fade" AllowsTransparency="True" Width="300" Height="auto">
+                    <Border Background="White" BorderThickness="2" BorderBrush="DarkGray">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Margin="4" Grid.Row="0" FontSize="12" TextWrapping="Wrap" Text="در صورت امکان فقط از پست الکترونیکی‌های مرتبط با Yahoo , Gmail , Hotmail استفاده نمایید. در صورت استفاده از Gmail با رجوع به لینک زیر، گزینه Allow Less Secure Apps را فعال نمایید."/>
+
+                            <Button HorizontalAlignment="Center" Width="90" Grid.Row="1" FontSize="13" FontWeight="Bold" Margin="3" Content="مشاهده لینک" Click="Button_Click"/>
+
+                        </Grid>
+                    </Border>
+                </Popup>
+
+            </Grid>
+            
+            
+            
+            <Label Grid.Row="9" Style="{DynamicResource StarsStyle}"/>
 
         </Grid>
         

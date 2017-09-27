@@ -37,6 +37,9 @@ namespace Fund
 
                 InstallmentPerLoanGridControl.ItemsSource = varList;
 
+                ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+                PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
+
                 oUnitOfWork.Save();
             }
             catch (System.Exception ex)
@@ -81,7 +84,7 @@ namespace Fund
                     {
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.MessageBoxCaption.Error,
+                                caption: Infrastructure.Caption.Error,
                                 text: string.Format("ابتدا بایست قسط تاریخ {0} پرداخت شود.", varList.Select(current => current.InstallmentDate).FirstOrDefault().ToPersianDate())
                             );
 
@@ -201,6 +204,100 @@ namespace Fund
             oStiReport.Compile();
             oStiReport.RenderWithWpf();
             oStiReport.DoAction(action: reportType, fileName: "گزارش لیست اقساط");
+        }
+
+        private void SendEmailButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            bool internetConnected = Utility.CheckForInternetConnection();
+
+            if (internetConnected == true)
+            {
+                EnterEmailPasswordWindow oEnterEmailPasswordWindow = new EnterEmailPasswordWindow();
+
+                if (oEnterEmailPasswordWindow.ShowDialog() == true)
+                {
+                    Utility.MainWindow.MainProgressBar.IsIndeterminate = true;
+                    Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Visible;
+
+                    System.ComponentModel.BackgroundWorker oBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+
+                    oBackgroundWorker.DoWork += OBackgroundWorker_DoWork;
+                    oBackgroundWorker.RunWorkerAsync(oEnterEmailPasswordWindow);
+
+                }
+                else
+                {
+                    Utility.MainWindow.MainProgressBar.IsIndeterminate = false;
+                    Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Hidden;
+
+                    return;
+                }
+            }
+            else
+            {
+                Utility.MainWindow.MainProgressBar.IsIndeterminate = false;
+                Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Hidden;
+
+                Infrastructure.MessageBox.Show
+                    (
+                        caption: Infrastructure.Caption.Error,
+                        text: "اتصال به اینترنت برقرار نمی‌باشد. از اتصال دستگاه خود با اینترنت اطمینان حاصل فرمایید."
+                    );
+
+                return;
+            }
+        }
+
+        private void OBackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                EnterEmailPasswordWindow oEnterEmailPasswordWindow = e.Argument as EnterEmailPasswordWindow;
+
+                var varList = (InstallmentPerLoanGridControl.ItemsSource as System.Collections.Generic.List<ViewModels.InstallmentViewModel>)
+                .Select(current => new
+                {
+                    current.AmountRialFormat,
+                    current.PersianInstallmentDate,
+                    current.PersianPaymentDate,
+                    current.IsPayedDescription,
+                })
+                .ToList();
+
+                Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
+
+                oStiReport.Load(Properties.Resources.InstallmentListReport);
+
+                oStiReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
+                oStiReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
+                oStiReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
+                oStiReport.Dictionary.Variables.Add("MemberName", Utility.CurrentLoan.Member.FullName.ToString());
+                oStiReport.Dictionary.Variables.Add("LoanAmount", (new ViewModels.LoanViewModel { LoanAmount = Utility.CurrentLoan.LoanAmount }).LoanAmountRialFormat);
+                oStiReport.Dictionary.Variables.Add("RefundAmount", (new ViewModels.LoanViewModel { RefundAmount = Utility.CurrentLoan.RefundAmount }).RefundAmountRialFormat);
+
+                oStiReport.RegBusinessObject("InstallmentsList", varList);
+                oStiReport.Compile();
+                oStiReport.RenderWithWpf();
+
+                System.IO.MemoryStream oMemoryStream = new System.IO.MemoryStream();
+
+                oStiReport.ExportDocument(Stimulsoft.Report.StiExportFormat.Pdf, oMemoryStream);
+                oMemoryStream.Seek(0, System.IO.SeekOrigin.Begin);
+
+                Utility.SendEmail
+                (
+                    senderEmail: Utility.CurrentUser.EmailAddress,
+                    senderPassword: oEnterEmailPasswordWindow.EmailPassword,
+                    displayName: Utility.CurrentUser.FullName.ToString(),
+                    receiverEmail: Utility.CurrentMember.EmailAddress,
+                    subject: Utility.CurrentFund.Name + " | " + "لیست اقساط " + Utility.CurrentMember.FullName.ToString(),
+                    body: "لیست اقساط " + Utility.CurrentMember.FullName.ToString() +
+                            System.Environment.NewLine +
+                            new FarsiLibrary.Utils.PersianDate(System.DateTime.Now).ToString(),
+                    attachment: oMemoryStream,
+                    attachmentName: "لیست اقساط " + Utility.CurrentMember.FullName.ToString()
+                );
+            });
         }
     }
 }

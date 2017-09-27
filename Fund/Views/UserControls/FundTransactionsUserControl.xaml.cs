@@ -43,6 +43,9 @@ namespace Fund
                     this.Close();
                 }
 
+                ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+                PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
+
                 GridControl.ItemsSource = varList;
 
                 fromDatePicker.DateValueTextEdit.Text = varList.Select(current => current.Date).FirstOrDefault().ToPersianDate();
@@ -61,7 +64,6 @@ namespace Fund
                     oUnitOfWork.Dispose();
                     oUnitOfWork = null;
                 }
-
             }
         }
 
@@ -71,7 +73,7 @@ namespace Fund
 
             if (toDatePicker.SelectedDateTime < fromDatePicker.SelectedDateTime)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "بازه زمانی درج شده نامعتبر می باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "بازه زمانی درج شده نامعتبر می باشد.");
 
                 return;
             }
@@ -101,6 +103,9 @@ namespace Fund
                 .ToList();
 
                 GridControl.ItemsSource = varList;
+
+                ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+                PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
 
                 oUnitOfWork.Save();
             }
@@ -153,7 +158,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Error,
+                        caption: Infrastructure.Caption.Error,
                         text: "اطلاعاتی برای تهیه گزارش در جدول موجود نمی‌باشد. " + System.Environment.NewLine + "لطفا بازه زمانی دیگری را انتخاب نمایید."
                     );
 

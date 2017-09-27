@@ -30,6 +30,8 @@ namespace Fund
                 MembersListBox.DisplayMemberPath = "FullName";
                 MembersListBox.SelectedValuePath = "Id";
 
+                ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+                PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
 
                 oUnitOfWork.Save();
             }

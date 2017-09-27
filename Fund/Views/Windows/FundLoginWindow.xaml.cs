@@ -59,7 +59,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Information,
+                        caption: Infrastructure.Caption.Information,
                         text: "ورود به صندوق با موفقیت انجام گردید."
                     );
 
@@ -71,7 +71,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Error,
+                        caption: Infrastructure.Caption.Error,
                         text: "رمز عبور وارد شده صحیح نمی‌باشد."
                     );
                 return;

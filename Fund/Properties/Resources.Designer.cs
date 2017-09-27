@@ -113,6 +113,16 @@ namespace Fund.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] MembersListReport {
+            get {
+                object obj = ResourceManager.GetObject("MembersListReport", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] MembersLoansListReport {
             get {
                 object obj = ResourceManager.GetObject("MembersLoansListReport", resourceCulture);
@@ -126,6 +136,16 @@ namespace Fund.Properties {
         internal static byte[] MembersViewReport {
             get {
                 object obj = ResourceManager.GetObject("MembersViewReport", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MemberTransactionsReport {
+            get {
+                object obj = ResourceManager.GetObject("MemberTransactionsReport", resourceCulture);
                 return ((byte[])(obj));
             }
         }

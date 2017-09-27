@@ -30,17 +30,17 @@
                     <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row"  ShowAutoFilterRow="False"  ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
                 </dxg:GridControl.View>
 
-                <dxg:GridColumn Header="عضو" Binding="{Binding MemberFullName, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="عضو" Binding="{Binding MemberFullName}"  Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="مبلغ قسط" Binding="{Binding AmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="مبلغ قسط" Binding="{Binding AmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="مهلت پرداخت قسط" Binding="{Binding PersianInstallmentDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="مهلت پرداخت قسط" Binding="{Binding PersianInstallmentDate}"  Style="{StaticResource GridColumnStyle}" />
 
                 <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
 
                 <dxg:GridColumn Binding="{Binding IsActive}" Visible="False" />
 
-                <dxg:GridColumn Header="پرداخت قسط" Binding="{Binding Description, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}">
+                <dxg:GridColumn Header="پرداخت قسط" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}">
                     <dxg:GridColumn.CellTemplate>
                         <DataTemplate>
                             <Button Name="PayInstallmentsButton" Content="پرداخت" Click="PayInstallmentsButton_Click"/>
@@ -48,7 +48,7 @@
                     </dxg:GridColumn.CellTemplate>
                 </dxg:GridColumn>
 
-                <dxg:GridColumn Header="جزییات وام" Binding="{Binding Description, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}">
+                <dxg:GridColumn Header="جزییات وام" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}">
                     <dxg:GridColumn.CellTemplate>
                         <DataTemplate>
                             <Button Name="LoanOfInstallmentDetailsButton" Content="مشاهده" Click="LoanOfInstallmentDetailsButton_Click"/>

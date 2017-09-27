@@ -10,23 +10,6 @@ namespace Fund
         {
             InitializeComponent();
 
-            Utility.SetUserTheme();
-
-            Utility.MainWindow = this;
-
-            CurrentUserLabel.Content = "کاربر کنونی : " + Utility.CurrentUser.Username;
-
-            TodayLabel.Content = FarsiLibrary.Utils.PersianDate.Today.ToWritten();
-
-            System.Windows.Threading.DispatcherTimer oDispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-
-            oDispatcherTimer.IsEnabled = true;
-
-            oDispatcherTimer.Tick += ODispatcherTimer_Tick;
-
-            SetUserSettings();
-
-            RefreshUserInterface();
         }
 
         private void NewFundClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -34,7 +17,6 @@ namespace Fund
             Fund.FundCreateUserControl oFundCreateUserControl = new FundCreateUserControl();
 
             oFundCreateUserControl.Show();
-
         }
 
         private void UsersViewClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -56,13 +38,28 @@ namespace Fund
 
         private void WindowLoaded(object sender, System.Windows.RoutedEventArgs e)
         {
+            Utility.SetUserTheme();
 
+            Utility.MainWindow = this;
+
+            CurrentUserLabel.Content = "کاربر کنونی : " + Utility.CurrentUser.Username;
+
+            System.Windows.Threading.DispatcherTimer oDispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+
+            oDispatcherTimer.IsEnabled = true;
+
+            oDispatcherTimer.Tick += ODispatcherTimer_Tick;
+
+            SetUserSettings();
+
+            RefreshUserInterface();
         }
-
 
         private void ODispatcherTimer_Tick(object sender, System.EventArgs e)
         {
             CurrentTimeLabel.Content = System.DateTime.Now.ToString("HH:mm:ss");
+
+            TodayLabel.Content = FarsiLibrary.Utils.PersianDate.Today.ToWritten();
         }
 
         private void FundLoginClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -96,6 +93,8 @@ namespace Fund
 
             UserLoginWindow oUserLoginWindow = new UserLoginWindow();
 
+            oUserLoginWindow.ShowWelcomeWindow = false;
+
             oUserLoginWindow.Show();
 
             ShowMessageBox = false;
@@ -125,11 +124,10 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
 
                 return;
             }
-
         }
 
         private void SchedulerButtonClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -164,9 +162,25 @@ namespace Fund
 
         private void MembershipCardPrint_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            MembershipCardPrintWindow oMembershipCardPrintWindow = new MembershipCardPrintWindow();
+            DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
 
-            oMembershipCardPrintWindow.ShowDialog();
+            int membersCount = oUnitOfWork.MemberRepository
+                .Get()
+                .Where(current => current.FundId == Utility.CurrentFund.Id)
+                .Count();
+
+            if (membersCount != 0)
+            {
+                MembershipCardPrintWindow oMembershipCardPrintWindow = new MembershipCardPrintWindow();
+
+                oMembershipCardPrintWindow.ShowDialog();
+            }
+            else
+            {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
+
+                return;
+            }
         }
 
         private void FontChangeButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -177,25 +191,74 @@ namespace Fund
             oUserThemeWindow.ShowDialog();
         }
 
-        private void BarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        private void CreateLoanBarButtonItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            CreateLoanUserControl oCreateLoanUserControl = new CreateLoanUserControl();
+            DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
 
-            oCreateLoanUserControl.Show();
+            int membersCount = oUnitOfWork.MemberRepository
+                .Get()
+                .Where(current => current.FundId == Utility.CurrentFund.Id)
+                .Count();
+
+            if (membersCount != 0)
+            {
+                CreateLoanUserControl oCreateLoanUserControl = new CreateLoanUserControl();
+
+                oCreateLoanUserControl.Show();
+            }
+            else
+            {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
+
+                return;
+            }
         }
 
         private void PayedLoansList_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            ShowConfirmedLoansUserControl oShowConfirmedLoansUserControl = new ShowConfirmedLoansUserControl();
+            DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
 
-            oShowConfirmedLoansUserControl.Show();
+            int loansCount = oUnitOfWork.LoanRepository
+                .Get()
+                .Where(current => current.Member.FundId == Utility.CurrentFund.Id)
+                .Where(current => current.IsActive == true)
+                .Count();
+
+            if (loansCount != 0)
+            {
+                ShowConfirmedLoansUserControl oShowConfirmedLoansUserControl = new ShowConfirmedLoansUserControl();
+
+                oShowConfirmedLoansUserControl.Show();
+            }
+            else
+            {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ وامی در سیستم ثبت نشده است. نسبت به ثبت وام اقدام نمایید.");
+
+                return;
+            }
         }
 
         private void DebtorListButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            DebtorsListUserControl oDebtorsListUserControl = new DebtorsListUserControl();
+            DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
 
-            oDebtorsListUserControl.Show();
+            int transactionsCount = oUnitOfWork.TransactionRepository
+                .Get()
+                .Where(current => current.FundId == Utility.CurrentFund.Id)
+                .Count();
+
+            if (transactionsCount != 0)
+            {
+                DebtorsListUserControl oDebtorsListUserControl = new DebtorsListUserControl();
+
+                oDebtorsListUserControl.Show();
+            }
+            else
+            {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "هیچ تراکنشی در صندوق ثبت نشده است، اطلاعاتی برای نمایش وجود ندارد.");
+
+                return;
+            }
         }
 
         private void FundTransactionsButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -215,17 +278,17 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "هیچ تراکنشی در صندوق ثبت نشده است، اطلاعاتی برای نمایش وجود ندارد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "هیچ تراکنشی در صندوق ثبت نشده است، اطلاعاتی برای نمایش وجود ندارد.");
 
                 return;
             }
-
-
         }
 
         private void MembersTransactionButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            MemberTransactionsUserControl oMemberTransactionsUserControl = new MemberTransactionsUserControl();
 
+            oMemberTransactionsUserControl.Show();
         }
 
         private void MemberLonasStatus_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -292,7 +355,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.MessageBoxCaption.Question,
+                            caption: Infrastructure.Caption.Question,
                             text: "آیا مایل به خروج از برنامه هستید؟"
                         );
 
@@ -352,7 +415,7 @@ namespace Fund
             System.Windows.MessageBoxResult oResult =
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Question,
+                        caption: Infrastructure.Caption.Question,
                         text: "آیا مطمئن به حذف پایگاه داده می‌باشید ؟ " + System.Environment.NewLine + "(اطلاعات حذف شده قابل بازیابی نخواهند بود)"
                     );
 
@@ -368,7 +431,7 @@ namespace Fund
 
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.MessageBoxCaption.Information,
+                                caption: Infrastructure.Caption.Information,
                                 text: "بانک اطلاعاتی با موفقیت حذف گردید." + System.Environment.NewLine + "برنامه مجددا راه اندازی خواهد شد."
                             );
 
@@ -385,27 +448,41 @@ namespace Fund
         public void RefreshUserInterface()
         {
 
-            switch (Utility.CurrentUser.IsAdmin)
+            System.ComponentModel.BackgroundWorker oBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+
+            oBackgroundWorker.WorkerReportsProgress = true;
+
+            oBackgroundWorker.DoWork += OBackgroundWorker_DoWork1;
+
+            oBackgroundWorker.RunWorkerAsync();
+
+
+        }
+
+        private void OBackgroundWorker_DoWork1(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            this.Dispatcher.Invoke(() =>
             {
-                case true:
-                    {
-                        AdminRibbonPage.IsVisible = true;
-                        break;
-                    }
+                switch (Utility.CurrentUser.IsAdmin)
+                {
+                    case true:
+                        {
+                            AdminRibbonPage.IsVisible = true;
+                            break;
+                        }
 
-                default:
-                    {
-                        AdminRibbonPage.IsVisible = false;
-                        break;
-                    }
-            }
+                    default:
+                        {
+                            AdminRibbonPage.IsVisible = false;
+                            break;
+                        }
+                }
 
-            int fundCountByUser;
-            int memberCountByFund;
+                int fundCountByUser;
+                int memberCountByFund;
 
-            DAL.UnitOfWork oUnitOfWork = null;
-            try
-            {
+                DAL.UnitOfWork oUnitOfWork = null;
+
                 oUnitOfWork = new DAL.UnitOfWork();
 
                 fundCountByUser = oUnitOfWork.UserRepository
@@ -459,16 +536,7 @@ namespace Fund
                         SthPanel.Children.Add(oMainPanelContentUserControl);
                     }
                 }
-
-                oUnitOfWork.Save();
-                oUnitOfWork.Dispose();
-                oUnitOfWork = null;
-            }
-
-            catch (System.Exception ex)
-            {
-                Infrastructure.MessageBox.Show(ex.Message); ;
-            }
+            });
         }
 
         private void DelayedInstallmentsListButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -493,6 +561,29 @@ namespace Fund
             FundSettingsUserControl oFundSettingsUserControl = new FundSettingsUserControl();
 
             oFundSettingsUserControl.Show();
+        }
+
+        private void MembersListButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
+
+            int membersCount = oUnitOfWork.MemberRepository
+                .Get()
+                .Where(current => current.FundId == Utility.CurrentFund.Id)
+                .Count();
+
+            if (membersCount != 0)
+            {
+                MembersListUserControl oMembersListUserControl = new MembersListUserControl();
+
+                oMembersListUserControl.Show();
+            }
+            else
+            {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
+
+                return;
+            }
         }
     }
 }

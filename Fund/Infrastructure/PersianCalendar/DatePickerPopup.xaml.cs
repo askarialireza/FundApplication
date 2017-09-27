@@ -75,70 +75,62 @@ namespace Fund
 
         void CalculateMonth(int thisYear, int thisMonth)
         {
+            yearForNavigating = thisYear;
+            monthForNavigating = thisMonth;
 
-            try
+            System.DateTime tempDateTime = persianCalendar.ToDateTime(yearForNavigating, monthForNavigating, 15, 01, 01, 01, 01);
+
+            int thisDay = 1;
+            TextBlockThisMonth.Text = string.Empty;
+            TextBlockThisMonth.Text = monthForNavigating.ConvertToPersianMonth() + " " + yearForNavigating.ConvertToPersianNumber();
+
+            //Different between first place of calendar and first place of this month
+            //اختلاف بین خانه شروع ماه و اولین خانه تقویم            
+
+            string DayOfWeek = persianCalendar.GetDayOfWeek(persianCalendar.ToDateTime(thisYear, thisMonth, 01, 01, 01, 01, 01)).ToString();
+
+            int span = CalculatePersianSpan(DayOfWeek.ConvertToPersianDay());
+
+            DecreasePersianDay(ref thisYear, ref thisMonth, ref thisDay, span);
+
+            string persianDate;//حاوی تاریخ روزهای شمسی Contains the date of Persian
+
+            ////////////////////////////////////
+
+            for (int i = 0; i < 6 * 7; i++)
             {
-                yearForNavigating = thisYear;
-                monthForNavigating = thisMonth;
+                tempDateTime = persianCalendar.ToDateTime(thisYear, thisMonth, thisDay, 01, 01, 01, 01);
 
-                System.DateTime tempDateTime = persianCalendar.ToDateTime(yearForNavigating, monthForNavigating, 15, 01, 01, 01, 01);
+                persianDate = thisDay.ConvertToPersianNumber();
 
-                int thisDay = 1;
-                TextBlockThisMonth.Text = string.Empty;
-                TextBlockThisMonth.Text = monthForNavigating.ConvertToPersianMonth() + " " + yearForNavigating.ConvertToPersianNumber();
+                DayOfWeek = persianCalendar.GetDayOfWeek(tempDateTime).ToString();
 
-                //Different between first place of calendar and first place of this month
-                //اختلاف بین خانه شروع ماه و اولین خانه تقویم            
+                //RectangleStyleEventedDay
 
-                string DayOfWeek = persianCalendar.GetDayOfWeek(persianCalendar.ToDateTime(thisYear, thisMonth, 01, 01, 01, 01, 01)).ToString();
-
-                int span = CalculatePersianSpan(DayOfWeek.ConvertToPersianDay());
-
-                DecreasePersianDay(ref thisYear, ref thisMonth, ref thisDay, span);
-
-                string persianDate;//حاوی تاریخ روزهای شمسی Contains the date of Persian
-
-                ////////////////////////////////////
-
-                for (int i = 0; i < 6 * 7; i++)
+                if (thisMonth == monthForNavigating) // ماه کنونی 
                 {
-                    tempDateTime = persianCalendar.ToDateTime(thisYear, thisMonth, thisDay, 01, 01, 01, 01);
-
-                    persianDate = thisDay.ConvertToPersianNumber();
-
-                    DayOfWeek = persianCalendar.GetDayOfWeek(tempDateTime).ToString();
-
-                    //RectangleStyleEventedDay
-
-                    if (thisMonth == monthForNavigating) // ماه کنونی 
+                    if (thisDay == currentDay && thisMonth == currentMonth && thisYear == currentYear) // امروز
                     {
-                        if (thisDay == currentDay && thisMonth == currentMonth && thisYear == currentYear) // امروز
-                        {
 
-                            ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.TodayStyle, Infrastructure.Resources.PersianDatePicker.ThisMonthTextBlockStyle);
+                        ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.TodayStyle, Infrastructure.Resources.PersianDatePicker.ThisMonthTextBlockStyle);
 
-                            SelectedDateTime = new FarsiLibrary.Utils.PersianDate(thisYear, thisMonth, thisDay);
+                        SelectedDateTime = new FarsiLibrary.Utils.PersianDate(thisYear, thisMonth, thisDay);
 
-                            SelectedDateTimeChanged?.Invoke(this, System.EventArgs.Empty);
-                        }
-
-                        else // سایر روزهای ماه کنونی
-                        {
-                            ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.NoneStyle, Infrastructure.Resources.PersianDatePicker.ThisMonthTextBlockStyle);
-                        }
+                        SelectedDateTimeChanged?.Invoke(this, System.EventArgs.Empty);
                     }
 
-                    else // ماه های دیگر
+                    else // سایر روزهای ماه کنونی
                     {
-                        ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.NoneStyle, Infrastructure.Resources.PersianDatePicker.OutOfThisMonthTextBlockStyle);
+                        ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.NoneStyle, Infrastructure.Resources.PersianDatePicker.ThisMonthTextBlockStyle);
                     }
-
-                    IncreasePersianDay(ref thisYear, ref thisMonth, ref thisDay, 1);
                 }
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.Message, "Exception", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+
+                else // ماه های دیگر
+                {
+                    ChangeProperties(i, persianDate, Infrastructure.Resources.PersianDatePicker.NoneStyle, Infrastructure.Resources.PersianDatePicker.OutOfThisMonthTextBlockStyle);
+                }
+
+                IncreasePersianDay(ref thisYear, ref thisMonth, ref thisDay, 1);
             }
         }
 

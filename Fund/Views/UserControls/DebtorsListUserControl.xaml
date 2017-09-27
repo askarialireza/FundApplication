@@ -1,7 +1,9 @@
 ﻿<UserControl 
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  
     x:Class="Fund.DebtorsListUserControl"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:conv="clr-namespace:Infrastructure.Converter"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -26,23 +28,27 @@
             <dxg:GridControl Name="DebtorsListGridControl" Style="{DynamicResource GridControlStyle}">
 
                 <dxg:GridControl.View>
-                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row" ShowFixedTotalSummary="True" ShowAutoFilterRow="False" ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
+                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row" ShowFixedTotalSummary="True" ShowAutoFilterRow="False" ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows"  IsColumnMenuEnabled="False"/>
                 </dxg:GridControl.View>
 
                 <dxg:GridControl.TotalSummary>
                     <dxg:GridSummaryItem SummaryType="Count" Alignment="Left" DisplayFormat="تعداد اعضای بدهکار : {0} نفر"/>
-                    <dxg:GridSummaryItem FieldName="DebtAmount" Alignment="Right" SummaryType="Sum" DisplayFormat="مجموع بدهی اعضا به صندوق {0} ریال"/>
+                    <dxg:GridSummaryItem FieldName="DebtAmount" Alignment="Right" SummaryType="Sum" DisplayFormat="مجموع بدهی اعضا به صندوق {0:##,#0} ریال"/>
                 </dxg:GridControl.TotalSummary>
 
-                <dxg:GridColumn Header="نام و نام خانوادگی" Binding="{Binding FullName, Mode=OneTime}"  Style="{DynamicResource GridColumnStyle}" />
+                <dxg:GridColumn Header="عکس"  Width="30" Binding="{Binding MemberPhoto, Converter={conv:ByteToImageConverter}}" Style="{StaticResource GridColumnStyle}">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:ImageEditSettings ShowMenu="False"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
-                <dxg:GridColumn Header="مقدار بدهی" Binding="{Binding DebtAmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="نام و نام خانوادگی" Binding="{Binding FullName}"  Style="{DynamicResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="پرداخت بعدی" Binding="{Binding PersianLastPaymentDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="مقدار بدهی" Binding="{Binding DebtAmount, Converter={conv:LongToRialStringFormatConverter}}"  Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Binding="{Binding LastPaymentDate, Mode=OneTime}" Visible="False" />
-
-                <dxg:GridColumn Binding="{Binding DebtAmount, Mode=OneTime}" Visible="False"/>
+                <dxg:GridColumn Header="تعداد اقساط پرداخت نشده" Binding="{Binding InstallmentCount}"  Style="{StaticResource GridColumnStyle}" />
+                
+                <dxg:GridColumn Header="پرداخت بعدی" Binding="{Binding NextPaymentDate, Converter={conv:DateTimeToShortPersianDateStringConverter}}"  Style="{StaticResource GridColumnStyle}" />
 
             </dxg:GridControl>
         </Grid>

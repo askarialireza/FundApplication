@@ -46,36 +46,39 @@ namespace Fund
 
         private void PasswordGroupBoxSwitchChecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            PasswordGroupBox.Visibility = System.Windows.Visibility.Visible;
+            DevExpress.Xpf.Editors.ToggleSwitch oToggleSwitch = ((DevExpress.Xpf.Editors.ToggleSwitch)sender);
 
-            MainGroupBoxGrid.RowDefinitions[8].Height =
-                new System.Windows.GridLength(165);
+            int row = System.Windows.Controls.Grid.GetRow(oToggleSwitch);
+
+            System.Windows.Controls.RowDefinition oRowDefinition = MainGroupBoxGrid.RowDefinitions[row + 1];
+
+            oRowDefinition.Height = new System.Windows.GridLength(165);
         }
 
         private void PasswordGroupBoxSwitchUnchecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            PasswordGroupBox.Visibility = System.Windows.Visibility.Hidden;
+            DevExpress.Xpf.Editors.ToggleSwitch oToggleSwitch = ((DevExpress.Xpf.Editors.ToggleSwitch)sender);
 
-            MainGroupBoxGrid.RowDefinitions[8].Height =
-                new System.Windows.GridLength(0);
+            int row = System.Windows.Controls.Grid.GetRow(oToggleSwitch);
+
+            System.Windows.Controls.RowDefinition oRowDefinition = MainGroupBoxGrid.RowDefinitions[row + 1];
+
+            oRowDefinition.Height = new System.Windows.GridLength(0);
         }
 
         private void GridControlItemChanged(object sender, DevExpress.Xpf.Grid.SelectedItemChangedEventArgs e)
         {
-            ViewModels.UserViewModel oViewModel = UsersGridControl.SelectedItem as ViewModels.UserViewModel;
+            Models.User oUser = UsersGridControl.SelectedItem as Models.User;
 
-            if (oViewModel != null)
+            if (oUser != null)
             {
-                DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
-
-                Models.User oUser = oUnitOfWork.UserRepository
-                    .GetById(oViewModel.Id);
-
                 UsernameTextBox.Text = oUser.Username;
 
                 FirstNameTextBox.Text = oUser.FullName.FirstName;
 
                 LastNameTextBox.Text = oUser.FullName.LastName;
+
+                EmailAddressTextBox.Text = oUser.EmailAddress;
 
                 UserTypeComboBox.SelectedItem = (UserTypeComboBox.ItemsSource as System.Collections.Generic.List<ViewModels.UserTypeViewModel>)
                     .Where(current => current.IsAdmin == oUser.IsAdmin)
@@ -98,10 +101,12 @@ namespace Fund
             UsernameLabel.IsEnabled = true;
             UserTypeLabel.IsEnabled = true;
             PasswordChangeLabel.IsEnabled = true;
+            EmailAddressLabel.IsEnabled = true;
 
             FirstNameTextBox.IsEnabled = true;
             LastNameTextBox.IsEnabled = true;
             UsernameTextBox.IsEnabled = true;
+            EmailAddressTextBox.IsEnabled = true;
             UserTypeComboBox.IsEnabled = true;
             PasswordChangeToggleSwitch.IsEnabled = true;
 
@@ -119,12 +124,14 @@ namespace Fund
 
             PasswordChangeToggleSwitch.IsChecked = false;
 
+            EmailAddressLabel.IsEnabled = false;
             FirstNameLabel.IsEnabled = false;
             LastNameLabel.IsEnabled = false;
             UsernameLabel.IsEnabled = false;
             UserTypeLabel.IsEnabled = false;
             PasswordChangeLabel.IsEnabled = false;
 
+            EmailAddressTextBox.IsEnabled = false;
             FirstNameTextBox.IsEnabled = false;
             LastNameTextBox.IsEnabled = false;
             UsernameTextBox.IsEnabled = false;
@@ -144,8 +151,19 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد نام کاربری الزامی است."
+                );
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(EmailAddressTextBox.Text) == true)
+            {
+                Infrastructure.MessageBox.Show
+                (
+                    caption: Infrastructure.Caption.Error,
+                    text: "تکمیل فیلد پست الکترونیکی الزامی است."
                 );
 
                 return;
@@ -177,18 +195,19 @@ namespace Fund
                         {
                             Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.MessageBoxCaption.Error,
+                                caption: Infrastructure.Caption.Error,
                                 text: "تکمیل فیلد رمز عبور فعلی الزامی است."
                             );
 
                             return;
                         }
 
+
                         if (string.IsNullOrWhiteSpace(PasswordTextBox.Password) == true)
                         {
                             Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.MessageBoxCaption.Error,
+                                caption: Infrastructure.Caption.Error,
                                 text: "تکمیل فیلد رمز عبور جدید الزامی است."
                             );
 
@@ -199,7 +218,7 @@ namespace Fund
                         {
                             Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.MessageBoxCaption.Error,
+                                caption: Infrastructure.Caption.Error,
                                 text: "تکمیل فیلد تکرار رمز عبور جدید الزامی است."
                             );
 
@@ -214,7 +233,7 @@ namespace Fund
                         {
                             Infrastructure.MessageBox.Show
                                 (
-                                    caption: Infrastructure.MessageBoxCaption.Error,
+                                    caption: Infrastructure.Caption.Error,
                                     text: "رمز عبور درج شده صحیح نمی‌باشد."
                                 );
 
@@ -225,7 +244,7 @@ namespace Fund
                         {
                             Infrastructure.MessageBox.Show
                                 (
-                                    caption: Infrastructure.MessageBoxCaption.Error,
+                                    caption: Infrastructure.Caption.Error,
                                     text: "رمزهای عبور جدید درج شده با یکدیگر مطابقت ندارند."
                                 );
 
@@ -241,7 +260,7 @@ namespace Fund
 
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.MessageBoxCaption.Information,
+                            caption: Infrastructure.Caption.Information,
                             text: "مشخصات کاربر با موفقیت ویرایش گردید."
                         );
 
@@ -283,7 +302,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                         Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.MessageBoxCaption.Question,
+                            caption: Infrastructure.Caption.Question,
                             text: "آیا مطمئن به حذف کاربر از سیستم هستید ؟"
                         );
 
@@ -295,7 +314,7 @@ namespace Fund
 
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Information,
+                        caption: Infrastructure.Caption.Information,
                         text: "کاربر با موفقیت از سیستم حذف گردید."
                     );
 
@@ -332,19 +351,15 @@ namespace Fund
         {
             DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
 
-            UsersGridControl.ItemsSource = oUnitOfWork.UserRepository
+            var varList = oUnitOfWork.UserRepository
             .Get()
-            .Select(current => new ViewModels.UserViewModel()
-            {
-                Id = current.Id,
-                Username = current.Username,
-                FullName = current.FullName,
-                RegisterationDate = current.RegisterationDate,
-                IsAdmin = current.IsAdmin,
-                LastLoginTime = current.LastLoginTime,
-            })
             .OrderBy(current => current.Username)
             .ToList();
+
+            UsersGridControl.ItemsSource = varList;
+
+            ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+            PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
         }
 
         private void ShowReport(Infrastructure.ReportType reportType)
@@ -405,5 +420,16 @@ namespace Fund
             }
         }
 
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://myaccount.google.com/lesssecureapps");
+
+            EmailPopup.IsOpen = false;
+        }
+
+        private void EmailAddressTextBox_GotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            EmailPopup.Show();
+        }
     }
 }

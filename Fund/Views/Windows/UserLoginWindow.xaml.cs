@@ -4,9 +4,13 @@ namespace Fund
 {
     public partial class UserLoginWindow : DevExpress.Xpf.Core.DXWindow
     {
+        public bool ShowWelcomeWindow { get; set; }
+
         public UserLoginWindow()
         {
             InitializeComponent();
+
+            ShowWelcomeWindow = true;
         }
 
         private void LoginClick(object sender, System.Windows.RoutedEventArgs e)
@@ -14,7 +18,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(usernameTextBox.Text) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد نام کاربری الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام کاربری الزامی می‌باشد.");
 
                 return;
             }
@@ -22,7 +26,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(passwordTextBox.Password) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
 
                 return;
             }
@@ -49,21 +53,35 @@ namespace Fund
 
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.MessageBoxCaption.Information,
-                            text: "اطلاعات وارد شده صحیح می‌باشد." + System.Environment.NewLine +"خوش آمدید."
+                            caption: Infrastructure.Caption.Information,
+                            text: "اطلاعات وارد شده صحیح می‌باشد." + System.Environment.NewLine + "خوش آمدید."
                         );
 
                     oUser.LastLoginTime = System.DateTime.Now;
+
                     Utility.CurrentUser = oUser;
 
                     oUnitOfWork.Save();
 
-                    MainRibbonWindow oMainRibbonWindow = new MainRibbonWindow();
-                    oMainRibbonWindow.WindowState = System.Windows.WindowState.Minimized;
-                    oMainRibbonWindow.Show();
-                    oMainRibbonWindow.WindowState = System.Windows.WindowState.Maximized;
+                    if (ShowWelcomeWindow == true)
+                    {
+                        WelcomeWindow oWelcomeWindow = new WelcomeWindow();
 
-                    this.Hide();
+                        oWelcomeWindow.Show();
+
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MainRibbonWindow oMainRibbonWindow = new MainRibbonWindow();
+
+                        oMainRibbonWindow.Show();
+
+                        oMainRibbonWindow.WindowState = System.Windows.WindowState.Maximized;
+
+                        this.Hide();
+                    }
+
 
                 }
 
@@ -71,7 +89,7 @@ namespace Fund
                 {
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.MessageBoxCaption.Error,
+                            caption: Infrastructure.Caption.Error,
                             text: "نام کاربری و / یا رمز عبور صحیح نمی‌باشد." + System.Environment.NewLine + "کاربری با مشخصات وارد شده موجود نمی‌باشد."
                         );
 
@@ -86,7 +104,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {

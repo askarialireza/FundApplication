@@ -13,7 +13,7 @@
     Style="{DynamicResource WindowStyle}"
     ResizeMode="CanResize"
     WindowStyle="ThreeDBorderWindow"
-    WindowState="Maximized"  
+    WindowState="Minimized"  
     WindowStartupLocation="CenterScreen" 
     DisplayShowModeSelector="False" 
     MinHeight="800" MinWidth="1100"
@@ -98,7 +98,7 @@
 
                             <dxrt:RibbonPageGroup x:Name="LoanAndPaymentRibbonPageGroup" Caption="وام و اقساط">
 
-                                <dxb:BarButtonItem Content="پرداخت وام" ItemClick="BarButtonItem_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Content="پرداخت وام" ItemClick="CreateLoanBarButtonItem_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
 
                                 <dxb:BarButtonItem Name="LoanManagements" Content="مدیریت وام ها" ItemClick="LoanManagements_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
 
@@ -112,7 +112,7 @@
 
                             <dxrt:RibbonPageGroup Caption="گزارشات عمومی">
 
-                                <dxb:BarButtonItem Name="MembersListButton" Content="لیست اعضای صندوق" LargeGlyph="pack://application:,,,/Fund;component/Resources/Icons/UserGroupManWoman80.png" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="MembersListButton" Content="لیست اعضای صندوق" LargeGlyph="pack://application:,,,/Fund;component/Resources/Icons/UserGroupManWoman80.png" Style="{DynamicResource LargeButtonStyle}" ItemClick="MembersListButton_ItemClick"/>
 
                                 <dxb:BarItemSeparator/>
 
@@ -140,7 +140,7 @@
 
                                 <dxb:BarItemSeparator/>
 
-                                <dxb:BarButtonItem Content="تراز مالی اعضا" Style="{DynamicResource LargeButtonStyle}" />
+                                <dxb:BarButtonItem Name="MemberBalanceButton" Content="تراز مالی اعضا" Style="{DynamicResource LargeButtonStyle}"/>
 
                             </dxrt:RibbonPageGroup>
 
@@ -228,7 +228,7 @@
                         <dxb:BarStaticItem x:Name="TodayLabel" Content="تاریخ امروز">
                             <dxb:BarStaticItem.ContentTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding}" FontWeight="Bold" FontSize="15" TextAlignment="Center" Width="150"/>
+                                    <TextBlock Text="{Binding}" FontWeight="Bold" FontSize="15" TextAlignment="Center" Width="200"/>
                                 </DataTemplate>
                             </dxb:BarStaticItem.ContentTemplate>
                         </dxb:BarStaticItem>
@@ -274,7 +274,9 @@
 
                 </Grid>
 
-                <dx:SimpleButton x:Name="LogoutUserButton" FontSize="12.5" Content="خروج" HorizontalAlignment="Left" Margin="163,4,0,4" Grid.Row="2" Width="65" Click="UserLogoutClick"/>
+                <Button x:Name="LogoutUserButton" FontSize="13" Grid.Row="2" Content="خروج" HorizontalAlignment="Left" FontWeight="Bold" Margin="160,5,0,3" Width="65" Click="UserLogoutClick"/>
+                
+                <ProgressBar Name="MainProgressBar" Minimum="0" Maximum="100" Value="0" Grid.Row="2" Width="200" Margin="240,6,0,3" HorizontalAlignment="Left" x:FieldModifier="public" FlowDirection="RightToLeft" Visibility="Hidden" />
             
             </Grid>
 

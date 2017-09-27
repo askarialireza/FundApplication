@@ -7,51 +7,38 @@ namespace ViewModels
         {
 
         }
+        private System.Guid _memberId;
 
+        public System.Guid MemberId
+        {
+            get
+            {
+                return _memberId;
+            }
+            set
+            {
+                _memberId = value;
+
+                DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
+
+                Models.Member oMember = oUnitOfWork.MemberRepository
+                    .GetById(_memberId);
+
+                if (oMember != null)
+                {
+                    MemberPhoto = oMember.Picture;
+                }
+            }
+        }
+
+        public byte[] MemberPhoto { get; set; }
 
         public Models.ComplexTypes.FullName FullName { get; set; }
 
-        private long _debtAmount;
-        public long DebtAmount
-        {
-            get
-            {
-                return _debtAmount;
-            }
-            set
-            {
-                _debtAmount = value;
+        public long DebtAmount { get; set; }
 
-                DebtAmountRialFormat = _debtAmount.ToString("#,##0 ریال");
-            }
-        }
+        public System.DateTime? NextPaymentDate { get; set; }
 
-        private System.DateTime? _lastPaymentDate;
-
-        public System.DateTime? LastPaymentDate
-        {
-            get
-            {
-                return _lastPaymentDate;
-            }
-            set
-            {
-                _lastPaymentDate = value;
-
-                if (_lastPaymentDate != null)
-                {
-                    PersianLastPaymentDate =
-                        new FarsiLibrary.Utils.PersianDate((System.DateTime)_lastPaymentDate).ToString("d");
-                }
-                else
-                {
-                    PersianLastPaymentDate = string.Empty;
-                }
-            }
-        }
-
-        public string PersianLastPaymentDate { get; set; }
-
-        public string DebtAmountRialFormat { get; set; }
+        public int InstallmentCount { get; set; }
     }
 }

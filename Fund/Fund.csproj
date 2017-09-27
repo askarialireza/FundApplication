@@ -138,6 +138,23 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Windows\EnterEmailPasswordWindow.xaml.cs">
+      <DependentUpon>EnterEmailPasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\WelcomeWindow.xaml.cs">
+      <DependentUpon>WelcomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Converter\BooleanToStringConverter.cs" />
+    <Compile Include="Infrastructure\Converter\ByteToImageConverter.cs" />
+    <Compile Include="Infrastructure\Converter\DateTimeToPersianDateTimeStringConverter.cs" />
+    <Compile Include="Infrastructure\Converter\GenderToStringConverter.cs" />
+    <Compile Include="Infrastructure\Converter\DateTimeToShortPersianDateStringConverter.cs" />
+    <Compile Include="Infrastructure\Converter\GuidToMemberFullNameConverter.cs" />
+    <Compile Include="Infrastructure\Converter\IsAdminBooleanToStringConverter.cs" />
+    <Compile Include="Infrastructure\Converter\LongToRialStringFormatConverter.cs" />
+    <Compile Include="Views\UserControls\MemberTransactionsUserControl.xaml.cs">
+      <DependentUpon>MemberTransactionsUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\MembersListUserControl.xaml.cs">
       <DependentUpon>MembersListUserControl.xaml</DependentUpon>
     </Compile>
@@ -251,6 +268,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Windows\EnterEmailPasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\WelcomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\MemberTransactionsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\MembersListUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -426,14 +455,18 @@
     <AppDesigner Include="Properties\" />
     <None Include="Resources\Reports\ConfirmedLoansListReport.mrt" />
     <None Include="Resources\Reports\InstallmentListReport.mrt" />
+    <None Include="Resources\Reports\MembersListReport.mrt" />
     <None Include="Resources\Reports\MembersLoansListReport.mrt" />
+    <None Include="Resources\Reports\MemberTransactionsReport.mrt" />
     <None Include="Resources\Reports\TransactionsReport.mrt" />
     <Resource Include="Resources\Reports\MembershipCardReport.mrt" />
     <Resource Include="Resources\Reports\MembersViewReport.mrt" />
     <Resource Include="Resources\Reports\UsersViewReport.mrt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\WindowBack2.png" />
@@ -575,7 +608,12 @@
     <Resource Include="Resources\Icons\EditProperty_30px.png" />
     <Resource Include="Resources\Icons\Schedule_30px.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Images\‌WelcomePic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Email_30px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

@@ -42,18 +42,6 @@ namespace Fund
                     .Get()
                     .Where(current=>current.Member.FundId == Utility.CurrentFund.Id)
                     .OrderBy(current => current.StartDate)
-                    .Select(current => new ViewModels.LoanViewModel()
-                    {
-                        Id = current.Id,
-                        StartDate = current.StartDate,
-                        LoanAmount = current.LoanAmount,
-                        InstallmentsCount = current.InstallmentsCount,
-                        Description = current.Description,
-                        RefundAmount = current.RefundAmount,
-                        EndDate = current.EndDate,
-                        MemberId = current.MemberId,
-                        IsPayed = current.IsPayed,
-                    })
                     .ToList();
 
                 LoansGridControl.ItemsSource = varList;
@@ -76,16 +64,11 @@ namespace Fund
 
         private void InstallmentsOfLoan_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ViewModels.LoanViewModel oViewModel = LoansGridControl.SelectedItem as ViewModels.LoanViewModel;
+            Models.Loan oLoan = LoansGridControl.SelectedItem as Models.Loan;
 
-            if (oViewModel != null)
+            if (oLoan != null)
             {
-                DAL.UnitOfWork oUnitOfWork = null;
-
-                oUnitOfWork = new DAL.UnitOfWork();
-
-                Utility.CurrentLoan = oUnitOfWork.LoanRepository
-                    .GetById(oViewModel.Id);
+                Utility.CurrentLoan = oLoan;
 
                 ShowInstallmentsListPerLoanWindow oShowInstallmentsListPerLoanWindow =
                     new ShowInstallmentsListPerLoanWindow();
@@ -96,8 +79,19 @@ namespace Fund
 
         private void ShowReport(Infrastructure.ReportType reportType)
         {
-            var varList = (LoansGridControl.ItemsSource as System.Collections.Generic.List<ViewModels.LoanViewModel>)
+            var varList = (LoansGridControl.ItemsSource as System.Collections.Generic.List<Models.Loan>)
                 .OrderBy(current => current.StartDate)
+                .Select(current => new ViewModels.LoanViewModel()
+                {
+                     IsPayed = current.IsPayed,
+                     IsActive = current.IsActive,
+                     LoanAmount =current.LoanAmount,
+                     RefundAmount = current.RefundAmount,
+                     EndDate = current.EndDate,
+                     StartDate= current.StartDate,
+                     InstallmentsCount =current.InstallmentsCount,
+                     MemberId = current.MemberId,
+                })
                 .Select(current => new
                 {
                     current.LoanAmountRialFormat,
@@ -109,17 +103,8 @@ namespace Fund
                     FullName = current.FullName.ToString(),
                 })
                 .ToList();
-
-            if (varList.Count == 0)
-            {
-                Infrastructure.MessageBox.Show
-                    (
-                        caption: Infrastructure.MessageBoxCaption.Error,
-                        text: "اطلاعاتی برای تهیه گزارش در جدول موجود نمی‌باشد. "
-                    );
-
-                return;
-            }
+            ;
+            
 
             Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
 

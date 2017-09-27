@@ -33,31 +33,29 @@ namespace Fund
                                     .Select(current => current.Loan.Member.FullName)
                                     .FirstOrDefault(),
 
-                        LastPaymentDate = installment
+
+                        MemberId = installment
+                                    .Select(current => current.Loan.Member.Id)
+                                    .FirstOrDefault(),
+
+                        NextPaymentDate = installment
                                             .Where(current => current.InstallmentDate >= System.DateTime.Now)
                                             .OrderBy(current => current.InstallmentDate)
                                             .Select(current=>current.InstallmentDate)
                                             .FirstOrDefault(),
+
+                        InstallmentCount = installment
+                                            .Count(),
                     })
                     .ToList();
 
 
                 DebtorsListGridControl.ItemsSource = varList;
 
+                ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+                PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
+
                 oUnitOfWork.Save();
-
-                long sum = 0;
-
-                 sum = varList
-                    .Select(current => current.DebtAmount)
-                    .Sum();
-
-                DevExpress.Xpf.Grid.GridSummaryItem oItem = new DevExpress.Xpf.Grid.GridSummaryItem();
-
-                oItem.Alignment = DevExpress.Xpf.Grid.GridSummaryItemAlignment.Right;
-                oItem.DisplayFormat = string.Format("مجموع بدهی افراد به صندوق {0}",sum.ToRialStringFormat());
-
-                DebtorsListGridControl.TotalSummary.Add(oItem);
             }
             catch (System.Exception ex)
             {
@@ -85,7 +83,59 @@ namespace Fund
 
         private void ShowReport(Infrastructure.ReportType reportType)
         {
+            DAL.UnitOfWork oUnitOfWork = null;
 
+            try
+            {
+                oUnitOfWork = new DAL.UnitOfWork();
+
+                var varList = oUnitOfWork.InstallmentRepository
+                    .Get()
+                    .Where(current => current.Loan.Member.FundId == Utility.CurrentFund.Id)
+                    .Where(current => current.IsPayed == false)
+                    .GroupBy(current => current.Loan.MemberId)
+                    .Select(installment => new ViewModels.DebtorViewModel()
+                    {
+                        DebtAmount = installment
+                                        .Sum(current => current.PaymentAmount),
+
+                        FullName = installment
+                                    .Select(current => current.Loan.Member.FullName)
+                                    .FirstOrDefault(),
+
+                        NextPaymentDate = installment
+                                            .Where(current => current.InstallmentDate >= System.DateTime.Now)
+                                            .OrderBy(current => current.InstallmentDate)
+                                            .Select(current => current.InstallmentDate)
+                                            .FirstOrDefault(),
+
+                        InstallmentCount = installment
+                                            .Count(),
+                    })
+                    .Select( current => new
+                    {
+                        DebtAmount = current.DebtAmount.ToRialStringFormat(),
+                        FullName = current.FullName.ToString(),
+                        LastPaymentDate = ((System.DateTime)current.NextPaymentDate).ToPersianDate(),
+                        current.InstallmentCount,
+                    })
+                    .ToList();
+
+                oUnitOfWork.Save();
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (oUnitOfWork != null)
+                {
+                    oUnitOfWork.Dispose();
+                    oUnitOfWork = null;
+                }
+
+            }
         }
 
         private void closeButton_Click(object sender, System.Windows.RoutedEventArgs e)

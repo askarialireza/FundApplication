@@ -46,12 +46,19 @@ namespace Models
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Configurations.Add(new User.Configuration());
+
             modelBuilder.Configurations.Add(new Fund.Configuration());
+
             modelBuilder.Configurations.Add(new Loan.Configuration());
+
             modelBuilder.Configurations.Add(new Member.Configuration());
+
             modelBuilder.Configurations.Add(new Reminder.Configuration());
+
             modelBuilder.Configurations.Add(new Installment.Configuration());
+
             modelBuilder.Configurations.Add(new Transaction.Configuration());
+
             modelBuilder.Configurations.Add(new UserSetting.Configuration());
         }
 

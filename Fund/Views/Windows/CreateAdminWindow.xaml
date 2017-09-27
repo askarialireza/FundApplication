@@ -6,7 +6,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-    Title="ساخت یوزر کاربری" Height="530" Width="350" 
+    Title="ساخت یوزر کاربری" Height="590" Width="350" 
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource WindowStyle}"
     Closing="DXWindow_Closing"
@@ -91,6 +91,8 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Label Style="{DynamicResource LabelStyle}" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Content="ساخت حساب کاربری" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -99,15 +101,41 @@
         <Label Style="{DynamicResource LabelStyle}" Content="نام کاربری :" Grid.Row="6"/>
         <Label Style="{DynamicResource LabelStyle}" Content="رمز عبور :" Grid.Row="7"/>
         <Label Style="{DynamicResource LabelStyle}" Content="تایید رمز عبور :" Grid.Row="8"/>
-        <Label Style="{DynamicResource LabelStyle}" Content="کد امنیتی :" Grid.Row="10"/>
-        <Label Style="{DynamicResource LabelStyle}" Content="درج کد امنیتی :" Grid.Row="14"/>
+        <Label Style="{DynamicResource LabelStyle}" Content="پست الکترونیکی :" Grid.Row="10"/>
+
+        <Grid Grid.Row="10" Grid.Column="1">
+
+            <dxe:TextEdit Name="EmailAddressTextBox"  MaskType="RegEx" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" FlowDirection="LeftToRight" FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{DynamicResource MaskedTextBoxStyle}" GotKeyboardFocus="EmailAddressTextBox_GotKeyboardFocus"/>
+
+            <Popup Grid.Row="10" Grid.Column="2" Name="EmailPopup" IsOpen="False" StaysOpen="True" PopupAnimation="Fade" AllowsTransparency="True" Width="200" Height="auto">
+                <Border Background="White" BorderThickness="2" BorderBrush="DarkGray">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Margin="4" Grid.Row="0" FontSize="12" TextWrapping="Wrap" Text="در صورت امکان فقط از پست الکترونیکی‌های مرتبط با Yahoo , Gmail , Hotmail استفاده نمایید. در صورت استفاده از Gmail با رجوع به لینک زیر، گزینه Allow Less Secure Apps را فعال نمایید."/>
+
+                        <Button HorizontalAlignment="Center" Width="90" Grid.Row="1" FontSize="12" FontWeight="Bold" Margin="3" Content="مشاهده لینک" Click="Button_Click"/>
+
+                    </Grid>
+                </Border>
+            </Popup>
+
+        </Grid>
+        
+        
+
+        <Label Style="{DynamicResource LabelStyle}" Content="کد امنیتی :" Grid.Row="12"/>
+        <Label Style="{DynamicResource LabelStyle}" Content="درج کد امنیتی :" Grid.Row="16"/>
         <TextBox Name="FirstNameTextBox" Style="{DynamicResource RtlTextBox}" Grid.Row="3" />
         <TextBox Name="LastNameTextBox" Style="{DynamicResource RtlTextBox}" Grid.Row="4" />
-        <dxe:TextEdit Name="UsernameTextBox" Style="{DynamicResource MaskedTextBoxStyle}" Text="09"  Mask="[a-zA-Z0-9_]{4,20}" Grid.Row="6"/>
+        <dxe:TextEdit Name="UsernameTextBox" Style="{DynamicResource MaskedTextBoxStyle}" Mask="[a-zA-Z0-9_]{4,20}" Grid.Row="6"/>
         <PasswordBox Name="PasswordTextBox" Style="{DynamicResource PasswordTextBox }" Grid.Row="7" />
         <PasswordBox Name="ConfirmPasswordTextBox" Style="{DynamicResource PasswordTextBox }" Grid.Row="8" />
-        <Fund:Captcha x:Name="Captcha" Grid.Row="10" Grid.Column="1" Grid.RowSpan="4" Margin="5" FlowDirection="LeftToRight" CaptchaRefreshed="Captcha_CaptchaRefreshed" FontSize="50" />
-        <TextBox Name="CaptchaValueTextBox" Style="{DynamicResource LtrTextBox}" Grid.Row="14" ToolTip="کد امنیتی حساس به حروف کوچک و بزرگ" />
-        <dx:SimpleButton Style="{DynamicResource ButtonStyle}" Content="ایجاد حساب کاربری" Grid.Row="17" Click="SimpleButton_Click" />
+        <Fund:Captcha x:Name="Captcha" Grid.Row="12" Grid.Column="1" Grid.RowSpan="4" Margin="5" FlowDirection="LeftToRight" CaptchaRefreshed="Captcha_CaptchaRefreshed" FontSize="50" />
+        <TextBox Name="CaptchaValueTextBox" Style="{DynamicResource LtrTextBox}" Grid.Row="16" ToolTip="کد امنیتی حساس به حروف کوچک و بزرگ" />
+        <dx:SimpleButton Style="{DynamicResource ButtonStyle}" Content="ایجاد حساب کاربری" Grid.Row="19" Click="SimpleButton_Click" />
     </Grid>
 </dx:DXWindow>

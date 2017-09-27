@@ -56,17 +56,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CreateLoanViewModel.cs" />
     <Compile Include="ViewModels\DatabaseBackupViewModel.cs" />
     <Compile Include="ViewModels\DebtorViewModel.cs" />
+    <Compile Include="ViewModels\EmailViewModel.cs" />
     <Compile Include="ViewModels\EventTypeViewModel.cs" />
     <Compile Include="ViewModels\FontViewModel.cs" />
     <Compile Include="ViewModels\GenderViewModel.cs" />
     <Compile Include="ViewModels\InstallmentViewModel.cs" />
     <Compile Include="ViewModels\LoanViewModel.cs" />
     <Compile Include="ViewModels\MembershipCardViewModel.cs" />
-    <Compile Include="ViewModels\MembersManagementViewModel.cs" />
+    <Compile Include="ViewModels\MemberTransactionViewModel.cs" />
+    <Compile Include="ViewModels\MemberViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\PersianCalendarViewModel.cs" />
     <Compile Include="ViewModels\ThemeViewModel.cs" />
     <Compile Include="ViewModels\TransactionViewModel.cs" />
     <Compile Include="ViewModels\UserTypeViewModel.cs" />
@@ -84,6 +92,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagenull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\memberpicture.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

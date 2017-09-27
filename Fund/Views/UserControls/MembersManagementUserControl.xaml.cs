@@ -54,51 +54,24 @@ namespace Fund
                 return;
             }
 
-            ViewModels.MembersManagementViewModel oViewModel = MembersGridControl.SelectedItem as ViewModels.MembersManagementViewModel;
+            Models.Member oMember = MembersGridControl.SelectedItem as Models.Member;
 
-            if (oViewModel != null)
+            if (oMember != null)
             {
-                DAL.UnitOfWork oUnitOfWork = null;
+                FirstNameTextBox.Text = oMember.FullName.FirstName;
+                LastNameTextBox.Text = oMember.FullName.LastName;
+                FatherNameTextBox.Text = oMember.FatherName;
+                NationalCodeTextBox.Text = oMember.NationalCode;
+                phoneNumberTextBox.Text = oMember.PhoneNumber;
+                emailAddressTextBox.Text = oMember.EmailAddress;
+                GendersCombobox.SelectedItem = (GendersCombobox.ItemsSource as System.Collections.Generic.List<ViewModels.GenderViewModel>)
+                    .Where(current => current.Gender == oMember.Gender)
+                    .FirstOrDefault();
 
-                try
-                {
-                    oUnitOfWork = new DAL.UnitOfWork();
-
-                    Models.Member oMember = oUnitOfWork.MemberRepository
-                        .GetById(oViewModel.Id);
-
-                    if (oMember != null)
-                    {
-                        FirstNameTextBox.Text = oMember.FullName.FirstName;
-                        LastNameTextBox.Text = oMember.FullName.LastName;
-                        FatherNameTextBox.Text = oMember.FatherName;
-                        NationalCodeTextBox.Text = oMember.NationalCode;
-                        phoneNumberTextBox.Text = oMember.PhoneNumber;
-                        emailAddressTextBox.Text = oMember.EmailAddress;
-                        GendersCombobox.SelectedItem = (GendersCombobox.ItemsSource as System.Collections.Generic.List<ViewModels.GenderViewModel>)
-                            .Where(current => current.Gender == oMember.Gender)
-                            .FirstOrDefault();
-
-                        var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
-                        MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
-                        CurrentId = oMember.Id;
-                    }
-
-                    oUnitOfWork.Save();
-                }
-                catch (System.Exception ex)
-                {
-                    Infrastructure.MessageBox.Show(ex.Message); ;
-                }
-                finally
-                {
-                    if (oUnitOfWork != null)
-                    {
-                        oUnitOfWork.Dispose();
-                        oUnitOfWork = null;
-                    }
-                }
-            }
+                var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
+                MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
+                CurrentId = oMember.Id;
+            } 
         }
 
         private void EditItemsToggleSwitchChecked(object sender, System.Windows.RoutedEventArgs e)
@@ -235,7 +208,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد نام الزامی است."
                 );
 
@@ -246,7 +219,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد نام خانوادگی الزامی است."
                 );
 
@@ -257,7 +230,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد نام پدر الزامی است."
                 );
 
@@ -268,7 +241,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد کد ملی الزامی است."
                 );
 
@@ -279,7 +252,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد پست الکترونیکی الزامی است."
                 );
 
@@ -290,7 +263,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد شماره تلفن الزامی است.");
 
                 return;
@@ -329,7 +302,7 @@ namespace Fund
 
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.MessageBoxCaption.Information,
+                            caption: Infrastructure.Caption.Information,
                             text: "مشخصات عضو صندوق با موفقیت ویرایش گردید."
                         );
                 }
@@ -368,7 +341,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                         Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.MessageBoxCaption.Question,
+                            caption: Infrastructure.Caption.Question,
                             text: "آیا مطمئن به حذف عضو صندوق از سیستم هستید ؟"
                         );
 
@@ -394,7 +367,7 @@ namespace Fund
 
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Information,
+                        caption: Infrastructure.Caption.Information,
                         text: "عضو صندوق با موفقیت از سیستم حذف گردید."
                     );
 
@@ -451,45 +424,21 @@ namespace Fund
             {
                 oUnitOfWork = new DAL.UnitOfWork();
 
-                var varData = oUnitOfWork.MemberRepository
+                var varList = oUnitOfWork.MemberRepository
                     .Get()
                     .Where(current => current.FundId == Utility.CurrentFund.Id)
-                    .AsQueryable();
-
-                var varList = varData.ToList();
-
-                if (varList.Count == 0)
-                {
-                    MembersGridControl.ItemsSource = null;
-                    EditItemsToggleSwitch.IsChecked = false;
-                    Clear();
-
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBoxCaption.Error, text: "محتوایی برای نمایش وجود ندارد. صفحه بسته خواهد شد.");
-
-                    this.Close();
-
-                    return;
-                }
-
-                MembersGridControl.ItemsSource = varData
-                    .Select(current => new ViewModels.MembersManagementViewModel()
-                    {
-                        Id = current.Id,
-                        FullName = current.FullName,
-                        EmailAddress = current.EmailAddress,
-                        FatherName = current.FatherName,
-                        Gender = current.Gender,
-                        NationalCode = current.NationalCode,
-                        PhoneNumber = current.PhoneNumber,
-                        MembershipDate = current.MembershipDate,
-                    })
                     .OrderBy(current => current.FullName.LastName)
                     .ThenBy(current => current.FullName.FirstName)
                     .ToList();
 
+                MembersGridControl.ItemsSource = varList;
+
                 oUnitOfWork.Save();
                 oUnitOfWork.Dispose();
                 oUnitOfWork = null;
+
+                ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+                PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
             }
             catch (System.Exception ex)
             {

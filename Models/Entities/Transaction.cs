@@ -40,6 +40,5 @@
 
         public System.Guid? MemberId { get; set; }
 
-
     }
 }

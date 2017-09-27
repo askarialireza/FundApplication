@@ -52,9 +52,9 @@
                     
                     <dxg:GridControl Grid.Row="0" Name="BackupsGridControl" Margin="0" Style="{DynamicResource GridControlStyle}">
 
-                        <dxg:GridColumn Header="نام فایل پشتیبان" Binding="{Binding BackupFileName, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="نام فایل پشتیبان" Binding="{Binding BackupFileName}" Style="{StaticResource GridColumnStyle}" />
 
-                        <dxg:GridColumn Header="تاریخ ایجاد پشتیبان" Binding="{Binding PersianBackupDateTime, Mode=OneTime}" Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تاریخ ایجاد پشتیبان" Binding="{Binding PersianBackupDateTime}" Style="{StaticResource GridColumnStyle}" />
 
                         <dxg:GridColumn Binding="{Binding BackupDateTime}" Visible="False" />
                         

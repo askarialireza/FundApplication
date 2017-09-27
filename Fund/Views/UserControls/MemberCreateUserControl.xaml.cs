@@ -28,7 +28,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد نام الزامی است."
 
                 );
@@ -40,7 +40,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد نام خانوادگی الزامی است."
                 );
 
@@ -51,7 +51,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد نام پدر الزامی است."
                 );
 
@@ -62,7 +62,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد کد ملی الزامی است."
                 );
 
@@ -73,7 +73,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد پست الکترونیکی الزامی است."
                 );
 
@@ -84,7 +84,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.MessageBoxCaption.Error,
+                    caption: Infrastructure.Caption.Error,
                     text: "تکمیل فیلد شماره تلفن الزامی است."
                 );
 
@@ -121,7 +121,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.MessageBoxCaption.Information,
+                        caption: Infrastructure.Caption.Information,
                         text: "عضو جدید با موفقیت در بانک اطلاعاتی ایجاد گردید"
                     );
 

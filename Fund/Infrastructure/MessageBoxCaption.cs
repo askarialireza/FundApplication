@@ -1,7 +1,7 @@
 ﻿
 namespace Infrastructure
 {
-    public static class MessageBoxCaption
+    public static class Caption
     {
         public const string Error = "خطا";
 

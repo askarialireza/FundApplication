@@ -54,17 +54,17 @@
                     <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row" ShowFixedTotalSummary="False" ShowAutoFilterRow="False" ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
                 </dxg:GridControl.View>
 
-                <dxg:GridColumn Header="تاریخ تراکنش" Binding="{Binding  PersianDate, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="تاریخ تراکنش" Binding="{Binding  PersianDate}"  Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="نوع تراکنش" Binding="{Binding TransactionDescription, Mode=OneTime}"  Style="{DynamicResource GridColumnStyle}" />
+                <dxg:GridColumn Header="نوع تراکنش" Binding="{Binding TransactionDescription}"  Style="{DynamicResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="نام و نام خانوادگی" Binding="{Binding MemberFullName, Mode=OneTime}"  Style="{DynamicResource GridColumnStyle}" />
+                <dxg:GridColumn Header="نام و نام خانوادگی" Binding="{Binding MemberFullName}"  Style="{DynamicResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="مقدار تراکنش" Binding="{Binding AmountRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="مقدار تراکنش" Binding="{Binding AmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Header="موجودی صندوق" Binding="{Binding BalanceRialFormat, Mode=OneTime}"  Style="{StaticResource GridColumnStyle}" />
+                <dxg:GridColumn Header="موجودی صندوق" Binding="{Binding BalanceRialFormat}"  Style="{StaticResource GridColumnStyle}" />
 
-                <dxg:GridColumn Binding="{Binding Id, Mode=OneTime}" Visible="False" />
+                <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
 
             </dxg:GridControl>
         </Grid>
