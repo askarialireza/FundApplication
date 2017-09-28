@@ -6,7 +6,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-    Title="ساخت یوزر کاربری" Height="590" Width="350" 
+    Title="ساخت یوزر کاربری" Height="610" Width="350" 
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource WindowStyle}"
     Closing="DXWindow_Closing"
@@ -66,7 +66,7 @@
         </Style>
     </dx:DXWindow.Resources>
 
-    <Grid>
+    <Grid Style="{DynamicResource GridStyle}">
         <Grid.Background>
             <ImageBrush ImageSource="/Fund;component/Resources/Images/WindowBack.png" Stretch="UniformToFill"/>
         </Grid.Background>
@@ -95,6 +95,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
+        
         <Label Style="{DynamicResource LabelStyle}" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Content="ساخت حساب کاربری" FontWeight="Bold" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" />
         <Label Style="{DynamicResource LabelStyle}" Content="نام :" Grid.Row="3"/>
         <Label Style="{DynamicResource LabelStyle}" Content="نام خانوادگی :" Grid.Row="4"/>
@@ -135,7 +136,7 @@
         <PasswordBox Name="PasswordTextBox" Style="{DynamicResource PasswordTextBox }" Grid.Row="7" />
         <PasswordBox Name="ConfirmPasswordTextBox" Style="{DynamicResource PasswordTextBox }" Grid.Row="8" />
         <Fund:Captcha x:Name="Captcha" Grid.Row="12" Grid.Column="1" Grid.RowSpan="4" Margin="5" FlowDirection="LeftToRight" CaptchaRefreshed="Captcha_CaptchaRefreshed" FontSize="50" />
-        <TextBox Name="CaptchaValueTextBox" Style="{DynamicResource LtrTextBox}" Grid.Row="16" ToolTip="کد امنیتی حساس به حروف کوچک و بزرگ" />
+        <TextBox Name="CaptchaValueTextBox" Style="{DynamicResource LtrTextBox}" Grid.Row="16" ToolTip="کد امنیتی حساس به حروف کوچک و بزرگ نیست" />
         <dx:SimpleButton Style="{DynamicResource ButtonStyle}" Content="ایجاد حساب کاربری" Grid.Row="19" Click="SimpleButton_Click" />
     </Grid>
 </dx:DXWindow>

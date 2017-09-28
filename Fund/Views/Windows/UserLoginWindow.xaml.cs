@@ -125,5 +125,12 @@ namespace Fund
         {
             usernameTextBox.Focus();
         }
+
+        private void forgetPasswordButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ForgetLoginPasswordWindow oForgotLoginPasswordWindow = new ForgetLoginPasswordWindow();
+
+            oForgotLoginPasswordWindow.ShowDialog();
+        }
     }
 }

@@ -414,9 +414,12 @@ namespace Fund
 
         private static void OBackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            Utility.MainWindow.MainProgressBar.IsIndeterminate = false;
+            if (Utility.MainWindow != null)
+            {
+                Utility.MainWindow.MainProgressBar.IsIndeterminate = false;
 
-            Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Hidden;
+                Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Hidden;
+            }
 
             if (Utility.EmailSentSuccessfully == true)
             {
@@ -461,9 +464,12 @@ namespace Fund
 
             oMailMessage.Body = oEmailViewModel.Body;
 
-            oMailMessage.IsBodyHtml = false;
+            oMailMessage.BodyEncoding = System.Text.Encoding.UTF8;
 
-            oMailMessage.Attachments.Add(new System.Net.Mail.Attachment(contentStream: oEmailViewModel.Attachment, name: oEmailViewModel.AttachmentFileName + ".pdf", mediaType: "application/pdf"));
+            if (oEmailViewModel.Attachment != null)
+            {
+                oMailMessage.Attachments.Add(new System.Net.Mail.Attachment(contentStream: oEmailViewModel.Attachment, name: oEmailViewModel.AttachmentFileName + ".pdf", mediaType: "application/pdf"));
+            }
 
             System.Net.Mail.SmtpClient oSmtpClient = new System.Net.Mail.SmtpClient(smtpAddress, portNumber);
 
@@ -481,7 +487,7 @@ namespace Fund
             {
 
                 Utility.Exception = ex;
-                
+
                 Utility.EmailSentSuccessfully = false;
             }
         }
@@ -499,13 +505,21 @@ namespace Fund
             {
                 result = "smtp.gmail.com";
             }
-            else if (string.Compare(stmpServer, "yahoo", true) == 0)
+            else if ((string.Compare(stmpServer, "outlook", true) == 0) || (string.Compare(stmpServer, "live", true) == 0))
+            {
+                result = "smtp-mail.outlook.com";
+            }
+            else if ((string.Compare(stmpServer, "yahoo", true) == 0) || (string.Compare(stmpServer, "ymail", true) == 0))
             {
                 result = "smtp.mail.yahoo.com";
             }
             else if (string.Compare(stmpServer, "hotmail", true) == 0)
             {
                 result = "smtp.live.com";
+            }
+            else if (string.Compare(stmpServer, "aol", true) == 0)
+            {
+                result = "smtp.aol.com";
             }
 
             return (result);

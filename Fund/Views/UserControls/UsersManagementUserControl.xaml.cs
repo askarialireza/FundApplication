@@ -186,6 +186,7 @@ namespace Fund
                     oUser.FullName.FirstName = FirstNameTextBox.Text.Trim();
                     oUser.FullName.LastName = LastNameTextBox.Text.Trim();
                     oUser.IsAdmin = (UserTypeComboBox.SelectedItem as ViewModels.UserTypeViewModel).IsAdmin;
+                    oUser.EmailAddress = EmailAddressTextBox.Text.Trim();
 
                     if (PasswordChangeToggleSwitch.IsChecked == true)
                     {

@@ -2,9 +2,6 @@
 
 namespace Fund
 {
-    /// <summary>
-    /// Interaction logic for FundLoginWindow.xaml
-    /// </summary>
     public partial class FundLoginWindow : DevExpress.Xpf.Core.DXWindow
     {
         public FundLoginWindow()
@@ -25,8 +22,6 @@ namespace Fund
                 var fundslist = oUnitOfWork.FundRepository
                     .GetFundsByUser(Utility.CurrentUser)
                     .ToList();
-
-
 
                 FundsComboBox.ItemsSource = fundslist;
                 FundsComboBox.DisplayMemberPath = "Name";
@@ -74,6 +69,7 @@ namespace Fund
                         caption: Infrastructure.Caption.Error,
                         text: "رمز عبور وارد شده صحیح نمی‌باشد."
                     );
+
                 return;
             }
         }

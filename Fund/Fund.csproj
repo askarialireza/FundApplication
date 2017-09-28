@@ -138,6 +138,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Windows\ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\ForgotLoginPasswordWindow.xaml.cs">
+      <DependentUpon>ForgotLoginPasswordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\EnterEmailPasswordWindow.xaml.cs">
       <DependentUpon>EnterEmailPasswordWindow.xaml</DependentUpon>
     </Compile>
@@ -268,6 +274,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Windows\ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\ForgotLoginPasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\EnterEmailPasswordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
