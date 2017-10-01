@@ -1,0 +1,148 @@
+﻿<dx:DXWindow
+    x:Class="Fund.FundBalanceWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+    xmlns:converter="clr-namespace:Infrastructure.Converter"
+    xmlns:viewModel="clr-namespace:ViewModels;assembly=ViewModels"
+    Title="تراز مالی صندوق" Height="400" Width="500"
+    WindowStartupLocation="CenterScreen"
+    Loaded="DXWindow_Loaded"
+    Style="{DynamicResource WindowStyle}"
+    >
+
+    <dx:DXWindow.Resources>
+
+        <Style x:Key="TitlesStyle" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="ResultsLabelStyle" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+        </Style>
+
+        <Style x:Key="LabelCol0" TargetType="{x:Type Label}" BasedOn="{StaticResource TitlesStyle}">
+            <Setter Property="Grid.Column" Value="0"/>
+        </Style>
+
+        <Style x:Key="LabelCol1" TargetType="{x:Type Label}" BasedOn="{StaticResource ResultsLabelStyle}">
+            <Setter Property="Grid.Column" Value="1"/>
+        </Style>
+
+        <Style x:Key="LabelCol2" TargetType="{x:Type Label}" BasedOn="{StaticResource TitlesStyle}">
+            <Setter Property="Grid.Column" Value="2"/>
+        </Style>
+
+        <Style x:Key="LabelCol3" TargetType="{x:Type Label}" BasedOn="{StaticResource ResultsLabelStyle}">
+            <Setter Property="Grid.Column" Value="3"/>
+        </Style>
+
+        <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style x:Key="EmptyListBox" TargetType="{x:Type ListBox}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Items.Count,RelativeSource={RelativeSource Self}}"  Value="0">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border Background="White" Opacity="0.5"  BorderThickness="1" BorderBrush="Gray">
+                                    <Label  Foreground="Gray" Content="عضوی با محتوای جستجو شده یافت نشد" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" MaxWidth="260"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </dx:DXWindow.Resources>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="تراز مالی صندوق" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.6*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Grid.RowSpan="8" BorderThickness="0,0,1,0" Grid.Column="0" Style="{DynamicResource BorderStyle}" Background="White" Opacity="0.5"/>
+            <Border Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="2"  BorderThickness="1"  Style="{DynamicResource BorderStyle}"/>
+            <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2"  BorderThickness="1"  Style="{DynamicResource BorderStyle}"/>
+            <Border Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2"  BorderThickness="1"  Style="{DynamicResource BorderStyle}"/>
+            <Border Grid.Row="0" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="2"  BorderThickness="1"  Style="{DynamicResource BorderStyle}"/>
+            <Border Grid.Row="0" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="2"  BorderThickness="1"  Style="{DynamicResource BorderStyle}"/>
+            <Border Grid.Row="0" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="2"  BorderThickness="1"  Style="{DynamicResource BorderStyle}"/>
+            <Border Grid.Row="0" Grid.RowSpan="7" Grid.Column="0" Grid.ColumnSpan="2"  BorderThickness="1"  Style="{DynamicResource BorderStyle}"/>
+            <Border Grid.Row="0" Grid.RowSpan="8" Grid.Column="0" Grid.ColumnSpan="2"  BorderThickness="1"  Style="{DynamicResource BorderStyle}"/>
+            <Border Grid.Row="0" Grid.RowSpan="8" Grid.Column="0" Grid.ColumnSpan="1"  BorderThickness="1"  Style="{DynamicResource BorderStyle}"/>
+
+            <Label Content="مجموع وام‌های پرداختی" Grid.Row="0" Style="{DynamicResource TitlesStyle}" />
+            <Label Content="مقدار وام‌های پرداختی" Grid.Row="1" Style="{DynamicResource TitlesStyle}" />
+            <Label Content="مجموع وام های تسویه شده" Grid.Row="2"  Style="{DynamicResource TitlesStyle}" />
+            <Label Content="مقدار وام تسویه شده" Grid.Row="3" Style="{DynamicResource TitlesStyle}" />
+            <Label Content="مجموع کل اقساط دریافتی" Grid.Row="4" Style="{DynamicResource TitlesStyle}" />
+            <Label Content="مقدار کل اقساط دریافتی" Grid.Row="5" Style="{DynamicResource TitlesStyle}" />
+            <Label Content="مجموع اقساط پرداخت شده به صندوق " Grid.Row="6" Style="{DynamicResource TitlesStyle}" />
+            <Label Content="مقدار اقساط پرداختی به صندوق" Grid.Row="7" Style="{DynamicResource TitlesStyle}" />
+
+            <Label Name="LoansCountLabel" Content="" Grid.Row="0" Style="{DynamicResource LabelCol1}" />
+            <Label Name="LoansAmountLabel" Content="" Grid.Row="1" Style="{DynamicResource LabelCol1}" />
+            <Label Name="PayedLoansCountLabel" Content="" Grid.Row="2"  Style="{DynamicResource LabelCol1}" />
+            <Label Name="PayedLoansAmountLabel" Content="" Grid.Row="3" Style="{DynamicResource LabelCol1}" />
+            <Label Name="InstallmentsCountLabel" Content="" Grid.Row="4" Style="{DynamicResource LabelCol1}" />
+            <Label Name="InstallmentsAmountLabel" Content="" Grid.Row="5" Style="{DynamicResource LabelCol1}" />
+            <Label Name="PayedInstallmentsCountLabel" Content="" Grid.Row="6" Style="{DynamicResource LabelCol1}" />
+            <Label Name="PayedInstallmentsAmountLabel" Content="" Grid.Row="7" Style="{DynamicResource LabelCol1}" />
+
+        </Grid>
+
+        <Grid Grid.Row="2" >
+
+            <Label Content="موجودی صندوق :" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TitlesStyle}" />
+
+            <Label Name="FundBalanceLabel" Style="{DynamicResource LabelCol1}" Grid.Column="0" Margin="103,0,159,2" Width="200" VerticalAlignment="Bottom"/>
+
+            <dx:SimpleButton x:Name="PrintButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Click="PrintButton_Click"  Glyph="/Fund;component/Resources/Icons/Print32.png" ToolTip="چاپ" Margin="0" />
+
+            <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48"  Click="ExportToPdfButton_Click"  Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF" Margin="0,0,53,0"/>
+
+            <dx:SimpleButton x:Name="SendEmailButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/Email_30px.png" ToolTip="ارسال پست الکترونیکی" Margin="0,0,106,0" Click="SendEmailButton_Click"/>
+
+        </Grid>
+
+    </Grid>
+
+
+</dx:DXWindow>

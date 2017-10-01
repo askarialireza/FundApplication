@@ -83,10 +83,6 @@
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Documents\NugetPackages.txt" />
-    <Content Include="Documents\Readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>

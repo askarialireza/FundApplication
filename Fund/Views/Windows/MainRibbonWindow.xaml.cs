@@ -622,9 +622,9 @@ namespace Fund
 
         private void FundBalanceButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            FundBalanceUserControl oFundBalanceUserControl = new FundBalanceUserControl();
+            FundBalanceWindow oFundBalanceWindow = new FundBalanceWindow();
 
-            oFundBalanceUserControl.Show();
+            oFundBalanceWindow.ShowDialog();
         }
 
         private void MemberBalanceButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)

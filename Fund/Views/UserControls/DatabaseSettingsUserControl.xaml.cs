@@ -110,7 +110,7 @@ namespace Fund
 
         private void MakeBackupButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            string sourcePath = System.Environment.CurrentDirectory + "\\Files\\Database\\FundDatabase.sdf";
+            string sourcePath = System.Environment.CurrentDirectory + "\\Database\\FundDatabase.sdf";
 
             string date = FarsiLibrary.Utils.PersianDate.Now.ToString("d").Replace("/", string.Empty);
             string hour = System.DateTime.Now.Hour.ToString("00");
@@ -233,7 +233,7 @@ namespace Fund
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
                 {
-                    string destinationFileName = System.Environment.CurrentDirectory + "\\Files\\Database\\FundDatabase.sdf";
+                    string destinationFileName = System.Environment.CurrentDirectory + "\\Database\\FundDatabase.sdf";
                     oFile.CopyTo(destFileName: destinationFileName, overwrite: true);
 
                     Infrastructure.MessageBox.Show

@@ -59,10 +59,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Mvvm.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Core.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Docking.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Grid.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -141,6 +137,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Windows\FundBalanceWindow.xaml.cs">
+      <DependentUpon>FundBalanceWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\Converter\LoanIdToDescriptionConverter.cs" />
     <Compile Include="Views\Windows\MemberBalanceWindow.xaml.cs">
       <DependentUpon>MemberBalanceWindow.xaml</DependentUpon>
@@ -283,6 +282,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Windows\FundBalanceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\MemberBalanceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -485,6 +488,7 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Resources\Reports\ConfirmedLoansListReport.mrt" />
+    <None Include="Resources\Reports\FundBalanceReport.mrt" />
     <None Include="Resources\Reports\InstallmentListReport.mrt" />
     <None Include="Resources\Reports\MemberBalanceReport.mrt" />
     <None Include="Resources\Reports\MembersListReport.mrt" />
