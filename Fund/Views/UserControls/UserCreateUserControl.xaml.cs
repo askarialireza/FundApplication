@@ -25,7 +25,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد نام کاربری الزامی است."
                 );
 
@@ -37,7 +37,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد رمز عبور الزامی است."
                 );
 
@@ -49,7 +49,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد تکرار رمز عبور الزامی است."
                 );
 
@@ -60,7 +60,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد پست الکترونیکی الزامی است."
                 );
 
@@ -71,7 +71,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "رمزهای عبور درج شده با یکدیگر مطابقت ندارند."
                 );
 
@@ -94,7 +94,7 @@ namespace Fund
 
                 if (oUser != null)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "این نام کاربری استفاده شده است. از نام کاربری دیگری استفاده نمایید.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "این نام کاربری استفاده شده است. از نام کاربری دیگری استفاده نمایید.");
 
                     return;
                 }
@@ -130,7 +130,7 @@ namespace Fund
 
                     oUnitOfWork.Save();
 
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Information, text: "حساب کاربری جدید با موفقیت ایجاد گردید.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Information, text: "حساب کاربری جدید با موفقیت ایجاد گردید.");
 
                 }
 

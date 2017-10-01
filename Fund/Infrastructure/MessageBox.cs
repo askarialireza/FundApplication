@@ -3,9 +3,19 @@ namespace Infrastructure
 {
     public static class MessageBox
     {
+        internal static class Caption
+        {
+            public const string Error = "خطا";
+
+            public const string Question = "سوال";
+
+            public const string Warning = "اخطار";
+
+            public const string Information = "پیام";
+        }
+
         static MessageBox()
         {
-
         }
 
         public static System.Windows.MessageBoxResult Show(string text)
@@ -23,28 +33,29 @@ namespace Infrastructure
 
             switch (caption)
             {
-                case Infrastructure.Caption.Error:
+
+                case Infrastructure.MessageBox.Caption.Error:
                     {
                         oButton = System.Windows.MessageBoxButton.OK;
                         oImage = System.Windows.MessageBoxImage.Error;
                         oResult = System.Windows.MessageBoxResult.OK;
                         break;
                     }
-                case Infrastructure.Caption.Information:
+                case Infrastructure.MessageBox.Caption.Information:
                     {
                         oButton = System.Windows.MessageBoxButton.OK;
                         oImage = System.Windows.MessageBoxImage.Information;
                         oResult = System.Windows.MessageBoxResult.OK;
                         break;
                     }
-                case Infrastructure.Caption.Question:
+                case Infrastructure.MessageBox.Caption.Question:
                     {
                         oButton = System.Windows.MessageBoxButton.YesNo;
                         oImage = System.Windows.MessageBoxImage.Question;
                         oResult = System.Windows.MessageBoxResult.No;
                         break;
                     }
-                case Infrastructure.Caption.Warning:
+                case Infrastructure.MessageBox.Caption.Warning:
                     {
                         oButton = System.Windows.MessageBoxButton.YesNoCancel;
                         oImage = System.Windows.MessageBoxImage.Warning;

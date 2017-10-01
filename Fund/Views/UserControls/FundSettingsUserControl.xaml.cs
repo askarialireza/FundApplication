@@ -144,21 +144,21 @@ namespace Fund
 
             if (string.IsNullOrWhiteSpace(FundNameTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام صندوق الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد نام صندوق الزامی است.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(FundManagerNameTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام مدیر صندوق الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد نام مدیر صندوق الزامی می‌باشد.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(FundBuildYearTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد سال تاسیس الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد سال تاسیس الزامی می‌باشد.");
 
                 return;
             }
@@ -167,21 +167,21 @@ namespace Fund
             {
                 if (string.IsNullOrWhiteSpace(CurrentPasswordBox.Password) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد رمز عبور فعلی الزامی می‌باشد.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد رمز عبور فعلی الزامی می‌باشد.");
 
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(NewPasswordBox.Password) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد رمز عبور جدید الزامی می‌باشد.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد رمز عبور جدید الزامی می‌باشد.");
 
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(ConfirmPasswordBox.Password) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد تایید رمز عبور جدید الزامی می‌باشد.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد تایید رمز عبور جدید الزامی می‌باشد.");
 
                     return;
                 }
@@ -192,7 +192,7 @@ namespace Fund
             {
                 if (string.IsNullOrWhiteSpace(FundDepositBalanceTextBox.Text) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "در صورت فعال بودن گزینه افزایش موجودی، تکمیل فیلد افزایش موجودی الزامی است.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "در صورت فعال بودن گزینه افزایش موجودی، تکمیل فیلد افزایش موجودی الزامی است.");
 
                     return;
                 }
@@ -202,7 +202,7 @@ namespace Fund
             {
                 if (string.IsNullOrWhiteSpace(FundRemovalLimitTextBox.Text) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "در صورت فعال بودن گزینه تغییر سقف برداشت وام، تکمیل فیلد تغییر سقف پرداخت وام الزامی است.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "در صورت فعال بودن گزینه تغییر سقف برداشت وام، تکمیل فیلد تغییر سقف پرداخت وام الزامی است.");
 
                     return;
                 }
@@ -212,7 +212,7 @@ namespace Fund
             {
                 if (string.IsNullOrWhiteSpace(FundPercentTextBox.Text.Trim()) == true)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "در صورت فعال بودن گزینه کارمزد، تکمیل فیلد کارمزد الزامی است.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "در صورت فعال بودن گزینه کارمزد، تکمیل فیلد کارمزد الزامی است.");
 
                     return;
                 }
@@ -239,13 +239,13 @@ namespace Fund
                     {
                         if (Dtx.Security.Hashing.GetMD5(CurrentPasswordBox.Password.Trim()) != oFund.ManagerPassword)
                         {
-                            Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "رمز عبور درج شده صحیح نمی‌باشد.");
+                            Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "رمز عبور درج شده صحیح نمی‌باشد.");
 
                             return;
                         }
                         if (NewPasswordBox.Password.Trim() != ConfirmPasswordBox.Password.Trim())
                         {
-                            Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "رمزهای عبور جدید درج شده دارای مطابقت نمی‌باشد.");
+                            Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "رمزهای عبور جدید درج شده دارای مطابقت نمی‌باشد.");
 
                             return;
                         }
@@ -287,7 +287,7 @@ namespace Fund
 
                 oUnitOfWork.Save();
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Information, text: "اطلاعات صندوق با موفقیت ویرایش گردید");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Information, text: "اطلاعات صندوق با موفقیت ویرایش گردید");
 
                 Utility.CurrentFund = oFund;
 
@@ -319,7 +319,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Question,
+                        caption: Infrastructure.MessageBox.Caption.Question,
                         text: "آیا مطمئن به حذف اعضای صندوق می‌باشید؟"
                     );
 
@@ -353,7 +353,7 @@ namespace Fund
 
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Information,
+                                caption: Infrastructure.MessageBox.Caption.Information,
                                 text: "اعضای صندوق با موفقیت حذف شدند."
                             );
                     }
@@ -415,7 +415,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Question,
+                        caption: Infrastructure.MessageBox.Caption.Question,
                         text: "آیا مطمئن به حذف وام‌های صندوق می‌باشید؟"
                     );
 
@@ -449,7 +449,7 @@ namespace Fund
 
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Information,
+                                caption: Infrastructure.MessageBox.Caption.Information,
                                 text: "وام های پرداخت شده صندوق با موفقیت حذف شدند."
                             );
                     }
@@ -508,7 +508,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Question,
+                        caption: Infrastructure.MessageBox.Caption.Question,
                         text: "آیا مطمئن به حذف رویدادهای صندوق می‌باشید؟"
                     );
 
@@ -531,7 +531,7 @@ namespace Fund
 
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Information,
+                                caption: Infrastructure.MessageBox.Caption.Information,
                                 text: "رویدادهای متنی اضافه شده به صندوق با موفقیت حذف شدند."
                         );
 
@@ -572,7 +572,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Question,
+                        caption: Infrastructure.MessageBox.Caption.Question,
                         text: "آیا مطمئن به حذف صندوق می‌باشید؟"
                     );
 
@@ -589,7 +589,7 @@ namespace Fund
 
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Information,
+                                caption: Infrastructure.MessageBox.Caption.Information,
                                 text: "صندوق با موفقیت حذف گردید."
                             );
 

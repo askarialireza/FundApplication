@@ -73,7 +73,7 @@ namespace Fund
 
             if (toDatePicker.SelectedDateTime < fromDatePicker.SelectedDateTime)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "بازه زمانی درج شده نامعتبر می باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "بازه زمانی درج شده نامعتبر می باشد.");
 
                 return;
             }
@@ -131,15 +131,15 @@ namespace Fund
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: Infrastructure.ReportType.Print);
+            ShowReport(reportType: Infrastructure.Report.ExportType.Print);
         }
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: Infrastructure.ReportType.ExportToPDF);
+            ShowReport(reportType: Infrastructure.Report.ExportType.ExportToPDF);
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
             var varList =
                 (GridControl.ItemsSource as System.Collections.Generic.List<ViewModels.TransactionViewModel>)
@@ -158,7 +158,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "اطلاعاتی برای تهیه گزارش در جدول موجود نمی‌باشد. " + System.Environment.NewLine + "لطفا بازه زمانی دیگری را انتخاب نمایید."
                     );
 

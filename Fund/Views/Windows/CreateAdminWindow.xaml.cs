@@ -23,7 +23,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(UsernameTextBox.Text) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام کاربری الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد نام کاربری الزامی است.");
 
                 return;
             }
@@ -31,7 +31,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(PasswordTextBox.Password) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد رمز عبور الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد رمز عبور الزامی است.");
 
                 return;
             }
@@ -39,7 +39,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(EmailAddressTextBox.Text) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد پست الکترونیکی الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد پست الکترونیکی الزامی است.");
 
                 return;
             }
@@ -47,28 +47,28 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(ConfirmPasswordTextBox.Password) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد تایید رمز عبور الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد تایید رمز عبور الزامی است.");
 
                 return;
             }
 
             if (PasswordTextBox.Password.Trim() != ConfirmPasswordTextBox.Password.Trim())
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "رمزهای عبور درج شده با یکدیگر مطابقت ندارند.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "رمزهای عبور درج شده با یکدیگر مطابقت ندارند.");
 
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(CaptchaValueTextBox.Text) == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد درج کد امنیتی الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد درج کد امنیتی الزامی است.");
 
                 return;
             }
 
             if (CaptchaValueTextBox.Text.Trim().ToUpper() != Captcha.CaptchaValue.ToUpper())
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "کد امنیتی درج شده صحیح نمی‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "کد امنیتی درج شده صحیح نمی‌باشد.");
 
                 return;
             }

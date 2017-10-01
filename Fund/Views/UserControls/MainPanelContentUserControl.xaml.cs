@@ -7,8 +7,6 @@ namespace Fund
         public MainPanelContentUserControl()
         {
             InitializeComponent();
-
-
         }
 
         private void UserControlLoaded(object sender, System.Windows.RoutedEventArgs e)

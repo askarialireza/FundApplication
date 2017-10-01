@@ -110,7 +110,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oDialogResult =
                      Infrastructure.MessageBox.Show
                      (
-                         caption: Infrastructure.Caption.Question,
+                         caption: Infrastructure.MessageBox.Caption.Question,
                          text: "خروجی گزارش با موفقیت ذخیره گردید." + System.Environment.NewLine + "آیا مایل به مشاهده خروجی می‌باشید؟"
                      );
 
@@ -151,7 +151,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oDialogResult =
                      Infrastructure.MessageBox.Show
                      (
-                         caption: Infrastructure.Caption.Question,
+                         caption: Infrastructure.MessageBox.Caption.Question,
                          text: "خروجی گزارش با موفقیت ذخیره گردید." + System.Environment.NewLine + "آیا مایل به مشاهده خروجی می‌باشید؟"
                      );
 
@@ -342,29 +342,29 @@ namespace Fund
             Utility.MainWindow.UserControlsPanel.Children.Add(userControl);
         }
 
-        public static void DoAction(this Stimulsoft.Report.StiReport report, Infrastructure.ReportType action, string fileName = null)
+        public static void DoAction(this Stimulsoft.Report.StiReport report, Infrastructure.Report.ExportType action, string fileName = null)
         {
             switch (action)
             {
-                case Infrastructure.ReportType.Print:
+                case Infrastructure.Report.ExportType.Print:
                     {
                         report.Print();
                         break;
                     }
 
-                case Infrastructure.ReportType.ExportToPDF:
+                case Infrastructure.Report.ExportType.ExportToPDF:
                     {
                         report.ExportToPdf(fileName);
                         break;
                     }
 
-                case Infrastructure.ReportType.SaveAsImage:
+                case Infrastructure.Report.ExportType.SaveAsImage:
                     {
                         report.ExportToImage(fileName);
                         break;
                     }
 
-                case Infrastructure.ReportType.Show:
+                case Infrastructure.Report.ExportType.Show:
                     {
                         report.ShowWithWpfRibbonGUI();
                         break;
@@ -423,23 +423,23 @@ namespace Fund
 
             if (Utility.EmailSentSuccessfully == true)
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Information, text: "پست الکترونیکی با موفقیت ارسال گردید.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Information, text: "پست الکترونیکی با موفقیت ارسال گردید.");
             }
             else
             {
                 if (Utility.Exception.StatusCode == System.Net.Mail.SmtpStatusCode.MailboxUnavailable)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "پست الکترونیکی مقصد وجود ندارد");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "پست الکترونیکی مقصد وجود ندارد");
                 }
 
                 if (Utility.Exception.StatusCode == System.Net.Mail.SmtpStatusCode.TransactionFailed)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "ارسال پست الکترونیکی ناموفق");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "ارسال پست الکترونیکی ناموفق");
                 }
 
                 if (Utility.Exception.StatusCode == System.Net.Mail.SmtpStatusCode.MustIssueStartTlsFirst)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "اتصال امن برقرار نیست / پست الکترونیکی با رمزعبور درج شده احراز هویت نشد.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "اتصال امن برقرار نیست / پست الکترونیکی با رمزعبور درج شده احراز هویت نشد.");
                 }
             }
         }

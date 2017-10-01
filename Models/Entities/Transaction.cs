@@ -40,5 +40,9 @@
 
         public System.Guid? MemberId { get; set; }
 
+        public System.Guid? LoanId { get; set; }
+
+        public System.Guid? InstallmentId { get; set; }
+
     }
 }

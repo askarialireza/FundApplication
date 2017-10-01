@@ -38,7 +38,7 @@
 
         <dx:SimpleButton x:Name="exitButton" Content="خروج" Click="ExitClick" Margin="0,0,67,2" Style="{StaticResource CancelButtonStyle}" Grid.Row="2" Width="57"/>
 
-        <dx:SimpleButton x:Name="forgetPasswordButton" Content="رمز عبور را فراموش کرده‌اید"  Width="166" Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Margin="0,0,156,2" Grid.ColumnSpan="2" Click="forgetPasswordButton_Click"/>
+        <dx:SimpleButton x:Name="forgetPasswordButton" Content="رمز عبور را فراموش کرده‌اید"  Width="170" Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Margin="0,0,144,2" Grid.ColumnSpan="2" Click="forgetPasswordButton_Click"/>
 
     </Grid>
 

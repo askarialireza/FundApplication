@@ -10,6 +10,9 @@ namespace Fund
         {
             InitializeComponent();
 
+            SetUserSettings();
+
+            RefreshUserInterface();
         }
 
         private void NewFundClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -50,9 +53,7 @@ namespace Fund
 
             oDispatcherTimer.Tick += ODispatcherTimer_Tick;
 
-            SetUserSettings();
-
-            RefreshUserInterface();
+            // SetUserSettings();
         }
 
         private void ODispatcherTimer_Tick(object sender, System.EventArgs e)
@@ -89,6 +90,8 @@ namespace Fund
             Utility.CurrentUser = null;
             Utility.CurrentFund = null;
 
+            SthPanel.Children.Clear();
+
             this.Hide();
 
             UserLoginWindow oUserLoginWindow = new UserLoginWindow();
@@ -124,7 +127,7 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
 
                 return;
             }
@@ -177,7 +180,7 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
 
                 return;
             }
@@ -208,7 +211,7 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
 
                 return;
             }
@@ -232,7 +235,7 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ وامی در سیستم ثبت نشده است. نسبت به ثبت وام اقدام نمایید.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "برای صندوق هیچ وامی در سیستم ثبت نشده است. نسبت به ثبت وام اقدام نمایید.");
 
                 return;
             }
@@ -255,7 +258,7 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "هیچ تراکنشی در صندوق ثبت نشده است، اطلاعاتی برای نمایش وجود ندارد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "هیچ تراکنشی در صندوق ثبت نشده است، اطلاعاتی برای نمایش وجود ندارد.");
 
                 return;
             }
@@ -278,7 +281,7 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "هیچ تراکنشی در صندوق ثبت نشده است، اطلاعاتی برای نمایش وجود ندارد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "هیچ تراکنشی در صندوق ثبت نشده است، اطلاعاتی برای نمایش وجود ندارد.");
 
                 return;
             }
@@ -355,7 +358,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.Caption.Question,
+                            caption: Infrastructure.MessageBox.Caption.Question,
                             text: "آیا مایل به خروج از برنامه هستید؟"
                         );
 
@@ -415,7 +418,7 @@ namespace Fund
             System.Windows.MessageBoxResult oResult =
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Question,
+                        caption: Infrastructure.MessageBox.Caption.Question,
                         text: "آیا مطمئن به حذف پایگاه داده می‌باشید ؟ " + System.Environment.NewLine + "(اطلاعات حذف شده قابل بازیابی نخواهند بود)"
                     );
 
@@ -431,7 +434,7 @@ namespace Fund
 
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Information,
+                                caption: Infrastructure.MessageBox.Caption.Information,
                                 text: "بانک اطلاعاتی با موفقیت حذف گردید." + System.Environment.NewLine + "برنامه مجددا راه اندازی خواهد شد."
                             );
 
@@ -467,19 +470,20 @@ namespace Fund
                 {
                     case true:
                         {
-                            AdminRibbonPage.IsVisible = true;
+                            AdminUserRibbonPageCategory.IsVisible = true;
                             break;
                         }
 
                     default:
                         {
-                            AdminRibbonPage.IsVisible = false;
+                            AdminUserRibbonPageCategory.IsVisible = false;
                             break;
                         }
                 }
 
                 int fundCountByUser;
                 int memberCountByFund;
+                int loanCountByFund;
 
                 DAL.UnitOfWork oUnitOfWork = null;
 
@@ -522,14 +526,47 @@ namespace Fund
                             .Where(current => current.FundId == Utility.CurrentFund.Id)
                             .Count();
 
+                        loanCountByFund = oUnitOfWork.LoanRepository
+                            .Get()
+                            .Where(current => current.Member.FundId == Utility.CurrentFund.Id)
+                            .Count();
+
                         MembersRibbonPageGroup.IsVisible = true;
-                        LoanAndPaymentRibbonPageGroup.IsVisible = true;
                         FundLoginButton.IsVisible = true;
                         FundSettingsButton.IsVisible = true;
                         FundLogoutButton.IsVisible = true;
                         LargeFundLoginButton.IsVisible = false;
-                        ReportsRibbonPage.IsVisible = true;
+
                         ToolsPageGroup.IsVisible = true;
+
+                        if (memberCountByFund == 0) // هیچ عضوی ندارد
+                        {
+                            ReportsRibbonPage.IsVisible = false;
+                            LoanAndPaymentRibbonPageGroup.IsVisible = false;
+                            MembersManagementButton.IsVisible = false;
+                        }
+                        else if (loanCountByFund == 0 && memberCountByFund != 0) // عضو دارد وامی ثبت نشده است
+                        {
+                            MembersManagementButton.IsVisible = true;
+                            ReportsRibbonPage.IsVisible = true;
+                            LoanAndPaymentRibbonPageGroup.IsVisible = true;
+                            LoanAndInstallmentsManagentButton.IsVisible = false;
+                            PopularReportRibbonPage.IsVisible = true;
+                            DetailsReportRibbonPage.IsVisible = false;
+                            BalanceReportRibbonPage.IsVisible = false;
+                            LoansReportRibbonPage.IsVisible = false;
+                        }
+                        else // عضو دارد و وام نیز ثبت شده است.
+                        {
+                            MembersManagementButton.IsVisible = true;
+                            ReportsRibbonPage.IsVisible = true;
+                            LoanAndPaymentRibbonPageGroup.IsVisible = true;
+                            LoanAndInstallmentsManagentButton.IsVisible = true;
+                            PopularReportRibbonPage.IsVisible = true;
+                            DetailsReportRibbonPage.IsVisible = true;
+                            BalanceReportRibbonPage.IsVisible = true;
+                            LoansReportRibbonPage.IsVisible = true;
+                        }
 
                         MainPanelContentUserControl oMainPanelContentUserControl = new MainPanelContentUserControl();
                         SthPanel.Children.Clear();
@@ -548,12 +585,9 @@ namespace Fund
 
         private void InstallmentsManagent_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            LoansAndInstallmentManagementUserControl oLoansAndInstallmentManagementUserControl = new LoansAndInstallmentManagementUserControl();
 
-        }
-
-        private void LoanManagements_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
-        {
-
+            oLoansAndInstallmentManagementUserControl.Show();
         }
 
         private void FundSettingsButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -580,10 +614,24 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "برای صندوق هیچ عضوی در سیستم ثبت نشده است. نسبت به ایجاد عضو اقدام نمایید.");
 
                 return;
             }
+        }
+
+        private void FundBalanceButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            FundBalanceUserControl oFundBalanceUserControl = new FundBalanceUserControl();
+
+            oFundBalanceUserControl.Show();
+        }
+
+        private void MemberBalanceButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            MemberBalanceWindow oMemberBalanceWindow = new MemberBalanceWindow();
+
+            oMemberBalanceWindow.ShowDialog();
         }
     }
 }

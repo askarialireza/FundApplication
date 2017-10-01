@@ -11,6 +11,7 @@
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
     x:Class="Fund.DatabaseSettingsUserControl"
     mc:Ignorable="d" 
+        d:DesignHeight="800" d:DesignWidth="1500"
     Style="{DynamicResource UserControlStyle}"
     Loaded="UserControl_Loaded"
     >
@@ -47,7 +48,8 @@
                     
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
                     
                     <dxg:GridControl Grid.Row="0" Name="BackupsGridControl" Margin="0" Style="{DynamicResource GridControlStyle}">
@@ -59,26 +61,26 @@
                         <dxg:GridColumn Binding="{Binding BackupDateTime}" Visible="False" />
                         
                     </dxg:GridControl>
-                    
-                    <Grid Grid.Row="1">
-                        
+
+                    <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
-                        
+
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        
-                        <dx:SimpleButton Name="DeleteBackupButton" Grid.Row="1" Grid.Column="0" Content="حذف نسخه پشتیبان" Height="32" Width="auto" FontWeight="Bold" TabIndex="8" Margin="0,4,4,4" HorizontalAlignment="Stretch" Click="DeleteBackupButton_Click"/>
-                        
-                        <dx:SimpleButton Name="RestoreBackupButton" Grid.Row="1" Grid.Column="1" Content="بازیابی نسخه پشتیبان" Height="32" Width="auto" FontWeight="Bold" TabIndex="8" Margin="4,4,0,4" HorizontalAlignment="Stretch" Click="RestoreBackupButton_Click"/>
-                        
-                        <dx:SimpleButton Name="DeleteAllBackupButton" Grid.Row="2" Grid.ColumnSpan="2" Content="حذف تمامی نسخه های پشتیبان" Height="32" Width="auto" FontWeight="Bold" TabIndex="8" Margin="0,4,0,4" HorizontalAlignment="Stretch" Click="DeleteAllBackupButton_Click"/>
-                    
+
+                        <dx:SimpleButton Name="DeleteBackupButton" Grid.Row="0" Grid.Column="0" Content="حذف نسخه پشتیبان" Height="32" Width="auto" FontWeight="Bold" TabIndex="8" Margin="0,4,4,4" HorizontalAlignment="Stretch" Click="DeleteBackupButton_Click"/>
+
+                        <dx:SimpleButton Name="RestoreBackupButton" Grid.Row="0" Grid.Column="1" Content="بازیابی نسخه پشتیبان" Height="32" Width="auto" FontWeight="Bold" TabIndex="8" Margin="4,4,0,4" HorizontalAlignment="Stretch" Click="RestoreBackupButton_Click"/>
+
+                        <dx:SimpleButton Name="DeleteAllBackupButton" Grid.Row="1" Grid.ColumnSpan="2" Content="حذف تمامی نسخه های پشتیبان" Height="32" Width="auto" FontWeight="Bold" TabIndex="8" Margin="0,4,0,4" HorizontalAlignment="Stretch" Click="DeleteAllBackupButton_Click"/>
+
+
                     </Grid>
                     
                 </Grid>

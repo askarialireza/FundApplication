@@ -1023,7 +1023,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "لطفا در کادر یادداشتی وارد نمایید"
                     );
                 return;
@@ -1086,7 +1086,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "لطفا در کادر یادداشتی وارد نمایید"
                     );
                 return;
@@ -1156,7 +1156,7 @@ namespace Fund
                     System.Windows.MessageBoxResult oResult =
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Question,
+                                caption: Infrastructure.MessageBox.Caption.Question,
                                 text: "آیا مطمئن به حذف رویداد می‌باشید؟."
                             );
                     if (oResult == System.Windows.MessageBoxResult.Yes)
@@ -1172,7 +1172,7 @@ namespace Fund
                 {
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.Caption.Error,
+                            caption: Infrastructure.MessageBox.Caption.Error,
                             text: "رویدادی برای حذف شدن وجود ندارد."
                         );
                     return;
@@ -1440,7 +1440,7 @@ namespace Fund
                 case "Friday":
                     return "جمعه";
             }
-            return Infrastructure.Caption.Error;
+            return Infrastructure.MessageBox.Caption.Error;
         }
 
         /// <summary>

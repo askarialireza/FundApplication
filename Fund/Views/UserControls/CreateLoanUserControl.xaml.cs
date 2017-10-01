@@ -127,6 +127,7 @@ namespace Fund
                     else
                     {
                         MemberViewGrid.Visibility = System.Windows.Visibility.Hidden;
+                        MembersLoanGridControl.ItemsSource = null;
                     }
 
                     oUnitOfWork.Save();
@@ -175,7 +176,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "درج فیلد تعداد اقساط الزامی است"
                     );
 
@@ -186,7 +187,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "درج مبلغ وام الزامی است"
                     );
 
@@ -197,7 +198,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "مبلغ بایست مضربی از 100,000 ریال باشد"
                     );
 
@@ -208,7 +209,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "مبلغ درخواست وام از سقف پرداخت وام صندوق بیشتر می‌باشد."
                     );
 
@@ -219,7 +220,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "میزان موجودی صندوق کافی نمی باشد. " + System.Environment.NewLine + "نسبت به افزایش موجودی صندوق اقدام  کنید."
                     );
 
@@ -262,7 +263,7 @@ namespace Fund
 
             Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Information,
+                    caption: Infrastructure.MessageBox.Caption.Information,
                     text: "اطلاعات وام با موفقیت در سیستم ثبت گردید."
                 );
 
@@ -347,6 +348,11 @@ namespace Fund
                         Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Hidden;
                     }
                 }
+                else
+                {
+                    Utility.MainWindow.MainProgressBar.IsIndeterminate = false;
+                    Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Hidden;
+                }
             });
         }
 
@@ -398,6 +404,7 @@ namespace Fund
             oTransaction.FundId = Utility.CurrentFund.Id;
             oTransaction.TransactionType = Models.TransactionType.Loan;
             oTransaction.MemberId = Utility.CurrentMember.Id;
+            oTransaction.LoanId = oLoan.Id;
 
             oUnitOfWork.TransactionRepository.Insert(oTransaction);
 
@@ -584,7 +591,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "اتصال به اینترنت برقرار نمی‌باشد." + System.Environment.NewLine + "برای ارسال ایمیل به اعضا نیاز به اینترنت می‌باشد."
                     );
 

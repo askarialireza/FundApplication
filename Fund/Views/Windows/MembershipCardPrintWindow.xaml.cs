@@ -75,12 +75,16 @@ namespace Fund
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(Infrastructure.ReportType.Print);
+            ShowReport(Infrastructure.Report.ExportType.Print);
+
+            this.Close();
         }
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(Infrastructure.ReportType.ExportToPDF);
+            ShowReport(Infrastructure.Report.ExportType.ExportToPDF);
+
+            this.Close();
         }
 
         private void closeButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -90,10 +94,10 @@ namespace Fund
 
         private void ExportToImageButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(Infrastructure.ReportType.SaveAsImage);
+            ShowReport(Infrastructure.Report.ExportType.SaveAsImage);
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
             Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
 

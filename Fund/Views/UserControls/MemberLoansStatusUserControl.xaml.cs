@@ -128,6 +128,7 @@ namespace Fund
                     else
                     {
                         MemberViewGrid.Visibility = System.Windows.Visibility.Hidden;
+                        MembersLoanGridControl.ItemsSource = null;
                     }
 
                     oUnitOfWork.Save();
@@ -208,6 +209,7 @@ namespace Fund
 
                 ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
                 PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
+                SendEmailButton.IsEnabled = (varList.Count == 0) ? false : true;
 
                 oUnitOfWork.Save();
             }
@@ -255,15 +257,15 @@ namespace Fund
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: Infrastructure.ReportType.Print);
+            ShowReport(reportType: Infrastructure.Report.ExportType.Print);
         }
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: Infrastructure.ReportType.ExportToPDF);
+            ShowReport(reportType: Infrastructure.Report.ExportType.ExportToPDF);
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
             var varList = (MembersLoanGridControl.ItemsSource as System.Collections.Generic.List<ViewModels.LoanViewModel>)
                 .OrderBy(current => current.StartDate)
@@ -283,7 +285,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "اطلاعاتی برای تهیه گزارش در جدول موجود نمی‌باشد. "
                     );
 
@@ -342,7 +344,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "اتصال به اینترنت برقرار نمی‌باشد. از اتصال دستگاه خود با اینترنت اطمینان حاصل فرمایید."
                     );
 
@@ -374,7 +376,7 @@ namespace Fund
                 {
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.Caption.Error,
+                            caption: Infrastructure.MessageBox.Caption.Error,
                             text: "اطلاعاتی برای ارسال توسط پست الکترونیکی موجود نمی‌باشد. "
                         );
 

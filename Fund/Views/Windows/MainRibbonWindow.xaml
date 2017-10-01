@@ -8,7 +8,7 @@
     xmlns:local="clr-namespace:Fund.Properties"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     x:Class="Fund.MainRibbonWindow"
-    Title="صفحه اصلی" 
+    Title="نرم افزار مدیریت صندوق قرض الحسنه خانوادگی" 
     Height="780" Width="1500"
     Style="{DynamicResource WindowStyle}"
     ResizeMode="CanResize"
@@ -19,7 +19,9 @@
     MinHeight="800" MinWidth="1100"
     Closing="WindowClosing"
     Loaded="WindowLoaded"
+    Topmost="False"
     ShowInTaskbar="True"
+    ShowIcon="True"
     >
 
     <dx:DXWindow.Resources>
@@ -92,17 +94,17 @@
 
                                 <dxb:BarItemSeparator/>
 
-                                <dxb:BarButtonItem Content="مدیریت اعضاء" Glyph="pack://application:,,,/Fund;component/Resources/Icons/EditUser80.png" ItemClick="MembersViewClick" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="MembersManagementButton" Content="مدیریت اعضاء" Glyph="pack://application:,,,/Fund;component/Resources/Icons/EditUser80.png" ItemClick="MembersViewClick" Style="{DynamicResource LargeButtonStyle}"/>
 
                             </dxrt:RibbonPageGroup>
 
                             <dxrt:RibbonPageGroup x:Name="LoanAndPaymentRibbonPageGroup" Caption="وام و اقساط">
 
-                                <dxb:BarButtonItem Content="پرداخت وام" ItemClick="CreateLoanBarButtonItem_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Content="پرداخت وام" ItemClick="CreateLoanBarButtonItem_ItemClick" Style="{DynamicResource LargeButtonStyle}" Glyph="pack://application:,,,/Fund;component/Resources/Icons/CashinHand_80px.png"/>
 
-                                <dxb:BarButtonItem Name="LoanManagements" Content="مدیریت وام ها" ItemClick="LoanManagements_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarItemSeparator/>
 
-                                <dxb:BarButtonItem Name="InstallmentsManagent" Content="مدیریت اقساط" ItemClick="InstallmentsManagent_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="LoanAndInstallmentsManagentButton" Content="مدیریت وام‌ها و اقساط" Glyph="pack://application:,,,/Fund;component/Resources/Icons/LoansAndInstallmentsManagement.png" ItemClick="InstallmentsManagent_ItemClick" Style="{DynamicResource LargeButtonStyle}"/>
 
                             </dxrt:RibbonPageGroup>
 
@@ -110,7 +112,7 @@
 
                         <dxrt:RibbonPage Name="ReportsRibbonPage" Caption="گزارشات">
 
-                            <dxrt:RibbonPageGroup Caption="گزارشات عمومی">
+                            <dxrt:RibbonPageGroup Name="PopularReportRibbonPage" Caption="گزارشات عمومی">
 
                                 <dxb:BarButtonItem Name="MembersListButton" Content="لیست اعضای صندوق" LargeGlyph="pack://application:,,,/Fund;component/Resources/Icons/UserGroupManWoman80.png" Style="{DynamicResource LargeButtonStyle}" ItemClick="MembersListButton_ItemClick"/>
 
@@ -120,67 +122,35 @@
 
                             </dxrt:RibbonPageGroup>
 
-                            <dxrt:RibbonPageGroup Caption="گزارش ریز حساب‌ها">
+                            <dxrt:RibbonPageGroup Name="DetailsReportRibbonPage" Caption="گزارش ریز حساب‌ها">
 
-                                <dxb:BarButtonItem Name="DebtorListButton" Content="ریز مانده حساب" Style="{DynamicResource LargeButtonStyle}" ItemClick="DebtorListButton_ItemClick"/>
+                                <dxb:BarButtonItem Name="DebtorListButton" Content="ریز مانده حساب" Glyph="pack://application:,,,/Fund;component/Resources/Icons/FundTransaction30.png" Style="{DynamicResource SmallButtonStyle}" ItemClick="DebtorListButton_ItemClick"/>
 
-                                <dxb:BarItemSeparator/>
+                                <dxb:BarButtonItem Name="MembersTransactionButton" Content="ریز حساب اعضا" Glyph="pack://application:,,,/Fund;component/Resources/Icons/MembersTransaction30.png" Style="{DynamicResource SmallButtonStyle}" ItemClick="MembersTransactionButton_ItemClick"/>
 
-                                <dxb:BarButtonItem Name="MembersTransactionButton" Content="ریز حساب اعضا" Style="{DynamicResource LargeButtonStyle}" ItemClick="MembersTransactionButton_ItemClick"/>
-
-                                <dxb:BarItemSeparator/>
-
-                                <dxb:BarButtonItem Name="FundTransactionsButton" Content="ریز حساب صندوق" Style="{DynamicResource LargeButtonStyle}" ItemClick="FundTransactionsButton_ItemClick"/>
+                                <dxb:BarButtonItem Name="FundTransactionsButton" Content="ریز حساب صندوق" Glyph="pack://application:,,,/Fund;component/Resources/Icons/FundTransaction301.png"  Style="{DynamicResource SmallButtonStyle}" ItemClick="FundTransactionsButton_ItemClick"/>
 
                             </dxrt:RibbonPageGroup>
 
-                            <dxrt:RibbonPageGroup Caption="تراز">
+                            <dxrt:RibbonPageGroup Name="BalanceReportRibbonPage" Caption="تراز">
 
-                                <dxb:BarButtonItem Content="تراز مالی صندوق"  Style="{DynamicResource LargeButtonStyle}" />
+                                <dxb:BarButtonItem Name="FundBalanceButton" Content="تراز مالی صندوق" Glyph="pack://application:,,,/Fund;component/Resources/Icons/FundBalance.png"  Style="{DynamicResource LargeButtonStyle}" ItemClick="FundBalanceButton_ItemClick" />
 
                                 <dxb:BarItemSeparator/>
 
-                                <dxb:BarButtonItem Name="MemberBalanceButton" Content="تراز مالی اعضا" Style="{DynamicResource LargeButtonStyle}"/>
+                                <dxb:BarButtonItem Name="MemberBalanceButton" Glyph="pack://application:,,,/Fund;component/Resources/Icons/MembersBalance.png" Content="تراز مالی اعضا" Style="{DynamicResource LargeButtonStyle}" ItemClick="MemberBalanceButton_ItemClick"/>
 
                             </dxrt:RibbonPageGroup>
 
-                            <dxrt:RibbonPageGroup Caption="گزارش وام‌ها">
+                            <dxrt:RibbonPageGroup Name="LoansReportRibbonPage" Caption="گزارش وام‌ها">
 
-                                <dxb:BarButtonItem Name="DelayedInstallmentsListButton" Content="لیست اقساط معوق" Glyph="pack://application:,,,/Fund;component/Resources/Icons/MoneyUndone100.png" Style="{DynamicResource LargeButtonStyle}" ItemClick="DelayedInstallmentsListButton_ItemClick"/>
+                                <dxb:BarButtonItem Name="DelayedInstallmentsListButton" Content="لیست اقساط معوق" Glyph="pack://application:,,,/Fund;component/Resources/Icons/MoneyUndone100.png" Style="{DynamicResource SmallButtonStyle}" ItemClick="DelayedInstallmentsListButton_ItemClick"/>
 
-                                <dxb:BarItemSeparator/>
+                                <dxb:BarButtonItem Name="PayedLoansList" Content="لیست وام‌های پرداختی" Glyph="pack://application:,,,/Fund;component/Resources/Icons/ReceiptDone.png" Style="{DynamicResource SmallButtonStyle}" ItemClick="PayedLoansList_ItemClick"/>
 
-                                <dxb:BarButtonItem Name="PayedLoansList" Content="لیست وام‌های پرداختی" LargeGlyph="pack://application:,,,/Fund;component/Resources/Icons/ReceiptDone.png" Style="{DynamicResource LargeButtonStyle}" ItemClick="PayedLoansList_ItemClick"/>
-
-                                <dxb:BarItemSeparator/>
-
-                                <dxb:BarButtonItem Name="MemberLonasStatus" Content="وضعیت وام اعضا" RibbonStyle="Large" Style="{DynamicResource LargeButtonStyle}" ItemClick="MemberLonasStatus_ItemClick"/>
+                                <dxb:BarButtonItem Name="MemberLonasStatus" Content="وضعیت وام اعضا" Style="{DynamicResource SmallButtonStyle}" ItemClick="MemberLonasStatus_ItemClick" Glyph="pack://application:,,,/Fund;component/Resources/Icons/Refund_30px.png"/>
 
                             </dxrt:RibbonPageGroup>
-                        </dxrt:RibbonPage>
-
-                        <dxrt:RibbonPage Caption="مدیر" x:Name="AdminRibbonPage">
-
-                            <dxrt:RibbonPageGroup Caption="کاربران">
-
-                                <dxb:BarButtonItem x:Name="UsersViewButton" Content="مدیریت کاربران" Style="{DynamicResource LargeButtonStyle}" ItemClick="UsersViewClick" Glyph="pack://application:,,,/Fund;component/Resources/Icons/EditUser80.png"/>
-
-                                <dxb:BarItemSeparator/>
-
-                                <dxb:BarButtonItem x:Name="CreateUserButton" Content="ایجاد حساب کاربری جدید" Style="{DynamicResource LargeButtonStyle}" ItemClick="CreateUserClick" RibbonStyle="Large" Glyph="pack://application:,,,/Fund;component/Resources/Icons/AddUser80.png"/>
-
-                            </dxrt:RibbonPageGroup>
-
-                            <dxrt:RibbonPageGroup Caption="بانک اطلاعاتی">
-
-                                <dxb:BarButtonItem x:Name="DeleteDatabase" Content="حذف بانک اطلاعاتی" Style="{DynamicResource LargeButtonStyle}" ItemClick="DeleteDatabaseClick" Glyph="pack://application:,,,/Fund;component/Resources/Icons/DeleteDatabase80.png"/>
-
-                                <dxb:BarItemSeparator/>
-
-                                <dxb:BarButtonItem x:Name="DatabaseConfigButton" Style="{DynamicResource LargeButtonStyle}" ItemClick="DatabaseConfigButton_ItemClick" Content="تنظیمات بانک اطلاعاتی" Glyph="pack://application:,,,/Fund;component/Resources/Icons/DatabaseConfig80.png"/>
-
-                            </dxrt:RibbonPageGroup>
-
                         </dxrt:RibbonPage>
 
                         <dxrt:RibbonPage Caption="سایر">
@@ -207,17 +177,41 @@
 
                             <dxrt:RibbonPageGroup Caption="اطلاعات نرم افزار">
 
-                                <dxb:BarButtonItem Content="راهنمای کار با نرم افزار" Style="{DynamicResource LargeButtonStyle}" RibbonStyle="Large"/>
-
-                                <dxb:BarItemSeparator/>
-
-                                <dxb:BarButtonItem x:Name="AboutSoftwareButton" Content="درباره نرم افزار" Style="{DynamicResource LargeButtonStyle}" ItemClick="AboutSoftwareButton_ItemClick"/>
+                                <dxb:BarButtonItem x:Name="AboutSoftwareButton" Content="درباره نرم افزار" Glyph="pack://application:,,,/Fund;component/Resources/Icons/Info_80px.png" Style="{DynamicResource LargeButtonStyle}" ItemClick="AboutSoftwareButton_ItemClick"/>
 
                             </dxrt:RibbonPageGroup>
 
                         </dxrt:RibbonPage>
 
-                    </dxrt:RibbonDefaultPageCategory>
+                    </dxrt:RibbonDefaultPageCategory >
+                    
+                    <dxrt:RibbonPageCategory Name="AdminUserRibbonPageCategory" Caption="کاربر مدیر">
+                        
+                        <dxrt:RibbonPage Caption="ابزارها" x:Name="AdminRibbonPage">
+
+                            <dxrt:RibbonPageGroup Caption="کاربران">
+
+                                <dxb:BarButtonItem x:Name="UsersViewButton" Content="مدیریت کاربران" Style="{DynamicResource LargeButtonStyle}" ItemClick="UsersViewClick" Glyph="pack://application:,,,/Fund;component/Resources/Icons/EditUser80.png"/>
+
+                                <dxb:BarItemSeparator/>
+
+                                <dxb:BarButtonItem x:Name="CreateUserButton" Content="ایجاد حساب کاربری جدید" Style="{DynamicResource LargeButtonStyle}" ItemClick="CreateUserClick" RibbonStyle="Large" Glyph="pack://application:,,,/Fund;component/Resources/Icons/AddUser80.png"/>
+
+                            </dxrt:RibbonPageGroup>
+
+                            <dxrt:RibbonPageGroup Caption="بانک اطلاعاتی">
+
+                                <dxb:BarButtonItem x:Name="DeleteDatabase" Content="حذف بانک اطلاعاتی" Style="{DynamicResource LargeButtonStyle}" ItemClick="DeleteDatabaseClick" Glyph="pack://application:,,,/Fund;component/Resources/Icons/DeleteDatabase80.png"/>
+
+                                <dxb:BarItemSeparator/>
+
+                                <dxb:BarButtonItem x:Name="DatabaseConfigButton" Style="{DynamicResource LargeButtonStyle}" ItemClick="DatabaseConfigButton_ItemClick" Content="تنظیمات بانک اطلاعاتی" Glyph="pack://application:,,,/Fund;component/Resources/Icons/DatabaseConfig80.png"/>
+
+                            </dxrt:RibbonPageGroup>
+
+                        </dxrt:RibbonPage>
+
+                    </dxrt:RibbonPageCategory>
 
                 </dxrt:RibbonControl>
 

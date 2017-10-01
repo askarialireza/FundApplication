@@ -13,15 +13,15 @@ namespace Fund
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: Infrastructure.ReportType.Print);
+            ShowReport(reportType: Infrastructure.Report.ExportType.Print);
         }
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: Infrastructure.ReportType.ExportToPDF);
+            ShowReport(reportType: Infrastructure.Report.ExportType.ExportToPDF);
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
             DAL.UnitOfWork oUnitOfWork = null;
 

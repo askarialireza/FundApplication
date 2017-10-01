@@ -20,7 +20,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(SentCodeTextBox.Text) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد کد بازیابی الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد کد بازیابی الزامی است.");
 
                 return;
             }
@@ -37,7 +37,7 @@ namespace Fund
             }
             else
             {
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "کد بازیابی درج شده اشتباه می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "کد بازیابی درج شده اشتباه می‌باشد.");
 
                 return;
             }
@@ -50,7 +50,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(UsernameTextBox.Text) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام کاربری الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد نام کاربری الزامی است.");
 
                 return;
             }
@@ -58,7 +58,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(EmailAddressTextBox.Text) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد پست الکترونیکی الزامی است.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد پست الکترونیکی الزامی است.");
 
                 return;
             }
@@ -79,7 +79,7 @@ namespace Fund
 
                 if (oUser == null)
                 {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "نام کاربری و / یا پست الکترونیکی درج شده صحیح نمی‌باشد.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "نام کاربری و / یا پست الکترونیکی درج شده صحیح نمی‌باشد.");
 
                     return;
                 }
@@ -111,7 +111,7 @@ namespace Fund
                     }
                     else
                     {
-                        Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "نام کاربری و / یا پست الکترونیکی درج شده صحیح نمی‌باشد.");
+                        Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "نام کاربری و / یا پست الکترونیکی درج شده صحیح نمی‌باشد.");
 
                         return;
                     }

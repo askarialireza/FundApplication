@@ -9,6 +9,8 @@
     Title="ورود به صندوق"
     Style="{DynamicResource WindowStyle}"
     Loaded="WindowLoaded" 
+    Topmost="True"
+    ShowInTaskbar="False"
     >
 
     <Grid Style="{StaticResource GridStyle}">

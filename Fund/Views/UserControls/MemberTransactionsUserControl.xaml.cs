@@ -100,6 +100,7 @@ namespace Fund
                     else
                     {
                         MemberViewGrid.Visibility = System.Windows.Visibility.Hidden;
+                        GridControl.ItemsSource = null;
                     }
 
                     oUnitOfWork.Save();
@@ -147,15 +148,15 @@ namespace Fund
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: Infrastructure.ReportType.Print);
+            ShowReport(reportType: Infrastructure.Report.ExportType.Print);
         }
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: Infrastructure.ReportType.ExportToPDF);
+            ShowReport(reportType: Infrastructure.Report.ExportType.ExportToPDF);
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
             var varList =
                 (GridControl.ItemsSource as System.Collections.Generic.List<ViewModels.MemberTransactionViewModel>)
@@ -267,7 +268,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "اتصال به اینترنت برقرار نمی‌باشد. از اتصال دستگاه خود با اینترنت اطمینان حاصل فرمایید."
                     );
 

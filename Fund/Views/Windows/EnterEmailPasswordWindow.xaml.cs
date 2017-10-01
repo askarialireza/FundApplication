@@ -19,7 +19,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد رمز عبور الزامی است."
                 );
 

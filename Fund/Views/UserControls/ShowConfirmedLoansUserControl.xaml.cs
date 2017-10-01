@@ -22,12 +22,12 @@ namespace Fund
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(Infrastructure.ReportType.ExportToPDF);
+            ShowReport(Infrastructure.Report.ExportType.ExportToPDF);
         }
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(Infrastructure.ReportType.ExportToPDF);
+            ShowReport(Infrastructure.Report.ExportType.ExportToPDF);
         }
 
         private void LoadGridControl()
@@ -77,7 +77,7 @@ namespace Fund
             }
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
             var varList = (LoansGridControl.ItemsSource as System.Collections.Generic.List<Models.Loan>)
                 .OrderBy(current => current.StartDate)

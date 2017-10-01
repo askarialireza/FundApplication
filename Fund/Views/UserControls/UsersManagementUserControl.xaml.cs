@@ -31,12 +31,12 @@ namespace Fund
 
         private void ExportToPDFClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: ReportType.ExportToPDF);
+            ShowReport(reportType: Infrastructure.Report.ExportType.ExportToPDF);
         }
 
         private void PrintClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: ReportType.Print);
+            ShowReport(reportType: Infrastructure.Report.ExportType.Print);
         }
 
         private void CloseClick(object sender, System.Windows.RoutedEventArgs e)
@@ -151,7 +151,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد نام کاربری الزامی است."
                 );
 
@@ -162,7 +162,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد پست الکترونیکی الزامی است."
                 );
 
@@ -196,7 +196,7 @@ namespace Fund
                         {
                             Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Error,
+                                caption: Infrastructure.MessageBox.Caption.Error,
                                 text: "تکمیل فیلد رمز عبور فعلی الزامی است."
                             );
 
@@ -208,7 +208,7 @@ namespace Fund
                         {
                             Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Error,
+                                caption: Infrastructure.MessageBox.Caption.Error,
                                 text: "تکمیل فیلد رمز عبور جدید الزامی است."
                             );
 
@@ -219,7 +219,7 @@ namespace Fund
                         {
                             Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Error,
+                                caption: Infrastructure.MessageBox.Caption.Error,
                                 text: "تکمیل فیلد تکرار رمز عبور جدید الزامی است."
                             );
 
@@ -234,7 +234,7 @@ namespace Fund
                         {
                             Infrastructure.MessageBox.Show
                                 (
-                                    caption: Infrastructure.Caption.Error,
+                                    caption: Infrastructure.MessageBox.Caption.Error,
                                     text: "رمز عبور درج شده صحیح نمی‌باشد."
                                 );
 
@@ -245,7 +245,7 @@ namespace Fund
                         {
                             Infrastructure.MessageBox.Show
                                 (
-                                    caption: Infrastructure.Caption.Error,
+                                    caption: Infrastructure.MessageBox.Caption.Error,
                                     text: "رمزهای عبور جدید درج شده با یکدیگر مطابقت ندارند."
                                 );
 
@@ -261,7 +261,7 @@ namespace Fund
 
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.Caption.Information,
+                            caption: Infrastructure.MessageBox.Caption.Information,
                             text: "مشخصات کاربر با موفقیت ویرایش گردید."
                         );
 
@@ -303,7 +303,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                         Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.Caption.Question,
+                            caption: Infrastructure.MessageBox.Caption.Question,
                             text: "آیا مطمئن به حذف کاربر از سیستم هستید ؟"
                         );
 
@@ -315,7 +315,7 @@ namespace Fund
 
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Information,
+                        caption: Infrastructure.MessageBox.Caption.Information,
                         text: "کاربر با موفقیت از سیستم حذف گردید."
                     );
 
@@ -363,7 +363,7 @@ namespace Fund
             PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
             DAL.UnitOfWork oUnitOfWork = null;
 

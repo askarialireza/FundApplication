@@ -38,7 +38,7 @@ namespace Fund
                     {
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Error,
+                                caption: Infrastructure.MessageBox.Caption.Error,
                                 text: string.Format("ابتدا بایست قسط تاریخ {0} پرداخت شود.", varList.Select(current => current.InstallmentDate).FirstOrDefault().ToPersianDate())
                             );
 
@@ -120,12 +120,12 @@ namespace Fund
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(Infrastructure.ReportType.Print);
+            ShowReport(Infrastructure.Report.ExportType.Print);
         }
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(Infrastructure.ReportType.ExportToPDF);
+            ShowReport(Infrastructure.Report.ExportType.ExportToPDF);
         }
 
         private void CloseButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -133,7 +133,7 @@ namespace Fund
             this.Close();
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
 
         }

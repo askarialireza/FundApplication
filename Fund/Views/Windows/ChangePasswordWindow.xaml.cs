@@ -20,7 +20,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(PasswordTextBox.Password) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
 
                 return;
             }
@@ -28,7 +28,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(ConfirmPasswordTextBox.Password) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد تایید رمز عبور الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد تایید رمز عبور الزامی می‌باشد.");
 
                 return;
             }
@@ -37,7 +37,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "رمزهای عبور جدید درج شده با یکدیگر مطابقت ندارند."
                     );
 
@@ -63,7 +63,7 @@ namespace Fund
                 oUnitOfWork.Save();
 
                 System.Windows.MessageBoxResult oResult =
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Information, text: "رمز عبور کاربر با موفقیت به روز رسانی شد.");
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Information, text: "رمز عبور کاربر با موفقیت به روز رسانی شد.");
 
                 if(oResult == System.Windows.MessageBoxResult.OK)
                 {

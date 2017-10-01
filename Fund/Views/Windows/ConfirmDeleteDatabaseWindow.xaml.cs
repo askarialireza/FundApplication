@@ -16,7 +16,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد رمز عبور الزامی است."
                 );
 
@@ -27,7 +27,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد درج کد امنیتی الزامی است."
                 );
 
@@ -38,7 +38,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "کد امنیتی درج شده صحیح نمی‌باشد."
                 );
 
@@ -56,7 +56,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "رمز عبور وارد شده صحیح نمی‌باشد !"
                     );
 

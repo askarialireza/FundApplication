@@ -25,6 +25,9 @@
                 <DropShadowEffect BlurRadius="10" Direction="0" ShadowDepth="1" Opacity="0.5"/>
             </Setter.Value>
         </Setter>
+        <Setter Property="Icon" Value="/Fund;component/Resources/ApplicationIcon/Icon.ico"/>
+        <Setter Property="Topmost" Value="True"/>
+        <Setter Property="ShowInTaskbar" Value="False"/>
     </Style>
 
     <Style x:Key="WindowStyle" TargetType="{x:Type dx:DXWindow}">
@@ -44,6 +47,9 @@
                 <DropShadowEffect BlurRadius="10" Direction="0" ShadowDepth="1" Opacity="0.5"/>
             </Setter.Value>
         </Setter>
+        <Setter Property="Icon" Value="/Fund;component/Resources/ApplicationIcon/Icon.ico"/>
+        <Setter Property="Topmost" Value="True"/>
+        <Setter Property="ShowInTaskbar" Value="False"/>
     </Style>
 
     <Style x:Key="UserControlStyle" TargetType="{x:Type UserControl}">

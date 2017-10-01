@@ -126,7 +126,7 @@ namespace Fund
             Infrastructure.MessageBox.Show
                 (
                     text: "تهیه نسخه پشتیبان با موفقیت انجام گردید",
-                    caption: Infrastructure.Caption.Information
+                    caption: Infrastructure.MessageBox.Caption.Information
                 );
 
             LoadGridControl();
@@ -193,7 +193,7 @@ namespace Fund
                      Infrastructure.MessageBox.Show
                      (
                          text: "آیا مطمئن به حذف نسخه پشتیبان هستید؟",
-                         caption: Infrastructure.Caption.Question
+                         caption: Infrastructure.MessageBox.Caption.Question
                      );
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
@@ -203,7 +203,7 @@ namespace Fund
                     Infrastructure.MessageBox.Show
                     (
                         text: "نسخه پشتیبان با موفقیت حذف گردید",
-                        caption: Infrastructure.Caption.Information
+                        caption: Infrastructure.MessageBox.Caption.Information
                     );
                 }
 
@@ -228,7 +228,7 @@ namespace Fund
                      Infrastructure.MessageBox.Show
                      (
                          text: "آیا مطمئن به بازیابی نسخه پشتیبان هستید؟",
-                         caption: Infrastructure.Caption.Question
+                         caption: Infrastructure.MessageBox.Caption.Question
                      );
 
                 if (oResult == System.Windows.MessageBoxResult.Yes)
@@ -239,7 +239,7 @@ namespace Fund
                     Infrastructure.MessageBox.Show
                     (
                         text: "نسخه پشتیبان با موفقیت بازیابی گردید" + System.Environment.NewLine + "برنامه با پایگاه جدید بازیابی شده مجددا راه اندازی خواهد شد",
-                        caption: Infrastructure.Caption.Information
+                        caption: Infrastructure.MessageBox.Caption.Information
                     );
 
                     System.Diagnostics.Process.Start(System.Windows.Application.ResourceAssembly.Location);
@@ -256,7 +256,7 @@ namespace Fund
                  Infrastructure.MessageBox.Show
                  (
                      text: "آیا مطمئن به حذف تمامی نسخه‌های پشتیبان هستید؟",
-                     caption: Infrastructure.Caption.Question
+                     caption: Infrastructure.MessageBox.Caption.Question
                  );
 
             if (oResult == System.Windows.MessageBoxResult.Yes)
@@ -269,7 +269,7 @@ namespace Fund
                 Infrastructure.MessageBox.Show
                 (
                     text: "تمامی نسخه‌های پشتیبان با موفقیت حذف گردیدند",
-                    caption: Infrastructure.Caption.Information
+                    caption: Infrastructure.MessageBox.Caption.Information
                 );
             }
 

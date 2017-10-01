@@ -34,12 +34,12 @@ namespace Fund
 
         private void ExportToPDFClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(ReportType.ExportToPDF);
+            ShowReport(Infrastructure.Report.ExportType.ExportToPDF);
         }
 
         private void PrintClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(reportType: ReportType.Print);
+            ShowReport(reportType: Infrastructure.Report.ExportType.Print);
         }
 
         private void CloseClick(object sender, System.Windows.RoutedEventArgs e)
@@ -71,7 +71,7 @@ namespace Fund
                 var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
                 MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
                 CurrentId = oMember.Id;
-            } 
+            }
         }
 
         private void EditItemsToggleSwitchChecked(object sender, System.Windows.RoutedEventArgs e)
@@ -208,7 +208,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد نام الزامی است."
                 );
 
@@ -219,7 +219,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد نام خانوادگی الزامی است."
                 );
 
@@ -230,7 +230,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد نام پدر الزامی است."
                 );
 
@@ -241,7 +241,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد کد ملی الزامی است."
                 );
 
@@ -252,7 +252,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد پست الکترونیکی الزامی است."
                 );
 
@@ -263,7 +263,7 @@ namespace Fund
             {
                 Infrastructure.MessageBox.Show
                 (
-                    caption: Infrastructure.Caption.Error,
+                    caption: Infrastructure.MessageBox.Caption.Error,
                     text: "تکمیل فیلد شماره تلفن الزامی است.");
 
                 return;
@@ -302,9 +302,11 @@ namespace Fund
 
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.Caption.Information,
+                            caption: Infrastructure.MessageBox.Caption.Information,
                             text: "مشخصات عضو صندوق با موفقیت ویرایش گردید."
                         );
+
+                    Utility.MainWindow.RefreshUserInterface();
                 }
             }
             catch (System.Exception ex)
@@ -341,7 +343,7 @@ namespace Fund
                 System.Windows.MessageBoxResult oResult =
                         Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.Caption.Question,
+                            caption: Infrastructure.MessageBox.Caption.Question,
                             text: "آیا مطمئن به حذف عضو صندوق از سیستم هستید ؟"
                         );
 
@@ -365,15 +367,17 @@ namespace Fund
                         oUnitOfWork.TransactionRepository.Delete(oTransaction);
                     }
 
+                    oUnitOfWork.Save();
+
                     Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Information,
+                        caption: Infrastructure.MessageBox.Caption.Information,
                         text: "عضو صندوق با موفقیت از سیستم حذف گردید."
                     );
 
-                    oUnitOfWork.Save();
-
                     LoadGridControl();
+
+                    Utility.MainWindow.RefreshUserInterface();
                 }
 
                 if (oResult == System.Windows.MessageBoxResult.No)
@@ -439,6 +443,17 @@ namespace Fund
 
                 ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
                 PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
+
+                if (varList.Count == 0)
+                {
+                    Infrastructure.MessageBox.Show
+                        (
+                            caption: Infrastructure.MessageBox.Caption.Error,
+                            text: "صندوق اکنون هیچ عضوی ندارد.  اطلاعاتی برای نمایش وجود ندارد."
+                        );
+
+                    this.Close();
+                }
             }
             catch (System.Exception ex)
             {
@@ -454,7 +469,7 @@ namespace Fund
             }
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
             DAL.UnitOfWork oUnitOfWork = null;
 

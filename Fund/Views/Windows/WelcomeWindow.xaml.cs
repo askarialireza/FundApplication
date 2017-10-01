@@ -62,7 +62,7 @@ namespace Fund
             {
                 (sender as System.ComponentModel.BackgroundWorker).ReportProgress(i);
 
-                System.Threading.Thread.Sleep(25);
+                System.Threading.Thread.Sleep(15);
             }
         }
 

@@ -70,6 +70,7 @@
     <Compile Include="ViewModels\GenderViewModel.cs" />
     <Compile Include="ViewModels\InstallmentViewModel.cs" />
     <Compile Include="ViewModels\LoanViewModel.cs" />
+    <Compile Include="ViewModels\MemberBalanceViewModel.cs" />
     <Compile Include="ViewModels\MembershipCardViewModel.cs" />
     <Compile Include="ViewModels\MemberTransactionViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />

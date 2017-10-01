@@ -84,7 +84,7 @@ namespace Fund
                     {
                         Infrastructure.MessageBox.Show
                             (
-                                caption: Infrastructure.Caption.Error,
+                                caption: Infrastructure.MessageBox.Caption.Error,
                                 text: string.Format("ابتدا بایست قسط تاریخ {0} پرداخت شود.", varList.Select(current => current.InstallmentDate).FirstOrDefault().ToPersianDate())
                             );
 
@@ -114,6 +114,7 @@ namespace Fund
                     oTransaction.TransactionType = Models.TransactionType.Installment;
                     oTransaction.MemberId = oInstallment.Loan.Member.Id;
                     oTransaction.FundId = oFund.Id;
+                    oTransaction.InstallmentId = oInstallment.Id;
 
                     oUnitOfWork.TransactionRepository.Insert(oTransaction);
 
@@ -169,15 +170,19 @@ namespace Fund
 
         private void PrintButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(Infrastructure.ReportType.Print);
+            ShowReport(Infrastructure.Report.ExportType.Print);
+
+            this.Close();
         }
 
         private void ExportToPdfButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ShowReport(Infrastructure.ReportType.ExportToPDF);
+            ShowReport(Infrastructure.Report.ExportType.ExportToPDF);
+
+            this.Close();
         }
 
-        private void ShowReport(Infrastructure.ReportType reportType)
+        private void ShowReport(Infrastructure.Report.ExportType reportType)
         {
             var varList = (InstallmentPerLoanGridControl.ItemsSource as System.Collections.Generic.List<ViewModels.InstallmentViewModel>)
                 .Select(current=> new
@@ -223,7 +228,6 @@ namespace Fund
 
                     oBackgroundWorker.DoWork += OBackgroundWorker_DoWork;
                     oBackgroundWorker.RunWorkerAsync(oEnterEmailPasswordWindow);
-
                 }
                 else
                 {
@@ -240,7 +244,7 @@ namespace Fund
 
                 Infrastructure.MessageBox.Show
                     (
-                        caption: Infrastructure.Caption.Error,
+                        caption: Infrastructure.MessageBox.Caption.Error,
                         text: "اتصال به اینترنت برقرار نمی‌باشد. از اتصال دستگاه خود با اینترنت اطمینان حاصل فرمایید."
                     );
 

@@ -18,7 +18,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(usernameTextBox.Text) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد نام کاربری الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد نام کاربری الزامی می‌باشد.");
 
                 return;
             }
@@ -26,7 +26,7 @@ namespace Fund
             if (string.IsNullOrWhiteSpace(passwordTextBox.Password) == true)
             {
 
-                Infrastructure.MessageBox.Show(caption: Infrastructure.Caption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تکمیل فیلد رمز عبور الزامی می‌باشد.");
 
                 return;
             }
@@ -53,7 +53,7 @@ namespace Fund
 
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.Caption.Information,
+                            caption: Infrastructure.MessageBox.Caption.Information,
                             text: "اطلاعات وارد شده صحیح می‌باشد." + System.Environment.NewLine + "خوش آمدید."
                         );
 
@@ -89,7 +89,7 @@ namespace Fund
                 {
                     Infrastructure.MessageBox.Show
                         (
-                            caption: Infrastructure.Caption.Error,
+                            caption: Infrastructure.MessageBox.Caption.Error,
                             text: "نام کاربری و / یا رمز عبور صحیح نمی‌باشد." + System.Environment.NewLine + "کاربری با مشخصات وارد شده موجود نمی‌باشد."
                         );
 

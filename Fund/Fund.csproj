@@ -54,6 +54,9 @@
   <PropertyGroup>
     <ApplicationManifest>App.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Mvvm.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -138,11 +141,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Converter\LoanIdToDescriptionConverter.cs" />
+    <Compile Include="Views\Windows\MemberBalanceWindow.xaml.cs">
+      <DependentUpon>MemberBalanceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\LoansAndInstallmentManagementUserControl.xaml.cs">
+      <DependentUpon>LoansAndInstallmentManagementUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\ChangePasswordWindow.xaml.cs">
       <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\ForgotLoginPasswordWindow.xaml.cs">
-      <DependentUpon>ForgotLoginPasswordWindow.xaml</DependentUpon>
+    <Compile Include="Views\Windows\ForgetLoginPasswordWindow.xaml.cs">
+      <DependentUpon>ForgetLoginPasswordWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\EnterEmailPasswordWindow.xaml.cs">
       <DependentUpon>EnterEmailPasswordWindow.xaml</DependentUpon>
@@ -170,7 +180,7 @@
     <Compile Include="Views\UserControls\DelayedInstallmentsListUserControl.xaml.cs">
       <DependentUpon>DelayedInstallmentsListUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\ReportType.cs" />
+    <Compile Include="Infrastructure\ExportType.cs" />
     <Compile Include="Views\UserControls\MemberLoansStatusUserControl.xaml.cs">
       <DependentUpon>MemberLoansStatusUserControl.xaml</DependentUpon>
     </Compile>
@@ -203,7 +213,6 @@
     <Compile Include="Infrastructure\FontFamily.cs" />
     <Compile Include="Infrastructure\Font.cs" />
     <Compile Include="Infrastructure\Gender.cs" />
-    <Compile Include="Infrastructure\MessageBoxCaption.cs" />
     <Compile Include="Infrastructure\PersianCalendar\PersianDatePicker.cs" />
     <Compile Include="Infrastructure\Text.cs" />
     <Compile Include="Infrastructure\Theme.cs" />
@@ -274,11 +283,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Windows\MemberBalanceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\LoansAndInstallmentManagementUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\ChangePasswordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Windows\ForgotLoginPasswordWindow.xaml">
+    <Page Include="Views\Windows\ForgetLoginPasswordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -469,6 +486,7 @@
     <AppDesigner Include="Properties\" />
     <None Include="Resources\Reports\ConfirmedLoansListReport.mrt" />
     <None Include="Resources\Reports\InstallmentListReport.mrt" />
+    <None Include="Resources\Reports\MemberBalanceReport.mrt" />
     <None Include="Resources\Reports\MembersListReport.mrt" />
     <None Include="Resources\Reports\MembersLoansListReport.mrt" />
     <None Include="Resources\Reports\MemberTransactionsReport.mrt" />
@@ -627,6 +645,29 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Email_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\CashinHand_80px.png" />
+    <Resource Include="Resources\Icons\Info_80px.png" />
+    <Resource Include="Resources\Icons\Payment History_30px.png" />
+    <Resource Include="Resources\Icons\Refund_30px.png" />
+    <Resource Include="Resources\Icons\Transaction_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\FundBalance.png" />
+    <Resource Include="Resources\Icons\FundTransaction30.png" />
+    <Resource Include="Resources\Icons\FundTransaction301.png" />
+    <Resource Include="Resources\Icons\MembersBalance.png" />
+    <Resource Include="Resources\Icons\MembersTransaction30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\LoansAndInstallmentsManagement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ApplicationIcon\Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
