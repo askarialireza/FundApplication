@@ -123,9 +123,24 @@
     <Style x:Key="IconButtonStyle" TargetType="{x:Type dx:SimpleButton}" BasedOn="{StaticResource ButtonStyle}">
         <Setter Property="Height" Value="32"/>
         <Setter Property="Width" Value="48"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="FlowDirection" Value="LeftToRight"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="PrintButtonStyle" TargetType="{x:Type dx:SimpleButton}" BasedOn="{StaticResource IconButtonStyle}">
+        <Setter Property="Glyph" Value="/Fund;component/Resources/Icons/Print32.png"/>
+        <Setter Property="ToolTip" Value="چاپ"/>
+    </Style>
+
+    <Style x:Key="ExportToPdfButtonStyle" TargetType="{x:Type dx:SimpleButton}" BasedOn="{StaticResource IconButtonStyle}">
+        <Setter Property="Glyph" Value="/Fund;component/Resources/Icons/pdf32.png"/>
+        <Setter Property="ToolTip" Value="ذخیره با فرمت PDF"/>
+    </Style>
+
+    <Style x:Key="SendEmailButtonStyle" TargetType="{x:Type dx:SimpleButton}" BasedOn="{StaticResource IconButtonStyle}">
+        <Setter Property="Glyph" Value="/Fund;component/Resources/Icons/Email_30px.png"/>
+        <Setter Property="ToolTip" Value="ارسال پست الکترونیکی"/>
     </Style>
 
     <Style x:Key="GridColumnStyle" TargetType="{x:Type dxg:GridColumn}" >

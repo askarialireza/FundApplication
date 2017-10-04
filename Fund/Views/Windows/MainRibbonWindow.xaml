@@ -16,7 +16,7 @@
     WindowState="Minimized"  
     WindowStartupLocation="CenterScreen" 
     DisplayShowModeSelector="False" 
-    MinHeight="800" MinWidth="1100"
+    MinHeight="500" MinWidth="900"
     Closing="WindowClosing"
     Loaded="WindowLoaded"
     Topmost="False"
@@ -124,11 +124,15 @@
 
                             <dxrt:RibbonPageGroup Name="DetailsReportRibbonPage" Caption="گزارش ریز حساب‌ها">
 
+                                <dxb:BarButtonItem Name="FundTransactionsButton" Content="ریز حساب صندوق" Glyph="pack://application:,,,/Fund;component/Resources/Icons/FundTransaction301.png"  Style="{DynamicResource LargeButtonStyle}" ItemClick="FundTransactionsButton_ItemClick"/>
+
+                                <dxb:BarItemSeparator/>
+
                                 <dxb:BarButtonItem Name="DebtorListButton" Content="ریز مانده حساب" Glyph="pack://application:,,,/Fund;component/Resources/Icons/FundTransaction30.png" Style="{DynamicResource SmallButtonStyle}" ItemClick="DebtorListButton_ItemClick"/>
 
-                                <dxb:BarButtonItem Name="MembersTransactionButton" Content="ریز حساب اعضا" Glyph="pack://application:,,,/Fund;component/Resources/Icons/MembersTransaction30.png" Style="{DynamicResource SmallButtonStyle}" ItemClick="MembersTransactionButton_ItemClick"/>
+                                <dxb:BarButtonItem Name="MembersTransactionButton" Content="ریز حساب اعضا" Glyph="pack://application:,,,/Fund;component/Resources/Icons/MembersTransaction30.png" Style="{DynamicResource SmallButtonStyle}" ItemClick="MembersTransactionButton_ItemClick_1"/>
 
-                                <dxb:BarButtonItem Name="FundTransactionsButton" Content="ریز حساب صندوق" Glyph="pack://application:,,,/Fund;component/Resources/Icons/FundTransaction301.png"  Style="{DynamicResource SmallButtonStyle}" ItemClick="FundTransactionsButton_ItemClick"/>
+                                <dxb:BarButtonItem Name="MembersDepositButton" Content="ریز واریزی اعضا" Glyph="pack://application:,,,/Fund;component/Resources/Icons/MembersTransaction30.png" Style="{DynamicResource SmallButtonStyle}" ItemClick="MembersTransactionButton_ItemClick"/>
 
                             </dxrt:RibbonPageGroup>
 

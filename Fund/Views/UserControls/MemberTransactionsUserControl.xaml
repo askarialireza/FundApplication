@@ -51,7 +51,7 @@
 
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" FlowDirection="RightToLeft">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -98,11 +98,11 @@
                             </Border>
 
                             <Label Name="MemberNameLabel" Grid.Row="2" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            
+
                             <Label Name="MemberNationalCodeLabel" Grid.Row="3" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            
+
                             <Label Name="MembershipDateLabel" Grid.Row="4" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            
+
                         </Grid>
                     </ScrollViewer>
                 </dxlc:GroupBox>
@@ -119,6 +119,7 @@
 
 
                 <Grid Margin="5" Grid.Row="1">
+                    
                     <dxg:GridControl Name="GridControl" Style="{DynamicResource GridControlStyle}">
 
                         <dxg:GridControl.View>

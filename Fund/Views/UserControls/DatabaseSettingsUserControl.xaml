@@ -28,30 +28,36 @@
     </UserControl.Resources>
     
     <Grid Style="{StaticResource GridStyle}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
         
-        <Grid HorizontalAlignment="Stretch" Height="40" Margin="10,10,10,0" VerticalAlignment="Top" Width="auto">
+        <Grid Grid.Row="0">
             
             <Label Content="تنظیمات پایگاه داده" FontWeight="Bold" FontSize="20"/>
             
         </Grid>
 
-        <Grid Margin="10,50">
-            
+        <Grid Grid.Row="1" FlowDirection="RightToLeft">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            
+
             <dxlc:GroupBox Style="{DynamicResource GroupBoxStyle}"  Grid.Column="1" Header="بازیابی نسخه های پشتیبان">
-                
+
                 <Grid>
-                    
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    
+
                     <dxg:GridControl Grid.Row="0" Name="BackupsGridControl" Margin="0" Style="{DynamicResource GridControlStyle}">
 
                         <dxg:GridColumn Header="نام فایل پشتیبان" Binding="{Binding BackupFileName}" Style="{StaticResource GridColumnStyle}" />
@@ -59,7 +65,7 @@
                         <dxg:GridColumn Header="تاریخ ایجاد پشتیبان" Binding="{Binding PersianBackupDateTime}" Style="{StaticResource GridColumnStyle}" />
 
                         <dxg:GridColumn Binding="{Binding BackupDateTime}" Visible="False" />
-                        
+
                     </dxg:GridControl>
 
                     <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
@@ -82,15 +88,15 @@
 
 
                     </Grid>
-                    
+
                 </Grid>
-                
+
             </dxlc:GroupBox>
-            
+
             <dxlc:GroupBox Style="{DynamicResource GroupBoxStyle}" Grid.Column="0" Header="تهیه نسخه پشتیبان">
-                
+
                 <Grid>
-                    
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
@@ -99,26 +105,26 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    
+
                     <Label Grid.Row="0" Content="ایجاد نسخه پشتیبان :" HorizontalAlignment="Left" Margin="0,4,0,5" Width="158" />
-                    
+
                     <dx:SimpleButton Name="MakeBackupButton" Grid.Row="0" Content="ایجاد" Height="32" Width="104" FontWeight="Bold" TabIndex="8" Margin="0,4,0,4" HorizontalAlignment="Right" Click="MakeBackupButton_Click"/>
-                    
+
                     <Label Grid.Row="2" Content="محل ایجاد نسخه پشتیبان :" HorizontalAlignment="Left" Margin="0,4,0,5" />
-                    
+
                     <dxe:TextEdit Name="BackupPathTextBox" Grid.Row="3" Margin="0,4,109,4" TextBlock.TextAlignment="Left" FlowDirection="LeftToRight" IsReadOnly="True"/>
-                    
+
                     <dx:SimpleButton Name="EditPathButton" Grid.Row="3" Content="تغییر" Height="32" Width="104" FontWeight="Bold" TabIndex="8" Margin="0,4,0,4" HorizontalAlignment="Right" Click="EditPathButton_Click" />
-                    
+
                     <dx:SimpleButton Name="ResetToDefaultButton" Grid.Row="5" Content="تنظیم محل ایجاد نسخه پشتیبان به حالت پیشفرض" Height="32" Width="auto" FontWeight="Bold" TabIndex="8" Margin="0,4,0,4" HorizontalAlignment="Stretch" Click="ResetToDefaultButton_Click"/>
-                
+
                 </Grid>
-            
+
             </dxlc:GroupBox>
-        
+
         </Grid>
 
-        <Grid Height="40" Margin="10,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Width="auto">
+        <Grid Grid.Row="2">
             
             <dx:SimpleButton x:Name="CloseButton" Content="بستن" Height="32" Width="90" FontWeight="Bold" TabIndex="8" IsCancel="True" Margin="0,4,10,4" HorizontalAlignment="Right" Click="CloseButton_Click" />
         

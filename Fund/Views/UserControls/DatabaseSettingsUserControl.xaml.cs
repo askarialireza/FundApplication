@@ -25,17 +25,20 @@ namespace Fund
             System.Collections.Generic.List<ViewModels.DatabaseBackupViewModel> Backups =
                 new System.Collections.Generic.List<ViewModels.DatabaseBackupViewModel>();
 
-            foreach (System.IO.FileInfo oFileInfo in oDirectoryInfo.GetFiles())
+            if (oDirectoryInfo.Exists == true)
             {
-                if ((string.Compare(oFileInfo.Extension, ".bkdb", true) == 0) == true)
+                foreach (System.IO.FileInfo oFileInfo in oDirectoryInfo.GetFiles())
                 {
-                    ViewModels.DatabaseBackupViewModel oViewModel = new ViewModels.DatabaseBackupViewModel();
-                    oViewModel.BackupFileName = oFileInfo.Name;
-                    oViewModel.BackupDateTime = oFileInfo.CreationTime;
-                    oViewModel.PersianBackupDateTime =
-                        FarsiLibrary.Utils.PersianDateConverter.ToPersianDate(oViewModel.BackupDateTime).ToString();
+                    if ((string.Compare(oFileInfo.Extension, ".bkdb", true) == 0) == true)
+                    {
+                        ViewModels.DatabaseBackupViewModel oViewModel = new ViewModels.DatabaseBackupViewModel();
+                        oViewModel.BackupFileName = oFileInfo.Name;
+                        oViewModel.BackupDateTime = oFileInfo.CreationTime;
+                        oViewModel.PersianBackupDateTime =
+                            FarsiLibrary.Utils.PersianDateConverter.ToPersianDate(oViewModel.BackupDateTime).ToString();
 
-                    Backups.Add(oViewModel);
+                        Backups.Add(oViewModel);
+                    }
                 }
             }
 
@@ -90,7 +93,7 @@ namespace Fund
                 }
                 catch (System.Exception ex)
                 {
-                    Infrastructure.MessageBox.Show(ex.Message);;
+                    Infrastructure.MessageBox.Show(ex.Message); ;
                 }
                 finally
                 {
@@ -120,6 +123,11 @@ namespace Fund
             string backupFileName = string.Format("dbBackup-{0}-{1}-{2}-{3}.bkdb", date, hour, minute, second);
 
             string destinationPath = Utility.DatabaseBackupPath + "\\" + backupFileName;
+
+            if (System.IO.Directory.Exists(Utility.DatabaseBackupPath) == false)
+            {
+                System.IO.Directory.CreateDirectory(Utility.DatabaseBackupPath);
+            }
 
             System.IO.File.Copy(sourcePath, destinationPath);
 
@@ -160,7 +168,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {

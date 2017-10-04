@@ -114,6 +114,7 @@ namespace Fund
                 oMember.Picture = (IsPictureSelected == false) ? null : Utility.ImageToBytes(encoder: oBmpBitmapEncoder, imageSource: MemberImage.Source);
                 oMember.MembershipDate = DatePicker.SelectedDateTime;
                 oMember.FundId = Utility.CurrentFund.Id;
+                oMember.Balance = 0;
 
                 oUnitOfWork.MemberRepository.Insert(oMember);
 

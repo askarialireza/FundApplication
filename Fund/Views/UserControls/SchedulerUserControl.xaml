@@ -9,14 +9,24 @@
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
     x:Class="Fund.SchedulerUserControl"
     mc:Ignorable="d" 
+        d:DesignHeight="400" d:DesignWidth="800"
     Style="{DynamicResource UserControlStyle}"
     Loaded="UserControlLoaded">
 
-    <Grid>
-        <Grid Margin="10,10,10,50">
-            <local:PersianCalendar FlowDirection="LeftToRight" DayEventsChanged="PersianCalendar_DayEventsChanged"/>
-        </Grid>
-        <Grid Height="40" Margin="10,0,10,10" VerticalAlignment="Bottom">
+    <Grid Style="{DynamicResource GridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+
+        <ScrollViewer Grid.Row="0" FlowDirection="LeftToRight" VerticalScrollBarVisibility="Auto">
+            <Grid FlowDirection="RightToLeft">
+                <local:PersianCalendar FlowDirection="LeftToRight" DayEventsChanged="PersianCalendar_DayEventsChanged"/>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Height="40" Grid.Row="1">
             <dx:SimpleButton x:Name="CloseControlButton" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick"/>
         </Grid>
 

@@ -14,6 +14,7 @@
     xmlns:conv="clr-namespace:Infrastructure.Converter"
     x:Class="Fund.UsersManagementUserControl"
     mc:Ignorable="d" 
+    d:DesignHeight="800" d:DesignWidth="1700"
     Style="{DynamicResource UserControlStyle}"
 >
 
@@ -82,7 +83,7 @@
 
         </Grid>
 
-        <Grid Loaded="UserControlLoaded" Grid.Row="1">
+        <Grid Grid.Row="1" Loaded="UserControlLoaded" FlowDirection="RightToLeft" >
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*" MinWidth="550"/>
@@ -220,7 +221,7 @@
                                     </Popup>
 
                                 </Grid>
-                                      
+
                                 <Label x:Name="PasswordChangeLabel" Content="تغییر رمز عبور :" TextBlock.TextAlignment="Right" FontSize="14" Grid.Row="8" VerticalAlignment="Center" IsEnabled="False"/>
 
                                 <dxe:ToggleSwitch x:Name="PasswordChangeToggleSwitch" Content="تغییر رمز عبور" Grid.Row="8" ToggleSwitchWidth="67" HorizontalAlignment="Right" CheckedStateContent="فعال"  UncheckedStateContent="غیر فعال" ContentPlacement="Inside"  Grid.Column="1" Margin="0,2,0,2" Width="auto" Checked="PasswordGroupBoxSwitchChecked" Unchecked="PasswordGroupBoxSwitchUnchecked" ToggleSwitchHeight="25" IsEnabled="False"/>
@@ -262,6 +263,7 @@
                                     </Grid>
                                 </dxlc:GroupBox>
                             </Grid>
+
                         </ScrollViewer>
 
 

@@ -198,7 +198,11 @@
         </Grid>
 
         <Grid Grid.Row="3" Grid.ColumnSpan="2">
-            
+
+            <Label Content="موجودی در صندوق :" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{DynamicResource TitlesStyle}" />
+
+            <Label Name="MemberBalanceLabel" Style="{DynamicResource LabelCol1}" Grid.Column="0" Margin="103,0,159,2" Width="200" VerticalAlignment="Bottom"/>
+
             <dx:SimpleButton x:Name="PrintButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Click="PrintButton_Click"  Glyph="/Fund;component/Resources/Icons/Print32.png" ToolTip="چاپ" Margin="0" />
 
             <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48"  Click="ExportToPdfButton_Click"  Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF" Margin="0,0,53,0"/>

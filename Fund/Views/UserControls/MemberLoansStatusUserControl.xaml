@@ -10,7 +10,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Fund"
     mc:Ignorable="d" 
-    d:DesignHeight="400" d:DesignWidth="800"
+    d:DesignHeight="500" d:DesignWidth="800"
     Style="{DynamicResource UserControlStyle}"
     >
 
@@ -48,8 +48,7 @@
             
         </Grid>
 
-        <Grid Grid.Row="1">
-
+        <Grid Grid.Row="1" FlowDirection="RightToLeft">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="5"/>
@@ -103,10 +102,10 @@
 
             </Grid>
 
-            <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" Opacity="0" />
+            <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="5" Opacity="0" />
 
             <Grid Grid.Column="2">
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="1*"/>
@@ -127,7 +126,7 @@
                     </ComboBox>
 
                 </Grid>
-                
+
                 <Grid Margin="5" Grid.Row="1">
 
                     <dxg:GridControl Name="MembersLoanGridControl" Grid.Row="1" Style="{DynamicResource GridControlStyle}">
@@ -147,7 +146,7 @@
                         <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding PersianEndDate}"  Style="{StaticResource GridColumnStyle}" />
 
                         <dxg:GridColumn Header="تسویه حساب شده است" Binding="{Binding IsPayedDescrption}"  Style="{StaticResource GridColumnStyle}" />
-                        
+
                         <dxg:GridColumn Header="توضیحات" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}" />
 
                         <dxg:GridColumn Header="اقساط" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}">
@@ -171,7 +170,6 @@
                 </Grid>
 
             </Grid>
-
         </Grid>
 
         <Grid Grid.Row="2">

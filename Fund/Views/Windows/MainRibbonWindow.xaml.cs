@@ -289,9 +289,9 @@ namespace Fund
 
         private void MembersTransactionButton_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            MemberTransactionsUserControl oMemberTransactionsUserControl = new MemberTransactionsUserControl();
+            MemberDepositUserControl oMemberDepositUserControl = new MemberDepositUserControl();
 
-            oMemberTransactionsUserControl.Show();
+            oMemberDepositUserControl.Show();
         }
 
         private void MemberLonasStatus_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -632,6 +632,13 @@ namespace Fund
             MemberBalanceWindow oMemberBalanceWindow = new MemberBalanceWindow();
 
             oMemberBalanceWindow.ShowDialog();
+        }
+
+        private void MembersTransactionButton_ItemClick_1(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            MemberTransactionsUserControl oMemberTransactionsUserControl = new MemberTransactionsUserControl();
+
+            oMemberTransactionsUserControl.Show();
         }
     }
 }

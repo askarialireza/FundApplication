@@ -72,105 +72,105 @@
             
         </Grid>
 
-        <Grid Grid.Row="2">
+        <ScrollViewer Grid.Row="2" FlowDirection="LeftToRight" VerticalScrollBarVisibility="Auto">
+            <Grid FlowDirection="RightToLeft">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.8*"/>
-                <ColumnDefinition Width="0.6*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="0.25*"/>
-                <ColumnDefinition Width="0.8*"/>
-                <ColumnDefinition Width="0.8*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-            </Grid.RowDefinitions>
-
-            <Label Grid.Row="0" Content="نام :" Style="{DynamicResource LabelCol1}"/>
-            
-            <dxe:TextEdit x:Name="firstNameTextBox" Grid.Row="0" Style="{DynamicResource TextEditCol2}"/>
-            
-            <Label Grid.Row="0" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="1" Content="نام خانوادگی :" Style="{DynamicResource LabelCol1}"/>
-
-            <dxe:TextEdit x:Name="lastNameTextBox" Grid.Row="1"  Style="{DynamicResource TextEditCol2}"/>
-            
-            <Label Grid.Row="1" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="2" Content="نام پدر :" Style="{DynamicResource LabelCol1}"/>
-
-            <dxe:TextEdit x:Name="fatherNameTextBox" Grid.Row="2"  Style="{DynamicResource TextEditCol2}"/>
-            
-            <Label Grid.Row="2" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="4" Content="کد ملی :" Style="{DynamicResource LabelCol1}"/>
-            
-            <dxe:TextEdit Name="nationalCodeTextBox" MaskType="RegEx" Grid.Row="4" Mask="\d{10}" Style="{DynamicResource TextEditCol2}" FlowDirection="LeftToRight" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
-            
-            <Label Grid.Row="4" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="5" Content="جنسیت :" Style="{DynamicResource LabelCol1}"/>
-
-            <dxe:ComboBoxEdit Name="GendersCombobox" Grid.Row="5" Grid.Column="2" Margin="0,5" Style="{DynamicResource GendersComboBoxEditStyle}" />
-
-            <Label Grid.Row="7" Content="شماره تلفن همراه :" Style="{DynamicResource LabelCol1}"/>
-            <dxe:TextEdit Name="phoneNumberTextBox" Grid.Row="7" MaskType="RegEx" FlowDirection="LeftToRight" Mask="\d{11}" Style="{DynamicResource TextEditCol2}" FontFamily="{DynamicResource FaGlobalFontFamily}" />
-            <Label Grid.Row="7" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="8" Content="پست الکترونیکی :" Style="{DynamicResource LabelCol1}"/>
-            <dxe:TextEdit Name="emailAddressTextBox" Grid.Row="8" MaskType="RegEx" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" FlowDirection="LeftToRight" FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{DynamicResource TextEditCol2}"/>
-            <Label Grid.Row="8" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="10" Content="تاریخ عضویت :" Style="{DynamicResource LabelCol1}"/>
-            <local:DatePicker x:Name="DatePicker" Grid.Row="10" Grid.Column="2" Margin="0,5"/>
-
-            <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="7">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="240"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
-                <Image Name="MemberImage" Stretch="Fill" Grid.Row="0" Margin="3">
-                    <Image.Source>
-                        <Binding>
-                            <Binding.TargetNullValue>
-                                <ImageSource>/Fund;component/Resources/Images/MemberPicture.png</ImageSource>
-                            </Binding.TargetNullValue>
-                        </Binding>
-                    </Image.Source>
-                </Image>
+                <Label Grid.Row="0" Content="نام :" Style="{DynamicResource LabelCol1}"/>
 
-                <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <dxe:TextEdit x:Name="firstNameTextBox" Grid.Row="0" Style="{DynamicResource TextEditCol2}"/>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Style="{DynamicResource StarsStyle}"/>
 
-                    <dx:SimpleButton Name="PickImageButton" Grid.Column="0" Content="انتخاب عکس" Height="35" Width="auto" FontWeight="Bold" Margin="3,0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Click="PickImageButton_Click"/>
+                <Label Grid.Row="1" Content="نام خانوادگی :" Style="{DynamicResource LabelCol1}"/>
 
-                    <dx:SimpleButton Name="DeleteImageButton" Grid.Column="1" Content="حذف عکس" Height="35" Width="auto" FontWeight="Bold" Margin="3,0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Click="DeleteImageButton_Click"/>
+                <dxe:TextEdit x:Name="lastNameTextBox" Grid.Row="1"  Style="{DynamicResource TextEditCol2}"/>
+
+                <Label Grid.Row="1" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="2" Content="نام پدر :" Style="{DynamicResource LabelCol1}"/>
+
+                <dxe:TextEdit x:Name="fatherNameTextBox" Grid.Row="2"  Style="{DynamicResource TextEditCol2}"/>
+
+                <Label Grid.Row="2" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="4" Content="کد ملی :" Style="{DynamicResource LabelCol1}"/>
+
+                <dxe:TextEdit Name="nationalCodeTextBox" MaskType="RegEx" Grid.Row="4" Mask="\d{10}" Style="{DynamicResource TextEditCol2}" FlowDirection="LeftToRight" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
+
+                <Label Grid.Row="4" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="5" Content="جنسیت :" Style="{DynamicResource LabelCol1}"/>
+
+                <dxe:ComboBoxEdit Name="GendersCombobox" Grid.Row="5" Grid.Column="2" Margin="0,5" Style="{DynamicResource GendersComboBoxEditStyle}" />
+
+                <Label Grid.Row="7" Content="شماره تلفن همراه :" Style="{DynamicResource LabelCol1}"/>
+                <dxe:TextEdit Name="phoneNumberTextBox" Grid.Row="7" MaskType="RegEx" FlowDirection="LeftToRight" Mask="\d{11}" Style="{DynamicResource TextEditCol2}" FontFamily="{DynamicResource FaGlobalFontFamily}" />
+                <Label Grid.Row="7" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="8" Content="پست الکترونیکی :" Style="{DynamicResource LabelCol1}"/>
+                <dxe:TextEdit Name="emailAddressTextBox" Grid.Row="8" MaskType="RegEx" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" FlowDirection="LeftToRight" FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{DynamicResource TextEditCol2}"/>
+                <Label Grid.Row="8" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="10" Content="تاریخ عضویت :" Style="{DynamicResource LabelCol1}"/>
+                <local:DatePicker x:Name="DatePicker" Grid.Row="10" Grid.Column="2" Margin="0,5"/>
+
+                <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="240"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Name="MemberImage" Stretch="Fill" Grid.Row="0" Margin="3">
+                        <Image.Source>
+                            <Binding>
+                                <Binding.TargetNullValue>
+                                    <ImageSource>/Fund;component/Resources/Images/MemberPicture.png</ImageSource>
+                                </Binding.TargetNullValue>
+                            </Binding>
+                        </Image.Source>
+                    </Image>
+
+                    <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <dx:SimpleButton Name="PickImageButton" Grid.Column="0" Content="انتخاب عکس" Height="35" Width="auto" FontWeight="Bold" Margin="3,0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Click="PickImageButton_Click"/>
+
+                        <dx:SimpleButton Name="DeleteImageButton" Grid.Column="1" Content="حذف عکس" Height="35" Width="auto" FontWeight="Bold" Margin="3,0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Click="DeleteImageButton_Click"/>
+
+                    </Grid>
 
                 </Grid>
-                
             </Grid>
-
-        </Grid>
+        </ScrollViewer>
 
         <Grid Grid.Row="4">
             <dx:SimpleButton x:Name="CloseButton" Content="بستن" Height="32" Width="90" FontWeight="Bold" TabIndex="8" IsCancel="True" Margin="0,4,100,4" HorizontalAlignment="Right" Click="CloseButton_Click" />

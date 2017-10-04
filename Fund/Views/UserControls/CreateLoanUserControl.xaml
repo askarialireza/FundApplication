@@ -9,9 +9,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Fund"
     x:Class="Fund.CreateLoanUserControl"
-    xmlns:farsilibrary="http://schemas.hightech.ir/wpf/2008/FarsiLibrary"
     mc:Ignorable="d" 
-    d:DesignHeight="800" d:DesignWidth="1700"
     Style="{DynamicResource UserControlStyle}"
     >
 
@@ -50,6 +48,7 @@
 
 
     <Grid Style="{DynamicResource GridStyle}">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="1*"/>
@@ -60,109 +59,108 @@
                 <Label FontWeight="Bold" FontSize="20" Content="پرداخت وام" VerticalAlignment="Center"  Grid.Row="0"/>
             </Grid>
 
-            <Grid Grid.Row="1">
+        <Grid FlowDirection="RightToLeft" Grid.Row="1" Height="auto">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1.5*"/>
-                    </Grid.RowDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0" Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1.5*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <Label Content="جستجوی اعضا :" Grid.Column="0" Margin="5" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"/>
+                    <Label Content="جستجوی اعضا :" Grid.Column="0" Margin="5" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"/>
 
-                        <TextBox x:Name="SearchMemberTextBox" Grid.Column="1" Margin="0,2" Style="{DynamicResource RtlTextBoxStyle}" TextAlignment="Left" Height="auto" TextChanged="SearchMemberTextBox_TextChanged" />
-
-                    </Grid>
-
-                    <ListBox Name="MembersListBox" FontSize="15" FontWeight="Bold" Grid.Row="1" Margin="5" SelectionChanged="MembersListBox_SelectionChanged" Style="{DynamicResource EmptyListBox}"/>
-
-
-                    <dxlc:GroupBox Grid.Row="2" Margin="5" FontSize="16" FontWeight="Bold" Header="مشخصات" TextBlock.TextAlignment="Center">
-                        <ScrollViewer VerticalScrollBarVisibility="Auto">
-                            <Grid x:Name="MemberViewGrid">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="150"/>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="35"/>
-                                    <RowDefinition Height="35"/>
-                                    <RowDefinition Height="35"/>
-                                    <RowDefinition Height="1*"/>
-                                </Grid.RowDefinitions>
-
-                                <Border Grid.Row="0" Height="150" Width="150" BorderBrush="DarkGray" BorderThickness="0">
-                                    <Image Name="MemberImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Stretch="UniformToFill"/>
-                                </Border>
-
-                                <Label Name="MemberNameLabel" Grid.Row="2" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                <Label Name="MemberNationalCodeLabel" Grid.Row="3" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <Label Name="MembershipDateLabel" Grid.Row="4" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                        </ScrollViewer>
-                    </dxlc:GroupBox>
+                    <TextBox x:Name="SearchMemberTextBox" Grid.Column="1" Margin="0,2" Style="{DynamicResource RtlTextBoxStyle}" TextAlignment="Left" Height="auto" TextChanged="SearchMemberTextBox_TextChanged" />
 
                 </Grid>
 
-                <GridSplitter ResizeBehavior="PreviousAndNext" Opacity="0"/>
+                <ListBox Name="MembersListBox" FontSize="15" FontWeight="Bold" Grid.Row="1" Margin="5" SelectionChanged="MembersListBox_SelectionChanged" Style="{DynamicResource EmptyListBox}"/>
+
+                <dxlc:GroupBox Grid.Row="2" Margin="5" FontSize="16" FontWeight="Bold" Header="مشخصات" TextBlock.TextAlignment="Center">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <Grid x:Name="MemberViewGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="0" Height="150" Width="150" BorderBrush="DarkGray" BorderThickness="0">
+                                <Image Name="MemberImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Stretch="UniformToFill"/>
+                            </Border>
+
+                            <Label Name="MemberNameLabel" Grid.Row="2" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Name="MemberNationalCodeLabel" Grid.Row="3" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Name="MembershipDateLabel" Grid.Row="4" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ScrollViewer>
+                </dxlc:GroupBox>
+
+            </Grid>
+
+            <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="5" Opacity="0"/>
 
             <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="155"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="5">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="155"/>
-                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="140"/>
+                        <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0" Margin="5">
+                    <Grid Grid.Row="0">
+
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="140"/>
-                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
                         </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
 
-                        <Grid Grid.Row="0">
+                        <Label Content="مبلغ وام :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" />
+                        <dxe:TextEdit Name="LoanAmountTextBox" Grid.Column="1" FontSize="16" VerticalContentAlignment="Center" Grid.Row="0" Margin="5,2" MaxLength="16" MaskType="Numeric" Mask="################" EditorActivated="TextEdit_EditorActivated" Validate="TextEdit_Validate"/>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="35"/>
-                                <RowDefinition Height="35"/>
-                                <RowDefinition Height="35"/>
-                                <RowDefinition Height="35"/>
-                        </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.3*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="0.3*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
+                        <Label Content="تعداد اقساط :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" />
+                        <TextBox Grid.Column="1" FontSize="16" VerticalContentAlignment="Center" Grid.Row="1" Margin="5,2" />
+                        <dxe:TextEdit Name="InstallmentsCountTextBox" Grid.Column="1" FontSize="16" VerticalContentAlignment="Center" Grid.Row="1" Margin="5,2" MaskType="Numeric" Mask="##"/>
 
-                            <Label Content="مبلغ وام :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" />
-                            <dxe:TextEdit Name="LoanAmountTextBox" Grid.Column="1" FontSize="16" VerticalContentAlignment="Center" Grid.Row="0" Margin="5,2" MaxLength="16" MaskType="Numeric" Mask="################" EditorActivated="TextEdit_EditorActivated" Validate="TextEdit_Validate"/>
-
-                            <Label Content="تعداد اقساط :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" />
-                            <TextBox Grid.Column="1" FontSize="16" VerticalContentAlignment="Center" Grid.Row="1" Margin="5,2" />
-                            <dxe:TextEdit Name="InstallmentsCountTextBox" Grid.Column="1" FontSize="16" VerticalContentAlignment="Center" Grid.Row="1" Margin="5,2" MaskType="Numeric" Mask="##"/>
-
-                            <Label Content="محاسبه کارمزد :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"/>
+                        <Label Content="محاسبه کارمزد :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"/>
                         <dxe:ToggleSwitch Name="CalculatePercentCheckBox" Grid.Column="1" Grid.Row="2" Margin="5,2" VerticalAlignment="Center" Style="{DynamicResource ToggleSwitch}"  />
 
 
-                            <Label Content="ارسال ایمیل به عضو : :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right"/>
-                            <dxe:ToggleSwitch Name="SendEmailToggleSwitch" Grid.Row="3" Grid.Column="1" Style="{DynamicResource ToggleSwitch}" Checked="SendEmailToggleSwitch_Checked"/>
+                        <Label Content="ارسال ایمیل به عضو : :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right"/>
+                        <dxe:ToggleSwitch Name="SendEmailToggleSwitch" Grid.Row="3" Grid.Column="1" Style="{DynamicResource ToggleSwitch}" Checked="SendEmailToggleSwitch_Checked"/>
 
-                            <Label Content="تاریخ پرداخت :" Margin="5,0" FontSize="17" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" />
-                            <local:DatePicker x:Name="LoanDateTimeDatePicker" Grid.Column="3" Grid.Row="0" Margin="5,2" />
+                        <Label Content="تاریخ پرداخت :" Margin="5,0" FontSize="17" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" />
+                        <local:DatePicker x:Name="LoanDateTimeDatePicker" Grid.Column="3" Grid.Row="0" Margin="5,2" />
 
-                            <Label Content="توضیحات :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" />
-                            <TextBox Name="DescriptionTextBox" Grid.Column="3" FontSize="16" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.RowSpan="2" Margin="5,2"/>
+                        <Label Content="توضیحات :" FontSize="17" Margin="5,0" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" />
+                        <TextBox Name="DescriptionTextBox" Grid.Column="3" FontSize="16" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.RowSpan="2" Margin="5,2"/>
 
                         <Grid Grid.Row="3" Grid.Column="3">
                             <Grid.ColumnDefinitions>
@@ -176,59 +174,59 @@
                         </Grid>
 
                     </Grid>
-                    </Grid>
+                </Grid>
 
-                    <Grid Margin="10,5" Grid.Row="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
+                <Grid Margin="10,5" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
 
-                        <Label FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Content="سوابق وام ها"/>
+                    <Label FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Content="سوابق وام ها"/>
 
-                        <dxg:GridControl Name="MembersLoanGridControl" Grid.Row="1" Style="{DynamicResource GridControlStyle}">
-                            
-                            <dxg:GridControl.View>
-                                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row"  ShowAutoFilterRow="False"  ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
-                            </dxg:GridControl.View>
+                    <dxg:GridControl Name="MembersLoanGridControl" Grid.Row="1" Style="{DynamicResource GridControlStyle}">
 
-                            <dxg:GridColumn Header="مبلغ وام" Binding="{Binding LoanAmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridControl.View>
+                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row"  ShowAutoFilterRow="False"  ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
+                        </dxg:GridControl.View>
 
-                            <dxg:GridColumn Header="تاریخ پرداخت" Binding="{Binding PersianStartDate}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="مبلغ وام" Binding="{Binding LoanAmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
 
-                            <dxg:GridColumn Header="تعداد اقساط" Binding="{Binding InstallmentsCount}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تاریخ پرداخت" Binding="{Binding PersianStartDate}"  Style="{StaticResource GridColumnStyle}" />
 
-                            <dxg:GridColumn Header="بازپرداخت" Binding="{Binding RefundAmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تعداد اقساط" Binding="{Binding InstallmentsCount}"  Style="{StaticResource GridColumnStyle}" />
 
-                            <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding PersianEndDate}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="بازپرداخت" Binding="{Binding RefundAmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
 
-                            <dxg:GridColumn Header="توضیحات" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}" />
+                        <dxg:GridColumn Header="تاریخ پایان وام" Binding="{Binding PersianEndDate}"  Style="{StaticResource GridColumnStyle}" />
 
-                            <dxg:GridColumn Header="اقساط" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}">
-                                <dxg:GridColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Name="InstallmentsOfLoan" Content="نمایش لیست اقساط" Click="InstallmentsOfLoan_Click"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.CellTemplate>
-                            </dxg:GridColumn>
+                        <dxg:GridColumn Header="توضیحات" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}" />
 
-                            <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
+                        <dxg:GridColumn Header="اقساط" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}">
+                            <dxg:GridColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="InstallmentsOfLoan" Content="نمایش لیست اقساط" Click="InstallmentsOfLoan_Click"/>
+                                </DataTemplate>
+                            </dxg:GridColumn.CellTemplate>
+                        </dxg:GridColumn>
 
-                            <dxg:GridColumn Binding="{Binding IsPayed}" Visible="False" />
-                            
-                            <dxg:GridColumn Binding="{Binding FullName}" Visible="False" />
-                            
-                            <dxg:GridColumn Binding="{Binding MemberId}" Visible="False" />
+                        <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
+
+                        <dxg:GridColumn Binding="{Binding IsPayed}" Visible="False" />
+
+                        <dxg:GridColumn Binding="{Binding FullName}" Visible="False" />
+
+                        <dxg:GridColumn Binding="{Binding MemberId}" Visible="False" />
 
                     </dxg:GridControl>
-
-                    </Grid>
 
                 </Grid>
 
             </Grid>
 
-            <Grid Grid.Row="2">
+        </Grid>
+
+        <Grid Grid.Row="2">
 
                 <dx:SimpleButton x:Name="CancelButton" Style="{DynamicResource CancelButtonStyle}" Height="32" Grid.Column="0" Click="CancelButton_Click" Margin="0,0,10,0"/>
 

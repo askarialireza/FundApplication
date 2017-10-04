@@ -80,8 +80,8 @@
 
         </Grid>
 
-        <Grid Loaded="UserControlLoaded" Grid.Row="1">
 
+        <Grid Grid.Row="1" FlowDirection="RightToLeft" Loaded="UserControlLoaded">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*" MinWidth="550"/>
                 <ColumnDefinition Width="5"/>
@@ -277,7 +277,6 @@
                 <dx:SimpleButton x:Name="closeButton" Grid.Row="1" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick" Margin="0,0,5,3"/>
 
             </Grid>
-
         </Grid>
 
     </Grid>

@@ -52,137 +52,143 @@
             <Label FontWeight="Bold" FontSize="20" Content="تنظیمات صندوق"/>
         </Grid>
 
-        <Grid Name="MainGrid" Grid.Row="2">
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.8*"/>
-                <ColumnDefinition Width="0.6*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="0.25*"/>
-                <ColumnDefinition Width="0.6*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="0"/> <!--zero-->
-                <RowDefinition Height="0"/> <!--zero-->
-                <RowDefinition Height="0"/> <!--zero-->
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="0"/> <!--zero-->
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="0"/> <!--zero-->
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="0"/> <!--zero-->
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-
-            <Label Grid.Row="0" Content="نام صندوق :" Style="{DynamicResource LabelCol1}"/>
-            
-            <dxe:TextEdit x:Name="FundNameTextBox" Grid.Row="0" Style="{DynamicResource TextEditCol2}"/>
-            
-            <Label Grid.Row="0" Style="{DynamicResource StarsStyle}"/>
-            
-            <Label Grid.Row="1" Content="نام مدیر صندوق :" Style="{DynamicResource LabelCol1}"/>
-            
-            <dxe:TextEdit x:Name="FundManagerNameTextBox" Grid.Row="1" Style="{DynamicResource TextEditCol2}"/>
-
-            <Label Grid.Row="1" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="2" Content="سال تاسیس صندوق :" Style="{DynamicResource LabelCol1}"/>
-
-            <dxe:TextEdit x:Name="FundBuildYearTextBox" MaskType="Numeric" Mask="####" Grid.Row="2" Style="{DynamicResource TextEditCol2}"/>
-
-            <Label Grid.Row="2" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="4" Content="تغییر رمز عبور :" Style="{DynamicResource LabelCol1}"/>
-            
-            <dxe:ToggleSwitch Name="PasswordToggleSwitch" Grid.Row="4" Grid.Column="2" Checked="PasswordToggleSwitch_Checked"  Unchecked="PasswordToggleSwitch_Unchecked"  Style="{DynamicResource ToggleSwitch}" />
-
-            <Label Grid.Row="5" Content="رمز عبور فعلی :" Style="{DynamicResource LabelCol1}"/>
-
-            <PasswordBox Name="CurrentPasswordBox" Margin="0,5" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" FontSize="17" FlowDirection="LeftToRight"/>
-
-            <Label Grid.Row="5" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="6" Content="رمز عبور جدید :" Style="{DynamicResource LabelCol1}"/>
-
-            <PasswordBox Name="NewPasswordBox" Margin="0,5" Grid.Column="2" Grid.Row="6" VerticalAlignment="Center" FontSize="17" FlowDirection="LeftToRight"/>
-
-            <Label Grid.Row="6" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="7" Content="تایید رمز عبور جدید :" Style="{DynamicResource LabelCol1}"/>
-
-            <PasswordBox Name="ConfirmPasswordBox" Margin="0,5" Grid.Column="2" Grid.Row="7" VerticalAlignment="Center" FontSize="17" FlowDirection="LeftToRight"/>
-
-            <Label Grid.Row="7" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="9" Content="افزایش موجودی صندوق :" Style="{DynamicResource LabelCol1}"/>
-
-            <dxe:ToggleSwitch Name="DepositBalanceToggleSwitch" Grid.Row="9" Grid.Column="2" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" Style="{DynamicResource ToggleSwitch}" />
-
-            <dxe:TextEdit x:Name="FundDepositBalanceTextBox"  MaskType="Numeric" EditorActivated="TextBoxEditorActivated"  Validate="TextBoxValidate"  Mask="################" Grid.Row="10" Style="{DynamicResource TextEditCol2}"/>
-
-            <Label Grid.Row="10" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Name="FundBalanceDescriptionLabel" Grid.Row="10" Style="{DynamicResource LabelCol4}" Grid.ColumnSpan="3" HorizontalAlignment="Left"  Foreground="DarkGray"/>
-
-            <Label Grid.Row="11" Content="تغییر سقف برداشت وام :" Style="{DynamicResource LabelCol1}"/>
-
-            <dxe:ToggleSwitch Name="RemovalLimitToggleSwitch" Grid.Row="11" Grid.Column="2" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" Style="{DynamicResource ToggleSwitch}" />
-
-            <dxe:TextEdit x:Name="FundRemovalLimitTextBox" Grid.Row="12" MaskType="Numeric" EditorActivated="TextBoxEditorActivated"  Validate="TextBoxValidate"  Mask="################" Style="{DynamicResource TextEditCol2}"/>
-
-            <Label Name="FundRemovalLimitDescriptionLabel" Grid.Row="12" Style="{DynamicResource LabelCol4}" Grid.ColumnSpan="3" HorizontalAlignment="Left" Foreground="DarkGray"/>
-
-            <Label Grid.Row="12" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="13" Content="تغییر مقدار کارمزد :" Style="{DynamicResource LabelCol1}"/>
-
-            <dxe:ToggleSwitch Name="PercentToggleSwitch" Grid.Row="13" Grid.Column="2" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" Style="{DynamicResource ToggleSwitch}" />
-
-            <Grid Grid.Row="14" Grid.Column="2">
-                
+        <ScrollViewer Grid.Row="2" FlowDirection="LeftToRight" VerticalScrollBarVisibility="Auto">
+            <Grid Name="MainGrid" FlowDirection="RightToLeft">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.6*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <dxe:TextEdit x:Name="FundPercentTextBox" MaskType="Numeric"  Mask="###" Style="{DynamicResource TextEditCol0}"/>
-
-                <Label Grid.Column="1" Style="{DynamicResource LabelCol6}" Content="درصد" HorizontalAlignment="Left"/>
-                
-            </Grid>
-
-            <Label Grid.Row="14" Style="{DynamicResource StarsStyle}"/>
-
-            <Label Grid.Row="14" Style="{DynamicResource LabelCol4}" Grid.ColumnSpan="3" Content="مقدار درصد کارمزد تغییر یافته در وام‌های بعدی صندوق لحاظ خواهد شد." HorizontalAlignment="Left" Foreground="DarkGray"/>
-
-            <Grid Grid.Column="6" Grid.Row="0" Grid.RowSpan="4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="0"/>
+                    <!--zero-->
+                    <RowDefinition Height="0"/>
+                    <!--zero-->
+                    <RowDefinition Height="0"/>
+                    <!--zero-->
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="0"/>
+                    <!--zero-->
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="0"/>
+                    <!--zero-->
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="0"/>
+                    <!--zero-->
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <Button Name="DeleteMembers" Content="حذف تمامی اعضا" Grid.Row="0" Style="{DynamicResource Button}" HorizontalAlignment="Right" Width="150" Click="DeleteMembers_Click"/>
+                <Label Grid.Row="0" Content="نام صندوق :" Style="{DynamicResource LabelCol1}"/>
 
-                <Button Name="DeleteLoans" Content="حذف تمامی وام‌ها" Grid.Row="1" Style="{DynamicResource Button}" HorizontalAlignment="Right" Width="150" Click="DeleteLoans_Click"/>
+                <dxe:TextEdit x:Name="FundNameTextBox" Grid.Row="0" Style="{DynamicResource TextEditCol2}"/>
 
-                <Button Name="DeleteEvents" Content="حذف رویدادها" Grid.Row="2" Style="{DynamicResource Button}" HorizontalAlignment="Right" Width="150" Click="DeleteEvents_Click"/>
+                <Label Grid.Row="0" Style="{DynamicResource StarsStyle}"/>
 
-                <Button Name="DeleteFund" Content="حذف صندوق" Grid.Row="3" Style="{DynamicResource Button}" HorizontalAlignment="Right" Width="150" Click="DeleteFund_Click"/>
+                <Label Grid.Row="1" Content="نام مدیر صندوق :" Style="{DynamicResource LabelCol1}"/>
 
+                <dxe:TextEdit x:Name="FundManagerNameTextBox" Grid.Row="1" Style="{DynamicResource TextEditCol2}"/>
+
+                <Label Grid.Row="1" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="2" Content="سال تاسیس صندوق :" Style="{DynamicResource LabelCol1}"/>
+
+                <dxe:TextEdit x:Name="FundBuildYearTextBox" MaskType="Numeric" Mask="####" Grid.Row="2" Style="{DynamicResource TextEditCol2}"/>
+
+                <Label Grid.Row="2" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="4" Content="تغییر رمز عبور :" Style="{DynamicResource LabelCol1}"/>
+
+                <dxe:ToggleSwitch Name="PasswordToggleSwitch" Grid.Row="4" Grid.Column="2" Checked="PasswordToggleSwitch_Checked"  Unchecked="PasswordToggleSwitch_Unchecked"  Style="{DynamicResource ToggleSwitch}" />
+
+                <Label Grid.Row="5" Content="رمز عبور فعلی :" Style="{DynamicResource LabelCol1}"/>
+
+                <PasswordBox Name="CurrentPasswordBox" Margin="0,5" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" FontSize="17" FlowDirection="LeftToRight"/>
+
+                <Label Grid.Row="5" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="6" Content="رمز عبور جدید :" Style="{DynamicResource LabelCol1}"/>
+
+                <PasswordBox Name="NewPasswordBox" Margin="0,5" Grid.Column="2" Grid.Row="6" VerticalAlignment="Center" FontSize="17" FlowDirection="LeftToRight"/>
+
+                <Label Grid.Row="6" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="7" Content="تایید رمز عبور جدید :" Style="{DynamicResource LabelCol1}"/>
+
+                <PasswordBox Name="ConfirmPasswordBox" Margin="0,5" Grid.Column="2" Grid.Row="7" VerticalAlignment="Center" FontSize="17" FlowDirection="LeftToRight"/>
+
+                <Label Grid.Row="7" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="9" Content="افزایش موجودی صندوق :" Style="{DynamicResource LabelCol1}"/>
+
+                <dxe:ToggleSwitch Name="DepositBalanceToggleSwitch" Grid.Row="9" Grid.Column="2" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" Style="{DynamicResource ToggleSwitch}" />
+
+                <dxe:TextEdit x:Name="FundDepositBalanceTextBox"  MaskType="Numeric" EditorActivated="TextBoxEditorActivated"  Validate="TextBoxValidate"  Mask="################" Grid.Row="10" Style="{DynamicResource TextEditCol2}"/>
+
+                <Label Grid.Row="10" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Name="FundBalanceDescriptionLabel" Grid.Row="10" Style="{DynamicResource LabelCol4}" Grid.ColumnSpan="3" HorizontalAlignment="Left"  Foreground="DarkGray"/>
+
+                <Label Grid.Row="11" Content="تغییر سقف برداشت وام :" Style="{DynamicResource LabelCol1}"/>
+
+                <dxe:ToggleSwitch Name="RemovalLimitToggleSwitch" Grid.Row="11" Grid.Column="2" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" Style="{DynamicResource ToggleSwitch}" />
+
+                <dxe:TextEdit x:Name="FundRemovalLimitTextBox" Grid.Row="12" MaskType="Numeric" EditorActivated="TextBoxEditorActivated"  Validate="TextBoxValidate"  Mask="################" Style="{DynamicResource TextEditCol2}"/>
+
+                <Label Name="FundRemovalLimitDescriptionLabel" Grid.Row="12" Style="{DynamicResource LabelCol4}" Grid.ColumnSpan="3" HorizontalAlignment="Left" Foreground="DarkGray"/>
+
+                <Label Grid.Row="12" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="13" Content="تغییر مقدار کارمزد :" Style="{DynamicResource LabelCol1}"/>
+
+                <dxe:ToggleSwitch Name="PercentToggleSwitch" Grid.Row="13" Grid.Column="2" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" Style="{DynamicResource ToggleSwitch}" />
+
+                <Grid Grid.Row="14" Grid.Column="2">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <dxe:TextEdit x:Name="FundPercentTextBox" MaskType="Numeric"  Mask="###" Style="{DynamicResource TextEditCol0}"/>
+
+                    <Label Grid.Column="1" Style="{DynamicResource LabelCol6}" Content="درصد" HorizontalAlignment="Left"/>
+
+                </Grid>
+
+                <Label Grid.Row="14" Style="{DynamicResource StarsStyle}"/>
+
+                <Label Grid.Row="14" Style="{DynamicResource LabelCol4}" Grid.ColumnSpan="3" Content="مقدار درصد کارمزد تغییر یافته در وام‌های بعدی صندوق لحاظ خواهد شد." HorizontalAlignment="Left" Foreground="DarkGray"/>
+
+                <Grid Grid.Column="6" Grid.Row="0" Grid.RowSpan="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Name="DeleteMembers" Content="حذف تمامی اعضا" Grid.Row="0" Style="{DynamicResource Button}" HorizontalAlignment="Right" Width="150" Click="DeleteMembers_Click"/>
+
+                    <Button Name="DeleteLoans" Content="حذف تمامی وام‌ها" Grid.Row="1" Style="{DynamicResource Button}" HorizontalAlignment="Right" Width="150" Click="DeleteLoans_Click"/>
+
+                    <Button Name="DeleteEvents" Content="حذف رویدادها" Grid.Row="2" Style="{DynamicResource Button}" HorizontalAlignment="Right" Width="150" Click="DeleteEvents_Click"/>
+
+                    <Button Name="DeleteFund" Content="حذف صندوق" Grid.Row="3" Style="{DynamicResource Button}" HorizontalAlignment="Right" Width="150" Click="DeleteFund_Click"/>
+
+                </Grid>
             </Grid>
-            
-        </Grid>
+        </ScrollViewer>
 
         <Grid Grid.Row="4">
 

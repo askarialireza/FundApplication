@@ -26,7 +26,7 @@
       <Name>Fund</Name>
       <Project>{a57f383c-4b54-4381-ba73-4633004c42fa}</Project>
       <Private>True</Private>
-      <OutputsToImport>PrimaryOutput;References</OutputsToImport>
+      <OutputsToImport>References;PrimaryOutput</OutputsToImport>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Caphyon\Advanced Installer\AdvInstExtTasks.Targets" />

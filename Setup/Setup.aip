@@ -5,17 +5,52 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_COLOR_DISABLED_TEXT" Value="3026478" MultiBuildValue="DefaultBuild:15461355" MsiKey="AI_COLOR_DISABLED_TEXT"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE" Value="2960685;4276545;6776679;16176031" MultiBuildValue="DefaultBuild:16777215;16580605;10395294;4108658" MsiKey="AI_CONTROL_VISUAL_STYLE"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE_EX" Value="1513239;3026478;3026478" MultiBuildValue="DefaultBuild:16514043;15461355;15461355" MsiKey="AI_CONTROL_VISUAL_STYLE_EX"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE_FLAT" MultiBuildValue="DefaultBuild:15925239;15138798;10395294;4108658" MsiKey="AI_CONTROL_VISUAL_STYLE_FLAT"/>
     <ROW Property="AI_EXTERNALUIUNINSTALLERNAME" MultiBuildValue="DefaultBuild:aiui"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_FrameBtnsColor" Value="metroblack" MultiBuildValue="DefaultBuild:metrolime" MsiKey="AI_FrameBtnsColor"/>
+    <ROW Property="AI_FrameColor" Value="metroblack" MultiBuildValue="DefaultBuild:metrolime" MsiKey="AI_FrameColor"/>
     <ROW Property="AI_PRODUCTNAME_ARP" Value="Fund"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_DAL.dll" Value="..\DAL\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Data.v16.2.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Mvvm.v16.2.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Core.v16.2.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.CodeParser.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Data.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Images.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Mvvm.v16.2.dll" Value="..\ViewModels\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Mvvm.v16.2.dll_1" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Printing.v16.2.Core.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Core.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.DocumentViewer.v16.2.Core.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Grid.v16.2.Extensions.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Layout.v16.2.Core.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Printing.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.DXStyle.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.HybridApp.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.LightGray.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2007Black.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2010Black.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2013.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2016Black.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2016White.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Seven.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.VS2010.v16.2.dll" Value="..\..\..\..\..\..\Desktop\New folder"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Dtx.dll" Value="..\packages\Dtx.1.0.1\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll" Value="..\packages\EntityFramework.6.1.3\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServerCompact.dll" Value="..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45"/>
@@ -28,21 +63,49 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Fund.exe" Value="..\Fund\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Fund.exe.config" Value="..\Fund\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Models.dll" Value="..\Models\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Stimulsoft.Base.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\Stimulsoft Reports 2017.1.3\Designers\.NET"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Stimulsoft.Controls.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\Stimulsoft Reports 2017.1.3\Designers\.NET"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Stimulsoft.Base.dll" Value="..\..\..\..\..\..\..\..\Program Files (x86)\Stimulsoft Reports 2017.1.3\Libs\Wpf"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Stimulsoft.Controls.dll" Value="..\..\..\..\..\..\..\..\Program Files (x86)\Stimulsoft Reports 2017.1.3\Libs\Net"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Stimulsoft.LicenseHelper.dll" Value="D:\KIAU\Final Project\SandoghProject\Sandogh\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Stimulsoft.Report.Wpf.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\Stimulsoft Reports 2017.1.3\Designers\.NET"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Stimulsoft.Report.dll" Value="..\..\..\..\..\..\..\Program Files (x86)\Stimulsoft Reports 2017.1.3\Designers\.NET"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Stimulsoft.Report.Wpf.dll" Value="..\..\..\..\..\..\..\..\Program Files (x86)\Stimulsoft Reports 2017.1.3\Libs\Wpf"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Stimulsoft.Report.dll" Value="..\..\..\..\..\..\..\..\Program Files (x86)\Stimulsoft Reports 2017.1.3\Libs\Wpf"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SqlServerCe.dll" Value="..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DAL.dll" Value="DAL.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.CodeParser.v16.2.dll" Value="DevExpress.CodeParser.v16.2.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Data.v16.2.dll" Value="DevExpress.Data.v16.2.dll"/>
-    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Mvvm.v16.2.dll" Value="DevExpress.Mvvm.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Images.v16.2.dll" Value="DevExpress.Images.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Mvvm.v16.2.dll" Value="ViewModels.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Mvvm.v16.2.dll_1" Value="DevExpress.Mvvm.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Printing.v16.2.Core.dll" Value="DevExpress.Printing.v16.2.Core.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Core.v16.2.dll" Value="DevExpress.Xpf.Core.v16.2.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll" Value="DevExpress.Xpf.Docking.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.DocumentViewer.v16.2.Core.dll" Value="DevExpress.Xpf.DocumentViewer.v16.2.Core.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll" Value="DevExpress.Xpf.Grid.v16.2.Core.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.Extensions.dll" Value="DevExpress.Xpf.Grid.v16.2.Extensions.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll" Value="DevExpress.Xpf.Grid.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Layout.v16.2.Core.dll" Value="DevExpress.Xpf.Layout.v16.2.Core.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll" Value="DevExpress.Xpf.LayoutControl.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Printing.v16.2.dll" Value="DevExpress.Xpf.Printing.v16.2.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll" Value="DevExpress.Xpf.Ribbon.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.DXStyle.v16.2.dll" Value="DevExpress.Xpf.Themes.DXStyle.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.HybridApp.v16.2.dll" Value="DevExpress.Xpf.Themes.HybridApp.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.LightGray.v16.2.dll" Value="DevExpress.Xpf.Themes.LightGray.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll" Value="DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll" Value="DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2007Black.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2007Black.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2010Black.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2010Black.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2013.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2013.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2016Black.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2016Black.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2016White.v16.2.dll" Value="DevExpress.Xpf.Themes.Office2016White.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Seven.v16.2.dll" Value="DevExpress.Xpf.Themes.Seven.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll" Value="DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.VS2010.v16.2.dll" Value="DevExpress.Xpf.Themes.VS2010.v16.2.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Dtx.dll" Value="Dtx.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll" Value="EntityFramework.SqlServer.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServerCompact.dll" Value="EntityFramework.SqlServerCompact.dll"/>
@@ -61,31 +124,40 @@
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Report.Wpf.dll" Value="Stimulsoft.Report.Wpf.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Report.dll" Value="Stimulsoft.Report.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlServerCe.dll" Value="System.Data.SqlServerCe.dll"/>
+    <ROW Property="AI_ThemeStyle" Value="default" MultiBuildValue="DefaultBuild:metrowhite" MsiKey="AI_ThemeStyle"/>
     <ROW Property="AI_UNINSTALLER" Value="msiexec.exe"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
-    <ROW Property="ARPNOREPAIR" Value="1"/>
+    <ROW Property="ARPPRODUCTICON" Value="pencil.exe" Type="8"/>
     <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
+    <ROW Property="AppLogoIcon" Value="applogoicon" MultiBuildValue="DefaultBuild:pencil1.png" Type="1" MsiKey="AppLogoIcon"/>
+    <ROW Property="Background" Value="background" MultiBuildValue="DefaultBuild:WindowBackWhite.png" Type="1" MsiKey="Background"/>
     <ROW Property="Manufacturer" Value="Alireza Askari"/>
+    <ROW Property="MsiLogging" MultiBuildValue="DefaultBuild:vp"/>
     <ROW Property="ProductCode" Value="1033:{E1B9CFFB-F0B0-440D-B688-9245B7E99CA2} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
-    <ROW Property="ProductName" Value="Fund"/>
+    <ROW Property="ProductName" Value="Fund Management"/>
     <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
-    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="REBOOTPROMPT" MultiBuildValue="DefaultBuild:Suppress"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{AE2ED2EB-BA64-4CB9-9E34-08D5BAB0D150}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
     <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista x86, Windows Server 2008 x86" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
     <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64" MultiBuildValue="DefaultBuild:Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista x64, Windows Server 2008 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64Display" MultiBuildValue="DefaultBuild:Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista x64, Windows Server 2008 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista x86, Windows Server 2008 x86" ValueLocId="-"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
-    <ROW Directory="Database_Dir" Directory_Parent="Files_Dir" DefaultDir="Database"/>
-    <ROW Directory="Files_Dir" Directory_Parent="Fund_Dir" DefaultDir="Files"/>
+    <ROW Directory="Database_Dir" Directory_Parent="Fund_Dir" DefaultDir="Database"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
     <ROW Directory="FontsFolder" Directory_Parent="TARGETDIR" DefaultDir="FONTSF~1|FontsFolder" IsPseudoRoot="1"/>
     <ROW Directory="Fund_Dir" Directory_Parent="APPDIR" DefaultDir="Fund"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
@@ -93,8 +165,53 @@
     <ROW Directory="fa_Dir" Directory_Parent="Fund_Dir" DefaultDir="fa"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" ComponentId="{AE8860DC-C557-45B8-95C4-F6A0A4595781}" Directory_="APPDIR" Attributes="4" KeyPath="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Options="2"/>
     <ROW Component="AI_CustomARPName" ComponentId="{50F29E83-F07C-4832-A880-57F2CDC01696}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
-    <ROW Component="BNazaninBold_p30download.com.ttf" ComponentId="{C7E548F8-8ACD-4B91-A19B-8D4F4A2F47FF}" Directory_="FontsFolder" Attributes="0" Type="0"/>
+    <ROW Component="AI_ExePath" ComponentId="{B3259989-C926-45B4-B4CE-3B2F70D2CB6D}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DAL.dll" ComponentId="{DFD92124-8A2D-4E31-BDDB-74D161C98159}" Directory_="Fund_Dir" Attributes="0" KeyPath="DAL.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_10" ComponentId="{54A8285E-4CD9-454F-9C1B-536FCE0DC1D8}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Grid.v16.2.Extensions.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_11" ComponentId="{13E95A46-C8ED-4D06-A47F-59ACC6B3B847}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Layout.v16.2.Core.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_12" ComponentId="{0731F1B5-A810-48D4-8B81-1D6AB9EDB10D}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.LayoutControl.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_13" ComponentId="{CE8F1562-E0BF-4256-8158-B47649D03DCA}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Printing.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_14" ComponentId="{C96AF5FF-E513-4B57-BCD6-B7F362246DE9}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Ribbon.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_15" ComponentId="{0CDD72CC-AA77-400A-A885-057C4136FC6D}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.DXStyle.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_16" ComponentId="{64BB2F26-E226-4FE1-A1CE-FA4C07762C27}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.HybridApp.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_17" ComponentId="{FB84B559-8EA5-46AF-AFA9-E5448169AEA6}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.LightGray.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_18" ComponentId="{124B582D-4799-4548-A488-EE08A472E4D7}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_19" ComponentId="{191A0598-3B1C-4FFA-9F6C-43AD8B1FE05A}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_20" ComponentId="{473908BD-636D-48FF-B5EA-9F131F16BE8B}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2007Black.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_21" ComponentId="{6E47A6D9-5771-4A2C-A0B2-65902AA614A4}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_22" ComponentId="{9074AB05-B7D1-4372-B9E9-0F943F412B91}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_23" ComponentId="{6CEE845E-119B-43D0-9B76-9586970CF000}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2010Black.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_24" ComponentId="{48F16613-35CE-4298-901E-628FD120745B}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_25" ComponentId="{4B827EE8-5CC3-42A9-BE26-ECEED8728F2E}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_26" ComponentId="{A53BA665-B6A1-413F-988A-FA76505DC606}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2013.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_27" ComponentId="{F524725C-897A-458C-8F2F-D59DA26C2995}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_28" ComponentId="{5E9A7D57-C983-49FE-873C-8BCA8229C86C}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_29" ComponentId="{04805620-C275-4E3D-A889-8EA7455156EA}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2016Black.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_30" ComponentId="{3E37AC58-2808-472D-97F3-22585C5D1060}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_31" ComponentId="{059070C7-F687-4EDC-AA4D-6D8840E3A23C}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Office2016White.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_32" ComponentId="{791F256E-B9C4-4F27-AA6A-0B083E8B6565}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.Seven.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_33" ComponentId="{9D00D894-C2C3-4D6D-8857-EFF93DED75A4}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_34" ComponentId="{C974DFB7-8758-4F4E-8280-6D11A2BC68D9}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Themes.VS2010.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_1" ComponentId="{5EFA8D3B-BAF9-48F2-90E0-0F075428A8BC}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Data.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_2" ComponentId="{6B713238-45FD-4E02-A632-9BB4CC6926E4}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Images.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_3" ComponentId="{6125B3C7-7290-4BAA-ADB0-E5F621963F4F}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Mvvm.v16.2.dll_1"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_4" ComponentId="{CBA79813-869C-46CA-B2A5-4BF38A669D2F}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Printing.v16.2.Core.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_5" ComponentId="{DFAFC7E1-C95B-41B4-B502-7A007AAB2E27}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Core.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_6" ComponentId="{D0D637DD-DADF-4BC8-ACA2-8E4AF9C7CC95}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Docking.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_7" ComponentId="{9CD9C46E-FB82-4858-AB72-9C55427CCFD4}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.DocumentViewer.v16.2.Core.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_8" ComponentId="{A658CC6D-0598-48DF-A4F2-81BD78DEB482}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Grid.v16.2.Core.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_9" ComponentId="{4F92F5D9-D5F9-4F40-BBFF-FB84A1409444}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Grid.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_DevExpress" ComponentId="{A9FE26BE-1E3B-425B-BBD4-C44C5FF26D60}" Directory_="Fund_Dir" Attributes="0" KeyPath="DevExpress.CodeParser.v16.2.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_Dtx.dll" ComponentId="{E39E74C6-A31A-4542-B91C-1B1B017C8D98}" Directory_="Fund_Dir" Attributes="0" KeyPath="Dtx.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_EntityFr_1" ComponentId="{29D8C69D-CE0B-40E9-B7BF-485C3A06D0FB}" Directory_="Fund_Dir" Attributes="0" KeyPath="EntityFramework.SqlServer.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_EntityFr_2" ComponentId="{46233622-EA92-415E-9480-9133DED3BEC2}" Directory_="Fund_Dir" Attributes="0" KeyPath="EntityFramework.SqlServerCompact.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_EntityFram" ComponentId="{4BCD158D-74B1-4CF0-BED0-86C6D1EB0F1F}" Directory_="Fund_Dir" Attributes="0" KeyPath="EntityFramework.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_FarsiLibra" ComponentId="{BB2DD3DD-42C1-4073-B28F-A8921C29E637}" Directory_="Fund_Dir" Attributes="0" KeyPath="FarsiLibrary.Localization.dll"/>
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_Models.dll" ComponentId="{DD60D340-10F9-480B-BEE2-0BE8823FCA91}" Directory_="Fund_Dir" Attributes="0" KeyPath="Models.dll" Type="0"/>
+    <ROW Component="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" ComponentId="{C739048D-F0B6-45E1-915D-9F4929411E14}" Directory_="APPDIR" Attributes="4" KeyPath="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" Options="2"/>
+    <ROW Component="BNazaninBold_p30download.com.ttf" ComponentId="{85391278-51B7-4DEE-AD00-29E4A1FEFE03}" Directory_="FontsFolder" Attributes="0" Type="0"/>
     <ROW Component="Database" ComponentId="{A44A4D61-1CD0-45E3-BB10-3410681D09AB}" Directory_="Database_Dir" Attributes="0"/>
     <ROW Component="DevExpress.Xpf.Charts.v16.2.resources.dl" ComponentId="{4AEDA894-5F06-4049-99E9-5F2DD94BA944}" Directory_="fa_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Charts.v16.2.resources.dll"/>
     <ROW Component="DevExpress.Xpf.Controls.v16.2.resources." ComponentId="{AA809D83-B7D2-46D7-B6F5-970A028071E6}" Directory_="fa_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Controls.v16.2.resources.dll"/>
@@ -114,80 +231,138 @@
     <ROW Component="DevExpress.Xpf.Scheduler.v16.2.resources" ComponentId="{3BD8B742-68ED-4C8F-A7EF-F58B520EEC42}" Directory_="fa_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Scheduler.v16.2.resources.dll"/>
     <ROW Component="DevExpress.Xpf.SpellChecker.v16.2.resour" ComponentId="{14C67CB5-DF95-47C2-866B-EBAAFD78F828}" Directory_="fa_Dir" Attributes="0" KeyPath="DevExpress.Xpf.SpellChecker.v16.2.resources.dll"/>
     <ROW Component="DevExpress.Xpf.Spreadsheet.v16.2.resourc" ComponentId="{89CB8A4D-A27D-44C8-8C66-B65167178494}" Directory_="fa_Dir" Attributes="0" KeyPath="DevExpress.Xpf.Spreadsheet.v16.2.resources.dll"/>
-    <ROW Component="Fund_PrimaryOutput" ComponentId="{603176CF-3E4E-4F80-8272-0DCF6E85F6BB}" Directory_="Fund_Dir" Attributes="0" KeyPath="Fund.exe"/>
-    <ROW Component="Fund_References" ComponentId="{E8BC7DB6-8310-4432-BA30-227AFD5AB96A}" Directory_="Fund_Dir" Attributes="0" KeyPath="FarsiLibrary.Utils.dll_1"/>
+    <ROW Component="Fund_PrimaryOutput" ComponentId="{C9904BF9-2B0B-48DD-B9BA-65B43BA1B5FC}" Directory_="Fund_Dir" Attributes="0" KeyPath="Fund.exe"/>
+    <ROW Component="Fund_References" ComponentId="{E8BC7DB6-8310-4432-BA30-227AFD5AB96A}" Directory_="Fund_Dir" Attributes="0" KeyPath="FarsiLibrary.Localization.dll_1"/>
     <ROW Component="ProductInformation" ComponentId="{A0FFAE79-A026-42BD-9039-D12401125D3B}" Directory_="APPDIR" Attributes="4" KeyPath="Version" Options="1"/>
-    <ROW Component="SHORTCUTDIR" ComponentId="{A13B2BE0-03BB-4893-956D-598D1B5E5A17}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{FCF68216-EBF9-4B5D-95DE-629D2B8FBC4A}" Directory_="SHORTCUTDIR" Attributes="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Title="SQL Server Compact 4.0 x64" Description="SQL Server Compact 4.0 x64" Display="7" Level="1" Attributes="0" Components="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF"/>
+    <ROW Feature="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" Title="SQL Server Compact 4.0 x86" Description="SQL Server Compact 4.0 x86" Display="5" Level="1" Attributes="0" Components="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
     <ROW Feature="Feature" Title="Feature" Description="Description" Display="3" Level="1" Directory_="APPDIR" Attributes="0"/>
-    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName BNazaninBold_p30download.com.ttf Database DevExpress.Xpf.Charts.v16.2.resources.dl DevExpress.Xpf.Controls.v16.2.resources. DevExpress.Xpf.Core.v16.2.resources.dll DevExpress.Xpf.Docking.v16.2.resources.d DevExpress.Xpf.DocumentViewer.v16.2.Core DevExpress.Xpf.Gauges.v16.2.resources.dl DevExpress.Xpf.Grid.v16.2.Core.resources DevExpress.Xpf.LayoutControl.v16.2.resou DevExpress.Xpf.NavBar.v16.2.resources.dl DevExpress.Xpf.PdfViewer.v16.2.resources DevExpress.Xpf.Printing.v16.2.resources. DevExpress.Xpf.PropertyGrid.v16.2.resour DevExpress.Xpf.ReportDesigner.v16.2.reso DevExpress.Xpf.Ribbon.v16.2.resources.dl DevExpress.Xpf.RichEdit.v16.2.resources. DevExpress.Xpf.Scheduler.v16.2.resources DevExpress.Xpf.SpellChecker.v16.2.resour DevExpress.Xpf.Spreadsheet.v16.2.resourc Fund_PrimaryOutput Fund_References ProductInformation SHORTCUTDIR"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName AI_ExePath AI_PROPPATH_FILENAME_PERBUILD_DAL.dll AI_PROPPATH_FILENAME_PERBUILD_DevExpr_10 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_11 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_12 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_13 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_14 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_15 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_16 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_17 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_18 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_19 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_20 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_21 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_22 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_23 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_24 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_25 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_26 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_27 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_28 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_29 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_30 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_31 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_32 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_33 AI_PROPPATH_FILENAME_PERBUILD_DevExpr_34 AI_PROPPATH_FILENAME_PERBUILD_DevExpre_1 AI_PROPPATH_FILENAME_PERBUILD_DevExpre_2 AI_PROPPATH_FILENAME_PERBUILD_DevExpre_3 AI_PROPPATH_FILENAME_PERBUILD_DevExpre_4 AI_PROPPATH_FILENAME_PERBUILD_DevExpre_5 AI_PROPPATH_FILENAME_PERBUILD_DevExpre_6 AI_PROPPATH_FILENAME_PERBUILD_DevExpre_7 AI_PROPPATH_FILENAME_PERBUILD_DevExpre_8 AI_PROPPATH_FILENAME_PERBUILD_DevExpre_9 AI_PROPPATH_FILENAME_PERBUILD_DevExpress AI_PROPPATH_FILENAME_PERBUILD_Dtx.dll AI_PROPPATH_FILENAME_PERBUILD_EntityFr_1 AI_PROPPATH_FILENAME_PERBUILD_EntityFr_2 AI_PROPPATH_FILENAME_PERBUILD_EntityFram AI_PROPPATH_FILENAME_PERBUILD_FarsiLibra AI_PROPPATH_FILENAME_PERBUILD_Models.dll BNazaninBold_p30download.com.ttf Database DevExpress.Xpf.Charts.v16.2.resources.dl DevExpress.Xpf.Controls.v16.2.resources. DevExpress.Xpf.Core.v16.2.resources.dll DevExpress.Xpf.Docking.v16.2.resources.d DevExpress.Xpf.DocumentViewer.v16.2.Core DevExpress.Xpf.Gauges.v16.2.resources.dl DevExpress.Xpf.Grid.v16.2.Core.resources DevExpress.Xpf.LayoutControl.v16.2.resou DevExpress.Xpf.NavBar.v16.2.resources.dl DevExpress.Xpf.PdfViewer.v16.2.resources DevExpress.Xpf.Printing.v16.2.resources. DevExpress.Xpf.PropertyGrid.v16.2.resour DevExpress.Xpf.ReportDesigner.v16.2.reso DevExpress.Xpf.Ribbon.v16.2.resources.dl DevExpress.Xpf.RichEdit.v16.2.resources. DevExpress.Xpf.Scheduler.v16.2.resources DevExpress.Xpf.SpellChecker.v16.2.resour DevExpress.Xpf.Spreadsheet.v16.2.resourc Fund_PrimaryOutput Fund_References ProductInformation SHORTCUTDIR"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="BNazaninBold_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BNAZAN~1.TTF|B Nazanin Bold_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\Desktop\Fonts\B Nazanin Bold_p30download.com.ttf" SelfReg="false" NextFile="BNazanin_p30download.com.ttf"/>
-    <ROW File="BNazanin_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BNAZAN~2.TTF|B Nazanin_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\Desktop\Fonts\B Nazanin_p30download.com.ttf" SelfReg="false" NextFile="BTrafficBold_p30download.com.ttf"/>
-    <ROW File="BTrafficBold_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BTRAFF~1.TTF|B Traffic Bold_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\Desktop\Fonts\B Traffic Bold_p30download.com.ttf" SelfReg="false" NextFile="BTraffic_p30download.com.ttf"/>
-    <ROW File="BTraffic_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BTRAFF~2.TTF|B Traffic_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\Desktop\Fonts\B Traffic_p30download.com.ttf" SelfReg="false" NextFile="BYagutBold_p30download.com.ttf"/>
-    <ROW File="BYagutBold_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BYAGUT~1.TTF|B Yagut Bold_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\Desktop\Fonts\B Yagut Bold_p30download.com.ttf" SelfReg="false" NextFile="BYagut_p30download.com.ttf"/>
-    <ROW File="BYagut_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BYAGUT~2.TTF|B Yagut_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\Desktop\Fonts\B Yagut_p30download.com.ttf" SelfReg="false" NextFile="BYekan_p30download.com.ttf"/>
-    <ROW File="BYekan_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BYEKAN~1.TTF|B Yekan_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\Desktop\Fonts\B Yekan_p30download.com.ttf" SelfReg="false" NextFile="DevExpress.Data.v16.2.dll"/>
-    <ROW File="DAL.dll" Component_="Fund_References" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DAL.dll&gt;" SelfReg="false" NextFile="FarsiLibrary.Localization.dll_1"/>
-    <ROW File="DevExpress.Data.v16.2.dll" Component_="Fund_References" FileName="DEVEXP~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Data.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Data.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Mvvm.v16.2.dll"/>
-    <ROW File="DevExpress.Mvvm.v16.2.dll" Component_="Fund_References" FileName="DEVEXP~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Mvvm.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Mvvm.v16.2.dll&gt;" SelfReg="false" NextFile="FarsiLibrary.Utils.dll_1"/>
+    <ROW File="BNazaninBold_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BNAZAN~1.TTF|B Nazanin Bold_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\..\Desktop\Fonts\B Nazanin Bold_p30download.com.ttf" SelfReg="false" NextFile="BNazanin_p30download.com.ttf"/>
+    <ROW File="BNazanin_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BNAZAN~2.TTF|B Nazanin_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\..\Desktop\Fonts\B Nazanin_p30download.com.ttf" SelfReg="false" NextFile="BTrafficBold_p30download.com.ttf"/>
+    <ROW File="BTrafficBold_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BTRAFF~1.TTF|B Traffic Bold_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\..\Desktop\Fonts\B Traffic Bold_p30download.com.ttf" SelfReg="false" NextFile="BTraffic_p30download.com.ttf"/>
+    <ROW File="BTraffic_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BTRAFF~2.TTF|B Traffic_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\..\Desktop\Fonts\B Traffic_p30download.com.ttf" SelfReg="false" NextFile="BYagutBold_p30download.com.ttf"/>
+    <ROW File="BYagutBold_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BYAGUT~1.TTF|B Yagut Bold_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\..\Desktop\Fonts\B Yagut Bold_p30download.com.ttf" SelfReg="false" NextFile="BYagut_p30download.com.ttf"/>
+    <ROW File="BYagut_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BYAGUT~2.TTF|B Yagut_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\..\Desktop\Fonts\B Yagut_p30download.com.ttf" SelfReg="false" NextFile="BYekan_p30download.com.ttf"/>
+    <ROW File="BYekan_p30download.com.ttf" Component_="BNazaninBold_p30download.com.ttf" FileName="BYEKAN~1.TTF|B Yekan_p30download.com.ttf" Attributes="0" SourcePath="..\..\..\..\..\..\Desktop\Fonts\B Yekan_p30download.com.ttf" SelfReg="false" NextFile="DevExpress.CodeParser.v16.2.dll"/>
+    <ROW File="DAL.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DAL.dll" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DAL.dll&gt;" SelfReg="false" NextFile="Models.dll"/>
+    <ROW File="DevExpress.CodeParser.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpress" FileName="DEVEX~37.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.CodeParser.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.CodeParser.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Data.v16.2.dll"/>
+    <ROW File="DevExpress.Data.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_1" FileName="DEVEXP~1.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Data.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Data.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Images.v16.2.dll"/>
+    <ROW File="DevExpress.Images.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_2" FileName="DEVEXP~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Images.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Images.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Mvvm.v16.2.dll_1"/>
+    <ROW File="DevExpress.Mvvm.v16.2.dll" Component_="Fund_References" FileName="DEVEXP~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Mvvm.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Mvvm.v16.2.dll&gt;" SelfReg="false" NextFile="BNazaninBold_p30download.com.ttf"/>
+    <ROW File="DevExpress.Mvvm.v16.2.dll_1" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_3" FileName="DEVEXP~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Mvvm.v16.2.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Mvvm.v16.2.dll_1&gt;" SelfReg="false" NextFile="DevExpress.Printing.v16.2.Core.dll"/>
+    <ROW File="DevExpress.Printing.v16.2.Core.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_4" FileName="DEVEXP~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Printing.v16.2.Core.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Printing.v16.2.Core.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Core.v16.2.dll"/>
     <ROW File="DevExpress.Xpf.Charts.v16.2.resources.dll" Component_="DevExpress.Xpf.Charts.v16.2.resources.dl" FileName="DEVEXP~1.DLL|DevExpress.Xpf.Charts.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Charts.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.Controls.v16.2.resources.dll"/>
     <ROW File="DevExpress.Xpf.Controls.v16.2.resources.dll" Component_="DevExpress.Xpf.Controls.v16.2.resources." FileName="DEVEXP~2.DLL|DevExpress.Xpf.Controls.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Controls.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.Core.v16.2.resources.dll"/>
-    <ROW File="DevExpress.Xpf.Core.v16.2.dll" Component_="Fund_References" FileName="DEVEXP~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Core.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Core.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Docking.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Core.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_5" FileName="DEVEXP~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Core.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Core.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Docking.v16.2.dll"/>
     <ROW File="DevExpress.Xpf.Core.v16.2.resources.dll" Component_="DevExpress.Xpf.Core.v16.2.resources.dll" FileName="DEVEXP~3.DLL|DevExpress.Xpf.Core.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Core.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.Docking.v16.2.resources.dll"/>
-    <ROW File="DevExpress.Xpf.Docking.v16.2.dll" Component_="Fund_References" FileName="DEVEXP~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Grid.v16.2.Core.dll"/>
+    <ROW File="DevExpress.Xpf.Docking.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_6" FileName="DEVEXP~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.DocumentViewer.v16.2.Core.dll"/>
     <ROW File="DevExpress.Xpf.Docking.v16.2.resources.dll" Component_="DevExpress.Xpf.Docking.v16.2.resources.d" FileName="DEVEXP~4.DLL|DevExpress.Xpf.Docking.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Docking.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.DocumentViewer.v16.2.Core.resources.dll"/>
+    <ROW File="DevExpress.Xpf.DocumentViewer.v16.2.Core.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_7" FileName="DEVEXP~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.DocumentViewer.v16.2.Core.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.DocumentViewer.v16.2.Core.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Grid.v16.2.Core.dll"/>
     <ROW File="DevExpress.Xpf.DocumentViewer.v16.2.Core.resources.dll" Component_="DevExpress.Xpf.DocumentViewer.v16.2.Core" FileName="DEVEXP~5.DLL|DevExpress.Xpf.DocumentViewer.v16.2.Core.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.DocumentViewer.v16.2.Core.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.Gauges.v16.2.resources.dll"/>
     <ROW File="DevExpress.Xpf.Gauges.v16.2.resources.dll" Component_="DevExpress.Xpf.Gauges.v16.2.resources.dl" FileName="DEVEXP~6.DLL|DevExpress.Xpf.Gauges.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Gauges.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.Grid.v16.2.Core.resources.dll"/>
-    <ROW File="DevExpress.Xpf.Grid.v16.2.Core.dll" Component_="Fund_References" FileName="DEVEXP~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Grid.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Grid.v16.2.Core.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_8" FileName="DEVEXP~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Grid.v16.2.dll"/>
     <ROW File="DevExpress.Xpf.Grid.v16.2.Core.resources.dll" Component_="DevExpress.Xpf.Grid.v16.2.Core.resources" FileName="DEVEXP~7.DLL|DevExpress.Xpf.Grid.v16.2.Core.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Grid.v16.2.Core.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.LayoutControl.v16.2.resources.dll"/>
-    <ROW File="DevExpress.Xpf.Grid.v16.2.dll" Component_="Fund_References" FileName="DEVEX~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.LayoutControl.v16.2.dll"/>
-    <ROW File="DevExpress.Xpf.LayoutControl.v16.2.dll" Component_="Fund_References" FileName="DEVEX~11.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Ribbon.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Grid.v16.2.Extensions.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_10" FileName="DEVEX~11.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.Extensions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Grid.v16.2.Extensions.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Layout.v16.2.Core.dll"/>
+    <ROW File="DevExpress.Xpf.Grid.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_9" FileName="DEVEX~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Grid.v16.2.Extensions.dll"/>
+    <ROW File="DevExpress.Xpf.Layout.v16.2.Core.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_11" FileName="DEVEX~12.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Layout.v16.2.Core.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Layout.v16.2.Core.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.LayoutControl.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.LayoutControl.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_12" FileName="DEVEX~13.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Printing.v16.2.dll"/>
     <ROW File="DevExpress.Xpf.LayoutControl.v16.2.resources.dll" Component_="DevExpress.Xpf.LayoutControl.v16.2.resou" FileName="DEVEXP~8.DLL|DevExpress.Xpf.LayoutControl.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.LayoutControl.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.NavBar.v16.2.resources.dll"/>
     <ROW File="DevExpress.Xpf.NavBar.v16.2.resources.dll" Component_="DevExpress.Xpf.NavBar.v16.2.resources.dl" FileName="DEVEXP~9.DLL|DevExpress.Xpf.NavBar.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.NavBar.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.PdfViewer.v16.2.resources.dll"/>
     <ROW File="DevExpress.Xpf.PdfViewer.v16.2.resources.dll" Component_="DevExpress.Xpf.PdfViewer.v16.2.resources" FileName="DEVEX~10.DLL|DevExpress.Xpf.PdfViewer.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.PdfViewer.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.Printing.v16.2.resources.dll"/>
+    <ROW File="DevExpress.Xpf.Printing.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_13" FileName="DEVEX~14.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Printing.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Printing.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Ribbon.v16.2.dll"/>
     <ROW File="DevExpress.Xpf.Printing.v16.2.resources.dll" Component_="DevExpress.Xpf.Printing.v16.2.resources." FileName="DEVEX~11.DLL|DevExpress.Xpf.Printing.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Printing.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.PropertyGrid.v16.2.resources.dll"/>
     <ROW File="DevExpress.Xpf.PropertyGrid.v16.2.resources.dll" Component_="DevExpress.Xpf.PropertyGrid.v16.2.resour" FileName="DEVEX~12.DLL|DevExpress.Xpf.PropertyGrid.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.PropertyGrid.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.ReportDesigner.v16.2.resources.dll"/>
     <ROW File="DevExpress.Xpf.ReportDesigner.v16.2.resources.dll" Component_="DevExpress.Xpf.ReportDesigner.v16.2.reso" FileName="DEVEX~13.DLL|DevExpress.Xpf.ReportDesigner.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.ReportDesigner.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.Ribbon.v16.2.resources.dll"/>
-    <ROW File="DevExpress.Xpf.Ribbon.v16.2.dll" Component_="Fund_References" FileName="DEVEX~13.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll&gt;" SelfReg="false" NextFile="Dtx.dll"/>
+    <ROW File="DevExpress.Xpf.Ribbon.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_14" FileName="DEVEX~15.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.DXStyle.v16.2.dll"/>
     <ROW File="DevExpress.Xpf.Ribbon.v16.2.resources.dll" Component_="DevExpress.Xpf.Ribbon.v16.2.resources.dl" FileName="DEVEX~14.DLL|DevExpress.Xpf.Ribbon.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Ribbon.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.RichEdit.v16.2.resources.dll"/>
     <ROW File="DevExpress.Xpf.RichEdit.v16.2.resources.dll" Component_="DevExpress.Xpf.RichEdit.v16.2.resources." FileName="DEVEX~15.DLL|DevExpress.Xpf.RichEdit.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.RichEdit.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.Scheduler.v16.2.resources.dll"/>
     <ROW File="DevExpress.Xpf.Scheduler.v16.2.resources.dll" Component_="DevExpress.Xpf.Scheduler.v16.2.resources" FileName="DEVEX~16.DLL|DevExpress.Xpf.Scheduler.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Scheduler.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.SpellChecker.v16.2.resources.dll"/>
     <ROW File="DevExpress.Xpf.SpellChecker.v16.2.resources.dll" Component_="DevExpress.Xpf.SpellChecker.v16.2.resour" FileName="DEVEX~17.DLL|DevExpress.Xpf.SpellChecker.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.SpellChecker.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Xpf.Spreadsheet.v16.2.resources.dll"/>
-    <ROW File="DevExpress.Xpf.Spreadsheet.v16.2.resources.dll" Component_="DevExpress.Xpf.Spreadsheet.v16.2.resourc" FileName="DEVEX~18.DLL|DevExpress.Xpf.Spreadsheet.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Spreadsheet.v16.2.resources.dll" SelfReg="false" NextFile="BNazaninBold_p30download.com.ttf"/>
-    <ROW File="Dtx.dll" Component_="Fund_References" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Dtx.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Dtx.dll&gt;" SelfReg="false" NextFile="EntityFramework.dll"/>
-    <ROW File="EntityFramework.SqlServer.dll" Component_="Fund_References" FileName="ENTITY~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll&gt;" SelfReg="false" NextFile="EntityFramework.SqlServerCompact.dll"/>
-    <ROW File="EntityFramework.SqlServerCompact.dll" Component_="Fund_References" FileName="ENTITY~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServerCompact.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.SqlServerCompact.dll&gt;" SelfReg="false" NextFile="FarsiLibrary.Localization.dll"/>
-    <ROW File="EntityFramework.dll" Component_="Fund_References" FileName="ENTITY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.dll&gt;" SelfReg="false" NextFile="EntityFramework.SqlServer.dll"/>
-    <ROW File="FarsiLibrary.Localization.dll" Component_="Fund_References" FileName="FARSIL~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FarsiLibrary.Localization.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Localization.dll&gt;" SelfReg="false" NextFile="FarsiLibrary.Utils.dll"/>
-    <ROW File="FarsiLibrary.Localization.dll_1" Component_="Fund_References" FileName="FARSIL~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FarsiLibrary.Localization.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Localization.dll_1&gt;" SelfReg="false" NextFile="Models.dll"/>
-    <ROW File="FarsiLibrary.Utils.dll" Component_="Fund_References" FileName="FARSIL~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FarsiLibrary.Utils.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Utils.dll&gt;" SelfReg="false" NextFile="FarsiLibrary.WPF.dll"/>
-    <ROW File="FarsiLibrary.Utils.dll_1" Component_="Fund_References" FileName="FARSIL~1.DLL|FarsiLibrary.Utils.dll" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Utils.dll_1&gt;" SelfReg="false"/>
-    <ROW File="FarsiLibrary.WPF.dll" Component_="Fund_References" FileName="FARSIL~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FarsiLibrary.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.WPF.dll&gt;" SelfReg="false" NextFile="Stimulsoft.Base.dll"/>
-    <ROW File="Fund.exe" Component_="Fund_PrimaryOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Fund.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Fund.exe&gt;" SelfReg="false" NextFile="Fund.exe.config" DigSign="true"/>
-    <ROW File="Fund.exe.config" Component_="Fund_PrimaryOutput" FileName="FUNDEX~2.CON|[|AI_PROPPATH_FILENAME_PERBUILD_Fund.exe.config]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Fund.exe.config&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Core.v16.2.dll"/>
-    <ROW File="Models.dll" Component_="Fund_References" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Models.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Models.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Charts.v16.2.resources.dll"/>
-    <ROW File="Stimulsoft.Base.dll" Component_="Fund_References" FileName="STIMUL~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Base.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.Base.dll&gt;" SelfReg="false" NextFile="Stimulsoft.Controls.dll"/>
-    <ROW File="Stimulsoft.Controls.dll" Component_="Fund_References" FileName="STIMUL~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Controls.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.Controls.dll&gt;" SelfReg="false" NextFile="Stimulsoft.LicenseHelper.dll"/>
-    <ROW File="Stimulsoft.LicenseHelper.dll" Component_="Fund_References" FileName="STIMUL~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.LicenseHelper.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.LicenseHelper.dll&gt;" SelfReg="false" NextFile="Stimulsoft.Report.dll"/>
-    <ROW File="Stimulsoft.Report.Wpf.dll" Component_="Fund_References" FileName="STIMUL~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Report.Wpf.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.Report.Wpf.dll&gt;" SelfReg="false" NextFile="System.Data.SqlServerCe.dll"/>
-    <ROW File="Stimulsoft.Report.dll" Component_="Fund_References" FileName="STIMUL~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Report.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.Report.dll&gt;" SelfReg="false" NextFile="Stimulsoft.Report.Wpf.dll"/>
-    <ROW File="System.Data.SqlServerCe.dll" Component_="Fund_References" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlServerCe.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.SqlServerCe.dll&gt;" SelfReg="false" NextFile="DAL.dll"/>
+    <ROW File="DevExpress.Xpf.Spreadsheet.v16.2.resources.dll" Component_="DevExpress.Xpf.Spreadsheet.v16.2.resourc" FileName="DEVEX~18.DLL|DevExpress.Xpf.Spreadsheet.v16.2.resources.dll" Attributes="0" SourcePath="..\Fund\bin\Debug\fa\DevExpress.Xpf.Spreadsheet.v16.2.resources.dll" SelfReg="false" NextFile="DevExpress.Mvvm.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.DXStyle.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_15" FileName="DEVEX~16.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.DXStyle.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.DXStyle.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.HybridApp.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.HybridApp.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_16" FileName="DEVEX~17.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.HybridApp.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.HybridApp.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.LightGray.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.LightGray.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_17" FileName="DEVEX~18.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.LightGray.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.LightGray.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_18" FileName="DEVEX~19.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_19" FileName="DEVEX~20.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2007Black.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2007Black.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_20" FileName="DEVEX~21.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2007Black.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2007Black.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_21" FileName="DEVEX~22.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_22" FileName="DEVEX~23.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2010Black.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2010Black.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_23" FileName="DEVEX~24.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2010Black.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2010Black.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_24" FileName="DEVEX~25.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_25" FileName="DEVEX~26.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2013.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2013.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_26" FileName="DEVEX~27.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2013.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2013.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_27" FileName="DEVEX~28.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_28" FileName="DEVEX~29.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2016Black.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2016Black.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_29" FileName="DEVEX~30.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2016Black.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2016Black.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_30" FileName="DEVEX~31.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Office2016White.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Office2016White.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_31" FileName="DEVEX~32.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2016White.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2016White.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.Seven.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.Seven.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_32" FileName="DEVEX~33.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Seven.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Seven.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_33" FileName="DEVEX~34.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Themes.VS2010.v16.2.dll"/>
+    <ROW File="DevExpress.Xpf.Themes.VS2010.v16.2.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_34" FileName="DEVEX~35.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.VS2010.v16.2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.VS2010.v16.2.dll&gt;" SelfReg="false" NextFile="FarsiLibrary.Localization.dll"/>
+    <ROW File="Dtx.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_Dtx.dll" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Dtx.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Dtx.dll&gt;" SelfReg="false" NextFile="EntityFramework.dll"/>
+    <ROW File="EntityFramework.SqlServer.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_EntityFr_1" FileName="ENTITY~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll&gt;" SelfReg="false" NextFile="EntityFramework.SqlServerCompact.dll"/>
+    <ROW File="EntityFramework.SqlServerCompact.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_EntityFr_2" FileName="ENTITY~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServerCompact.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.SqlServerCompact.dll&gt;" SelfReg="false" NextFile="DAL.dll"/>
+    <ROW File="EntityFramework.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_EntityFram" FileName="ENTITY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.dll&gt;" SelfReg="false" NextFile="EntityFramework.SqlServer.dll"/>
+    <ROW File="FarsiLibrary.Localization.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_FarsiLibra" FileName="FARSIL~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FarsiLibrary.Localization.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Localization.dll&gt;" SelfReg="false" NextFile="FarsiLibrary.Utils.dll"/>
+    <ROW File="FarsiLibrary.Localization.dll_1" Component_="Fund_References" FileName="FARSIL~3.DLL|FarsiLibrary.Localization.dll" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Localization.dll_1&gt;" SelfReg="false" NextFile="FarsiLibrary.Utils.dll_1"/>
+    <ROW File="FarsiLibrary.Utils.dll" Component_="Fund_References" FileName="FARSIL~1.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FarsiLibrary.Utils.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Utils.dll&gt;" SelfReg="false" NextFile="FarsiLibrary.WPF.dll"/>
+    <ROW File="FarsiLibrary.Utils.dll_1" Component_="Fund_References" FileName="FARSIL~5.DLL|FarsiLibrary.Utils.dll" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Utils.dll_1&gt;" SelfReg="false" NextFile="Fund.exe.config"/>
+    <ROW File="FarsiLibrary.WPF.dll" Component_="Fund_References" FileName="FARSIL~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FarsiLibrary.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.WPF.dll&gt;" SelfReg="false" NextFile="Fund.exe"/>
+    <ROW File="Fund.exe" Component_="Fund_PrimaryOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Fund.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Fund.exe&gt;" SelfReg="false" NextFile="Stimulsoft.Base.dll" DigSign="true"/>
+    <ROW File="Fund.exe.config" Component_="Fund_PrimaryOutput" FileName="FUNDEX~2.CON|[|AI_PROPPATH_FILENAME_PERBUILD_Fund.exe.config]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Fund.exe.config&gt;" SelfReg="false"/>
+    <ROW File="Models.dll" Component_="AI_PROPPATH_FILENAME_PERBUILD_Models.dll" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Models.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Models.dll&gt;" SelfReg="false" NextFile="DevExpress.Xpf.Charts.v16.2.resources.dll"/>
+    <ROW File="Stimulsoft.Base.dll" Component_="Fund_References" FileName="STIMUL~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Base.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.Base.dll&gt;" SelfReg="false" NextFile="Stimulsoft.Controls.dll"/>
+    <ROW File="Stimulsoft.Controls.dll" Component_="Fund_References" FileName="STIMUL~1.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Controls.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.Controls.dll&gt;" SelfReg="false" NextFile="Stimulsoft.LicenseHelper.dll"/>
+    <ROW File="Stimulsoft.LicenseHelper.dll" Component_="Fund_References" FileName="STIMUL~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.LicenseHelper.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.LicenseHelper.dll&gt;" SelfReg="false" NextFile="Stimulsoft.Report.dll"/>
+    <ROW File="Stimulsoft.Report.Wpf.dll" Component_="Fund_References" FileName="STIMUL~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Report.Wpf.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.Report.Wpf.dll&gt;" SelfReg="false" NextFile="System.Data.SqlServerCe.dll"/>
+    <ROW File="Stimulsoft.Report.dll" Component_="Fund_References" FileName="STIMUL~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Stimulsoft.Report.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Stimulsoft.Report.dll&gt;" SelfReg="false" NextFile="Stimulsoft.Report.Wpf.dll"/>
+    <ROW File="System.Data.SqlServerCe.dll" Component_="Fund_References" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlServerCe.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.SqlServerCe.dll&gt;" SelfReg="false" NextFile="FarsiLibrary.Localization.dll_1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
     <ROW Name="AI_APPPATH_PERBUILD_DAL.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DAL.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.CodeParser.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.CodeParser.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.CodeParser.v16.2.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Data.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Data.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Data.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Images.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Images.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Images.v16.2.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Mvvm.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Mvvm.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Mvvm.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Mvvm.v16.2.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Mvvm.v16.2.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Mvvm.v16.2.dll_1]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Printing.v16.2.Core.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Printing.v16.2.Core.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Printing.v16.2.Core.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Core.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Core.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Core.v16.2.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Docking.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.DocumentViewer.v16.2.Core.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.DocumentViewer.v16.2.Core.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.DocumentViewer.v16.2.Core.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.Core.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Grid.v16.2.Extensions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Grid.v16.2.Extensions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.Extensions.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Grid.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Layout.v16.2.Core.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Layout.v16.2.Core.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Layout.v16.2.Core.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.LayoutControl.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Printing.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Printing.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Printing.v16.2.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Ribbon.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.DXStyle.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.DXStyle.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.DXStyle.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.HybridApp.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.HybridApp.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.HybridApp.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.LightGray.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.LightGray.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.LightGray.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2007Black.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2007Black.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2007Black.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2010Black.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2010Black.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2010Black.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2013.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2013.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2013.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2016Black.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2016Black.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2016Black.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Office2016White.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Office2016White.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Office2016White.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.Seven.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.Seven.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.Seven.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DevExpress.Xpf.Themes.VS2010.v16.2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DevExpress.Xpf.Themes.VS2010.v16.2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DevExpress.Xpf.Themes.VS2010.v16.2.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_Dtx.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Dtx.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Dtx.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_EntityFramework.SqlServerCompact.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServerCompact.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServerCompact.dll]" Type="2" Content="0"/>
@@ -208,7 +383,7 @@
     <ROW Name="AI_APPPATH_PERBUILD_System.Data.SqlServerCe.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SqlServerCe.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlServerCe.dll]" Type="2" Content="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" PackageType="1" ExtUI="true" UseLargeSchema="true" Unicode="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFileName="FamilyFundManagementSetup" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" Unicode="true" ExeName="FamilyFundManagementSetup" UACExecutionLevel="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -219,6 +394,9 @@
     <ROW Fragment="InstallDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\InstallDlg.aip"/>
     <ROW Fragment="LicenseAgreementDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\LicenseAgreementDlg.aip"/>
     <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="PreparePrereqDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\PreparePrereqDlg.aip"/>
+    <ROW Fragment="PrerequisitesDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\PrerequisitesDlg.aip"/>
+    <ROW Fragment="ProgressPrereqDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\ProgressPrereqDlg.aip"/>
     <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;surface\fragments\SequenceDialogs.aip"/>
     <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
     <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
@@ -226,10 +404,319 @@
     <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
     <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRemoveDlg.aip"/>
     <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomePrereqDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\WelcomePrereqDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_ConfigureChainer" Description="Configuring prerequisites launcher" DescriptionLocId="ActionText.Description.AI_ConfigureChainer" Template="Configure Launcher" TemplateLocId="ActionText.Template.AI_ConfigureChainer"/>
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DownloadPrereq" Description="Downloading prerequisite software" DescriptionLocId="ActionText.Description.AI_DownloadPrereq" Template="Downloading [1]{[2] completed}" TemplateLocId="ActionText.Template.AI_DownloadPrereq"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractPrereq" Description="Extracting prerequisite software" DescriptionLocId="ActionText.Description.AI_ExtractPrereq" Template="Extracting [1]{[2] completed}" TemplateLocId="ActionText.Template.AI_ExtractPrereq"/>
+    <ROW Action="AI_InstallPostPrerequisite" Description="Installing prerequisite software" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" Template="Installing [1]{[2] completed}" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
+    <ROW Action="AI_InstallPrerequisite" Description="Installing prerequisite software" DescriptionLocId="ActionText.Description.AI_InstallPrerequisite" Template="Installing [1]{[2] completed}" TemplateLocId="ActionText.Template.AI_InstallPrerequisite"/>
+    <ROW Action="AI_VerifyPrereq" Description="Verifying prerequisites" DescriptionLocId="ActionText.Description.AI_VerifyPrereq" Template="[1] was not installed correctly." TemplateLocId="ActionText.Template.AI_VerifyPrereq"/>
+    <ROW Action="AI_XmlCommit" Description="Committing XML file configurations." DescriptionLocId="ActionText.Description.AI_XmlCommit" Template="Committing XML file configurations." TemplateLocId="ActionText.Template.AI_XmlCommit"/>
+    <ROW Action="AI_XmlConfig" Description="Executing XML file configurations" DescriptionLocId="ActionText.Description.AI_XmlConfig" Template="Configuring XML file: &quot;[1]&quot;" TemplateLocId="ActionText.Template.AI_XmlConfig"/>
+    <ROW Action="AI_XmlInstall" Description="Generating actions to configure XML files" DescriptionLocId="ActionText.Description.AI_XmlInstall"/>
+    <ROW Action="AI_XmlRemove" Description="Executing XML file configurations" DescriptionLocId="ActionText.Description.AI_XmlRemove" Template="Configuring XML file: &quot;[1]&quot;" TemplateLocId="ActionText.Template.AI_XmlRemove"/>
+    <ROW Action="AI_XmlRollback" Description="Rolling back XML file configurations." DescriptionLocId="ActionText.Description.AI_XmlRollback" Template="Rolling back XML file configurations." TemplateLocId="ActionText.Template.AI_XmlRollback"/>
+    <ROW Action="AI_XmlUninstall" Description="Generating actions to configure XML files" DescriptionLocId="ActionText.Description.AI_XmlUninstall"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAssemblyComponent">
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpress" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_1" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_2" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_3" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_4" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_5" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_6" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_7" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_8" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_9" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_10" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_11" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_12" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_13" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_14" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_15" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_17" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_21" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_22" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_24" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_25" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_26" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_28" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_30" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_31" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_32" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_33" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_34" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Charts.v16.2.resources.dl" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Controls.v16.2.resources." Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Core.v16.2.resources.dll" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Docking.v16.2.resources.d" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.DocumentViewer.v16.2.Core" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Gauges.v16.2.resources.dl" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Grid.v16.2.Core.resources" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.LayoutControl.v16.2.resou" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.NavBar.v16.2.resources.dl" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.PdfViewer.v16.2.resources" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Printing.v16.2.resources." Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.PropertyGrid.v16.2.resour" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.ReportDesigner.v16.2.reso" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Ribbon.v16.2.resources.dl" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.RichEdit.v16.2.resources." Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Scheduler.v16.2.resources" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.SpellChecker.v16.2.resour" Feature_="MainFeature" Attributes="0"/>
+    <ROW Component_="DevExpress.Xpf.Spreadsheet.v16.2.resourc" Feature_="MainFeature" Attributes="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAssemblyNameComponent">
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpress" Name="Name" Value="DevExpress.CodeParser.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpress" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpress" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpress" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpress" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_1" Name="Name" Value="DevExpress.Data.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_1" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_1" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_1" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_1" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_2" Name="Name" Value="DevExpress.Images.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_2" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_2" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_2" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_2" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_3" Name="Name" Value="DevExpress.Mvvm.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_3" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_3" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_3" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_3" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_4" Name="Name" Value="DevExpress.Printing.v16.2.Core" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_4" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_4" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_4" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_4" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_5" Name="Name" Value="DevExpress.Xpf.Core.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_5" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_5" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_5" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_5" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_6" Name="Name" Value="DevExpress.Xpf.Docking.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_6" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_6" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_6" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_6" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_7" Name="Name" Value="DevExpress.Xpf.DocumentViewer.v16.2.Core" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_7" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_7" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_7" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_7" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_8" Name="Name" Value="DevExpress.Xpf.Grid.v16.2.Core" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_8" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_8" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_8" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_8" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_9" Name="Name" Value="DevExpress.Xpf.Grid.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_9" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_9" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_9" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpre_9" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_10" Name="Name" Value="DevExpress.Xpf.Grid.v16.2.Extensions" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_10" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_10" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_10" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_10" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_11" Name="Name" Value="DevExpress.Xpf.Layout.v16.2.Core" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_11" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_11" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_11" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_11" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_12" Name="Name" Value="DevExpress.Xpf.LayoutControl.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_12" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_12" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_12" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_12" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_13" Name="Name" Value="DevExpress.Xpf.Printing.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_13" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_13" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_13" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_13" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_14" Name="Name" Value="DevExpress.Xpf.Ribbon.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_14" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_14" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_14" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_14" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_15" Name="Name" Value="DevExpress.Xpf.Themes.DXStyle.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_15" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_15" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_15" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_15" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_17" Name="Name" Value="DevExpress.Xpf.Themes.LightGray.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_17" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_17" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_17" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_17" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_21" Name="Name" Value="DevExpress.Xpf.Themes.Office2007Blue.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_21" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_21" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_21" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_21" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_22" Name="Name" Value="DevExpress.Xpf.Themes.Office2007Silver.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_22" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_22" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_22" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_22" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_24" Name="Name" Value="DevExpress.Xpf.Themes.Office2010Blue.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_24" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_24" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_24" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_24" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_25" Name="Name" Value="DevExpress.Xpf.Themes.Office2010Silver.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_25" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_25" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_25" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_25" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_26" Name="Name" Value="DevExpress.Xpf.Themes.Office2013.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_26" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_26" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_26" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_26" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_28" Name="Name" Value="DevExpress.Xpf.Themes.Office2013LightGray.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_28" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_28" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_28" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_28" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_30" Name="Name" Value="DevExpress.Xpf.Themes.Office2016Colorful.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_30" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_30" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_30" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_30" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_31" Name="Name" Value="DevExpress.Xpf.Themes.Office2016White.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_31" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_31" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_31" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_31" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_32" Name="Name" Value="DevExpress.Xpf.Themes.Seven.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_32" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_32" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_32" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_32" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_33" Name="Name" Value="DevExpress.Xpf.Themes.TouchlineDark.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_33" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_33" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_33" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_33" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_34" Name="Name" Value="DevExpress.Xpf.Themes.VS2010.v16.2" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_34" Name="Culture" Value="neutral" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_34" Name="Version" Value="16.2.6.0" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_34" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="AI_PROPPATH_FILENAME_PERBUILD_DevExpr_34" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Charts.v16.2.resources.dl" Name="Name" Value="DevExpress.Xpf.Charts.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Charts.v16.2.resources.dl" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Charts.v16.2.resources.dl" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Charts.v16.2.resources.dl" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Charts.v16.2.resources.dl" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Controls.v16.2.resources." Name="Name" Value="DevExpress.Xpf.Controls.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Controls.v16.2.resources." Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Controls.v16.2.resources." Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Controls.v16.2.resources." Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Controls.v16.2.resources." Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Core.v16.2.resources.dll" Name="Name" Value="DevExpress.Xpf.Core.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Core.v16.2.resources.dll" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Core.v16.2.resources.dll" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Core.v16.2.resources.dll" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Core.v16.2.resources.dll" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Docking.v16.2.resources.d" Name="Name" Value="DevExpress.Xpf.Docking.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Docking.v16.2.resources.d" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Docking.v16.2.resources.d" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Docking.v16.2.resources.d" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Docking.v16.2.resources.d" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.DocumentViewer.v16.2.Core" Name="Name" Value="DevExpress.Xpf.DocumentViewer.v16.2.Core.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.DocumentViewer.v16.2.Core" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.DocumentViewer.v16.2.Core" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.DocumentViewer.v16.2.Core" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.DocumentViewer.v16.2.Core" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Gauges.v16.2.resources.dl" Name="Name" Value="DevExpress.Xpf.Gauges.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Gauges.v16.2.resources.dl" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Gauges.v16.2.resources.dl" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Gauges.v16.2.resources.dl" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Gauges.v16.2.resources.dl" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Grid.v16.2.Core.resources" Name="Name" Value="DevExpress.Xpf.Grid.v16.2.Core.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Grid.v16.2.Core.resources" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Grid.v16.2.Core.resources" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Grid.v16.2.Core.resources" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Grid.v16.2.Core.resources" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.LayoutControl.v16.2.resou" Name="Name" Value="DevExpress.Xpf.LayoutControl.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.LayoutControl.v16.2.resou" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.LayoutControl.v16.2.resou" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.LayoutControl.v16.2.resou" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.LayoutControl.v16.2.resou" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.NavBar.v16.2.resources.dl" Name="Name" Value="DevExpress.Xpf.NavBar.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.NavBar.v16.2.resources.dl" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.NavBar.v16.2.resources.dl" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.NavBar.v16.2.resources.dl" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.NavBar.v16.2.resources.dl" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PdfViewer.v16.2.resources" Name="Name" Value="DevExpress.Xpf.PdfViewer.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PdfViewer.v16.2.resources" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PdfViewer.v16.2.resources" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PdfViewer.v16.2.resources" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PdfViewer.v16.2.resources" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Printing.v16.2.resources." Name="Name" Value="DevExpress.Xpf.Printing.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Printing.v16.2.resources." Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Printing.v16.2.resources." Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Printing.v16.2.resources." Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Printing.v16.2.resources." Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PropertyGrid.v16.2.resour" Name="Name" Value="DevExpress.Xpf.PropertyGrid.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PropertyGrid.v16.2.resour" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PropertyGrid.v16.2.resour" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PropertyGrid.v16.2.resour" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.PropertyGrid.v16.2.resour" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.ReportDesigner.v16.2.reso" Name="Name" Value="DevExpress.Xpf.ReportDesigner.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.ReportDesigner.v16.2.reso" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.ReportDesigner.v16.2.reso" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.ReportDesigner.v16.2.reso" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.ReportDesigner.v16.2.reso" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Ribbon.v16.2.resources.dl" Name="Name" Value="DevExpress.Xpf.Ribbon.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Ribbon.v16.2.resources.dl" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Ribbon.v16.2.resources.dl" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Ribbon.v16.2.resources.dl" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Ribbon.v16.2.resources.dl" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.RichEdit.v16.2.resources." Name="Name" Value="DevExpress.Xpf.RichEdit.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.RichEdit.v16.2.resources." Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.RichEdit.v16.2.resources." Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.RichEdit.v16.2.resources." Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.RichEdit.v16.2.resources." Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Scheduler.v16.2.resources" Name="Name" Value="DevExpress.Xpf.Scheduler.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Scheduler.v16.2.resources" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Scheduler.v16.2.resources" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Scheduler.v16.2.resources" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Scheduler.v16.2.resources" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.SpellChecker.v16.2.resour" Name="Name" Value="DevExpress.Xpf.SpellChecker.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.SpellChecker.v16.2.resour" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.SpellChecker.v16.2.resour" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.SpellChecker.v16.2.resour" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.SpellChecker.v16.2.resour" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Spreadsheet.v16.2.resourc" Name="Name" Value="DevExpress.Xpf.Spreadsheet.v16.2.resources" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Spreadsheet.v16.2.resourc" Name="Culture" Value="fa" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Spreadsheet.v16.2.resourc" Name="Version" Value="16.2.0.0" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Spreadsheet.v16.2.resourc" Name="PublicKeyToken" Value="b88d1754d700e49a" Sync="true"/>
+    <ROW Component_="DevExpress.Xpf.Spreadsheet.v16.2.resourc" Name="ProcessorArchitecture" Value="MSIL" Sync="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
     <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="WindowBackWhite.png" SourcePath="..\Fund\Resources\Images\WindowBackWhite.png"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="aipackagechainer.exe" SourcePath="&lt;AI_CUSTACTS&gt;aipackagechainer.exe"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+    <ROW Name="pencil1.png" SourcePath="..\..\..\..\..\..\Downloads\pencil (1).png"/>
+    <ROW Name="xmlCfg.dll" SourcePath="&lt;AI_CUSTACTS&gt;xmlCfg.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
     <ROW Dialog_="CustomizeDlg" Control="CustomizeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
@@ -238,6 +725,12 @@
     <ROW Dialog_="PatchWelcomeDlg" Control="ProductNameTitle" Type="Text" X="83" Y="21" Width="245" Height="50" Attributes="196611" Text="[ProductName]" TextStyle="[ProductNameForSplash]" Order="600" TextLocId="Metro.Control.Text.ProductName" MsiKey="PatchWelcomeDlg#ProductNameTitle"/>
     <ROW Dialog_="PatchWelcomeDlg" Control="CompanyText" Type="Text" X="83" Y="16" Width="191" Height="12" Attributes="196611" Text="[Manufacturer]" TextStyle="[ManufacturerFont]" Order="700" TextLocId="Metro.Control.Text.Manufacturer" MsiKey="PatchWelcomeDlg#CompanyText"/>
     <ROW Dialog_="PatchWelcomeDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="5" Width="59" Height="63" Attributes="1" Text="[AppLogoIcon]" Order="800" MsiKey="PatchWelcomeDlg#ProductLogo"/>
+    <ROW Dialog_="PreparePrereqDlg" Control="ProgressAnimation" Type="Bitmap" X="123" Y="83" Width="113" Height="30" Attributes="1048577" Text="PreparePrereqDlgProgress.gif" Order="800" MsiKey="PreparePrereqDlg#ProgressAnimation"/>
+    <ROW Dialog_="PrerequisitesDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="PrerequisitesDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="ActionText" Type="Text" X="17" Y="191" Width="309" Height="11" Attributes="196611" TextStyle="SubnoteFont" Order="800" MsiKey="ProgressPrereqDlg#ActionText"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="ProgressBar" Type="StyledProgressBar" X="17" Y="185" Width="312" Height="5" Attributes="65537" Text="PrereqProgressImage.png" Order="900" MsiKey="ProgressPrereqDlg#ProgressBar" ExtType="StyledProgressBar"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="StatusLabel" Type="Text" X="17" Y="171" Width="45" Height="13" Attributes="196611" Text="Status:" TextStyle="SubnoteFont" Order="1000" TextLocId="Control.Text.ProgressDlg#StatusLabel" MsiKey="ProgressPrereqDlg#StatusLabel"/>
+    <ROW Dialog_="ProgressPrereqDlg" Control="Text" Type="Text" X="17" Y="105" Width="300" Height="30" Attributes="196611" Text="Please wait while the [Wizard] [Progress2] prerequisites for [ProductName].  This may take several minutes." Order="1100" TextLocId="Control.Text.ProgressPrereqDlg#Text" MsiKey="ProgressPrereqDlg#Text"/>
     <ROW Dialog_="VerifyReadyDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyReadyDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
     <ROW Dialog_="VerifyReadyDlg" Control="Back" Type="PushButton" X="5" Y="381" Width="11" Height="11" Attributes="2" Text="Control.Text.VerifyReadyDlg#Back" Help="Back|" Order="200" TextLocId="Control.Text.VerifyReadyDlg#Back" HelpLocId="Air.Control.Help#Back" MsiKey="VerifyReadyDlg#Back" Options="1" ExtType="PushButton" ExtData="[ButtonText_Back]" ExtDataLocId="-"/>
     <ROW Dialog_="VerifyReadyDlg" Control="ReadyToInstall" Type="Text" X="17" Y="105" Width="312" Height="19" Attributes="196611" Text="Ready to Install" TextStyle="[SubTitleStyle]" Order="400" TextLocId="Control.Text.VerifyReadyDlg#Title" MsiKey="VerifyReadyDlg#ReadyToInstall"/>
@@ -249,7 +742,9 @@
     <ROW Dialog_="VerifyReadyDlg" Control="AdvInst" Type="Text" X="5" Y="388" Width="74" Height="11" Attributes="196611" Text="Advanced Installer" TextStyle="[BrandingStyle]" Order="1000" MsiKey="VerifyReadyDlg#AdvInst"/>
     <ROW Dialog_="VerifyRemoveDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyRemoveDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
     <ROW Dialog_="VerifyRepairDlg" Control="Bitmap" Type="Bitmap" X="0" Y="0" Width="345" Height="400" Attributes="1" Text="[Background]" Order="100" MsiKey="VerifyRepairDlg#Bitmap"/>
-    <ROW Dialog_="VerifyRepairDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="200" MsiKey="VerifyRepairDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Repair" Type="ImageButton" X="251" Y="359" Width="78" Height="28" Attributes="3" Text="[metrobuttonimage]" TextStyle="[MetroButtonText]" Order="200" MsiKey="VerifyRepairDlg#Repair" Options="1" ExtType="ImageButton" ExtData="&amp;Repair" ExtDataLocId="Metro.Control.ExtData.VerifyRepairDlg#Repair"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control="Description" Type="Text" X="17" Y="139" Width="312" Height="211" Attributes="196611" Text="The setup has determined that some of the prerequisites needed to run [ProductName] are missing. This wizard will assist you in getting and installing those prerequisites. Click &quot;[Text_Next]&quot; to continue or &quot;[ButtonText_Cancel]&quot; to exit the [Wizard]." Order="800" TextLocId="Control.Text.WelcomePrereqDlg#Description" MsiKey="WelcomePrereqDlg#Description"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control="SubTitle" Type="Text" X="17" Y="105" Width="312" Height="34" Attributes="196611" Text="Welcome to the Prerequisites [Wizard]" TextStyle="SubTitle" Order="900" TextLocId="Control.Text.WelcomePrereqDlg#SubTitle" MsiKey="WelcomePrereqDlg#SubTitle"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
     <ROW Dialog_="InstallDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="301"/>
@@ -305,26 +800,61 @@
     <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_PATCH" Ordering="3" Options="2"/>
     <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_PATCH" Ordering="0" Options="2"/>
     <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+    <ROW Dialog_="ExitDialog" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="101"/>
+    <ROW Dialog_="FatalError" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="201"/>
+    <ROW Dialog_="UserExit" Control_="Finish" Event="DoAction" Argument="AI_CleanPrereq" Condition="1" Ordering="101"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control_="Next" Event="NewDialog" Argument="PrerequisitesDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Back" Event="NewDialog" Argument="WelcomePrereqDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
-    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
     <ROW Directory_="Database_Dir" Component_="Database" ManualDelete="false"/>
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_ChooseTextStyles" Type="1" Source="aicustact.dll" Target="ChooseTextStyles"/>
+    <ROW Action="AI_CleanPrereq" Type="65" Source="Prereq.dll" Target="CleanPrereq" WithoutSeq="true"/>
+    <ROW Action="AI_ConfigureChainer" Type="1" Source="Prereq.dll" Target="ConfigurePrereqLauncher"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[~]"/>
+    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER_2" Type="51" Source="CustomActionData" Target="[~]"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
     <ROW Action="AI_DoRemoveExternalUIStub" Type="3585" Source="ExternalUICleaner.dll" Target="DoRemoveExternalUIStub" WithoutSeq="true"/>
+    <ROW Action="AI_DownloadPrereq" Type="1" Source="Prereq.dll" Target="DownloadPrereq"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
     <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_EstimateExtractFiles" Type="1" Source="Prereq.dll" Target="EstimateExtractFiles"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1025" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER_1"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_ExtractPrereq" Type="65" Source="Prereq.dll" Target="ExtractPrereq"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
     <ROW Action="AI_GetArpIconPath" Type="1" Source="aicustact.dll" Target="GetArpIconPath"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_InstallPostPrerequisite" Type="1" Source="Prereq.dll" Target="InstallPostPrereq"/>
+    <ROW Action="AI_InstallPrerequisite" Type="65" Source="Prereq.dll" Target="InstallPrereq"/>
+    <ROW Action="AI_LaunchChainer" Type="3314" Source="AI_PREREQ_CHAINER"/>
     <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_RemoveExternalUIStub" Type="1" Source="ExternalUICleaner.dll" Target="RemoveExternalUIStub"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
     <ROW Action="AI_RunFinishActions" Type="1" Source="aicustact.dll" Target="RunFinishActions" WithoutSeq="true"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_VerifyPrereq" Type="1" Source="Prereq.dll" Target="VerifyPrereq"/>
+    <ROW Action="AI_XmlCommit" Type="11777" Source="xmlCfg.dll" Target="OnXmlCommit" WithoutSeq="true"/>
+    <ROW Action="AI_XmlConfig" Type="11265" Source="xmlCfg.dll" Target="OnXmlConfig" WithoutSeq="true"/>
+    <ROW Action="AI_XmlInstall" Type="1" Source="xmlCfg.dll" Target="OnXmlInstall" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_XmlRemove" Type="11265" Source="xmlCfg.dll" Target="OnXmlRemove" WithoutSeq="true"/>
+    <ROW Action="AI_XmlRollback" Type="11521" Source="xmlCfg.dll" Target="OnXmlRollback" WithoutSeq="true"/>
+    <ROW Action="AI_XmlUninstall" Type="1" Source="xmlCfg.dll" Target="OnXmlUninstall" AdditionalSeq="AI_DATA_SETTER_2"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFilesFolder][Manufacturer]\"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
@@ -339,34 +869,73 @@
     <ROW File_="BYagut_p30download.com.ttf"/>
     <ROW File_="BYekan_p30download.com.ttf"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="pencil.exe" SourcePath="..\..\..\..\..\..\Downloads\pencil.ico" Index="0"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
     <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1502"/>
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
-    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
     <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
     <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1501"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6597" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER_1" Sequence="3997"/>
+    <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
+    <ROW Action="AI_ConfigureChainer" Condition="((UILevel = 2) OR (UILevel = 3)) AND (NOT UPGRADINGPRODUCTCODE)" Sequence="6598"/>
+    <ROW Action="AI_LaunchChainer" Condition="AI_PREREQ_CHAINER AND (NOT UPGRADINGPRODUCTCODE)" Sequence="6599"/>
+    <ROW Action="AI_VerifyPrereq" Sequence="1101"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
+    <ROW Action="AI_XmlInstall" Condition="(REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5102"/>
+    <ROW Action="AI_DATA_SETTER" Condition="(REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5101"/>
+    <ROW Action="AI_XmlUninstall" Condition="(REMOVE)" Sequence="3102"/>
+    <ROW Action="AI_DATA_SETTER_2" Condition="(REMOVE)" Sequence="3101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
     <ROW Action="AI_DpiContentScale" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
-    <ROW Action="InstallDlg" Condition="AI_INSTALL" Sequence="1230" SeqType="3" MsiKey="WelcomeDlg"/>
-    <ROW Action="MaintenanceTypeDlg" Condition="AI_MAINT" Sequence="1250" SeqType="3" MsiKey="MaintenanceTypeDlg"/>
     <ROW Action="UninstallPreviousVersions" Sequence="201"/>
     <ROW Action="AI_ChooseTextStyles" Sequence="74"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
+    <ROW Action="InstallDlg" Condition="AI_INSTALL" Sequence="1230" SeqType="3" MsiKey="WelcomeDlg"/>
+    <ROW Action="MaintenanceTypeDlg" Condition="AI_MAINT" Sequence="1250" SeqType="3" MsiKey="MaintenanceTypeDlg"/>
+    <ROW Action="AI_DownloadPrereq" Sequence="1297"/>
+    <ROW Action="AI_ExtractPrereq" Sequence="1298"/>
+    <ROW Action="AI_InstallPrerequisite" Sequence="1299"/>
+    <ROW Action="AI_InstallPostPrerequisite" Sequence="1301"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="( Version9X OR ( NOT VersionNT64 ) OR ( VersionNT64 AND ((VersionNT64 &lt;&gt; 502) OR (ServicePackLevel &lt;&gt; 2) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 502) OR (ServicePackLevel &lt;&gt; 2) OR (MsiNTProductType = 1)) AND ((VersionNT64 &lt;&gt; 600) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 600) OR (MsiNTProductType = 1)) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT64Display]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 501) OR (ServicePackLevel &lt;&gt; 3)) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel &lt;&gt; 2)) AND ((VersionNT &lt;&gt; 600) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT &lt;&gt; 600) OR (MsiNTProductType = 1)) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNTDisplay]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="(VersionNT64 OR ((VersionNT &lt;&gt; 501) OR (ServicePackLevel = 3))) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel = 2))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Value="1" Component_="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF"/>
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" Root="-1" Key="Software\Caphyon\Advanced Installer\Prereqs\[ProductCode]\[ProductVersion]" Name="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" Value="1" Component_="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
     <ROW Registry="Comments" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Comments" Value="[ARPCOMMENTS]" Component_="AI_CustomARPName"/>
     <ROW Registry="Contact" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Contact" Value="[ARPCONTACT]" Component_="AI_CustomARPName"/>
     <ROW Registry="DisplayIcon" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayIcon" Value="[ARP_ICON_PATH]" Component_="AI_CustomARPName"/>
@@ -387,6 +956,7 @@
     <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#0" Component_="AI_CustomARPName"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="AI_PROPPATH_FILENAME_PERBUILD_Fund.exe" Directory_="DesktopFolder" Name="[|AI_PROPPATH_FILENAME_PERBUILD_Fund.exe]" Component_="Fund_PrimaryOutput" Target="[#Fund.exe]" Hotkey="0" Icon_="pencil.exe" IconIndex="0" ShowCmd="1" WkDir="Fund_Dir"/>
     <ROW Shortcut="Fund" Directory_="SHORTCUTDIR" Name="Fund" Component_="Fund_PrimaryOutput" Target="[#Fund.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
@@ -396,19 +966,68 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW PrereqKey="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" DisplayName="SQL Server Compact 4.0 x64" VersionMin="4.0" SetupFileUrl="Prerequisites\SQL Server Compact 4.0\SSCERuntime_x64-ENU.exe" Location="0" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" WinNT64Versions="Windows 10 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/quiet /i" Options="xf" TargetName="SQL Server Compact 4.0\SSCERuntime_x64-ENU.exe" Feature="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF"/>
+    <ROW PrereqKey="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" DisplayName="SQL Server Compact 4.0 x86" VersionMin="4.0" SetupFileUrl="Prerequisites\SQL Server Compact 4.0\SSCERuntime_x86-ENU.exe" Location="0" ExactSize="0" WinNTVersions="Windows 10 x86" WinNT64Versions="Windows XP/Vista/Windows 7/Windows 8 x64/Windows 8.1 x64/Windows 10 x64" Operator="1" NoUiComLine="/quiet /i" Options="f" TargetName="SQL Server Compact 4.0\SSCERuntime_x86-ENU.exe" Feature="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
+    <ROW PrereqKey="BB9062A4604BB61146D7C9AA49D" DisplayName=".NET Framework 4.6.1 (web installer)" SetupFileUrl="Prerequisites\.NET Framework 4.6.1\NDP461-KB3102438-Web.exe" Location="0" ExactSize="0" WinNTVersions="Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista x86, Windows Server 2008 x86, Windows 7 RTM x86, Windows 10 version 1511 x86, Windows 10 version 1607 x86, Windows 10 version 1703 x86" WinNT64Versions="Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista x64, Windows Server 2008 x64, Windows 7 RTM x64, Windows Server 2008 R2 RTM x64, Windows 10 version 1511 x64, Windows 10 version 1607 x64, Windows 10 version 1703 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" TargetName=".NET Framework 4.6.1\NDP461-KB3102438-Web.exe"/>
+    <ROW PrereqKey="E275424811B28D95B40CAB85CC" DisplayName=".NET Framework 4.5.2 (web installer)" SetupFileUrl="Prerequisites\.NET Framework 4.5.2\NDP452-KB2901954-Web.exe" Location="0" ExactSize="0" WinNTVersions="Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows 10 x86" WinNT64Versions="Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows 10 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" TargetName=".NET Framework 4.5.2\NDP452-KB2901954-Web.exe"/>
+    <ROW PrereqKey="E9BFB0D602DD498F96473C9BBCDDEC89" DisplayName=".NET Framework 4.5 (web installer)" SetupFileUrl="Prerequisites\.NET Framework 4.5\dotNetFx45_Full_setup.exe" Location="0" ExactSize="0" WinNTVersions="Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows 8 x86, Windows 8.1 x86, Windows 10 x86" WinNT64Versions="Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64, Windows 10 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" TargetName=".NET Framework 4.5\dotNetFx45_Full_setup.exe"/>
+    <ROW PrereqKey="EDD0228464354F269D1E1FAEB8A9084F" DisplayName=".NET Framework 4.5.1 (web installer)" SetupFileUrl="Prerequisites\.NET Framework 4.5.1\NDP451-KB2859818-Web.exe" Location="0" ExactSize="0" WinNTVersions="Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows 8.1 x86, Windows 10 x86" WinNT64Versions="Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows 8.1 x64, Windows Server 2012 R2 x64, Windows 10 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" TargetName=".NET Framework 4.5.1\NDP451-KB2859818-Web.exe"/>
+    <ROW PrereqKey="EEDF697C58FF44AEA12537BBFB266D19" DisplayName=".NET Framework 4.6 (web installer)" SetupFileUrl="Prerequisites\.NET Framework 4.6\NDP46-KB3045560-Web.exe" Location="0" ExactSize="0" WinNTVersions="Windows XP SP3 x86, Windows Server 2003 SP2 x86, Windows Vista RTM x86, Windows Vista SP1 x86, Windows 7 RTM x86, Windows 10 x86" WinNT64Versions="Windows XP SP2 x64, Windows Server 2003 SP2 x64, Windows Vista RTM x64, Windows Vista SP1 x64, Windows 7 RTM x64, Windows Server 2008 R2 RTM x64, Windows 10 x64, Windows Server 2016 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" TargetName=".NET Framework 4.6\NDP46-KB3045560-Web.exe"/>
+    <ATTRIBUTE name="PrereqsOrder" value="BB9062A4604BB61146D7C9AA49D EEDF697C58FF44AEA12537BBFB266D19 E275424811B28D95B40CAB85CC EDD0228464354F269D1E1FAEB8A9084F E9BFB0D602DD498F96473C9BBCDDEC89 B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79 A5FAD2_A0AB_492E_9F3A_F3AED8E676FF"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
+    <ROW SearchKey="A5FAD2_A0AB_492E_9F3A_F3AED8E676FFVersion" Prereq="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\Microsoft SQL Server Compact Edition\v4.0\Version" VerMin="4.0.8482.1" Order="1" Property="PreReqSearch_A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" Platform="1"/>
+    <ROW SearchKey="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79Version" Prereq="B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\Microsoft SQL Server Compact Edition\v4.0\Version" VerMin="4.0.8482.1" Order="1" Property="PreReqSearch_B6B4DA29_4C9D_4CCC_B9CF_7A79BD06DD79"/>
+    <ROW SearchKey="BB9062A4604BB61146D7C9AA49DRelease" Prereq="BB9062A4604BB61146D7C9AA49D" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G394270" Order="1" Property="PreReqSearch_BB9062A4604BB61146D7C9AA49D"/>
+    <ROW SearchKey="E275424811B28D95B40CAB85CCRelease" Prereq="E275424811B28D95B40CAB85CC" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G379892" Order="1" Property="PreReqSearch_E275424811B28D95B40CAB85CC"/>
+    <ROW SearchKey="E9BFB0D602DD498F96473C9BBCDDEC89Release" Prereq="E9BFB0D602DD498F96473C9BBCDDEC89" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G378388" Order="1" Property="PreReqSearch_E9BFB0D602DD498F96473C9BBCDDEC89"/>
+    <ROW SearchKey="EDD0228464354F269D1E1FAEB8A9084FRelease" Prereq="EDD0228464354F269D1E1FAEB8A9084F" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G378757" Order="1" Property="PreReqSearch_EDD0228464354F269D1E1FAEB8A9084F"/>
+    <ROW SearchKey="EEDF697C58FF44AEA12537BBFB266D19Release" Prereq="EEDF697C58FF44AEA12537BBFB266D19" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G393296" Order="1" Property="PreReqSearch_EEDF697C58FF44AEA12537BBFB266D19"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.VsProjectComponent">
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="PrimaryOutput" OutputFile="Fund.exe" OutputFileShortcut="Fund"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="PrimaryOutput" OutputFile="Fund.exe.config"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Core.v16.2.dll"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Docking.v16.2.dll"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Grid.v16.2.Core.dll"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Grid.v16.2.dll"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.LayoutControl.v16.2.dll"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Ribbon.v16.2.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="Dtx.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="EntityFramework.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="EntityFramework.SqlServer.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="EntityFramework.SqlServerCompact.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DAL.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="Models.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Mvvm.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.CodeParser.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Data.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Images.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Mvvm.v16.2.dll_1"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Printing.v16.2.Core.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Core.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Docking.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.DocumentViewer.v16.2.Core.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Grid.v16.2.Core.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Grid.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Grid.v16.2.Extensions.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Layout.v16.2.Core.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.LayoutControl.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Printing.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Ribbon.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.DXStyle.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.HybridApp.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.LightGray.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.MetropolisDark.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.MetropolisLight.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2007Black.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2007Blue.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2007Silver.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2010Black.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2010Blue.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2010Silver.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2013.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2013DarkGray.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2013LightGray.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2016Black.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2016Colorful.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Office2016White.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.Seven.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.TouchlineDark.v16.2.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Xpf.Themes.VS2010.v16.2.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="FarsiLibrary.Localization.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="FarsiLibrary.Utils.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="FarsiLibrary.WPF.dll"/>
@@ -418,11 +1037,69 @@
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="Stimulsoft.Report.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="Stimulsoft.Report.Wpf.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="System.Data.SqlServerCe.dll"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DAL.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="FarsiLibrary.Localization.dll_1"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="Models.dll"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Data.v16.2.dll"/>
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="DevExpress.Mvvm.v16.2.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="FarsiLibrary.Utils.dll_1"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="PrimaryOutput" OutputFile="Fund.exe" OutputFileShortcut="Fund"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="PrimaryOutput" OutputFile="Fund.exe.config"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.XmlAttributeComponent">
+    <ROW XmlAttribute="allowExeDefinition" XmlElement="section_1" Name="allowExeDefinition" Flags="14" Order="2" Value="MachineToLocalUser"/>
+    <ROW XmlAttribute="connectionString" XmlElement="add" Name="connectionString" Flags="14" Order="1" Value="Data Source=|DataDirectory|Database\FundDatabase.sdf"/>
+    <ROW XmlAttribute="description" XmlElement="add_1" Name="description" Flags="14" Order="2" Value=".NET Framework Data Provider for Microsoft SQL Server Compact"/>
+    <ROW XmlAttribute="invariant" XmlElement="remove" Name="invariant" Flags="14" Order="0" Value="System.Data.SqlServerCe.4.0"/>
+    <ROW XmlAttribute="invariantName" XmlElement="provider" Name="invariantName" Flags="14" Order="0" Value="System.Data.SqlClient"/>
+    <ROW XmlAttribute="invariantName_1" XmlElement="provider_1" Name="invariantName" Flags="14" Order="0" Value="System.Data.SqlServerCe.4.0"/>
+    <ROW XmlAttribute="invariant_1" XmlElement="add_1" Name="invariant" Flags="14" Order="1" Value="System.Data.SqlServerCe.4.0"/>
+    <ROW XmlAttribute="name" XmlElement="section" Name="name" Flags="15" Order="0" Value="entityFramework"/>
+    <ROW XmlAttribute="name_1" XmlElement="sectionGroup" Name="name" Flags="15" Order="0" Value="userSettings"/>
+    <ROW XmlAttribute="name_2" XmlElement="section_1" Name="name" Flags="15" Order="0" Value="DXThemeManager"/>
+    <ROW XmlAttribute="name_3" XmlElement="add" Name="name" Flags="15" Order="0" Value="DatabaseContext"/>
+    <ROW XmlAttribute="name_4" XmlElement="add_1" Name="name" Flags="15" Order="0" Value="Microsoft SQL Server Compact Data Provider 4.0"/>
+    <ROW XmlAttribute="name_5" XmlElement="setting" Name="name" Flags="15" Order="0" Value="ApplicationThemeName"/>
+    <ROW XmlAttribute="providerName" XmlElement="add" Name="providerName" Flags="14" Order="2" Value="System.Data.SqlServerCe.4.0"/>
+    <ROW XmlAttribute="requirePermission" XmlElement="section" Name="requirePermission" Flags="14" Order="2" Value="false"/>
+    <ROW XmlAttribute="requirePermission_1" XmlElement="section_1" Name="requirePermission" Flags="14" Order="3" Value="false"/>
+    <ROW XmlAttribute="serializeAs" XmlElement="setting" Name="serializeAs" Flags="14" Order="1" Value="String"/>
+    <ROW XmlAttribute="sku" XmlElement="supportedRuntime" Name="sku" Flags="14" Order="1" Value=".NETFramework,Version=v4.6.1"/>
+    <ROW XmlAttribute="type" XmlElement="section" Name="type" Flags="14" Order="1" Value="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+    <ROW XmlAttribute="type_1" XmlElement="sectionGroup" Name="type" Flags="14" Order="1" Value="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+    <ROW XmlAttribute="type_2" XmlElement="section_1" Name="type" Flags="14" Order="1" Value="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+    <ROW XmlAttribute="type_3" XmlElement="defaultConnectionFactory" Name="type" Flags="14" Order="0" Value="System.Data.Entity.Infrastructure.SqlCeConnectionFactory, EntityFramework"/>
+    <ROW XmlAttribute="type_4" XmlElement="provider" Name="type" Flags="14" Order="1" Value="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer"/>
+    <ROW XmlAttribute="type_5" XmlElement="provider_1" Name="type" Flags="14" Order="1" Value="System.Data.Entity.SqlServerCompact.SqlCeProviderServices, EntityFramework.SqlServerCompact"/>
+    <ROW XmlAttribute="type_6" XmlElement="add_1" Name="type" Flags="14" Order="3" Value="System.Data.SqlServerCe.SqlCeProviderFactory, System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"/>
+    <ROW XmlAttribute="value" XmlElement="parameter" Name="value" Flags="14" Order="0" Value="System.Data.SqlServerCe.4.0"/>
+    <ROW XmlAttribute="version" XmlElement="supportedRuntime" Name="version" Flags="14" Order="0" Value="v4.0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.XmlElementComponent">
+    <ROW XmlElement="Comment" ParentElement="configSections" Name="Comment" Condition="1" Order="0" Flags="1" Text=" For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 "/>
+    <ROW XmlElement="Comment_1" ParentElement="configSections" Name="Comment" Condition="1" Order="2" Flags="1" Text=" For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 "/>
+    <ROW XmlElement="DXThemeManager" ParentElement="userSettings" Name="DXThemeManager" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="DbProviderFactories" ParentElement="system.data" Name="DbProviderFactories" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="add" ParentElement="connectionStrings" Name="add" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="add_1" ParentElement="DbProviderFactories" Name="add" Condition="1" Order="1" Flags="14"/>
+    <ROW XmlElement="configSections" ParentElement="configuration" Name="configSections" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="configuration" Name="configuration" Condition="1" Order="0" Flags="30"/>
+    <ROW XmlElement="connectionStrings" ParentElement="configuration" Name="connectionStrings" Condition="1" Order="1" Flags="14"/>
+    <ROW XmlElement="defaultConnectionFactory" ParentElement="entityFramework" Name="defaultConnectionFactory" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="entityFramework" ParentElement="configuration" Name="entityFramework" Condition="1" Order="3" Flags="14"/>
+    <ROW XmlElement="parameter" ParentElement="parameters" Name="parameter" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="parameters" ParentElement="defaultConnectionFactory" Name="parameters" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="provider" ParentElement="providers" Name="provider" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="provider_1" ParentElement="providers" Name="provider" Condition="1" Order="1" Flags="14"/>
+    <ROW XmlElement="providers" ParentElement="entityFramework" Name="providers" Condition="1" Order="1" Flags="14"/>
+    <ROW XmlElement="remove" ParentElement="DbProviderFactories" Name="remove" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="section" ParentElement="configSections" Name="section" Condition="1" Order="1" Flags="14"/>
+    <ROW XmlElement="sectionGroup" ParentElement="configSections" Name="sectionGroup" Condition="1" Order="3" Flags="14"/>
+    <ROW XmlElement="section_1" ParentElement="sectionGroup" Name="section" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="setting" ParentElement="DXThemeManager" Name="setting" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="startup" ParentElement="configuration" Name="startup" Condition="1" Order="2" Flags="14"/>
+    <ROW XmlElement="supportedRuntime" ParentElement="startup" Name="supportedRuntime" Condition="1" Order="0" Flags="14"/>
+    <ROW XmlElement="system.data" ParentElement="configuration" Name="system.data" Condition="1" Order="4" Flags="14"/>
+    <ROW XmlElement="userSettings" ParentElement="configuration" Name="userSettings" Condition="1" Order="5" Flags="14"/>
+    <ROW XmlElement="value" ParentElement="setting" Name="value" Condition="1" Order="0" Flags="14" Text="Office2010Blue"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.XmlFileComponent">
+    <ROW XmlFile="Fund.exe.config" FileName="FUNDEX~1.CON|Fund.exe.config" DirProperty="Fund_Dir" Component="A5FAD2_A0AB_492E_9F3A_F3AED8E676FF" RootElement="configuration" Flags="89" Version="1.0" Encoding="utf-8" IndentUnits="2"/>
   </COMPONENT>
 </DOCUMENT>

@@ -367,6 +367,9 @@ namespace Fund
 
             oUnitOfWork = new DAL.UnitOfWork();
 
+            Models.Member oMember = oUnitOfWork.MemberRepository
+                .GetById(Utility.CurrentMember.Id);
+
             Models.Fund oFund = oUnitOfWork.FundRepository
                 .GetById(Utility.CurrentFund.Id);
 
@@ -458,8 +461,15 @@ namespace Fund
 
                 (sender as System.ComponentModel.BackgroundWorker).ReportProgress(progressBarPercent);
 
-                Utility.CurrentLoan = oLoan;
             }
+
+            Utility.CurrentLoan = oLoan;
+
+            oMember.Balance += oLoan.LoanAmount;
+
+            oUnitOfWork.MemberRepository.Update(oMember);
+
+            oUnitOfWork.Save();
         }
 
         private void InstallmentsOfLoan_Click(object sender, System.Windows.RoutedEventArgs e)

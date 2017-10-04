@@ -55,6 +55,8 @@
         [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "image")]
         public byte[] Picture { get; set; }
 
+        public long Balance { get; set; }
+
         public System.Guid FundId { get; set; }
 
         public virtual Fund Fund { get; set; }
