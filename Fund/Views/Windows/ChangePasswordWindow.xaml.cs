@@ -2,7 +2,7 @@
 
 namespace Fund
 {
-    public partial class ChangePasswordWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class ChangePasswordWindow : System.Windows.Window
     {
         private System.Guid UserId;
 

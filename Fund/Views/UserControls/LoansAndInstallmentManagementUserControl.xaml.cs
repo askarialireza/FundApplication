@@ -89,6 +89,13 @@ namespace Fund
 
                     oUnitOfWork.InstallmentRepository.Update(oInstallment);
 
+                    Models.Member oMember = oUnitOfWork.MemberRepository
+                        .GetById(oInstallment.Loan.Member.Id);
+
+                    oMember.Balance -= oInstallment.PaymentAmount;
+
+                    oUnitOfWork.MemberRepository.Update(oMember);
+
                     Models.Fund oFund = oUnitOfWork.FundRepository
                         .GetById(Utility.CurrentFund.Id);
 
@@ -248,6 +255,13 @@ namespace Fund
 
                         oUnitOfWork.InstallmentRepository.Update(oInstallment);
 
+                        Models.Member oMember = oUnitOfWork.MemberRepository
+                            .GetById(oInstallment.Loan.Member.Id);
+
+                        oMember.Balance -= oInstallment.PaymentAmount;
+
+                        oUnitOfWork.MemberRepository.Update(oMember);
+
                         Models.Fund oFund = oUnitOfWork.FundRepository
                             .GetById(Utility.CurrentFund.Id);
 
@@ -377,6 +391,7 @@ namespace Fund
                     .Where(current => current.LoanId == Utility.CurrentLoan.Id)
                     .ToList();
 
+
                 if (varList.Count != 0)
                 {
                     foreach (Models.Installment oInstallment in varList)
@@ -385,6 +400,16 @@ namespace Fund
                             .Get()
                             .Where(current => current.InstallmentId == oInstallment.Id)
                             .FirstOrDefault();
+
+                        Models.Member oMember = oUnitOfWork.MemberRepository
+                            .GetById((System.Guid)oTransaction.MemberId);
+
+                        if (oInstallment.IsPayed == true)
+                        {
+                            oMember.Balance += oInstallment.PaymentAmount;
+
+                            oUnitOfWork.MemberRepository.Update(oMember);
+                        }
 
                         if (oTransaction != null)
                         {
@@ -419,12 +444,17 @@ namespace Fund
                 Models.Loan oLoan = oUnitOfWork.LoanRepository
                     .GetById(Utility.CurrentLoan.Id);
 
+
                 if (oLoan != null)
                 {
                     Models.Transaction oTransaction = oUnitOfWork.TransactionRepository
                         .Get()
                         .Where(current => current.LoanId == oLoan.Id)
                         .FirstOrDefault();
+
+
+                    Models.Member oMember = oUnitOfWork.MemberRepository
+                        .GetById(Utility.CurrentLoan.Member.Id);
 
                     oUnitOfWork.LoanRepository.Delete(oLoan);
 
@@ -436,9 +466,11 @@ namespace Fund
                     oUnitOfWork.Save();
 
                     oFund.Balance += oLoan.LoanAmount;
-                }
+                    oMember.Balance -= oLoan.LoanAmount;
 
-                oUnitOfWork.FundRepository.Update(oFund);
+                    oUnitOfWork.FundRepository.Update(oFund);
+                    oUnitOfWork.MemberRepository.Update(oMember);
+                }
 
                 oUnitOfWork.Save();
 

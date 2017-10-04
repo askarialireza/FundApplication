@@ -50,6 +50,8 @@
 
         public string PhoneNumber { get; set; }
 
+        public long Balance { get; set; }
+
         public System.DateTime MembershipDate { get; set; }
 
         [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "image")]

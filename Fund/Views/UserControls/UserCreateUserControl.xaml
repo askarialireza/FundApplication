@@ -5,8 +5,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Fund"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     x:Class="Fund.UsersCreateUserControl"
     mc:Ignorable="d" 
     d:DesignHeight="800" d:DesignWidth="1500"
@@ -95,11 +93,11 @@
 
             <Label Grid.Row="3" Style="{DynamicResource StarsStyle}"/>
 
-            <dxe:TextEdit x:Name="UsernameTextBox" FlowDirection="LeftToRight" MaskType="RegEx" Mask="[a-zA-Z0-9_]{4,20}" Grid.Column="2" FontSize="14" Margin="3" Grid.Row="3"/>
+            <TextBox x:Name="UsernameTextBox" FlowDirection="LeftToRight" Grid.Column="2" FontSize="14" Margin="3" Grid.Row="3"/>
 
             <Label Content="نوع کاربر :" Grid.Row="4" Style="{DynamicResource LabelCol1}"/>
 
-            <dxe:ComboBoxEdit x:Name="UserTypeComboBox" Grid.Column="2" FontWeight="Bold" FontSize="14" Margin="3" Grid.Row="4" Style="{DynamicResource UserTypesComboBoxEditStyle}"/>
+            <ComboBox x:Name="UserTypeComboBox" Grid.Column="2" FontWeight="Bold" FontSize="14" Margin="3" Grid.Row="4" Style="{DynamicResource UserTypesComboBoxEditStyle}"/>
 
             <Label Content="رمز عبور :" Grid.Row="6" Style="{DynamicResource LabelCol1}"/>
 
@@ -117,7 +115,7 @@
 
             <Grid Grid.Row="9" Grid.Column="2">
 
-                <dxe:TextEdit Name="emailAddressTextBox" Grid.Row="0" MaskType="RegEx" FontSize="14" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" FlowDirection="LeftToRight" GotKeyboardFocus="emailAddressTextBox_GotKeyboardFocus" LostKeyboardFocus="emailAddressTextBox_LostKeyboardFocus" FontFamily="{DynamicResource EnGlobalFontFamily}" Grid.Column="2" Margin="3" />
+                <TextBox Name="emailAddressTextBox" Grid.Row="0" FontSize="14" VerticalContentAlignment="Center" FlowDirection="LeftToRight" GotKeyboardFocus="emailAddressTextBox_GotKeyboardFocus" LostKeyboardFocus="emailAddressTextBox_LostKeyboardFocus" FontFamily="{DynamicResource EnGlobalFontFamily}" Grid.Column="2" Margin="3" />
 
                 <Popup Grid.Row="10" Grid.Column="2" Name="EmailPopup" IsOpen="False" StaysOpen="True" PopupAnimation="Fade" AllowsTransparency="True" Width="300" Height="auto">
                     <Border Background="White" BorderThickness="2" BorderBrush="DarkGray">
@@ -145,9 +143,9 @@
         
         <Grid Grid.Row="4">
 
-            <dx:SimpleButton x:Name="CloseButton" Content="بستن" Margin="0,0,85,4" Click="CloseClick" Style="{StaticResource CancelButtonStyle}" Height="32" Grid.Column="0"/>
+            <Button x:Name="CloseButton" Content="بستن" Margin="0,0,85,4" Click="CloseClick" Style="{StaticResource CancelButtonStyle}" Height="32" Grid.Column="0"/>
 
-            <dx:SimpleButton x:Name="AcceptButton" Content="تایید" Margin="0,4,0,4" Click="AcceptClick" Style="{StaticResource CancelButtonStyle}" Height="32"/>
+            <Button x:Name="AcceptButton" Content="تایید" Margin="0,4,0,4" Click="AcceptClick" Style="{StaticResource CancelButtonStyle}" Height="32"/>
 
             <Label Content="تکمیل فیلد‌های ستاره‌دار (*) الزامی می‌باشد" TextBlock.Foreground="Red" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
 

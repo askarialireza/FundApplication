@@ -1,19 +1,20 @@
-﻿<UserControl x:Class="Fund.Captcha"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-             xmlns:local="clr-namespace:Fund"
-             mc:Ignorable="d" 
-             Height="auto"
-             Width="auto"
-             VerticalAlignment="Stretch"
-             HorizontalAlignment="Stretch"
-             Loaded="UserControl_Loaded"
-             FontFamily="Chiller"
-             FontWeight="Bold"
-             FontSize="48">
+﻿<UserControl 
+    
+    x:Class="Fund.Captcha"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Fund"
+    mc:Ignorable="d" 
+    Height="auto"
+    Width="auto"
+    VerticalAlignment="Stretch"
+    HorizontalAlignment="Stretch"
+    Loaded="UserControl_Loaded"
+    FontFamily="Chiller"
+    FontWeight="Bold"
+    FontSize="48">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -45,7 +46,15 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <dx:SimpleButton Name="SpeechCaptchaButton" Grid.Row="1" Grid.Column="0" Margin="0,2,2,2" Width="AUTO"  HorizontalContentAlignment="Center" Click="SpeechCaptchaButton_Click" Glyph="pack://application:,,,/Fund;component/Resources/Icons/Speaker.png" GlyphAlignment="Top"/>
-        <dx:SimpleButton Name="ResetCaptchaButton" Grid.Row="1" Grid.Column="1" Margin="2,2,0,2" Width="AUTO" HorizontalContentAlignment="Center" Click="ResetCaptchaButton_Click" Glyph="pack://application:,,,/Fund;component/Resources/Icons/Refresh.png" GlyphAlignment="Top"/>
+        
+        <Button Name="SpeechCaptchaButton" Grid.Row="1" Grid.Column="0" Margin="0,2,2,2" Width="AUTO"  HorizontalContentAlignment="Center" Click="SpeechCaptchaButton_Click">
+            <Image Source="/Fund;component/Resources/Icons/Speaker.png"/>
+        </Button>
+
+        <Button Name="ResetCaptchaButton" Grid.Row="1" Grid.Column="1" Margin="2,2,0,2" Width="AUTO" HorizontalContentAlignment="Center" Click="ResetCaptchaButton_Click">
+            <Image Source="/Fund;component/Resources/Icons/Refresh.png"/>
+        </Button>
+    
     </Grid>
+    
 </UserControl>

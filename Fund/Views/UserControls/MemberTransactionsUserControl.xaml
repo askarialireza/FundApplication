@@ -1,10 +1,6 @@
 ﻿<UserControl 
     
     x:Class="Fund.MemberTransactionsUserControl"
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"      
-    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -72,16 +68,16 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Content="جستجوی اعضا :" Grid.Column="0" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right" Margin="5,0"/>
+                    <Label Content="جستجوی اعضا :" Grid.Column="0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Right" Margin="5,0"/>
 
                     <TextBox x:Name="SearchMemberTextBox" Grid.Column="1" Margin="0,2" Style="{DynamicResource RtlTextBoxStyle}" TextAlignment="Left" Height="auto" TextChanged="SearchMemberTextBox_TextChanged" />
 
                 </Grid>
 
-                <ListBox Name="MembersListBox" FontSize="15" FontWeight="Bold" Grid.Row="1" Margin="5" SelectionChanged="MembersListBox_SelectionChanged"  Style="{DynamicResource EmptyListBox}"/>
+                <ListBox Name="MembersListBox" FontSize="14" FontWeight="Bold" Grid.Row="1" Margin="5" SelectionChanged="MembersListBox_SelectionChanged"  Style="{DynamicResource EmptyListBox}"/>
 
 
-                <dxlc:GroupBox Grid.Row="2" Margin="5" FontSize="16" FontWeight="Bold" Header="مشخصات" TextBlock.TextAlignment="Center">
+                <GroupBox Grid.Row="2" Margin="5" FontSize="14" FontWeight="Bold" Header="مشخصات" TextBlock.TextAlignment="Center">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <Grid x:Name="MemberViewGrid">
                             <Grid.RowDefinitions>
@@ -97,15 +93,15 @@
                                 <Image Name="MemberImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Stretch="UniformToFill"/>
                             </Border>
 
-                            <Label Name="MemberNameLabel" Grid.Row="2" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            
-                            <Label Name="MemberNationalCodeLabel" Grid.Row="3" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            
-                            <Label Name="MembershipDateLabel" Grid.Row="4" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            
+                            <Label Name="MemberNameLabel" Grid.Row="2" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            <Label Name="MemberNationalCodeLabel" Grid.Row="3" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            <Label Name="MembershipDateLabel" Grid.Row="4" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
                         </Grid>
                     </ScrollViewer>
-                </dxlc:GroupBox>
+                </GroupBox>
 
             </Grid>
 
@@ -119,23 +115,20 @@
 
 
                 <Grid Margin="5" Grid.Row="1">
-                    <dxg:GridControl Name="GridControl" Style="{DynamicResource GridControlStyle}">
 
-                        <dxg:GridControl.View>
-                            <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row" ShowFixedTotalSummary="False" ShowAutoFilterRow="False" ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
-                        </dxg:GridControl.View>
+                    <DataGrid Name="GridControl" Style="{DynamicResource DataGridStyle}">
 
-                        <dxg:GridColumn Header="تاریخ تراکنش" Binding="{Binding Date, Converter={conv:DateTimeToPersianDateTimeStringConverter}}"  Style="{StaticResource GridColumnStyle}" />
+                        <DataGrid.Columns>
 
-                        <dxg:GridColumn Header="نوع تراکنش" Binding="{Binding TransactionDescription}"  Style="{DynamicResource GridColumnStyle}" />
+                            <DataGridTextColumn Header="تاریخ تراکنش" Binding="{Binding Date, Converter={conv:DateTimeToPersianDateTimeStringConverter}}"  ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                        <dxg:GridColumn Header="مقدار تراکنش" Binding="{Binding AmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
+                            <DataGridTextColumn Header="نوع تراکنش" Binding="{Binding TransactionDescription}"  ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                        <dxg:GridColumn Binding="{Binding BalanceRialFormat}"  Visible="False" />
+                            <DataGridTextColumn Header="مقدار تراکنش" Binding="{Binding AmountRialFormat}"  ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                        <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
+                        </DataGrid.Columns>
 
-                    </dxg:GridControl>
+                    </DataGrid>
 
                 </Grid>
 
@@ -145,13 +138,13 @@
 
         <Grid Grid.Row="2">
 
-            <dx:SimpleButton x:Name="PrintButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/Print32.png" ToolTip="چاپ" Margin="0,0,90,4" Click="PrintButton_Click"/>
+            <Button x:Name="PrintButton" Style="{DynamicResource PrintButtonStyle}" Margin="0,0,90,8" Click="PrintButton_Click" Grid.Column="0" />
 
-            <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF" Margin="0,0,143,4" Click="ExportToPdfButton_Click"/>
+            <Button x:Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Margin="0,0,143,8" Click="ExportToPdfButton_Click" Grid.Column="0"/>
 
-            <dx:SimpleButton x:Name="SendEmailButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/Email_30px.png" ToolTip="ارسال پست الکترونیکی" Margin="0,0,196,4" Click="SendEmailButton_Click"/>
+            <Button x:Name="SendEmailButton" Style="{DynamicResource SendEmailButtonStyle}" Margin="0,0,196,8" Click="SendEmailButton_Click" Grid.Column="0"/>
 
-            <dx:SimpleButton x:Name="CancelButton" Style="{DynamicResource CancelButtonStyle}" Height="32" Grid.Column="0" Click="CancelButton_Click" Margin="0,0,5,4"/>
+            <Button x:Name="CancelButton" Style="{DynamicResource CancelButtonStyle}" Height="32" Grid.Column="0" Click="CancelButton_Click" Margin="0,0,5,8"/>
 
         </Grid>
 

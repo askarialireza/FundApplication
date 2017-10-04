@@ -1,12 +1,10 @@
 ﻿<UserControl 
     
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  
     x:Class="Fund.DatePicker"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Fund"
     mc:Ignorable="d" 
     d:DesignHeight="50" d:DesignWidth="300"
@@ -15,19 +13,6 @@
     Style="{DynamicResource UserControlStyle}">
 
     <UserControl.Resources>
-
-        <Style x:Key="ToggleButtonStyle" TargetType="{x:Type dx:SimpleButton}">
-            <Setter Property="ButtonKind" Value="Toggle"/>
-            <Setter Property="IsChecked" Value="False"/>
-            <Style.Triggers>
-                <Trigger Property="IsChecked" Value="False">
-                    <Setter Property="Glyph" Value="pack://application:,,,/Fund;component/Resources/Icons/Expand%20Arrow_52px.png"/>
-                </Trigger>
-                <Trigger Property="IsChecked" Value="True">
-                    <Setter Property="Glyph" Value="pack://application:,,,/Fund;component/Resources/Icons/Collapse%20Arrow_52px.png"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
 
         <Style x:Key="RectangleStyleNone" TargetType="{x:Type Rectangle}"/>
 
@@ -98,13 +83,6 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
-        <!--<Style TargetType="{x:Type Grid}" x:Key="GridStyle">
-        <EventSetter Event="UIElement.MouseLeftButtonDown" Handler="Grid_MouseLeftButtonDown" />
-        <EventSetter Event="UIElement.MouseEnter" Handler="Grid_MouseEnter"/>
-        <EventSetter Event="UIElement.MouseLeave" Handler="Grid_MouseLeave"/>
-    </Style>-->
-
-
     </UserControl.Resources>
 
     <Grid>
@@ -114,10 +92,11 @@
         </Grid.ColumnDefinitions>
 
 
-        <dxe:TextEdit Name="DateValueTextEdit" Grid.Column="0" Grid.ColumnSpan="2" FlowDirection="LeftToRight" TextBlock.TextAlignment="Right" Mask="[1-4]\d{3}\/((0?[1-6]\/((3[0-1])|([1-2][0-9])|(0?[1-9])))|((1[0-2]|(0?[7-9]))\/(30|([1-2][0-9])|(0?[1-9]))))" MaskType="RegEx" Validate="DateValueTextEdit_Validate" />
-        
-        <dx:SimpleButton Name="ToggleButton" Grid.Column="1" Style="{DynamicResource ToggleButtonStyle}" Margin="2" Checked="SimpleButton_Checked"/>
+        <TextBox Name="PersianDateTextBox" Grid.Column="0" Grid.ColumnSpan="2" FlowDirection="LeftToRight" TextBlock.TextAlignment="Right" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Center" />
 
+        <Button Name="ToggleButton" Grid.Column="1" Margin="2" Click="ToggleButton_Click">
+            <Image Source="/Fund;component/Resources/Icons/Expand%20Arrow_52px.png"/>
+        </Button>
 
         <Popup Name="DatePickerPopup" IsOpen="False" StaysOpen="False" PopupAnimation="Fade" AllowsTransparency="True" Width="auto" Height="auto">
             <Border Background="White" BorderThickness="2" BorderBrush="DarkGray">

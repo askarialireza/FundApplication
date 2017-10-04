@@ -1,0 +1,285 @@
+﻿<Fluent:RibbonWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+    xmlns:local="clr-namespace:Fund"
+    xmlns:fluent="urn:fluent-ribbon"
+    
+    x:Class="Fund.MainWindow"
+    mc:Ignorable="d"
+    FlowDirection="RightToLeft"
+    FontFamily="{DynamicResource FaGlobalFontFamily}"
+    Width="800" 
+    Height="600"
+    Closing="RibbonWindow_Closing"
+    Loaded="RibbonWindow_Loaded"
+    WindowState="Maximized"
+    >
+    
+    <Fluent:RibbonWindow.Resources>
+        <ControlTemplate x:Key="ButtonControlTemplate" TargetType="{x:Type Fluent:Button}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Margin="5,0" Height="auto" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                <StackPanel x:Name="stackPanel" Orientation="Vertical" Width="auto">
+                    <ContentPresenter x:Name="iconImage" HorizontalAlignment="Center" Height="36" Margin="3" SnapsToDevicePixels="True" VerticalAlignment="Center" Width="36">
+                        <ContentPresenter.Content>
+                            <Binding Path="LargeIcon" RelativeSource="{RelativeSource TemplatedParent}">
+                                <Binding.Converter>
+                                    <fluent:ObjectToImageConverter/>
+                                </Binding.Converter>
+                            </Binding>
+                        </ContentPresenter.Content>
+                    </ContentPresenter>
+                    <Label x:Name="controlLabel" Focusable="False" HorizontalAlignment="Stretch" FontWeight="Bold" FontSize="12" Margin="0" Content="{TemplateBinding Header}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="Size" Value="Small">
+                    <Setter Property="Orientation" TargetName="stackPanel" Value="Horizontal"/>
+                    <Setter Property="Visibility" TargetName="controlLabel" Value="Collapsed"/>
+                    <Setter Property="Width"  TargetName="controlLabel" Value="100"/>
+                    <Setter Property="Width" TargetName="iconImage" Value="16"/>
+                    <Setter Property="Height" TargetName="iconImage" Value="18"/>
+                    <Setter Property="Margin" TargetName="iconImage" Value="4,0"/>
+                    <Setter Property="Content" TargetName="iconImage">
+                        <Setter.Value>
+                            <Binding Path="Icon" RelativeSource="{RelativeSource TemplatedParent}">
+                                <Binding.Converter>
+                                    <fluent:ObjectToImageConverter/>
+                                </Binding.Converter>
+                            </Binding>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Margin" TargetName="controlLabel" Value="2,0"/>
+                </Trigger>
+                <Trigger Property="Size" Value="Middle">
+                    <Setter Property="Orientation" TargetName="stackPanel" Value="Horizontal"/>
+                    <Setter Property="Width" TargetName="stackPanel" Value="Auto"/>
+                    <Setter Property="VerticalAlignment" TargetName="iconImage" Value="Center"/>
+                    <Setter Property="Margin" TargetName="controlLabel" Value="0"/>
+                    <Setter Property="Width"  TargetName="controlLabel" Value="auto"/>
+                    <Setter Property="Height"  TargetName="controlLabel" Value="27"/>
+                    <Setter Property="VerticalAlignment" TargetName="border" Value="Stretch"/>
+                    <Setter Property="Width" TargetName="iconImage" Value="18"/>
+                    <Setter Property="Height" TargetName="iconImage" Value="18"/>
+                    <Setter Property="Margin" TargetName="iconImage" Value="0"/>
+                    <Setter Property="Content" TargetName="iconImage">
+                        <Setter.Value>
+                            <Binding Path="Icon" RelativeSource="{RelativeSource TemplatedParent}">
+                                <Binding.Converter>
+                                    <fluent:ObjectToImageConverter/>
+                                </Binding.Converter>
+                            </Binding>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="VerticalAlignment" TargetName="controlLabel" Value="Center"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource ButtonPressedOuterBorderBrush}"/>
+                    <Setter Property="Background" TargetName="border" Value="{DynamicResource ButtonPressedOuterBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" TargetName="iconImage" Value="0.5"/>
+                    <Setter Property="Opacity" TargetName="controlLabel" Value="0.5"/>
+                    <Setter Property="Effect" TargetName="iconImage">
+                        <Setter.Value>
+                            <Fluent:GrayscaleEffect/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                        <Condition Property="IsPressed" Value="False"/>
+                        <Condition Property="IsEnabled" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" TargetName="border" Value="{DynamicResource ButtonHoverOuterBackgroundBrush}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource ButtonHoverOuterBorderBrush}"/>
+                </MultiTrigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Fluent:RibbonWindow.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Fluent:Ribbon Height="auto" Grid.Row="0" FontFamily="{DynamicResource FaGlobalFontFamily}">
+
+            <Fluent:RibbonTabItem FontWeight="Bold" Header="خانه">
+
+                <Fluent:RibbonGroupBox Name="FundRibbonPageGroup" Header="صندوق">
+
+                    <Fluent:Button Name="FundCreateButton" Header="صندوق جدید" Click="FundCreateButton_Click" LargeIcon="/Fund;component/Resources/Icons/SafeNew80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="LargeFundLoginButton" Header="ورود به صندوق" Click="LargeFundLoginButton_Click" LargeIcon="/Fund;component/Resources/Icons/SafeIn.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="FundLoginButton" Header="ورود به صندوق" Click="FundLoginButton_Click" Size="Middle" Icon="/Fund;component/Resources/Icons/SafeIn32.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="FundSettingsButton" Header="تنظیمات صندوق" Click="FundSettingsButton_Click" Size="Middle" Icon="/Fund;component/Resources/Icons/SafeSettings32.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="FundLogoutButton" Header="خروج از صندوق" Click="FundLogoutButton_Click" Size="Middle" Icon="/Fund;component/Resources/Icons/SafeOut32.png" Template="{DynamicResource ButtonControlTemplate}"/>
+                    
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Name="MembersRibbonPageGroup" Header="اعضاء صندوق">
+
+                    <Fluent:Button Name="MemberCreateButton" Header="عضو جدید" Click="MemberCreateButton_Click" LargeIcon="/Fund;component/Resources/Icons/AddUserGroup80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="MembersManagementButton" Click="MembersManagementButton_Click" Header="مدیریت اعضاء" LargeIcon="/Fund;component/Resources/Icons/EditUser80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Name="LoanAndPaymentRibbonPageGroup" Header="وام و اقساط">
+
+                    <Fluent:Button Name="CreateLoanButton" Header="پرداخت وام" Click="CreateLoanButton_Click" LargeIcon="/Fund;component/Resources/Icons/CashinHand_80px.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="LoanAndInstallmentsManagentButton" Header="مدیریت وام‌ها و اقساط" Click="LoanAndInstallmentsManagentButton_Click" LargeIcon="/Fund;component/Resources/Icons/LoansAndInstallmentsManagement.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem FontWeight="Bold" Name="ReportsRibbonPage" Header="گزارشات">
+
+                <Fluent:RibbonGroupBox Name="PopularReportRibbonPage" Header="گزارشات عمومی">
+
+                    <Fluent:Button Name="MembersListButton" Header="لیست اعضای صندوق" Click="MembersListButton_Click" LargeIcon="/Fund;component/Resources/Icons/UserGroupManWoman80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Header="چاپ کارت عضویت" Name="MembershipCardPrint" Click="MembershipCardPrint_Click" LargeIcon="/Fund;component/Resources/Icons/IDCard80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Name="DetailsReportRibbonPage" Header="گزارش ریز حساب‌ها">
+                    
+                    <Fluent:Button Name="FundTransactionsButton" Header="ریز حساب صندوق" Click="FundTransactionsButton_Click" LargeIcon="/Fund;component/Resources/Icons/FundTransaction301.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="DebtorListButton" Header="ریز مانده حساب" Click="DebtorListButton_Click" Size="Middle" Icon="/Fund;component/Resources/Icons/FundTransaction30.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="MembersTransactionButton" Header="ریز حساب اعضا" Click="MembersTransactionButton_Click" Size="Middle" Icon="/Fund;component/Resources/Icons/MembersTransaction30.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="MemberDepositButton" Header="ریز واریزی اعضا" Click="MemberDepositButton_Click" Size="Middle" Icon="/Fund;component/Resources/Icons/MembersTransaction30.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Name="BalanceReportRibbonPage" Header="تراز">
+
+                    <Fluent:Button Name="FundBalanceButton" Header="تراز مالی صندوق" Click="FundBalanceButton_Click" LargeIcon="/Fund;component/Resources/Icons/FundBalance.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="MemberBalanceButton" Header="تراز مالی اعضا" Click="MemberBalanceButton_Click" LargeIcon="/Fund;component/Resources/Icons/MembersBalance.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Name="LoansReportRibbonPage" Header="گزارش وام‌ها">
+
+                    <Fluent:Button Name="DelayedInstallmentsListButton" Header="لیست اقساط معوق" Click="DelayedInstallmentsListButton_Click" Size="Middle" Icon="/Fund;component/Resources/Icons/MoneyUndone100.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="PayedLoansList" Header="لیست وام‌های پرداختی" Click="PayedLoansList_Click" Size="Middle" Icon="/Fund;component/Resources/Icons/ReceiptDone.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="MemberLonasStatus" Header="وضعیت وام اعضا" Click="MemberLonasStatus_Click" Size="Middle" Icon="/Fund;component/Resources/Icons/Refund_30px.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem FontWeight="Bold" Header="سایر">
+
+                <Fluent:RibbonGroupBox Name="ToolsPageGroup" Header="مرتبط با صندوق">
+
+                    <Fluent:Button Name="SchedulerButton" Header="تقویم و یادآور" Click="SchedulerButton_Click" LargeIcon="/Fund;component/Resources/Icons/Calenadr80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="ابزارها">
+
+                    <Fluent:Button Name="CalculatorButton" Header="Calculator" Click="CalculatorButton_Click" LargeIcon="/Fund;component/Resources/Icons/Calculator801.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="NotepadButton" Header="Notepad" Click="NotepadButton_Click" LargeIcon="/Fund;component/Resources/Icons/Notepad801.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="اطلاعات نرم افزار">
+
+                    <Fluent:Button Name="AboutSoftwareButton" Header="درباره نرم افزار" Click="AboutSoftwareButton_Click" LargeIcon="/Fund;component/Resources/Icons/Info_80px.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
+            <Fluent:RibbonTabItem FontWeight="Bold" Header="مدیر" Name="AdminRibbonPage">
+
+                <Fluent:RibbonGroupBox Header="کاربران">
+
+                    <Fluent:Button Name="UsersViewButton" Header="مدیریت کاربران" Click="UsersViewButton_Click" LargeIcon="/Fund;component/Resources/Icons/EditUser80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="CreateUserButton" Header="ایجاد حساب کاربری جدید" Click="CreateUserButton_Click" LargeIcon="/Fund;component/Resources/Icons/AddUser80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="بانک اطلاعاتی">
+
+                    <Fluent:Button Name="DeleteDatabase" Header="حذف بانک اطلاعاتی" Click="DeleteDatabase_Click" LargeIcon="/Fund;component/Resources/Icons/DeleteDatabase80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="DatabaseConfigButton" Header="تنظیمات بانک اطلاعاتی" Click="DatabaseConfigButton_Click" LargeIcon="/Fund;component/Resources/Icons/DatabaseConfig80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
+        </Fluent:Ribbon>
+
+        <Grid Name="MainGrid" Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3.5*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="1*" MinWidth="200" MaxWidth="400"/>
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Name="SthPanel" Grid.Column="2" VerticalAlignment="Stretch" Width="auto" Style="{DynamicResource PanelGridStyle}" Height="auto" LastChildFill="True" x:FieldModifier="public"/>
+
+            <GridSplitter Grid.Column="1" Width="5" ResizeBehavior="PreviousAndNext" DragCompleted="GridSplitter_DragCompleted"/>
+
+            <DockPanel Name="UserControlsPanel" Grid.Column="0" HorizontalAlignment="Stretch" Height="auto" Width="auto" LastChildFill="True" VerticalAlignment="Stretch" Background="{DynamicResource DefaultBackground}"/>
+
+        </Grid>
+
+
+        <Fluent:StatusBar Grid.Row="2">
+
+            <Fluent:StatusBarItem HorizontalAlignment="Left">
+                
+                <Grid>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="250"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Name="CurrentUserLabel" Margin="4,0" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="0" Text="  کاربر کنونی" Width="130"/>
+                    
+                    <Button Name="UserLogoutButton" Grid.Column="1" Content="خروج" Margin="4" Click="UserLogoutButton_Click"/>
+                    
+                    <ProgressBar FlowDirection="RightToLeft" Grid.Column="2" Name="MainProgressBar" Margin="4" Height="25" x:FieldModifier="public" Visibility="Hidden"/>
+                    
+                </Grid>
+              
+            </Fluent:StatusBarItem>
+
+            <Fluent:StatusBarItem Name="TodayLabel" Width="120" FontWeight="Bold" TextBlock.TextAlignment="Center"  Content="تاریخ کنونی" HorizontalAlignment="Right" />
+
+            <Separator HorizontalAlignment="Right" />
+
+            <Fluent:StatusBarItem Name="CurrentTimeLabel" Width="100" FontWeight="Bold" TextBlock.TextAlignment="Center" HorizontalAlignment="Right" Value="ساعت کنونی" />
+            
+        </Fluent:StatusBar>
+
+    </Grid>
+
+</Fluent:RibbonWindow>

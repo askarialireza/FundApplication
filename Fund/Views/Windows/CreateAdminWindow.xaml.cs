@@ -2,7 +2,7 @@
 
 namespace Fund
 {
-    public partial class CreateAdminWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class CreateAdminWindow : System.Windows.Window
     {
         public CreateAdminWindow()
         {

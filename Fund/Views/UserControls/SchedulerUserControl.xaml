@@ -3,22 +3,29 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:local="clr-namespace:Fund"
-    xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduler" 
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
     x:Class="Fund.SchedulerUserControl"
     mc:Ignorable="d" 
     Style="{DynamicResource UserControlStyle}"
-    Loaded="UserControlLoaded">
+    >
 
-    <Grid>
-        <Grid Margin="10,10,10,50">
-            <local:PersianCalendar FlowDirection="LeftToRight" DayEventsChanged="PersianCalendar_DayEventsChanged"/>
-        </Grid>
-        <Grid Height="40" Margin="10,0,10,10" VerticalAlignment="Bottom">
-            <dx:SimpleButton x:Name="CloseControlButton" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick"/>
+    <Grid Style="{DynamicResource GridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" FlowDirection="LeftToRight" VerticalScrollBarVisibility="Auto">
+            <Grid FlowDirection="RightToLeft">
+                <local:PersianCalendar FlowDirection="LeftToRight"/>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Height="40" Grid.Row="1">
+            <Button x:Name="CloseControlButton" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick"/>
         </Grid>
 
     </Grid>
+    
+    
 </UserControl>

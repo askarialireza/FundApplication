@@ -1,7 +1,7 @@
 ﻿
 namespace Fund
 {
-    public partial class EnterEmailPasswordWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class EnterEmailPasswordWindow : System.Windows.Window
     {
         public string EmailPassword { get; set; }
 

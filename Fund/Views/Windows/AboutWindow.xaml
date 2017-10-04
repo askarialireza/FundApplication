@@ -8,7 +8,7 @@
     xmlns:local="clr-namespace:Fund"
     mc:Ignorable="d"
     Title="" Height="350" Width="500"
-    Style="{StaticResource OriginalWindowStyle}"
+    Style="{StaticResource WindowStyle}"
     WindowStartupLocation="CenterScreen"
     MouseLeftButtonDown="Window_MouseLeftButtonDown"
     Loaded="Window_Loaded"

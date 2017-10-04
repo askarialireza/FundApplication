@@ -1,17 +1,15 @@
-﻿<dx:DXWindow
+﻿<Window
     
     xmlns:Fund="clr-namespace:Fund" 
     x:Class="Fund.ConfirmDeleteDatabaseWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     Loaded="DXWindow_Loaded"
     Title="" 
     Height="310" 
     Width="300" 
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource WindowStyle}"
-    ShowTitle="False" 
     >
 
     <Grid Style="{StaticResource GridStyle}">
@@ -44,10 +42,10 @@
         
         <TextBox Name="CaptchaValueTextBox" Grid.Row="5" FontSize="14" Style="{StaticResource LtrTextBoxStyle}"/>
         
-        <dx:SimpleButton Grid.Row="7" Click="AcceptButton_Click" Style="{StaticResource DefaultButtonStyle}"/>
+        <Button Grid.Row="7" Click="AcceptButton_Click" Style="{StaticResource DefaultButtonStyle}"/>
 
-        <dx:SimpleButton Grid.Row="7" Margin="0,0,83,0" Click="CancelButton_Click" Style="{StaticResource CancelButtonStyle}"/>
+        <Button Grid.Row="7" Margin="0,0,83,0" Click="CancelButton_Click" Style="{StaticResource CancelButtonStyle}"/>
     
     </Grid>
 
-</dx:DXWindow>
+</Window>

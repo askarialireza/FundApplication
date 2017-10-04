@@ -3,7 +3,7 @@
 namespace Fund
 {
 
-    public partial class LoanDetailsWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class LoanDetailsWindow : System.Windows.Window
     {
         private System.Guid LoanId;
 

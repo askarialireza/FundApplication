@@ -147,27 +147,6 @@ namespace Fund
             }
         }
 
-        private void TextEdit_EditorActivated(object sender, System.Windows.RoutedEventArgs e)
-        {
-            ((DevExpress.Xpf.Editors.TextEdit)sender).Text =
-                ((DevExpress.Xpf.Editors.TextEdit)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
-        }
-
-        private void TextEdit_Validate(object sender, DevExpress.Xpf.Editors.ValidationEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(((DevExpress.Xpf.Editors.TextEdit)sender).Text) == false)
-            {
-                long value = System.Convert.ToInt64(((DevExpress.Xpf.Editors.TextEdit)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
-
-                ((DevExpress.Xpf.Editors.TextEdit)sender).Text = value.ToRialStringFormat();
-            }
-            else
-            {
-                long zero = 0;
-                ((DevExpress.Xpf.Editors.TextEdit)sender).Text = zero.ToRialStringFormat();
-            }
-        }
-
         private void AcceptButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             #region Error Handling Messages
@@ -280,7 +259,6 @@ namespace Fund
 
                 if (SendEmailToggleSwitch.IsChecked == true && IsConnectedToInternet == true)
                 {
-
                     EnterEmailPasswordWindow oEnterEmailPasswordWindow = new EnterEmailPasswordWindow();
 
                     if (oEnterEmailPasswordWindow.ShowDialog() == true)
@@ -366,6 +344,9 @@ namespace Fund
             DAL.UnitOfWork oUnitOfWork = null;
 
             oUnitOfWork = new DAL.UnitOfWork();
+
+            Models.Member oMember = oUnitOfWork.MemberRepository
+                .GetById(Utility.CurrentMember.Id);
 
             Models.Fund oFund = oUnitOfWork.FundRepository
                 .GetById(Utility.CurrentFund.Id);
@@ -458,8 +439,15 @@ namespace Fund
 
                 (sender as System.ComponentModel.BackgroundWorker).ReportProgress(progressBarPercent);
 
-                Utility.CurrentLoan = oLoan;
             }
+
+            Utility.CurrentLoan = oLoan;
+
+            oMember.Balance += oLoan.LoanAmount;
+
+            oUnitOfWork.MemberRepository.Update(oMember);
+
+            oUnitOfWork.Save();
         }
 
         private void InstallmentsOfLoan_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -525,7 +513,6 @@ namespace Fund
                 }
             }
         }
-
 
         private ViewModels.CreateLoanViewModel CalculateLoanParameters(long LoanAmount, int InstallmentsCount, int Percent = 0)
         {
@@ -595,7 +582,28 @@ namespace Fund
                         text: "اتصال به اینترنت برقرار نمی‌باشد." + System.Environment.NewLine + "برای ارسال ایمیل به اعضا نیاز به اینترنت می‌باشد."
                     );
 
-                ((DevExpress.Xpf.Editors.ToggleSwitch)sender).IsChecked = false;
+                ((System.Windows.Controls.CheckBox)sender).IsChecked = false;
+            }
+        }
+
+        private void LoanAmountTextBox_GotFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ((System.Windows.Controls.TextBox)sender).Text =
+                ((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
+        }
+
+        private void LoanAmountTextBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(((System.Windows.Controls.TextBox)sender).Text) == false)
+            {
+                long value = System.Convert.ToInt64(((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
+
+                ((System.Windows.Controls.TextBox)sender).Text = value.ToRialStringFormat();
+            }
+            else
+            {
+                long zero = 0;
+                ((System.Windows.Controls.TextBox)sender).Text = zero.ToRialStringFormat();
             }
         }
     }

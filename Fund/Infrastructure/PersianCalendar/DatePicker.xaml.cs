@@ -16,51 +16,56 @@ namespace Fund
 
             SelectedPersianDateTime = FarsiLibrary.Utils.PersianDate.Now;
 
-            DateValueTextEdit.Text = SelectedPersianDateTime.ToString("d");
+            PersianDateTextBox.Text = SelectedPersianDateTime.ToString("d");
 
-            Text = DateValueTextEdit.Text;
+            Text = PersianDateTextBox.Text;
 
-        }
-
-        private void SimpleButton_Checked(object sender, System.Windows.RoutedEventArgs e)
-        {
-            DatePickerPopup.IsOpen = (bool)ToggleButton.IsChecked;
+            SelectedDateTime = FarsiLibrary.Utils.PersianDateConverter.ToGregorianDateTime(SelectedPersianDateTime);
         }
 
         private void DatePickerPopup_SelectedDateTimeChanged(object sender, System.EventArgs e)
         {
-            DateValueTextEdit.Text = DatePickerPopupCalendar.SelectedDateTime.ToString("d");
-
-            ToggleButton.IsChecked = false;
+            PersianDateTextBox.Text = DatePickerPopupCalendar.SelectedDateTime.ToString("d");
 
             DatePickerPopup.IsOpen = false;
 
-            Text = DateValueTextEdit.Text;
+            Text = PersianDateTextBox.Text;
 
             SelectedDateTime = FarsiLibrary.Utils.PersianDateConverter.ToGregorianDateTime(DatePickerPopupCalendar.SelectedDateTime);
 
             SelectedPersianDateTime = DatePickerPopupCalendar.SelectedDateTime;
         }
 
-        private void DateValueTextEdit_Validate(object sender, DevExpress.Xpf.Editors.ValidationEventArgs e)
+        private void ToggleButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (e.Value != null)
+            if(string.IsNullOrWhiteSpace(PersianDateTextBox.Text.Trim())==true)
             {
-                if (string.IsNullOrWhiteSpace(e.Value.ToString()) == false)
-                {
-                    FarsiLibrary.Utils.PersianDate oPersianDate = new FarsiLibrary.Utils.PersianDate(e.Value.ToString());
+                PersianDateTextBox.Focus();
 
-                    DatePickerPopupCalendar.SelectedDateTime = oPersianDate;
+                return;
+            }
 
-                    DatePickerPopupCalendar.GoToDate(oPersianDate);
+            System.Text.RegularExpressions.Regex oRegex =
+                new System.Text.RegularExpressions.Regex(@"[1-4]\d{3}\/((0?[1-6]\/((3[0-1])|([1-2][0-9])|(0?[1-9])))|((1[0-2]|(0?[7-9]))\/(30|([1-2][0-9])|(0?[1-9]))))");
 
-                    SelectedDateTime = FarsiLibrary.Utils.PersianDateConverter.ToGregorianDateTime(oPersianDate);
+            if(oRegex.IsMatch(PersianDateTextBox.Text) == true)
+            {
+                FarsiLibrary.Utils.PersianDate oPersianDate = new FarsiLibrary.Utils.PersianDate(PersianDateTextBox.Text);
 
-                    SelectedPersianDateTime = oPersianDate;
-                }
+                DatePickerPopupCalendar.SelectedDateTime = oPersianDate;
+
+                DatePickerPopupCalendar.GoToDate(oPersianDate);
+
+                SelectedDateTime = FarsiLibrary.Utils.PersianDateConverter.ToGregorianDateTime(oPersianDate);
+
+                SelectedPersianDateTime = oPersianDate;
+
+                DatePickerPopup.IsOpen = true;
             }
             else
             {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "تاریخ نامعتبر");
+
                 DatePickerPopupCalendar.GoToDate(SelectedPersianDateTime);
 
                 SelectedDateTime = FarsiLibrary.Utils.PersianDateConverter.ToGregorianDateTime(FarsiLibrary.Utils.PersianDate.Today);
@@ -68,8 +73,7 @@ namespace Fund
                 SelectedPersianDateTime = FarsiLibrary.Utils.PersianDate.Today;
             }
 
-            Text = DateValueTextEdit.Text;
-
+            Text = PersianDateTextBox.Text;
         }
 
     }

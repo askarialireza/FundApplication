@@ -33,7 +33,7 @@ namespace Fund
 
         public static System.Guid AdminUserId { get; set; }
 
-        public static MainRibbonWindow MainWindow { get; set; }
+        public static MainWindow MainWindow { get; set; }
 
         public static string DatabaseBackupPath { get; set; }
 
@@ -299,20 +299,6 @@ namespace Fund
             System.Windows.Media.ImageSource imgSrc = biImg as System.Windows.Media.ImageSource;
 
             return imgSrc;
-        }
-
-        public static void SetUserTheme()
-        {
-            System.Windows.Media.FontFamily font = new System.Windows.Media.FontFamily(CurrentUser.UserSetting.Theme.FontFamily);
-
-            App.Current.Resources[Infrastructure.Text.PersianFontResources] = font;
-
-            DevExpress.Xpf.Core.ApplicationThemeHelper.ApplicationThemeName = CurrentUser.UserSetting.Theme.ApplicationTheme;
-
-            System.Windows.Media.ImageBrush oImageBrush = App.Current.Resources[Infrastructure.Text.BackgroundResources] as System.Windows.Media.ImageBrush;
-
-            SetThemeBackground(DevExpress.Xpf.Core.ApplicationThemeHelper.ApplicationThemeName);
-
         }
 
         public static void SetThemeBackground(string applicationThemeName)

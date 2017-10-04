@@ -2,7 +2,7 @@
 
 namespace Fund
 {
-    public partial class ConfirmDeleteDatabaseWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class ConfirmDeleteDatabaseWindow : System.Windows.Window
     {
         public ConfirmDeleteDatabaseWindow()
         {

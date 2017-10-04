@@ -1,29 +1,13 @@
-﻿<dx:DXWindow
+﻿<Window
     x:Class="Fund.ShowInstallmentsListPerLoanWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    Title="ShowInstallmentsListPerLoanWindow" Height="450" Width="450"
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-    ShowTitle="False"
+    Title="لیست اقساط" Height="450" Width="450"
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource WindowStyle}"
-  
     >
 
-    <dx:DXWindow.Resources>
-
-        <Style x:Key="PaymentButtonStyle" TargetType="{x:Type Button}">
-            <Style.Triggers>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter Property="Content" Value="پرداخت شده است."/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        
-    </dx:DXWindow.Resources>
-
-    <Grid>
+    <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="1*"/>
@@ -32,40 +16,44 @@
 
         <Label Grid.Row="0" Content="لیست اقساط" VerticalAlignment="Center" FontWeight="Bold" FontSize="15" HorizontalAlignment="Left" Margin="10,0"/>
 
-        <Grid Grid.Row="1" Margin="10,0,10,10">
-            <dxg:GridControl Name="InstallmentPerLoanGridControl" FontWeight="Bold"  Style="{DynamicResource GridControlStyle}">
+        <Grid Grid.Row="1" >
 
-                <dxg:GridColumn Header="مبلغ قسط" Binding="{Binding AmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
+            <DataGrid Name="InstallmentPerLoanGridControl" Style="{DynamicResource DataGridStyle}">
 
-                <dxg:GridColumn Header="مهلت پرداخت قسط" Binding="{Binding PersianInstallmentDate}"  Style="{StaticResource GridColumnStyle}" />
+                <DataGrid.Columns>
 
-                <dxg:GridColumn Header="پرداخت شده است" Binding="{Binding IsPayedDescription}"  Style="{StaticResource GridColumnStyle}" />
+                    <DataGridTextColumn Header="مبلغ قسط" Binding="{Binding AmountRialFormat}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"  ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
 
-                <dxg:GridColumn Header="تاریخ پرداخت" Binding="{Binding PersianPaymentDate}"  Style="{StaticResource GridColumnStyle}" />
+                    <DataGridTextColumn Header="مهلت پرداخت قسط" Binding="{Binding PersianInstallmentDate}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"  ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
 
-                <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
+                    <DataGridTextColumn Header="پرداخت شده است" Binding="{Binding IsPayedDescription}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"  ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
 
-                <dxg:GridColumn Binding="{Binding IsActive}" Visible="False" />
+                    <DataGridTextColumn Header="تاریخ پرداخت" Binding="{Binding PersianPaymentDate}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"  ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
 
-                <dxg:GridColumn Header="پرداخت قسط" Binding="{Binding Description}"  Style="{StaticResource GridColumnStyle}">
-                    <dxg:GridColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Name="PayInstallmentsButton" Content="پرداخت" Click="PayInstallmentsButton_Click" IsEnabled="{Binding RowData.Row.IsActive}" Style="{DynamicResource PaymentButtonStyle}"/>
-                        </DataTemplate>
-                    </dxg:GridColumn.CellTemplate>
-                </dxg:GridColumn>
+                    <DataGridTextColumn Binding="{Binding IsActive}" Visibility="Hidden" Width="0"/>
 
-            </dxg:GridControl>
+                    <DataGridTemplateColumn Header="پرداخت قسط" HeaderStyle="{DynamicResource DataGridViewTextAlign}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="PayInstallmentsButton" Content="پرداخت" Click="PayInstallmentsButton_Click" IsEnabled="{Binding IsActive}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
         </Grid>
 
         <Grid Grid.Row="2">
-            <dx:SimpleButton x:Name="PrintButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Click="PrintButton_Click"  Glyph="/Fund;component/Resources/Icons/Print32.png" ToolTip="چاپ" Margin="0,0,10,8" />
 
-            <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48"  Click="ExportToPdfButton_Click"  Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF" Margin="0,0,63,8"/>
+            <Button x:Name="PrintButton" Style="{DynamicResource PrintButtonStyle}"  Click="PrintButton_Click" Margin="0,8,0,0" Grid.Column="0" />
 
-            <dx:SimpleButton x:Name="SendEmailButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/Email_30px.png" ToolTip="ارسال پست الکترونیکی" Margin="0,0,116,8" Click="SendEmailButton_Click"/>
+            <Button x:Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Click="ExportToPdfButton_Click" Margin="0,8,53,0" Grid.Column="0"/>
+
+            <Button x:Name="SendEmailButton" Style="{DynamicResource SendEmailButtonStyle}" Margin="0,8,106,0" Click="SendEmailButton_Click" Grid.Column="0"/>
 
         </Grid>
     </Grid>
-    
-</dx:DXWindow>
+
+</Window>

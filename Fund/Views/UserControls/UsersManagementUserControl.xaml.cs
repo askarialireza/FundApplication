@@ -46,9 +46,9 @@ namespace Fund
 
         private void PasswordGroupBoxSwitchChecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            DevExpress.Xpf.Editors.ToggleSwitch oToggleSwitch = ((DevExpress.Xpf.Editors.ToggleSwitch)sender);
+            System.Windows.Controls.CheckBox oCheckBox = ((System.Windows.Controls.CheckBox)sender);
 
-            int row = System.Windows.Controls.Grid.GetRow(oToggleSwitch);
+            int row = System.Windows.Controls.Grid.GetRow(oCheckBox);
 
             System.Windows.Controls.RowDefinition oRowDefinition = MainGroupBoxGrid.RowDefinitions[row + 1];
 
@@ -57,37 +57,13 @@ namespace Fund
 
         private void PasswordGroupBoxSwitchUnchecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            DevExpress.Xpf.Editors.ToggleSwitch oToggleSwitch = ((DevExpress.Xpf.Editors.ToggleSwitch)sender);
+            System.Windows.Controls.CheckBox oCheckBox = ((System.Windows.Controls.CheckBox)sender);
 
-            int row = System.Windows.Controls.Grid.GetRow(oToggleSwitch);
+            int row = System.Windows.Controls.Grid.GetRow(oCheckBox);
 
             System.Windows.Controls.RowDefinition oRowDefinition = MainGroupBoxGrid.RowDefinitions[row + 1];
 
             oRowDefinition.Height = new System.Windows.GridLength(0);
-        }
-
-        private void GridControlItemChanged(object sender, DevExpress.Xpf.Grid.SelectedItemChangedEventArgs e)
-        {
-            Models.User oUser = UsersGridControl.SelectedItem as Models.User;
-
-            if (oUser != null)
-            {
-                UsernameTextBox.Text = oUser.Username;
-
-                FirstNameTextBox.Text = oUser.FullName.FirstName;
-
-                LastNameTextBox.Text = oUser.FullName.LastName;
-
-                EmailAddressTextBox.Text = oUser.EmailAddress;
-
-                UserTypeComboBox.SelectedItem = (UserTypeComboBox.ItemsSource as System.Collections.Generic.List<ViewModels.UserTypeViewModel>)
-                    .Where(current => current.IsAdmin == oUser.IsAdmin)
-                    .FirstOrDefault();
-
-                _currentId = oUser.Id;
-
-                DeleteButton.IsEnabled = (EditItemsToggleSwitch.IsChecked == true) ? ((Utility.AdminUserId == _currentId) ? false : true) : false;
-            }
         }
 
         private void EditItemsToggleSwitchChecked(object sender, System.Windows.RoutedEventArgs e)
@@ -289,7 +265,7 @@ namespace Fund
         {
             EditItemsToggleSwitch.IsChecked = false;
 
-            GridControlItemChanged(null, null);
+            UsersGridControl_SelectionChanged(null, null);
         }
 
         private void DeleteUserClick(object sender, System.Windows.RoutedEventArgs e)
@@ -323,7 +299,7 @@ namespace Fund
                     {
                         UserLoginWindow oUserLoginWindow = new UserLoginWindow();
 
-                        (Utility.MainWindow as MainRibbonWindow).Hide();
+                        (Utility.MainWindow as MainWindow).Hide();
 
                         oUserLoginWindow.Show();
                     }
@@ -431,6 +407,30 @@ namespace Fund
         private void EmailAddressTextBox_GotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
         {
             EmailPopup.Show();
+        }
+
+        private void UsersGridControl_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Models.User oUser = UsersGridControl.SelectedItem as Models.User;
+
+            if (oUser != null)
+            {
+                UsernameTextBox.Text = oUser.Username;
+
+                FirstNameTextBox.Text = oUser.FullName.FirstName;
+
+                LastNameTextBox.Text = oUser.FullName.LastName;
+
+                EmailAddressTextBox.Text = oUser.EmailAddress;
+
+                UserTypeComboBox.SelectedItem = (UserTypeComboBox.ItemsSource as System.Collections.Generic.List<ViewModels.UserTypeViewModel>)
+                    .Where(current => current.IsAdmin == oUser.IsAdmin)
+                    .FirstOrDefault();
+
+                _currentId = oUser.Id;
+
+                DeleteButton.IsEnabled = (EditItemsToggleSwitch.IsChecked == true) ? ((Utility.AdminUserId == _currentId) ? false : true) : false;
+            }
         }
     }
 }

@@ -47,33 +47,6 @@ namespace Fund
             this.Close();
         }
 
-        private void GridControlItemChanged(object sender, DevExpress.Xpf.Grid.SelectedItemChangedEventArgs e)
-        {
-            if (MembersGridControl.ItemsSource == null)
-            {
-                return;
-            }
-
-            Models.Member oMember = MembersGridControl.SelectedItem as Models.Member;
-
-            if (oMember != null)
-            {
-                FirstNameTextBox.Text = oMember.FullName.FirstName;
-                LastNameTextBox.Text = oMember.FullName.LastName;
-                FatherNameTextBox.Text = oMember.FatherName;
-                NationalCodeTextBox.Text = oMember.NationalCode;
-                phoneNumberTextBox.Text = oMember.PhoneNumber;
-                emailAddressTextBox.Text = oMember.EmailAddress;
-                GendersCombobox.SelectedItem = (GendersCombobox.ItemsSource as System.Collections.Generic.List<ViewModels.GenderViewModel>)
-                    .Where(current => current.Gender == oMember.Gender)
-                    .FirstOrDefault();
-
-                var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
-                MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
-                CurrentId = oMember.Id;
-            }
-        }
-
         private void EditItemsToggleSwitchChecked(object sender, System.Windows.RoutedEventArgs e)
         {
             var TextBoxes = MainGroupBoxGrid.Children
@@ -81,10 +54,6 @@ namespace Fund
                 .AsEnumerable()
                 ;
 
-            var TextEdites = MainGroupBoxGrid.Children
-                .OfType<DevExpress.Xpf.Editors.TextEdit>()
-                .AsEnumerable()
-                ;
 
             var Lables = MainGroupBoxGrid.Children
                 .OfType<System.Windows.Controls.Label>()
@@ -92,12 +61,12 @@ namespace Fund
                 ;
 
             var Buttons1 = ButtonsGrid.Children
-                .OfType<DevExpress.Xpf.Core.SimpleButton>()
+                .OfType<System.Windows.Controls.Button>()
                 .AsEnumerable()
                 ;
 
             var Buttons2 = MemberButtonsGrid.Children
-                .OfType<DevExpress.Xpf.Core.SimpleButton>()
+                .OfType<System.Windows.Controls.Button>()
                 .AsEnumerable()
                 ;
 
@@ -106,22 +75,17 @@ namespace Fund
                 textbox.IsEnabled = true;
             }
 
-            foreach (DevExpress.Xpf.Editors.TextEdit textedit in TextEdites)
-            {
-                textedit.IsEnabled = true;
-            }
-
             foreach (System.Windows.Controls.Label label in Lables)
             {
                 label.IsEnabled = true;
             }
 
-            foreach (DevExpress.Xpf.Core.SimpleButton button in Buttons1)
+            foreach (System.Windows.Controls.Button button in Buttons1)
             {
                 button.IsEnabled = true;
             }
 
-            foreach (DevExpress.Xpf.Core.SimpleButton button in Buttons2)
+            foreach (System.Windows.Controls.Button button in Buttons2)
             {
                 button.IsEnabled = true;
             }
@@ -145,23 +109,18 @@ namespace Fund
                 .AsEnumerable()
                 ;
 
-            var TextEdites = MainGroupBoxGrid.Children
-                .OfType<DevExpress.Xpf.Editors.TextEdit>()
-                .AsEnumerable()
-                ;
-
             var Lables = MainGroupBoxGrid.Children
                 .OfType<System.Windows.Controls.Label>()
                 .AsEnumerable()
                 ;
 
             var Buttons1 = ButtonsGrid.Children
-                .OfType<DevExpress.Xpf.Core.SimpleButton>()
+                .OfType<System.Windows.Controls.Button>()
                 .AsEnumerable()
                 ;
 
             var Buttons2 = MemberButtonsGrid.Children
-                .OfType<DevExpress.Xpf.Core.SimpleButton>()
+                .OfType<System.Windows.Controls.Button>()
                 .AsEnumerable()
                 ;
 
@@ -170,22 +129,17 @@ namespace Fund
                 textbox.IsEnabled = false;
             }
 
-            foreach (DevExpress.Xpf.Editors.TextEdit textedit in TextEdites)
-            {
-                textedit.IsEnabled = false;
-            }
-
             foreach (System.Windows.Controls.Label label in Lables)
             {
                 label.IsEnabled = false;
             }
 
-            foreach (DevExpress.Xpf.Core.SimpleButton button in Buttons1)
+            foreach (System.Windows.Controls.Button button in Buttons1)
             {
                 button.IsEnabled = true;
             }
 
-            foreach (DevExpress.Xpf.Core.SimpleButton button in Buttons2)
+            foreach (System.Windows.Controls.Button button in Buttons2)
             {
                 button.IsEnabled = true;
             }
@@ -329,7 +283,7 @@ namespace Fund
         {
             EditItemsToggleSwitch.IsChecked = false;
 
-            GridControlItemChanged(null, null);
+            MembersGridControl_SelectionChanged(null, null);
         }
 
         private void DeleteUserClick(object sender, System.Windows.RoutedEventArgs e)
@@ -516,24 +470,41 @@ namespace Fund
                 .AsEnumerable()
                 ;
 
-            var TextEdites = MainGroupBoxGrid.Children
-                .OfType<DevExpress.Xpf.Editors.TextEdit>()
-                .AsEnumerable()
-                ;
-
             foreach (System.Windows.Controls.TextBox textbox in TextBoxes)
             {
                 textbox.Clear();
             }
 
-            foreach (DevExpress.Xpf.Editors.TextEdit textedit in TextEdites)
-            {
-                textedit.Clear();
-            }
-
             var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
 
             MemberImage.Source = new System.Windows.Media.Imaging.BitmapImage(uriSource);
+        }
+
+        private void MembersGridControl_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (MembersGridControl.ItemsSource == null)
+            {
+                return;
+            }
+
+            Models.Member oMember = MembersGridControl.SelectedItem as Models.Member;
+
+            if (oMember != null)
+            {
+                FirstNameTextBox.Text = oMember.FullName.FirstName;
+                LastNameTextBox.Text = oMember.FullName.LastName;
+                FatherNameTextBox.Text = oMember.FatherName;
+                NationalCodeTextBox.Text = oMember.NationalCode;
+                phoneNumberTextBox.Text = oMember.PhoneNumber;
+                emailAddressTextBox.Text = oMember.EmailAddress;
+                GendersCombobox.SelectedItem = (GendersCombobox.ItemsSource as System.Collections.Generic.List<ViewModels.GenderViewModel>)
+                    .Where(current => current.Gender == oMember.Gender)
+                    .FirstOrDefault();
+
+                var uriSource = new System.Uri(@"/Fund;component/Resources/Images/MemberPicture.png", System.UriKind.Relative);
+                MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
+                CurrentId = oMember.Id;
+            }
         }
     }
 }

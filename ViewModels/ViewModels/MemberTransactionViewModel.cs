@@ -45,6 +45,9 @@ namespace ViewModels
                     case Models.TransactionType.Installment:
                         AmountRialFormat = string.Format("{0} - ریال", _amount.ToString("#,##0"));
                         break;
+                    case Models.TransactionType.Deposit:
+                        AmountRialFormat = string.Format("{0} + ریال", _amount.ToString("#,##0"));
+                        break;
                     default:
                         break;
                 }
@@ -89,6 +92,9 @@ namespace ViewModels
                         break;
                     case Models.TransactionType.Installment:
                         TransactionDescription = "پرداخت قسط به صندوق";
+                        break;
+                    case Models.TransactionType.Deposit:
+                        TransactionDescription = "واریز به صندوق";
                         break;
                     default:
                         break;

@@ -2,7 +2,7 @@
 
 namespace Fund
 {
-    public partial class MemberBalanceWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class MemberBalanceWindow : System.Windows.Window
     {
 
         public MemberBalanceWindow()
@@ -245,6 +245,9 @@ namespace Fund
                     .DefaultIfEmpty(0)
                     .Sum();
 
+                Models.Member oMember = oUnitOfWork.MemberRepository
+                    .GetById(Utility.CurrentMember.Id);
+
                 LoansCountLabel.Content = string.Format("{0} وام", oViewModel.LoansCount);
                 LoansAmountLabel.Content = oViewModel.LoansAmount.ToRialStringFormat();
                 PayedLoansCountLabel.Content = string.Format("{0} وام", oViewModel.PayedLoansCount);
@@ -253,6 +256,7 @@ namespace Fund
                 InstallmentsAmountLabel.Content = oViewModel.InstallmentsAmount.ToRialStringFormat();
                 PayedInstallmentsCountLabel.Content = string.Format("{0} قسط", oViewModel.PayedInstallmentsCount);
                 PayedInstallmentsAmountLabel.Content = oViewModel.PayedInstallmentsAmount.ToRialStringFormat();
+                MemberBalanceLabel.Content = oMember.Balance.ToRialStringFormat();
 
                 oUnitOfWork.Save();
             }

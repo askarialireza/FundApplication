@@ -2,7 +2,7 @@
 
 namespace Fund
 {
-    public partial class FundLoginWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class FundLoginWindow : System.Windows.Window
     {
         public FundLoginWindow()
         {

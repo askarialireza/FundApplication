@@ -1,16 +1,10 @@
 ﻿<UserControl
+    
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Fund"
-    xmlns:resource="clr-namespace:Fund.Properties"
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
-    xmlns:wpfViewer="schemas-stimulsoft-com:wpf-viewer" 
-    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
-    xmlns:sti="clr-namespace:Stimulsoft.Report;assembly=Stimulsoft.Report"
     xmlns:conv="clr-namespace:Infrastructure.Converter"
     x:Class="Fund.UsersManagementUserControl"
     mc:Ignorable="d" 
@@ -44,7 +38,7 @@
             <Setter Property="Height" Value="auto"/>
         </Style>
 
-        <Style x:Key="TextEditsStyle" TargetType="{x:Type dxe:TextEdit}">
+        <Style x:Key="TextEditsStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Grid.Column" Value="1"/>
             <Setter Property="IsEnabled" Value="False"/>
             <Setter Property="Margin" Value="0,2"/>
@@ -54,7 +48,6 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Opacity" Value="0.5"/>
-            <Setter Property="MaskType" Value="RegEx"/>
             <Style.Triggers>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter Property="Opacity" Value="0.5"/>
@@ -85,7 +78,7 @@
         <Grid Loaded="UserControlLoaded" Grid.Row="1">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" MinWidth="550"/>
+                <ColumnDefinition Width="3*" MinWidth="400"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="1*" MinWidth="250"/>
             </Grid.ColumnDefinitions>
@@ -99,29 +92,23 @@
 
                 <Grid Grid.Row="0">
 
-                    <dxg:GridControl x:Name="UsersGridControl" Grid.Row="0" Style="{DynamicResource GridControlStyle}" Margin="5,0,5,0"  SelectedItemChanged="GridControlItemChanged">
-
-                        <dxg:GridColumn Header="نام کاربری" Binding="{Binding Username}" Style="{StaticResource GridColumnStyle}"/>
-
-                        <dxg:GridColumn Header="نام و نام خانوادگی" Binding="{Binding FullName}" Style="{StaticResource GridColumnStyle}"/>
-
-                        <dxg:GridColumn Header="تاریخ عضویت" Binding="{Binding RegisterationDate, Converter={conv:DateTimeToShortPersianDateStringConverter}}" Style="{StaticResource GridColumnStyle}"/>
-
-                        <dxg:GridColumn Header="نوع کاربر" Binding="{Binding IsAdmin, Converter={conv:IsAdminBooleanToStringConverter}}" Style="{StaticResource GridColumnStyle}"/>
-
-                        <dxg:GridColumn Header="آخرین ورود" Binding="{Binding LastLoginTime, Converter={conv:DateTimeToPersianDateTimeStringConverter}}" Style="{StaticResource GridColumnStyle}"/>
-
-                        <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
-
-                    </dxg:GridControl>
+                    <DataGrid Name="UsersGridControl" SelectedIndex="0" Style="{DynamicResource DataGridStyle}" SelectionChanged="UsersGridControl_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="نام کاربری" Binding="{Binding Username}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
+                            <DataGridTextColumn Header="نام و نام خانوادگی" Binding="{Binding FullName}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
+                            <DataGridTextColumn Header="تاریخ عضویت" Binding="{Binding RegisterationDate, Converter={conv:DateTimeToShortPersianDateStringConverter}}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
+                            <DataGridTextColumn Header="نوع کاربر" Binding="{Binding IsAdmin, Converter={conv:IsAdminBooleanToStringConverter}}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
+                            <DataGridTextColumn Header="آخرین ورود" Binding="{Binding LastLoginTime, Converter={conv:DateTimeToPersianDateTimeStringConverter}}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
                 </Grid>
 
                 <Grid Grid.Row="1" Margin="5,0,0,0">
 
-                    <dx:SimpleButton x:Name="PrintButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Click="PrintClick" Margin="0,0,5,0" Glyph="/Fund;component/Resources/Icons/Print32.png" ToolTip="چاپ" />
+                    <Button Name="PrintButton" Click="PrintClick" Margin="0,4,53,4" Style="{DynamicResource PrintButtonStyle}" Grid.Column="0"/>
 
-                    <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" Margin="0,0,58,0" VerticalAlignment="Bottom" Width="48" Click="ExportToPDFClick"  Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF"/>
+                    <Button Name="ExportToPdfButton" Click="ExportToPDFClick" Style="{DynamicResource ExportPdfButtonStyle}"/>
 
                     <Label Content="تکمیل فیلد‌های ستاره‌دار (*) الزامی می‌باشد" TextBlock.Foreground="Red" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14"/>
 
@@ -138,7 +125,7 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
-                <dxlc:GroupBox Grid.Row="0" FontWeight="Bold" TextBlock.TextAlignment="Center" Header="ویرایش" Margin="5,0">
+                <GroupBox Grid.Row="0" FontWeight="Bold" TextBlock.TextAlignment="Center" Header="ویرایش" Margin="5,0">
 
                     <Grid>
 
@@ -152,7 +139,7 @@
 
                             <Label x:Name="EditItemsLabel" Content="ویرایش کاربر" TextBlock.TextAlignment="Right" FontSize="16" FontWeight="Bold" VerticalAlignment="Top" Margin="0,1,0,0"/>
 
-                            <dxe:ToggleSwitch x:Name="EditItemsToggleSwitch" Content="تغییر رمز عبور" ToggleSwitchWidth="67" HorizontalAlignment="Right" VerticalAlignment="Top" CheckedStateContent="فعال"  UncheckedStateContent="غیر فعال" ContentPlacement="Inside"  Grid.Column="1" Width="67" Checked="EditItemsToggleSwitchChecked" Unchecked="EditItemsToggleSwitchUnchecked" ToggleSwitchHeight="25" Margin="0,5,0,0"/>
+                            <CheckBox Name="EditItemsToggleSwitch" HorizontalAlignment="Right" VerticalAlignment="Top"  Grid.Column="1" Checked="EditItemsToggleSwitchChecked" Unchecked="EditItemsToggleSwitchUnchecked" Margin="0,5,0,0"/>
 
                         </Grid>
 
@@ -193,7 +180,7 @@
 
                                 <Label x:Name="UserTypeLabel" Content="نوع کاربر :" Grid.Row="4" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
-                                <dxe:ComboBoxEdit x:Name="UserTypeComboBox" Grid.Column="1" FontSize="14" Margin="0,2"  Grid.Row="4" VerticalAlignment="Top" SelectedIndex="0" IsEnabled="False" Style="{DynamicResource UserTypesComboBoxEditStyle }" />
+                                <ComboBox x:Name="UserTypeComboBox" Grid.Column="1" FontSize="14" Margin="0,2"  Grid.Row="4" VerticalAlignment="Top" SelectedIndex="0" IsEnabled="False" Style="{DynamicResource UserTypesComboBoxEditStyle}" />
 
                                 <Label x:Name="EmailAddressLabel" Content="پست الکترونیکی :" Grid.Row="6" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
@@ -201,7 +188,7 @@
 
                                 <Grid Grid.Row="6" Grid.Column="2">
 
-                                    <dxe:TextEdit Name="EmailAddressTextBox" Grid.Row="6" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Style="{DynamicResource TextEditsStyle}" GotKeyboardFocus="EmailAddressTextBox_GotKeyboardFocus"/>
+                                    <TextBox Name="EmailAddressTextBox" VerticalContentAlignment="Center" Grid.Row="6" Style="{DynamicResource TextEditsStyle}" GotKeyboardFocus="EmailAddressTextBox_GotKeyboardFocus"/>
 
                                     <Popup Grid.Row="10" Grid.Column="2" Name="EmailPopup" IsOpen="False" StaysOpen="True" PopupAnimation="Fade" AllowsTransparency="True" Width="200" Height="auto">
                                         <Border Background="White" BorderThickness="2" BorderBrush="DarkGray">
@@ -220,12 +207,12 @@
                                     </Popup>
 
                                 </Grid>
-                                      
+
                                 <Label x:Name="PasswordChangeLabel" Content="تغییر رمز عبور :" TextBlock.TextAlignment="Right" FontSize="14" Grid.Row="8" VerticalAlignment="Center" IsEnabled="False"/>
 
-                                <dxe:ToggleSwitch x:Name="PasswordChangeToggleSwitch" Content="تغییر رمز عبور" Grid.Row="8" ToggleSwitchWidth="67" HorizontalAlignment="Right" CheckedStateContent="فعال"  UncheckedStateContent="غیر فعال" ContentPlacement="Inside"  Grid.Column="1" Margin="0,2,0,2" Width="auto" Checked="PasswordGroupBoxSwitchChecked" Unchecked="PasswordGroupBoxSwitchUnchecked" ToggleSwitchHeight="25" IsEnabled="False"/>
+                                <CheckBox Name="PasswordChangeToggleSwitch"  Grid.Row="8" HorizontalAlignment="Right"   Grid.Column="1" Margin="0,2,0,2" Width="auto" Checked="PasswordGroupBoxSwitchChecked" Unchecked="PasswordGroupBoxSwitchUnchecked" IsEnabled="False"/>
 
-                                <dxlc:GroupBox x:Name="PasswordGroupBox" Grid.Row="9" Grid.ColumnSpan="2" Header="رمز عبور" Margin="0,5,0,5" State="Maximized" Height="155" VerticalAlignment="Top" >
+                                <GroupBox x:Name="PasswordGroupBox" Grid.Row="9" Grid.ColumnSpan="2" Header="رمز عبور" Margin="0,5,0,5" Height="155" VerticalAlignment="Top" >
 
                                     <Grid>
 
@@ -260,7 +247,7 @@
                                         <PasswordBox x:Name="AgainPasswordTextBox" Style="{StaticResource PasswordBoxStyle}" Height="auto" FontSize="14" Grid.Row="3" Margin="0,2,0,2"/>
 
                                     </Grid>
-                                </dxlc:GroupBox>
+                                </GroupBox>
                             </Grid>
                         </ScrollViewer>
 
@@ -275,11 +262,17 @@
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <dx:SimpleButton x:Name="AcceptButton" IsEnabled="False" IsDefault="True" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom"  Glyph="/Fund;component/Resources/Icons/OK32.png"  Grid.Column="2" Margin="5,0" GlyphAlignment="Top" GlyphToContentOffset="0" ToolTip="تایید ویرایش" Click="AcceptClick"/>
+                                <Button Name="AcceptButton" IsEnabled="False" IsDefault="True" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom"  Grid.Column="2" Margin="5,0" ToolTip="تایید ویرایش" Click="AcceptClick">
+                                    <Image Source="/Fund;component/Resources/Icons/OK32.png"/>
+                                </Button>
 
-                                <dx:SimpleButton x:Name="DeleteButton" IsEnabled="False" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom"   Margin="5,0" Glyph="/Fund;component/Resources/Icons/cancel32.png" Grid.Column="1" GlyphAlignment="Top" GlyphToContentOffset="0" ToolTip="حذف کاربر" Click="DeleteUserClick"/>
+                                <Button Name="DeleteButton" IsEnabled="False" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom"   Margin="5,0" Grid.Column="1" ToolTip="حذف کاربر" Click="DeleteUserClick">
+                                    <Image Source="/Fund;component/Resources/Icons/cancel32.png"/>
+                                </Button>
 
-                                <dx:SimpleButton x:Name="CancelButton" IsEnabled="False" IsCancel="True" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom" Glyph="/Fund;component/Resources/Icons/undo32.png" Margin="5,0" GlyphAlignment="Top" GlyphToContentOffset="0" ToolTip="لغو ویرایش" Click="CancelClick"/>
+                                <Button Name="CancelButton" IsEnabled="False" IsCancel="True" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom" Margin="5,0" ToolTip="لغو ویرایش" Click="CancelClick">
+                                    <Image Source="/Fund;component/Resources/Icons/undo32.png"/>
+                                </Button>
 
                             </Grid>
 
@@ -287,9 +280,9 @@
 
                     </Grid>
 
-                </dxlc:GroupBox>
+                </GroupBox>
 
-                <dx:SimpleButton x:Name="closeButton" Grid.Row="1" Content="بستن" Click="CloseClick" Style="{StaticResource CancelButtonStyle}" Height="32" Margin="0,0,5,0"/>
+                <Button Name="closeButton" Grid.Row="1" Content="بستن" Click="CloseClick" Style="{StaticResource CancelButtonStyle}" Height="32" Margin="0,0,5,0"/>
 
             </Grid>
 

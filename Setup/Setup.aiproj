@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">All</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>cbdfaab9-61ef-4549-be15-cb5d65efc69d</ProjectGuid>
+    <ProjectGuid>01563674-c685-41be-9154-afb8960d5d9f</ProjectGuid>
     <OutputType>msi</OutputType>
     <ProjectHome>.</ProjectHome>
     <StartupFile>Setup.aip</StartupFile>
@@ -16,6 +16,8 @@
     <RootNamespace>Setup</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'DefaultBuild' " />
+  <PropertyGroup Condition=" '$(Configuration)' == 'MsiBuild' " />
+  <PropertyGroup Condition=" '$(Configuration)' == 'All' " />
   <ItemGroup>
     <Compile Include="Setup.aip">
       <SubType>Code</SubType>

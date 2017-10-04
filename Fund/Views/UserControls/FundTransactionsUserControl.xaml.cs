@@ -48,8 +48,8 @@ namespace Fund
 
                 GridControl.ItemsSource = varList;
 
-                fromDatePicker.DateValueTextEdit.Text = varList.Select(current => current.Date).FirstOrDefault().ToPersianDate();
-                toDatePicker.DateValueTextEdit.Text = varList.Select(current => current.Date).LastOrDefault().ToPersianDate();
+                fromDatePicker.PersianDateTextBox.Text = varList.Select(current => current.Date).FirstOrDefault().ToPersianDate();
+                toDatePicker.PersianDateTextBox.Text = varList.Select(current => current.Date).LastOrDefault().ToPersianDate();
 
                 oUnitOfWork.Save();
             }

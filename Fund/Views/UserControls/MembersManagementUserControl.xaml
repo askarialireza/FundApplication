@@ -1,17 +1,11 @@
 ﻿<UserControl
+    
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Fund"
-    xmlns:resource="clr-namespace:Fund.Properties"
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
-    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
     xmlns:converter="clr-namespace:Infrastructure.Converter"
-    xmlns:wpfViewer="schemas-stimulsoft-com:wpf-viewer" 
-    xmlns:sti="clr-namespace:Stimulsoft.Report;assembly=Stimulsoft.Report"
     x:Class="Fund.MembersManagementUserControl"
     mc:Ignorable="d" 
     Style="{DynamicResource UserControlStyle}"
@@ -51,7 +45,7 @@
             <Setter Property="Margin" Value="0,2"/>
         </Style>
         
-        <Style x:Key="TextEditsStyle" TargetType="{x:Type dxe:TextEdit}" BasedOn="{StaticResource DxTextEdit}">
+        <Style x:Key="TextEditsStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DxTextEdit}">
             <Setter Property="Grid.Column" Value="1"/>
             <Setter Property="IsEnabled" Value="False"/>
             <Setter Property="Margin" Value="0,2"/>
@@ -61,7 +55,6 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Opacity" Value="0.5"/>
-            <Setter Property="MaskType" Value="RegEx"/>
         </Style>
         
     </UserControl.Resources>
@@ -83,7 +76,7 @@
         <Grid Loaded="UserControlLoaded" Grid.Row="1">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" MinWidth="550"/>
+                <ColumnDefinition Width="3*" MinWidth="400"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="1*" MinWidth="250"/>
             </Grid.ColumnDefinitions>
@@ -95,38 +88,41 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
+                <DataGrid Name="MembersGridControl" SelectedIndex="0" SelectionChanged="MembersGridControl_SelectionChanged" Grid.Row="0" Style="{DynamicResource DataGridStyle}" FontWeight="Bold">
 
-                <dxg:GridControl x:Name="MembersGridControl" Grid.Row="0" Style="{DynamicResource GridControlStyle}" Margin="5,0,5,0" FontWeight="Bold" SelectedItemChanged="GridControlItemChanged">
+                    <DataGrid.Columns>
 
-                    <dxg:GridColumn Header="نام و نام خانوادگی" Binding="{Binding FullName}" Style="{StaticResource GridColumnStyle}" />
+                        <DataGridTextColumn Header="نام و نام خانوادگی" Binding="{Binding FullName}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                    <dxg:GridColumn Header="نام پدر" Binding="{Binding FatherName}" Style="{StaticResource GridColumnStyle}" />
+                        <DataGridTextColumn Header="نام پدر" Binding="{Binding FatherName}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                    <dxg:GridColumn Header="کد ملی" Binding="{Binding NationalCode}" Style="{StaticResource GridColumnStyle}" />
+                        <DataGridTextColumn Header="کد ملی" Binding="{Binding NationalCode}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                    <dxg:GridColumn Header="تاریخ عضویت" Binding="{Binding MembershipDate , Converter={converter:DateTimeToShortPersianDateStringConverter}}" Style="{StaticResource GridColumnStyle}" />
+                        <DataGridTextColumn Header="تاریخ عضویت" Binding="{Binding MembershipDate, Converter={converter:DateTimeToShortPersianDateStringConverter}}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                    <dxg:GridColumn Header="جنسیت" Binding="{Binding Gender, Converter={converter:GenderToStringConverter}}" Style="{StaticResource GridColumnStyle}" />
+                        <DataGridTextColumn Header="جنسیت" Binding="{Binding Gender, Converter={converter:GenderToStringConverter}}" Width="70" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                    <dxg:GridColumn Header="پست الکترونیکی" Binding="{Binding EmailAddress}" Style="{StaticResource GridColumnStyle}" />
+                        <DataGridTextColumn Header="پست الکترونیکی" Binding="{Binding EmailAddress}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                    <dxg:GridColumn Header="شماره تلفن" Binding="{Binding PhoneNumber}"  Style="{StaticResource GridColumnStyle}" />
+                        <DataGridTextColumn Header="شماره تلفن" Binding="{Binding PhoneNumber}"  ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                    <dxg:GridColumn Header="عکس"  Width="50" Binding="{Binding Picture, Converter={converter:ByteToImageConverter}}" Style="{StaticResource GridColumnStyle}">
-                        <dxg:GridColumn.EditSettings>
-                            <dxe:ImageEditSettings ShowMenu="False"/>
-                        </dxg:GridColumn.EditSettings>
-                    </dxg:GridColumn>
+                        <DataGridTemplateColumn Header="عکس" HeaderStyle="{DynamicResource DataGridViewTextAlign}" Width="70" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Picture, Converter={converter:ByteToImageConverter}}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-                    <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
+                    </DataGrid.Columns>
 
-                </dxg:GridControl>
+                </DataGrid>
 
                 <Grid Grid.Row="1">
 
-                    <dx:SimpleButton x:Name="PrintButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Click="PrintClick"  Glyph="/Fund;component/Resources/Icons/Print32.png" ToolTip="چاپ" Margin="0,0,5,2" />
+                    <Button Name="PrintButton" Click="PrintClick"  Margin="0,0,5,2"  Style="{DynamicResource PrintButtonStyle}"/>
 
-                    <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Click="ExportToPDFClick"  Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF" Margin="0,0,58,2"/>
+                    <Button Name="ExportToPdfButton" Click="ExportToPDFClick" Margin="0,0,58,2" Style="{DynamicResource ExportPdfButtonStyle}"/>
 
                     <Label Content="تکمیل فیلد‌های ستاره‌دار (*) الزامی می‌باشد" TextBlock.Foreground="Red" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Margin="5,0" FontSize="14" />
 
@@ -143,7 +139,7 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
-                <dxlc:GroupBox Name="EditGroupBox" Grid.Row="0" FontWeight="Bold" TextBlock.TextAlignment="Center" Header="ویرایش" Margin="5,0">
+                <GroupBox Name="EditGroupBox" Grid.Row="0" FontWeight="Bold" TextBlock.TextAlignment="Center" Header="ویرایش" Margin="5,0">
 
                     <Grid>
 
@@ -157,7 +153,7 @@
 
                             <Label x:Name="EditItemsLabel" Content="ویرایش اعضا" Grid.Row="0" Grid.Column="1" TextBlock.TextAlignment="Right" FontSize="16" FontWeight="Bold" VerticalAlignment="Top"/>
 
-                            <dxe:ToggleSwitch x:Name="EditItemsToggleSwitch" Grid.Row="0" ToggleSwitchWidth="67" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top" CheckedStateContent="فعال"  UncheckedStateContent="غیر فعال" ContentPlacement="Inside"  Grid.Column="1" Width="67" Checked="EditItemsToggleSwitchChecked" Unchecked="EditItemsToggleSwitchUnchecked" ToggleSwitchHeight="25" Margin="0,5,5,0"/>
+                            <CheckBox x:Name="EditItemsToggleSwitch" Grid.Row="0" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top"  Grid.Column="1" Checked="EditItemsToggleSwitchChecked" Unchecked="EditItemsToggleSwitchUnchecked" Margin="0,5"/>
 
                         </Grid>
 
@@ -211,19 +207,19 @@
 
                                 <Label x:Name="GenderTypeLabel" Content="جنسیت :" Grid.Row="5" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
-                                <dxe:ComboBoxEdit Name="GendersCombobox" Grid.Row="5" Grid.Column="2" Margin="0,2" IsEnabled="False" Style="{DynamicResource GendersComboBoxEditStyle}" />
+                                <ComboBox Name="GendersCombobox" Grid.Row="5" Grid.Column="2" Margin="0,2" IsEnabled="False" Style="{DynamicResource GendersComboBoxEditStyle}" />
 
                                 <Label x:Name="EmailAddressLabel" Content="پست الکترونیکی :" Grid.Row="7" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="7"/>
 
-                                <dxe:TextEdit Name="emailAddressTextBox" Grid.Row="7" Mask="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Style="{DynamicResource TextEditsStyle}"/>
+                                <TextBox Name="emailAddressTextBox" VerticalContentAlignment="Center" Grid.Row="7" Style="{DynamicResource TextEditsStyle}"/>
 
                                 <Label x:Name="PhoneNumberLabel" Content="شماره تلفن :" Grid.Row="8" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="8"/>
 
-                                <dxe:TextEdit Name="phoneNumberTextBox" Grid.Row="8" Mask="\d{11}" Style="{DynamicResource TextEditsStyle}" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
+                                <TextBox Name="phoneNumberTextBox" Grid.Row="8" MaxLength="11" Style="{DynamicResource TextEditsStyle}" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
 
                                 <Label x:Name="PictureLabel" Content="عکس :" Grid.Row="10" VerticalAlignment="Top" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
@@ -243,9 +239,9 @@
                                             <ColumnDefinition Width="1*"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <dx:SimpleButton Name="DeleteImageButton" Grid.Column="1" Content="حذف عکس" Height="auto" Width="auto" FontWeight="Bold" Margin="3" IsEnabled="False" HorizontalAlignment="Stretch" Click="DeleteImageButton_Click"/>
+                                        <Button Name="DeleteImageButton" Grid.Column="1" Content="حذف عکس" Height="auto" Width="auto" FontWeight="Bold" Margin="3" IsEnabled="False" HorizontalAlignment="Stretch" Click="DeleteImageButton_Click"/>
 
-                                        <dx:SimpleButton Name="PickImageButton" Grid.Column="0" Content="انتخاب عکس" Height="auto" Width="auto" FontWeight="Bold" Margin="3" IsEnabled="False" HorizontalAlignment="Stretch" Click="PickImageButton_Click"/>
+                                        <Button Name="PickImageButton" Grid.Column="0" Content="انتخاب عکس" Height="auto" Width="auto" FontWeight="Bold" Margin="3" IsEnabled="False" HorizontalAlignment="Stretch" Click="PickImageButton_Click"/>
 
                                     </Grid>
 
@@ -262,19 +258,25 @@
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
 
-                            <dx:SimpleButton x:Name="AcceptButton" IsEnabled="False" IsDefault="True" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom"  Glyph="/Fund;component/Resources/Icons/OK32.png"  Grid.Column="2" Margin="5,0" GlyphAlignment="Top" GlyphToContentOffset="0" ToolTip="تایید ویرایش" Click="AcceptClick"/>
+                            <Button Name="AcceptButton" IsEnabled="False" IsDefault="True" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom"  Grid.Column="2" Margin="5,0" ToolTip="تایید ویرایش" Click="AcceptClick">
+                                <Image Source="/Fund;component/Resources/Icons/OK32.png"/>
+                            </Button>
 
-                            <dx:SimpleButton x:Name="DeleteButton" IsEnabled="False" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom"   Margin="5,0" Glyph="/Fund;component/Resources/Icons/cancel32.png" Grid.Column="1" GlyphAlignment="Top" GlyphToContentOffset="0" ToolTip="حذف کاربر" Click="DeleteUserClick"/>
+                            <Button Name="DeleteButton" IsEnabled="False" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom"   Margin="5,0" Grid.Column="1" ToolTip="حذف کاربر" Click="DeleteUserClick">
+                                <Image Source="/Fund;component/Resources/Icons/cancel32.png"/>
+                            </Button>
 
-                            <dx:SimpleButton x:Name="CancelButton" IsEnabled="False" IsCancel="True" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom" Glyph="/Fund;component/Resources/Icons/undo32.png" Margin="5,0" GlyphAlignment="Top" GlyphToContentOffset="0" ToolTip="لغو ویرایش" Click="CancelClick"/>
+                            <Button Name="CancelButton" IsEnabled="False" IsCancel="True" FlowDirection="LeftToRight" Height="32" VerticalAlignment="Bottom" Margin="5,0" ToolTip="لغو ویرایش" Click="CancelClick">
+                                <Image Source="/Fund;component/Resources/Icons/undo32.png"/>
+                            </Button>
 
                         </Grid>
 
                     </Grid>
 
-                </dxlc:GroupBox>
+                </GroupBox>
 
-                <dx:SimpleButton x:Name="closeButton" Grid.Row="1" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick" Margin="0,0,5,3"/>
+                <Button x:Name="closeButton" Grid.Row="1" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick" Margin="0,0,5,3"/>
 
             </Grid>
 

@@ -13,9 +13,9 @@ namespace Fund
 
         private void ToggleSwitch_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
-            DevExpress.Xpf.Editors.ToggleSwitch oToggleSwitch = ((DevExpress.Xpf.Editors.ToggleSwitch)sender);
+            System.Windows.Controls.CheckBox oCheckBox = ((System.Windows.Controls.CheckBox)sender);
 
-            int row = System.Windows.Controls.Grid.GetRow(oToggleSwitch);
+            int row = System.Windows.Controls.Grid.GetRow(oCheckBox);
 
             System.Windows.Controls.RowDefinition oRowDefinition = MainGrid.RowDefinitions[row + 1];
 
@@ -24,36 +24,13 @@ namespace Fund
 
         private void ToggleSwitch_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            DevExpress.Xpf.Editors.ToggleSwitch oToggleSwitch = ((DevExpress.Xpf.Editors.ToggleSwitch)sender);
+            System.Windows.Controls.CheckBox oCheckBox = ((System.Windows.Controls.CheckBox)sender);
 
-            int row = System.Windows.Controls.Grid.GetRow(oToggleSwitch);
+            int row = System.Windows.Controls.Grid.GetRow(oCheckBox);
 
             System.Windows.Controls.RowDefinition oRowDefinition = MainGrid.RowDefinitions[row + 1];
 
             oRowDefinition.Height = new System.Windows.GridLength(0);
-        }
-
-        private void TextBoxEditorActivated(object sender, System.Windows.RoutedEventArgs e)
-        {
-            ((DevExpress.Xpf.Editors.TextEdit)sender).Text =
-                ((DevExpress.Xpf.Editors.TextEdit)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
-        }
-
-        private void TextBoxValidate(object sender, DevExpress.Xpf.Editors.ValidationEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(((DevExpress.Xpf.Editors.TextEdit)sender).Text) == false)
-            {
-                long value = System.Convert.ToInt64(((DevExpress.Xpf.Editors.TextEdit)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
-
-                ((DevExpress.Xpf.Editors.TextEdit)sender).Text = value.ToRialStringFormat();
-            }
-            else
-            {
-                long zero = 0;
-                ((DevExpress.Xpf.Editors.TextEdit)sender).Text = zero.ToRialStringFormat();
-            }
-
-            RefreshLabels();
         }
 
         private void LoadData()
@@ -100,9 +77,9 @@ namespace Fund
 
         private void PasswordToggleSwitch_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
-            DevExpress.Xpf.Editors.ToggleSwitch oToggleSwitch = ((DevExpress.Xpf.Editors.ToggleSwitch)sender);
+            System.Windows.Controls.CheckBox oCheckBox = ((System.Windows.Controls.CheckBox)sender);
 
-            int row = System.Windows.Controls.Grid.GetRow(oToggleSwitch);
+            int row = System.Windows.Controls.Grid.GetRow(oCheckBox);
 
             System.Windows.Controls.RowDefinition oRowDefinition0 = MainGrid.RowDefinitions[row + 1];
             System.Windows.Controls.RowDefinition oRowDefinition1 = MainGrid.RowDefinitions[row + 2];
@@ -115,9 +92,9 @@ namespace Fund
 
         private void PasswordToggleSwitch_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
-            DevExpress.Xpf.Editors.ToggleSwitch oToggleSwitch = ((DevExpress.Xpf.Editors.ToggleSwitch)sender);
+            System.Windows.Controls.CheckBox oCheckBox = ((System.Windows.Controls.CheckBox)sender);
 
-            int row = System.Windows.Controls.Grid.GetRow(oToggleSwitch);
+            int row = System.Windows.Controls.Grid.GetRow(oCheckBox);
 
             System.Windows.Controls.RowDefinition oRowDefinition0 = MainGrid.RowDefinitions[row + 1];
             System.Windows.Controls.RowDefinition oRowDefinition1 = MainGrid.RowDefinitions[row + 2];
@@ -616,6 +593,29 @@ namespace Fund
             }
 
             this.Close();
+        }
+
+        private void FundDepositBalanceTextBox_GotFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ((System.Windows.Controls.TextBox)sender).Text =
+                ((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
+        }
+
+        private void FundDepositBalanceTextBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(((System.Windows.Controls.TextBox)sender).Text) == false)
+            {
+                long value = System.Convert.ToInt64(((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
+
+                ((System.Windows.Controls.TextBox)sender).Text = value.ToRialStringFormat();
+            }
+            else
+            {
+                long zero = 0;
+                ((System.Windows.Controls.TextBox)sender).Text = zero.ToRialStringFormat();
+            }
+
+            RefreshLabels();
         }
     }
 }

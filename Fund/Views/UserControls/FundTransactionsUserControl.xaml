@@ -1,6 +1,5 @@
 ﻿<UserControl 
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+
     x:Class="Fund.FundTransactionsUserControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,7 +8,8 @@
     xmlns:local="clr-namespace:Fund"
     mc:Ignorable="d" 
     d:DesignHeight="400" d:DesignWidth="800"
-    Style="{DynamicResource UserControlStyle}">
+    Style="{DynamicResource UserControlStyle}"
+    >
 
     <Grid Style="{DynamicResource GridStyle}">
         <Grid.RowDefinitions>
@@ -41,41 +41,40 @@
 
             <local:DatePicker x:Name="toDatePicker" Grid.Column="3" Margin="3,0"/>
 
-            <dx:SimpleButton Name="SearchButton" Grid.Column="4" Content="جستجو" Margin="0,0,105,0" VerticalAlignment="Center" Width="100" Height="32" HorizontalAlignment="Right" Click="SearchButton_Click" />
+            <Button Name="SearchButton" Grid.Column="4" Content="جستجو" Margin="0,0,105,0" VerticalAlignment="Center" Width="100" Height="32" HorizontalAlignment="Right" Click="SearchButton_Click" />
 
-            <dx:SimpleButton Name="ShowAllButton" Grid.Column="4" Content="نمایش همه" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Height="32" HorizontalAlignment="Right" Click="ShowAllButton_Click" />
+            <Button Name="ShowAllButton" Grid.Column="4" Content="نمایش همه" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Height="32" HorizontalAlignment="Right" Click="ShowAllButton_Click" />
 
         </Grid>
 
         <Grid Grid.Row="2" Margin="0,5">
-            <dxg:GridControl Name="GridControl" Style="{DynamicResource GridControlStyle}">
 
-                <dxg:GridControl.View>
-                    <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row" ShowFixedTotalSummary="False" ShowAutoFilterRow="False" ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
-                </dxg:GridControl.View>
+            <DataGrid Name="GridControl" Style="{DynamicResource DataGridStyle}">
 
-                <dxg:GridColumn Header="تاریخ تراکنش" Binding="{Binding  PersianDate}"  Style="{StaticResource GridColumnStyle}" />
+                <DataGrid.Columns>
 
-                <dxg:GridColumn Header="نوع تراکنش" Binding="{Binding TransactionDescription}"  Style="{DynamicResource GridColumnStyle}" />
+                    <DataGridTextColumn Header="تاریخ تراکنش" Binding="{Binding  PersianDate}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" />
 
-                <dxg:GridColumn Header="نام و نام خانوادگی" Binding="{Binding MemberFullName}"  Style="{DynamicResource GridColumnStyle}" />
+                    <DataGridTextColumn Header="نوع تراکنش" Binding="{Binding TransactionDescription}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"/>
 
-                <dxg:GridColumn Header="مقدار تراکنش" Binding="{Binding AmountRialFormat}"  Style="{StaticResource GridColumnStyle}" />
+                    <DataGridTextColumn Header="نام و نام خانوادگی" Binding="{Binding MemberFullName}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"/>
 
-                <dxg:GridColumn Header="موجودی صندوق" Binding="{Binding BalanceRialFormat}"  Style="{StaticResource GridColumnStyle}" />
+                    <DataGridTextColumn Header="مقدار تراکنش" Binding="{Binding AmountRialFormat}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"/>
 
-                <dxg:GridColumn Binding="{Binding Id}" Visible="False" />
+                    <DataGridTextColumn Header="موجودی صندوق" Binding="{Binding BalanceRialFormat}" ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"/>
 
-            </dxg:GridControl>
+                </DataGrid.Columns>
+
+            </DataGrid>
         </Grid>
 
         <Grid Grid.Row="3">
 
-            <dx:SimpleButton x:Name="PrintButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/Print32.png" ToolTip="چاپ" Margin="0,0,95,3" Click="PrintButton_Click" />
+            <Button Name="PrintButton" Style="{DynamicResource PrintButtonStyle}" Margin="0,0,95,8" Click="PrintButton_Click" Grid.Column="0" />
 
-            <dx:SimpleButton x:Name="ExportToPdfButton" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="48" Glyph="/Fund;component/Resources/Icons/pdf32.png" ToolTip="ذخیره با فرمت PDF" Margin="0,0,148,3" Click="ExportToPdfButton_Click"/>
+            <Button Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Margin="0,0,148,8" Click="ExportToPdfButton_Click" Grid.Column="0"/>
 
-            <dx:SimpleButton x:Name="closeButton" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Margin="0,0,0,3" Click="closeButton_Click"/>
+            <Button Name="closeButton" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Margin="0,0,0,8" Click="closeButton_Click"/>
 
         </Grid>
 

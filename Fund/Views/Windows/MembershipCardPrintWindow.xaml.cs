@@ -2,7 +2,7 @@
 
 namespace Fund
 {
-    public partial class MembershipCardPrintWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class MembershipCardPrintWindow : System.Windows.Window
     {
         private System.Guid CurrentId;
 

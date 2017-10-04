@@ -2,9 +2,6 @@
     
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"                    
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:local="clr-namespace:Fund"
     >
 
@@ -12,7 +9,7 @@
         <Setter Property="Background" Value="{DynamicResource DefaultPanelGradient}"/>
     </Style>
 
-    <Style x:Key="OriginalWindowStyle" TargetType="{x:Type Window}">
+    <Style x:Key="WindowStyle" TargetType="{x:Type Window}">
         <Setter Property="FlowDirection" Value="RightToLeft"/>
         <Setter Property="WindowState" Value="Normal"/>
         <Setter Property="WindowStyle" Value="SingleBorderWindow"/>
@@ -25,29 +22,7 @@
                 <DropShadowEffect BlurRadius="10" Direction="0" ShadowDepth="1" Opacity="0.5"/>
             </Setter.Value>
         </Setter>
-        <Setter Property="Icon" Value="/Fund;component/Resources/ApplicationIcon/Icon.ico"/>
-        <Setter Property="Topmost" Value="True"/>
-        <Setter Property="ShowInTaskbar" Value="False"/>
-    </Style>
-
-    <Style x:Key="WindowStyle" TargetType="{x:Type dx:DXWindow}">
-        <Setter Property="FlowDirection" Value="RightToLeft"/>
-        <Setter Property="WindowState" Value="Normal"/>
-        <Setter Property="WindowStyle" Value="SingleBorderWindow"/>
-        <Setter Property="ResizeMode" Value="NoResize"/>
-        <Setter Property="ShowIcon" Value="False"/>
-        <Setter Property="ShowTitle" Value="True"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#FFD3CFCF"/>
-        <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="FontFamily" Value="{DynamicResource FaGlobalFontFamily}"/>
-        <Setter Property="Background" Value="{DynamicResource DefaultBackground}"/>
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect BlurRadius="10" Direction="0" ShadowDepth="1" Opacity="0.5"/>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Icon" Value="/Fund;component/Resources/ApplicationIcon/Icon.ico"/>
+        <Setter Property="Icon" Value="/Fund;component/pencil.ico"/>
         <Setter Property="Topmost" Value="True"/>
         <Setter Property="ShowInTaskbar" Value="False"/>
     </Style>
@@ -100,7 +75,27 @@
         <Setter Property="HorizontalAlignment" Value="Right"/>
     </Style>
 
-    <Style x:Key="ButtonStyle" TargetType="{x:Type dx:SimpleButton}">
+    <Style x:Key="DataGridStyle" TargetType="{x:Type DataGrid}">
+        <Setter Property="ItemsSource" Value="{Binding}"/>
+        <Setter Property="ColumnWidth" Value="*"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+    </Style>
+    
+    <Style x:Key="CenterAlignTextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="DataGridViewTextAlign" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Grid.Column" Value="1"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
         <Setter Property="Height" Value="26"/>
@@ -110,44 +105,58 @@
         <Setter Property="HorizontalAlignment" Value="Right"/>
     </Style>
 
-    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type dx:SimpleButton}" BasedOn="{StaticResource ButtonStyle}">
+    <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}">
         <Setter Property="IsDefault" Value="True"/>
         <Setter Property="Content" Value="تایید"/>
     </Style>
 
-    <Style x:Key="CancelButtonStyle" TargetType="{x:Type dx:SimpleButton}" BasedOn="{StaticResource ButtonStyle}">
+    <Style x:Key="CancelButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}">
         <Setter Property="IsCancel" Value="True"/>
         <Setter Property="Content" Value="بستن"/>
     </Style>
 
-    <Style x:Key="IconButtonStyle" TargetType="{x:Type dx:SimpleButton}" BasedOn="{StaticResource ButtonStyle}">
+    <Style x:Key="IconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}">
         <Setter Property="Height" Value="32"/>
         <Setter Property="Width" Value="48"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="FlowDirection" Value="LeftToRight"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="GridColumnStyle" TargetType="{x:Type dxg:GridColumn}" >
-        <Setter Property="HorizontalHeaderContentAlignment" Value="Center"/>
-        <Setter Property="EditSettings">
+    <Style x:Key="PrintButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
+        <Setter Property="ToolTip" Value="چاپ"/>
+        <Setter Property="ContentTemplate">
             <Setter.Value>
-                <dxe:TextEditSettings HorizontalContentAlignment="Center"/>
+                <DataTemplate>
+                    <Image Source="/Fund;component/Resources/Icons/Print32.png"/>
+                </DataTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style x:Key="GridControlStyle" TargetType="{x:Type dxg:GridControl}">
-        <Setter Property="Language" Value="fa-IR"/>
-        <Setter Property="ItemsSource" Value="{Binding}"/>
-        <Setter Property="View">
+    <Style x:Key="ExportPdfButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
+        <Setter Property="ToolTip" Value="ذخیره با فرمت PDF"/>
+        <Setter Property="ContentTemplate">
             <Setter.Value>
-                <dxg:TableView AllowPerPixelScrolling="True" VerticalScrollbarVisibility="Auto" NavigationStyle="Row"  ShowAutoFilterRow="False"  ShowGroupPanel="False" TextBlock.TextAlignment="Center" AutoWidth="True" BestFitMode="AllRows" IsColumnMenuEnabled="False"/>
+                <DataTemplate>
+                    <Image Source="/Fund;component/Resources/Icons/pdf32.png"/>
+                </DataTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style x:Key="DxComboBoxEdit" TargetType="{x:Type dxe:ComboBoxEdit}">
+    <Style x:Key="SendEmailButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
+        <Setter Property="ToolTip" Value="ارسال پست الکترونیکی"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Image Source="/Fund;component/Resources/Icons/email_30px.png"/>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DxComboBoxEdit" TargetType="{x:Type ComboBox}">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value="0.5"/>
@@ -158,7 +167,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="DxTextEdit" TargetType="{x:Type dxe:TextEdit}">
+    <Style x:Key="DxTextEdit" TargetType="{x:Type TextBox}">
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value="0.5"/>
@@ -169,7 +178,7 @@
         </Style.Triggers>
     </Style>
     
-    <Style x:Key="GendersComboBoxEditStyle" TargetType="{x:Type dxe:ComboBoxEdit}">
+    <Style x:Key="GendersComboBoxEditStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate>
@@ -184,7 +193,7 @@
 
                             <Image Grid.Column="1" HorizontalAlignment="Stretch"  Source="{Binding ComboBoxItemLogo}" VerticalAlignment="Center"/>
                             <Label Grid.Column="2" Content=" - " VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            <Label Grid.Column="3" FontWeight="Bold" FontSize="16" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <Label Grid.Column="3" FontWeight="Bold" FontSize="12" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
                         </Grid>
                     </Border>
@@ -192,8 +201,6 @@
             </Setter.Value>
         </Setter>
         <Setter Property="SelectedIndex" Value="0"/>
-        <Setter Property="IsTextEditable" Value="False"/>
-        <Setter Property="ApplyItemTemplateToSelectedItem" Value="True"/>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value="0.5"/>
@@ -204,7 +211,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="UserTypesComboBoxEditStyle" TargetType="{x:Type dxe:ComboBoxEdit}">
+    <Style x:Key="UserTypesComboBoxEditStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate>
@@ -219,7 +226,7 @@
 
                             <Image Grid.Column="1" HorizontalAlignment="Stretch"  Source="{Binding ComboBoxItemLogo}" VerticalAlignment="Center"/>
                             <Label Grid.Column="2" Content=" - " VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            <Label Grid.Column="3" FontWeight="Bold" FontSize="16" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <Label Grid.Column="3" FontWeight="Bold" FontSize="12" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
                         </Grid>
                     </Border>
@@ -227,8 +234,6 @@
             </Setter.Value>
         </Setter>
         <Setter Property="SelectedIndex" Value="0"/>
-        <Setter Property="IsTextEditable" Value="False"/>
-        <Setter Property="ApplyItemTemplateToSelectedItem" Value="True"/>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value="0.5"/>

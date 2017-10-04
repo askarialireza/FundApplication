@@ -241,3 +241,5 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Setup/Setup-SetupFiles/Setup.exe
+/Setup/MsiBuildSetupFiles/Setup.msi
+/Setup/Setup-SetupFiles/FundManagementSetup1.0.0.exe

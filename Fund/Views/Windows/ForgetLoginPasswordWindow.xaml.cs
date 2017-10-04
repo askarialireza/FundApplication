@@ -2,7 +2,7 @@
 
 namespace Fund
 {
-    public partial class ForgetLoginPasswordWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class ForgetLoginPasswordWindow : System.Windows.Window
     {
         private string EmailRecoveryCode;
 

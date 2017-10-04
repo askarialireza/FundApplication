@@ -2,7 +2,7 @@
 
 namespace Fund
 {
-    public partial class ShowInstallmentsListPerLoanWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class ShowInstallmentsListPerLoanWindow : System.Windows.Window
     {
 
         public ShowInstallmentsListPerLoanWindow()
@@ -99,7 +99,14 @@ namespace Fund
                     Models.Fund oFund = oUnitOfWork.FundRepository
                         .GetById(Utility.CurrentFund.Id);
 
+                    Models.Member oMember = oUnitOfWork.MemberRepository
+                        .GetById(oInstallment.Loan.Member.Id);
+
                     oFund.Balance += oInstallment.PaymentAmount;
+
+                    oMember.Balance -= oInstallment.PaymentAmount;
+
+                    oUnitOfWork.MemberRepository.Update(oMember);
 
                     oUnitOfWork.FundRepository.Update(oFund);
 

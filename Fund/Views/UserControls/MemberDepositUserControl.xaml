@@ -1,0 +1,156 @@
+﻿<UserControl 
+
+    x:Class="Fund.MemberDepositUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Fund"
+    xmlns:conv="clr-namespace:Infrastructure.Converter"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    mc:Ignorable="d" 
+    d:DesignHeight="500" d:DesignWidth="800"
+    Style="{DynamicResource UserControlStyle}"
+    >
+
+    <UserControl.Resources>
+
+        <Style x:Key="EmptyListBox" TargetType="{x:Type ListBox}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Items.Count,RelativeSource={RelativeSource Self}}"  Value="0">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border Background="White" Opacity="0.5"  BorderThickness="1" BorderBrush="Gray">
+                                    <Label Foreground="Gray" Content="عضوی با محتوای جستجو شده یافت نشد" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" MaxWidth="260"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid Style="{DynamicResource GridStyle}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="5,0">
+
+            <Label FontWeight="Bold" FontSize="20" Content="واریز اعضا" VerticalAlignment="Center"  Grid.Row="0"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1" FlowDirection="RightToLeft">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="جستجوی اعضا :" Grid.Column="0" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right" Margin="5,0"/>
+
+                    <TextBox x:Name="SearchMemberTextBox" Grid.Column="1" Margin="0,2" Style="{DynamicResource RtlTextBoxStyle}" TextAlignment="Left" Height="auto" TextChanged="SearchMemberTextBox_TextChanged"/>
+
+                </Grid>
+
+                <ListBox Name="MembersListBox" FontSize="15" FontWeight="Bold" Grid.Row="1" Margin="5" SelectionChanged="MembersListBox_SelectionChanged" Style="{DynamicResource EmptyListBox}"/>
+
+                <GroupBox Grid.Row="2" Margin="5" FontSize="16" FontWeight="Bold" Header="مشخصات" TextBlock.TextAlignment="Center">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <Grid x:Name="MemberViewGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="0" Height="150" Width="150" BorderBrush="DarkGray" BorderThickness="0">
+                                <Image Name="MemberImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Stretch="UniformToFill"/>
+                            </Border>
+
+                            <Label Name="MemberNameLabel" Grid.Row="2" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Name="MemberNationalCodeLabel" Grid.Row="3" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Label Name="MembershipDateLabel" Grid.Row="4" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ScrollViewer>
+                </GroupBox>
+
+            </Grid>
+
+            <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="5" Opacity="0" />
+
+            <Grid Grid.Column="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label Content="مبلغ واریزی :" FontSize="15" Margin="5" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" />
+                    <TextBox Name="DepositAmountTextBox" Width="300" FontSize="15" VerticalContentAlignment="Center" Margin="93,5,0,5" MaxLength="16" GotFocus="DepositAmountTextBox_GotFocus" LostFocus="DepositAmountTextBox_LostFocus" HorizontalAlignment="Left"/>
+
+                    <Button Margin="5" Width="120" HorizontalAlignment="Right" Content="واریز به صندوق" FontWeight="Bold" FontSize="13" Click="SimpleButton_Click" />
+
+                </Grid>
+
+                <Grid Margin="5" Grid.Row="1">
+
+                    <DataGrid Name="GridControl" Grid.Row="1" Style="{DynamicResource DataGridStyle}">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="تاریخ تراکنش" Binding="{Binding Date, Converter={conv:DateTimeToPersianDateTimeStringConverter}}"  ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"/>
+
+                            <DataGridTextColumn Header="نوع تراکنش" Binding="{Binding TransactionDescription}"  ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"/>
+
+                            <DataGridTextColumn Header="مقدار تراکنش" Binding="{Binding AmountRialFormat}"  ElementStyle="{DynamicResource CenterAlignTextBlock}" HeaderStyle="{DynamicResource DataGridViewTextAlign}"/>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <Button x:Name="PrintButton" Style="{DynamicResource PrintButtonStyle}" Margin="0,0,90,8" Click="PrintButton_Click" Grid.Column="0"/>
+
+            <Button Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Margin="0,0,143,8" Click="ExportToPdfButton_Click" Grid.Column="0"/>
+
+            <Button x:Name="SendEmailButton" Style="{DynamicResource SendEmailButtonStyle}" Margin="0,0,196,8" Click="SendEmailButton_Click" Grid.Column="0"/>
+
+            <Button x:Name="CancelButton" Style="{DynamicResource CancelButtonStyle}" Height="32" Grid.Column="0" Click="CancelButton_Click" Margin="0,0,5,8"/>
+
+        </Grid>
+
+    </Grid>
+
+
+</UserControl>

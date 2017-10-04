@@ -5,6 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib"
     xmlns:resource="clr-namespace:Fund.Properties"
+    xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
+    xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent" 
     xmlns:local="clr-namespace:Fund">
     
     <Application.Resources>
@@ -14,9 +16,10 @@
                 <ResourceDictionary Source="Themes.xaml"/>
                 <ResourceDictionary Source="Styles.xaml"/>
                 <ResourceDictionary Source="UserControlLayout.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
+
     </Application.Resources>
     
 </Application>

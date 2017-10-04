@@ -145,27 +145,6 @@ namespace Fund
             }
         }
 
-        private void TextBoxEditorActivated(object sender, System.Windows.RoutedEventArgs e)
-        {
-            ((DevExpress.Xpf.Editors.TextEdit)sender).Text =
-                ((DevExpress.Xpf.Editors.TextEdit)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
-        }
-
-        private void TextBoxValidate(object sender, DevExpress.Xpf.Editors.ValidationEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(((DevExpress.Xpf.Editors.TextEdit)sender).Text) == false)
-            {
-                long value = System.Convert.ToInt64(((DevExpress.Xpf.Editors.TextEdit)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
-
-                ((DevExpress.Xpf.Editors.TextEdit)sender).Text = value.ToRialStringFormat();
-            }
-            else
-            {
-                long zero = 0;
-                ((DevExpress.Xpf.Editors.TextEdit)sender).Text = zero.ToRialStringFormat();
-            }
-        }
-
         private void ToggleSwitch_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
             PercentTextBox.Visibility = System.Windows.Visibility.Visible;
@@ -177,6 +156,27 @@ namespace Fund
             PercentTextBox.Visibility = System.Windows.Visibility.Hidden;
             PercentLabel.Visibility = System.Windows.Visibility.Hidden;
 
+        }
+
+        private void fundBalanceTextBox_GotFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ((System.Windows.Controls.TextBox)sender).Text =
+                ((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
+        }
+
+        private void fundBalanceTextBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(((System.Windows.Controls.TextBox)sender).Text) == false)
+            {
+                long value = System.Convert.ToInt64(((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
+
+                ((System.Windows.Controls.TextBox)sender).Text = value.ToRialStringFormat();
+            }
+            else
+            {
+                long zero = 0;
+                ((System.Windows.Controls.TextBox)sender).Text = zero.ToRialStringFormat();
+            }
         }
     }
 }

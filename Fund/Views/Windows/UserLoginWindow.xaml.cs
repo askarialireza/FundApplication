@@ -2,7 +2,7 @@
 
 namespace Fund
 {
-    public partial class UserLoginWindow : DevExpress.Xpf.Core.DXWindow
+    public partial class UserLoginWindow : System.Windows.Window
     {
         public bool ShowWelcomeWindow { get; set; }
 
@@ -73,16 +73,14 @@ namespace Fund
                     }
                     else
                     {
-                        MainRibbonWindow oMainRibbonWindow = new MainRibbonWindow();
+                        MainWindow oMainWindow = new MainWindow();
 
-                        oMainRibbonWindow.Show();
+                        oMainWindow.Show();
 
-                        oMainRibbonWindow.WindowState = System.Windows.WindowState.Maximized;
+                        oMainWindow.WindowState = System.Windows.WindowState.Maximized;
 
                         this.Hide();
                     }
-
-
                 }
 
                 else

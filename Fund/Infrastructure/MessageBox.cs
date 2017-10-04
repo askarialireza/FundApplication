@@ -14,13 +14,37 @@ namespace Infrastructure
             public const string Information = "پیام";
         }
 
+        internal static class Button
+        {
+            public const string Abort = "قطع";
+
+            public const string Ok = "تایید";
+
+            public const string Cancel = "لغو";
+
+            public const string Yes = "بله";
+
+            public const string No = "خیر";
+        }
+
         static MessageBox()
         {
+            Infrastructure.MessageBoxManager.OK = Infrastructure.MessageBox.Button.Ok;
+
+            Infrastructure.MessageBoxManager.Cancel = Infrastructure.MessageBox.Button.Cancel;
+
+            Infrastructure.MessageBoxManager.No = Infrastructure.MessageBox.Button.No;
+
+            Infrastructure.MessageBoxManager.Yes = Infrastructure.MessageBox.Button.Yes;
+
+            Infrastructure.MessageBoxManager.Abort = Infrastructure.MessageBox.Button.Abort;
+
+            Infrastructure.MessageBoxManager.Register();
         }
 
         public static System.Windows.MessageBoxResult Show(string text)
         {
-            return DevExpress.Xpf.Core.DXMessageBox.Show(text);
+            return System.Windows.MessageBox.Show(text);
         }
 
         public static System.Windows.MessageBoxResult Show(string caption, string text)
@@ -66,7 +90,7 @@ namespace Infrastructure
                     break;
             }
 
-            return DevExpress.Xpf.Core.DXMessageBox.Show
+            return System.Windows.MessageBox.Show
                  (
                     caption: caption,
                     messageBoxText: text,

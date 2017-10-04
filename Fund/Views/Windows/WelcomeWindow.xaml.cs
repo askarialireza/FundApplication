@@ -25,12 +25,12 @@ namespace Fund
 
         private void OBackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            MainRibbonWindow oMainRibbonWindow = new MainRibbonWindow();
+            MainWindow oMainWindow = new MainWindow();
 
             System.Threading.Thread oThread = new System.Threading.Thread(new System.Threading.ThreadStart(delegate ()
             {
                 System.Windows.Threading.DispatcherOperation oDispatcherOperation =
-                    oMainRibbonWindow.Dispatcher.BeginInvoke( System.Windows.Threading.DispatcherPriority.Normal,
+                    oMainWindow.Dispatcher.BeginInvoke( System.Windows.Threading.DispatcherPriority.Normal,
                         new System.Action(delegate ()
                         {
                             DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
@@ -38,9 +38,11 @@ namespace Fund
                             Utility.CurrentUser = oUnitOfWork.UserRepository
                                 .GetById(Utility.CurrentUser.Id);
 
-                            oMainRibbonWindow.Show();
+                            oMainWindow.WindowState = System.Windows.WindowState.Minimized;
 
-                            oMainRibbonWindow.WindowState = System.Windows.WindowState.Maximized;
+                            oMainWindow.Show();
+
+                            oMainWindow.WindowState = System.Windows.WindowState.Maximized;
 
                             this.Hide();
                         }));
