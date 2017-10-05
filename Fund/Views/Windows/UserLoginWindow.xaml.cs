@@ -128,6 +128,8 @@ namespace Fund
         {
             ForgetLoginPasswordWindow oForgotLoginPasswordWindow = new ForgetLoginPasswordWindow();
 
+            oForgotLoginPasswordWindow.Owner = this;
+
             oForgotLoginPasswordWindow.ShowDialog();
         }
     }

@@ -31,7 +31,9 @@ namespace Fund
             {
                 ChangePasswordWindow oChangePasswordWindow = new Fund.ChangePasswordWindow(Id);
 
-                oChangePasswordWindow.Show();
+                oChangePasswordWindow.Owner = this;
+
+                oChangePasswordWindow.ShowDialog();
 
                 this.Hide();
             }
@@ -137,6 +139,11 @@ namespace Fund
         private void RefreshCode()
         {
             EmailRecoveryCode = Dtx.Guid.NewGuidWithoutDash;
+        }
+
+        private void EmailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.EmailAddressValidation(sender, e);
         }
     }
 }

@@ -331,6 +331,8 @@ namespace Fund
 
                     LoadGridControl();
 
+                    MembersGridControl.SelectedIndex = 0;
+
                     Utility.MainWindow.RefreshUserInterface();
                 }
 
@@ -366,11 +368,22 @@ namespace Fund
 
             if (oOpenFileDialog.ShowDialog() == true)
             {
-                MemberImage.Source = new System.Windows.Media.Imaging.BitmapImage(new System.Uri(oOpenFileDialog.FileName));
+                System.Windows.Media.Imaging.BitmapImage oBitmapImage = new System.Windows.Media.Imaging.BitmapImage(new System.Uri(oOpenFileDialog.FileName));
 
-                IsPictureDeleted = false;
+                if (oBitmapImage.PixelWidth >= 1000 && oBitmapImage.PixelHeight >= 1000)
+                {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "حداکثر اندازه عکس انتخاب شده بایست 1000*1000 پیکسل باشد.");
 
-                IsPictureChanged = true;
+                    return;
+                }
+                else
+                {
+                    MemberImage.Source = oBitmapImage;
+
+                    IsPictureChanged = true;
+
+                    IsPictureDeleted = false;
+                }
             }
         }
 
@@ -505,6 +518,21 @@ namespace Fund
                 MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
                 CurrentId = oMember.Id;
             }
+        }
+
+        private void NationalCodeTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.NationalCodeValidation(sender, e);
+        }
+
+        private void emailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.EmailAddressValidation(sender, e);
+        }
+
+        private void phoneNumberTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.MobileNumberValidation(sender, e);
         }
     }
 }

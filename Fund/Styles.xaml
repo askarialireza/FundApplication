@@ -182,7 +182,7 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <Border Margin="0" Background="Transparent" Height="26">
+                    <Border Margin="0" Background="Transparent" Height="30">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10"/>
@@ -193,7 +193,7 @@
 
                             <Image Grid.Column="1" HorizontalAlignment="Stretch"  Source="{Binding ComboBoxItemLogo}" VerticalAlignment="Center"/>
                             <Label Grid.Column="2" Content=" - " VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            <Label Grid.Column="3" FontWeight="Bold" FontSize="12" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <Label Grid.Column="3" FontWeight="Bold" FontSize="13" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
                         </Grid>
                     </Border>
@@ -215,7 +215,7 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <Border Margin="0" Background="Transparent" Height="26">
+                    <Border Margin="0" Background="Transparent" Height="30">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10"/>
@@ -226,7 +226,7 @@
 
                             <Image Grid.Column="1" HorizontalAlignment="Stretch"  Source="{Binding ComboBoxItemLogo}" VerticalAlignment="Center"/>
                             <Label Grid.Column="2" Content=" - " VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            <Label Grid.Column="3" FontWeight="Bold" FontSize="12" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <Label Grid.Column="3" FontWeight="Bold" FontSize="13" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
                         </Grid>
                     </Border>
@@ -248,7 +248,7 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <Border Margin="0" Background="Transparent" Height="26">
+                    <Border Margin="0" Background="Transparent" Height="30">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10"/>
@@ -259,7 +259,7 @@
 
                             <Image Grid.Column="1" HorizontalAlignment="Stretch"  Source="{Binding ListBoxItemLogo}" VerticalAlignment="Center"/>
                             <Label Grid.Column="2" Content="  |  " VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            <Label Grid.Column="3" FontWeight="Bold" FontSize="12" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <Label Grid.Column="3" FontWeight="Bold" FontSize="13" Content="{Binding Description}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
                         </Grid>
                     </Border>
@@ -279,6 +279,29 @@
                 </Setter>
             </DataTrigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="GridSplitter" TargetType="{x:Type GridSplitter}">
+        <Setter Property="Opacity" Value="1"/>
+        <Setter Property="ResizeBehavior" Value="PreviousAndNext"/>
+    </Style>
+
+    <Style x:Key="VerticalGridSplitter" TargetType="{x:Type GridSplitter}" BasedOn="{StaticResource GridSplitter}">
+        <Setter Property="Width" Value="5"/>
+    </Style>
+
+    <Style x:Key="HorizontalGridSplitter" TargetType="{x:Type GridSplitter}" BasedOn="{StaticResource GridSplitter}">
+        <Setter Property="Height" Value="5"/>
+    </Style>
+
+    <Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FlowDirection" Value="LeftToRight"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
 </ResourceDictionary>

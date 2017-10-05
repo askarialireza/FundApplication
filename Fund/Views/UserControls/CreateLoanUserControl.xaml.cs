@@ -206,6 +206,26 @@ namespace Fund
                 return;
             }
 
+            DAL.UnitOfWork oUnitOfWork = new DAL.UnitOfWork();
+
+            var varList = oUnitOfWork.LoanRepository
+                .Get()
+                .Where(current => current.MemberId == Utility.CurrentMember.Id)
+                .Where(current => current.IsActive == true)
+                .Where(current => current.StartDate <= LoanDateTimeDatePicker.SelectedDateTime)
+                .ToList();
+
+            if (varList.Count != 0)
+            {
+                Infrastructure.MessageBox.Show
+                    (
+                        caption: Infrastructure.MessageBox.Caption.Error,
+                        text: "پرداخت وام امکان پذیر نمی‌باشد ." + System.Environment.NewLine + "نسبت به تسویه کامل اقساط وام‌های قبلی اقدام نمایید."
+                    );
+
+                return;
+            }
+
             #endregion
 
             Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Visible;
@@ -596,6 +616,21 @@ namespace Fund
         {
             if (string.IsNullOrWhiteSpace(((System.Windows.Controls.TextBox)sender).Text) == false)
             {
+                System.Text.RegularExpressions.Regex oRegex =
+                    new System.Text.RegularExpressions.Regex(Infrastructure.Text.RegularExpressions.NumbersOnly);
+
+                if (oRegex.IsMatch(((System.Windows.Controls.TextBox)sender).Text) == false)
+                {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "فقط درج اعداد قابل قبول می‌باشد.");
+
+                    Dispatcher.BeginInvoke((System.Threading.ThreadStart)delegate
+                    {
+                        ((System.Windows.Controls.TextBox)sender).Focus();
+                    });
+
+                    return;
+                }
+
                 long value = System.Convert.ToInt64(((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
 
                 ((System.Windows.Controls.TextBox)sender).Text = value.ToRialStringFormat();
@@ -605,6 +640,11 @@ namespace Fund
                 long zero = 0;
                 ((System.Windows.Controls.TextBox)sender).Text = zero.ToRialStringFormat();
             }
+        }
+
+        private void LoanAmountTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            Utility.NumericTextBoxOnly(e);
         }
     }
 }

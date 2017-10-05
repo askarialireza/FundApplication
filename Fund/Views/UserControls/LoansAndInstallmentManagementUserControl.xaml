@@ -13,6 +13,15 @@
     Style="{DynamicResource UserControlStyle}"
     Loaded="UserControl_Loaded">
 
+    <UserControl.Resources>
+
+        <CollectionViewSource x:Key="CvsKey">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Id"/>
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+
+    </UserControl.Resources>
 
     <Grid Style="{DynamicResource GridStyle}">
 
@@ -31,7 +40,8 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.7*"/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="4*" MinWidth="350"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0" Style="{DynamicResource GridStyle}">
@@ -42,20 +52,47 @@
 
                 <Label FontSize="18" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Content="اعضا و وامها"/>
 
-                <TreeView Name="LoansTreeView" Grid.Row="1" SelectedItemChanged="LoansTreeView_SelectedItemChanged">
-                    <TreeView.Resources>
-                        <HierarchicalDataTemplate DataType="{x:Type models:Member}" ItemsSource="{Binding Loans}">
-                            <TreeViewItem Header="{Binding FullName}" FontSize="15" FontWeight="Bold"/>
-                        </HierarchicalDataTemplate>
-                        <DataTemplate DataType="{x:Type models:Loan}">
-                            <TextBlock FontSize="12" FontWeight="Normal" Text="{Binding Id, Converter={converter:LoanIdToDescriptionConverter}}" />
-                        </DataTemplate>
-                    </TreeView.Resources>
-                </TreeView>
+                <DataGrid Name="LoansDataGrid" Loaded="LoansDataGrid_Loaded" Grid.Row="1" HorizontalScrollBarVisibility="Disabled" Style="{DynamicResource DataGridStyle}">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Width="150" Header="عضو" HeaderStyle="{DynamicResource DataGridViewTextAlign}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Id, Converter={converter:GuidToMemberFullNameConverter}}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="وام‌ها" HeaderStyle="{DynamicResource DataGridViewTextAlign}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DataGrid SelectionChanged="DataGrid_SelectionChanged" ItemsSource="{Binding Loans}" IsReadOnly="True" AutoGenerateColumns="False" HeadersVisibility="None">
+                                        <DataGrid.Columns>
+                                            <DataGridTemplateColumn Width="*">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Id, Converter={converter:LoanIdToDescriptionConverter}}"/>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                    
+                </DataGrid>
 
             </Grid>
 
-            <Grid Grid.Column="1" Style="{DynamicResource GridStyle}">
+            <GridSplitter Grid.Column="1" Margin="0,50,0,10" Grid.Row="1" Style="{DynamicResource VerticalGridSplitter}"/>
+
+            <Grid Grid.Column="2" Style="{DynamicResource GridStyle}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="1*"/>

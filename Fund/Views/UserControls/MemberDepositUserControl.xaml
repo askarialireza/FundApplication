@@ -67,7 +67,7 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Content="جستجوی اعضا :" Grid.Column="0" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right" Margin="5,0"/>
+                    <Label Content="جستجوی اعضا :" Grid.Column="0" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Right" Margin="5,0"/>
 
                     <TextBox x:Name="SearchMemberTextBox" Grid.Column="1" Margin="0,2" Style="{DynamicResource RtlTextBoxStyle}" TextAlignment="Left" Height="auto" TextChanged="SearchMemberTextBox_TextChanged"/>
 
@@ -79,11 +79,10 @@
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <Grid x:Name="MemberViewGrid">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="200"/>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
 
@@ -100,7 +99,7 @@
 
             </Grid>
 
-            <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="5" Opacity="0" />
+            <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" Width="5" Opacity="1" />
 
             <Grid Grid.Column="2">
 
@@ -111,7 +110,7 @@
 
                 <Grid Grid.Row="0">
                     <Label Content="مبلغ واریزی :" FontSize="15" Margin="5" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" />
-                    <TextBox Name="DepositAmountTextBox" Width="300" FontSize="15" VerticalContentAlignment="Center" Margin="93,5,0,5" MaxLength="16" GotFocus="DepositAmountTextBox_GotFocus" LostFocus="DepositAmountTextBox_LostFocus" HorizontalAlignment="Left"/>
+                    <TextBox Name="DepositAmountTextBox" Width="300" FontSize="15" VerticalContentAlignment="Center" Margin="93,5,0,5" MaxLength="16" GotFocus="DepositAmountTextBox_GotFocus" PreviewKeyDown="DepositAmountTextBox_PreviewKeyDown" LostFocus="DepositAmountTextBox_LostFocus" HorizontalAlignment="Left"/>
 
                     <Button Margin="5" Width="120" HorizontalAlignment="Right" Content="واریز به صندوق" FontWeight="Bold" FontSize="13" Click="SimpleButton_Click" />
 

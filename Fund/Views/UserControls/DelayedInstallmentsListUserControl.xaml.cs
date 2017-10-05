@@ -165,6 +165,9 @@ namespace Fund
 
                 InstallmentPerLoanGridControl.ItemsSource = varList;
 
+                ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+                PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
+
                 oUnitOfWork.Save();
             }
             catch (System.Exception ex)

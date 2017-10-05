@@ -130,7 +130,7 @@
 
             </Grid>
 
-            <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" Opacity="0" />
+            <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" Opacity="1" />
 
             <Grid Grid.Column="2">
 
@@ -153,7 +153,7 @@
 
                             <Label x:Name="EditItemsLabel" Content="ویرایش اعضا" Grid.Row="0" Grid.Column="1" TextBlock.TextAlignment="Right" FontSize="16" FontWeight="Bold" VerticalAlignment="Top"/>
 
-                            <CheckBox x:Name="EditItemsToggleSwitch" Grid.Row="0" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Top"  Grid.Column="1" Checked="EditItemsToggleSwitchChecked" Unchecked="EditItemsToggleSwitchUnchecked" Margin="0,5"/>
+                            <CheckBox x:Name="EditItemsToggleSwitch" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center" Style="{DynamicResource CheckBoxStyle}"  HorizontalAlignment="Right"  Grid.Column="1" Checked="EditItemsToggleSwitchChecked" Unchecked="EditItemsToggleSwitchUnchecked" Margin="0,5"/>
 
                         </Grid>
 
@@ -203,7 +203,7 @@
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="4"/>
 
-                                <TextBox x:Name="NationalCodeTextBox" Grid.Row="4" Style="{DynamicResource TextBoxesStyle}" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
+                                <TextBox x:Name="NationalCodeTextBox" Grid.Row="4" Style="{DynamicResource TextBoxesStyle}" PreviewLostKeyboardFocus="NationalCodeTextBox_PreviewLostKeyboardFocus" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
 
                                 <Label x:Name="GenderTypeLabel" Content="جنسیت :" Grid.Row="5" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
@@ -213,13 +213,13 @@
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="7"/>
 
-                                <TextBox Name="emailAddressTextBox" VerticalContentAlignment="Center" Grid.Row="7" Style="{DynamicResource TextEditsStyle}"/>
+                                <TextBox Name="emailAddressTextBox" VerticalContentAlignment="Center" PreviewLostKeyboardFocus="emailAddressTextBox_PreviewLostKeyboardFocus" Grid.Row="7" Style="{DynamicResource TextEditsStyle}"/>
 
                                 <Label x:Name="PhoneNumberLabel" Content="شماره تلفن :" Grid.Row="8" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="8"/>
 
-                                <TextBox Name="phoneNumberTextBox" Grid.Row="8" MaxLength="11" Style="{DynamicResource TextEditsStyle}" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
+                                <TextBox Name="phoneNumberTextBox" Grid.Row="8" MaxLength="11" Style="{DynamicResource TextEditsStyle}" PreviewLostKeyboardFocus="phoneNumberTextBox_PreviewLostKeyboardFocus" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
 
                                 <Label x:Name="PictureLabel" Content="عکس :" Grid.Row="10" VerticalAlignment="Top" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 

@@ -215,6 +215,7 @@ namespace Fund
 
                 ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
                 PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
+                SendEmailButton.IsEnabled = (varList.Count == 0) ? false : true;
 
                 oUnitOfWork.Save();
             }
@@ -409,6 +410,11 @@ namespace Fund
         {
             ((System.Windows.Controls.TextBox)sender).Text =
                 ((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
+        }
+
+        private void DepositAmountTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            Utility.NumericTextBoxOnly(e);
         }
     }
 }

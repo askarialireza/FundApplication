@@ -67,7 +67,7 @@
         </Style>
 
     </Window.Resources>
-    
+
     <Grid Margin="15">
 
         <Grid.RowDefinitions>
@@ -76,7 +76,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="3*"/>
@@ -87,9 +87,9 @@
             <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="تراز مالی اعضا" FontWeight="Bold" FontSize="18"/>
 
         </Grid>
-        
+
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,5">
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.6*"/>
                 <ColumnDefinition Width="3*"/>
@@ -113,11 +113,10 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid x:Name="MemberViewGrid">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="70"/>
                             <RowDefinition Height="5"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
 
@@ -139,7 +138,7 @@
             <GroupBox Header="اطلاعات" FontWeight="Bold" TextBlock.TextAlignment="Center">
 
                 <Grid>
-                    
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1.6*"/>
                         <ColumnDefinition Width="2*"/>
@@ -189,9 +188,9 @@
 
 
                 </Grid>
-                
+
             </GroupBox>
-            
+
         </Grid>
 
         <Grid Grid.Row="3" Grid.ColumnSpan="2">
@@ -200,15 +199,15 @@
 
             <Label Name="MemberBalanceLabel" FontSize="13" Style="{DynamicResource LabelCol1}" Grid.Column="0" Margin="103,0,159,2" Width="200" VerticalAlignment="Bottom"/>
 
-            <Button x:Name="PrintButton" Style="{DynamicResource PrintButtonStyle}" Click="PrintButton_Click" Margin="0" />
+            <Button x:Name="PrintButton" Style="{DynamicResource PrintButtonStyle}" Click="PrintButton_Click" Margin="0,5,10,3" Grid.Column="0" />
 
-            <Button x:Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Click="ExportToPdfButton_Click"  Margin="0,0,53,0"/>
+            <Button x:Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Click="ExportToPdfButton_Click"  Margin="0,5,63,3" Grid.Column="0"/>
 
-            <Button x:Name="SendEmailButton" Style="{DynamicResource SendEmailButtonStyle}" Margin="0,0,106,0" Click="SendEmailButton_Click"/>
+            <Button x:Name="SendEmailButton" Style="{DynamicResource SendEmailButtonStyle}" Margin="0,5,116,3" Click="SendEmailButton_Click" Grid.Column="0"/>
 
         </Grid>
 
     </Grid>
-    
-    
+
+
 </Window>

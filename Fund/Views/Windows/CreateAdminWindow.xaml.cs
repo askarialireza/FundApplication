@@ -147,5 +147,15 @@ namespace Fund
         {
             EmailPopup.Show();
         }
+
+        private void EmailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.EmailAddressValidation(sender, e);
+        }
+
+        private void UsernameTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.UsernameValidation(sender, e);
+        }
     }
 }

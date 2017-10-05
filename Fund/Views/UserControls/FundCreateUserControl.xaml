@@ -84,49 +84,49 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
-                <Label Content="نام صندوق :" Grid.Row="0" Style="{DynamicResource LabelCol1}"/>
+                <Label Content="نام صندوق :" Grid.Row="0" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
                 <TextBox x:Name="fundNameTextBox" Grid.Row="0" Style="{DynamicResource TextEditCol2}"/>
 
                 <Label Grid.Row="0" Style="{DynamicResource StarsStyle}"/>
 
-                <Label Content="سال تاسیس صندوق :" Grid.Row="1" Style="{DynamicResource LabelCol1}"/>
+                <Label Content="سال تاسیس صندوق :" Grid.Row="1" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
-                <TextBox x:Name="fundBuildYearTextBox" Style="{DynamicResource TextEditCol2}" Grid.Row="1"/>
+                <TextBox x:Name="fundBuildYearTextBox" Style="{DynamicResource TextEditCol2}" PreviewKeyDown="fundBalanceTextBox_PreviewKeyDown" Grid.Row="1"/>
 
                 <Label Grid.Row="1" Style="{DynamicResource StarsStyle}"/>
 
-                <Label Content="مدیر صندوق :" Grid.Row="2" Style="{DynamicResource LabelCol1}"/>
+                <Label Content="مدیر صندوق :" Grid.Row="2" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
                 <TextBox x:Name="fundManagerTextBox" Grid.Row="2" Style="{DynamicResource TextEditCol2}"/>
 
                 <Label Grid.Row="2" Style="{DynamicResource StarsStyle}"/>
 
-                <Label Content="سرمایه صندوق :" Grid.Row="4" Style="{DynamicResource LabelCol1}"/>
+                <Label Content="سرمایه صندوق :" Grid.Row="4" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
-                <TextBox Name="fundBalanceTextBox" Grid.Row="4" MaxLength="16" GotFocus="fundBalanceTextBox_GotFocus" LostFocus="fundBalanceTextBox_LostFocus" Style="{DynamicResource TextEditCol2}"/>
+                <TextBox Name="fundBalanceTextBox" Grid.Row="4" MaxLength="16" GotFocus="fundBalanceTextBox_GotFocus" PreviewKeyDown="fundBalanceTextBox_PreviewKeyDown" LostFocus="fundBalanceTextBox_LostFocus" Style="{DynamicResource TextEditCol2}"/>
 
                 <Label Grid.Row="4" Style="{DynamicResource StarsStyle}"/>
 
-                <Label Content="سقف پرداخت وام :" Grid.Row="5" Style="{DynamicResource LabelCol1}"/>
+                <Label Content="سقف پرداخت وام :" Grid.Row="5" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
-                <TextBox x:Name="fundRemovalLimitTextBox" MaxLength="16" GotFocus="fundBalanceTextBox_GotFocus" LostFocus="fundBalanceTextBox_LostFocus" Grid.Row="5" Style="{DynamicResource TextEditCol2}"/>
+                <TextBox x:Name="fundRemovalLimitTextBox" MaxLength="16" GotFocus="fundBalanceTextBox_GotFocus" PreviewKeyDown="fundBalanceTextBox_PreviewKeyDown" LostFocus="fundBalanceTextBox_LostFocus" Grid.Row="5" Style="{DynamicResource TextEditCol2}"/>
 
                 <Label Grid.Row="5" Style="{DynamicResource StarsStyle}"/>
 
-                <Label Content="رمز عبور :" Grid.Row="7" Style="{DynamicResource LabelCol1}"/>
+                <Label Content="رمز عبور :" Grid.Row="7" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
                 <PasswordBox x:Name="passwordBox" Grid.Column="2" Grid.Row="7" Style="{DynamicResource PasswordBoxStyle}" Height="auto" Margin="0,3"/>
 
                 <Label Grid.Row="7" Style="{DynamicResource StarsStyle}"/>
 
-                <Label Content="تایید رمز عبور :" Grid.Row="8" Style="{DynamicResource LabelCol1}"/>
+                <Label Content="تایید رمز عبور :" Grid.Row="8" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
                 <PasswordBox x:Name="againPasswordBox" Grid.Row="8" Style="{DynamicResource PasswordBoxStyle}" Height="auto" Margin="0,3" Grid.Column="2"/>
 
                 <Label Grid.Row="8" Style="{DynamicResource StarsStyle}"/>
 
-                <Label Grid.Row="9" Content="کارمزد :" Style="{DynamicResource LabelCol1}"/>
+                <Label Grid.Row="9" Content="کارمزد :" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
                 <Grid Grid.Column="2" Grid.Row="9" Margin="0,3">
                     <Grid.ColumnDefinitions>
@@ -135,9 +135,9 @@
                         <ColumnDefinition Width="0.5*"/>
                     </Grid.ColumnDefinitions>
 
-                    <CheckBox Name="PercentCheckBox" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="13" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" />
+                    <CheckBox Name="PercentCheckBox" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="13" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" Style="{DynamicResource CheckBoxStyle}" />
 
-                    <TextBox Name="PercentTextBox" Grid.Column="1" VerticalAlignment="Center" MaxLength="3" FontSize="17" Margin="2,0" Visibility="Hidden"/>
+                    <TextBox Name="PercentTextBox" Grid.Column="1" VerticalAlignment="Center" MaxLength="3" FontSize="17" Margin="2,0" LostFocus="PercentTextBox_LostFocus" PreviewKeyDown="fundBalanceTextBox_PreviewKeyDown" Visibility="Hidden"/>
 
                     <Label Name="PercentLabel" Grid.Column="2" Content="درصد" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" />
 

@@ -617,5 +617,15 @@ namespace Fund
 
             RefreshLabels();
         }
+
+        private void FundPercentTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            Utility.NumericTextBoxOnly(e);
+        }
+
+        private void FundPercentTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.PercentValueValidation(sender, e);
+        }
     }
 }

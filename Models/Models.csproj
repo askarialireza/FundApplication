@@ -73,7 +73,6 @@
     <Compile Include="ComplexTypes\GridHeight.cs" />
     <Compile Include="ComplexTypes\GridWidth.cs" />
     <Compile Include="ComplexTypes\PersianDate.cs" />
-    <Compile Include="ComplexTypes\Theme.cs" />
     <Compile Include="Contexts\DatabaseContext.cs" />
     <Compile Include="Contexts\DatabaseContextInitializer.cs" />
     <Compile Include="Entities\BaseEntity.cs" />

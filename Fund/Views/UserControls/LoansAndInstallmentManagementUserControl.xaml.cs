@@ -32,7 +32,11 @@ namespace Fund
                     .ThenBy(current => current.FullName.FirstName)
                     .ToList();
 
-                LoansTreeView.ItemsSource = varList;
+                LoansDataGrid.ItemsSource = varList;
+
+                PayAllInstallmentsButton.IsEnabled = (varList.Count == 0) ? false : true;
+                ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+                PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
 
                 oUnitOfWork.Save();
             }
@@ -170,7 +174,7 @@ namespace Fund
 
         private void LoansTreeView_SelectedItemChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<object> e)
         {
-            Models.Loan oLoan = LoansTreeView.SelectedItem as Models.Loan;
+            Models.Loan oLoan = LoansDataGrid.SelectedItem as Models.Loan;
 
             if (oLoan != null)
             {
@@ -402,7 +406,7 @@ namespace Fund
                             .FirstOrDefault();
 
                         Models.Member oMember = oUnitOfWork.MemberRepository
-                            .GetById((System.Guid)oTransaction.MemberId);
+                            .GetById(Utility.CurrentLoan.MemberId);
 
                         if (oInstallment.IsPayed == true)
                         {
@@ -602,6 +606,27 @@ namespace Fund
                 oStiReport.RenderWithWpf();
                 oStiReport.DoAction(action: reportType, fileName: "گزارش لیست اقساط");
             }
+
+        }
+
+        private void DataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Models.Loan oLoan = ((System.Windows.Controls.DataGrid)sender).SelectedItem as Models.Loan;
+
+            if (oLoan != null)
+            {
+                Utility.CurrentLoan = oLoan;
+
+                RefreshInstallmentGridControl();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void LoansDataGrid_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
 
         }
     }

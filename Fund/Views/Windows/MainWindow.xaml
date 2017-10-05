@@ -226,7 +226,7 @@
                     <Fluent:Button Name="DeleteDatabase" Header="حذف بانک اطلاعاتی" Click="DeleteDatabase_Click" LargeIcon="/Fund;component/Resources/Icons/DeleteDatabase80.png" Template="{DynamicResource ButtonControlTemplate}"/>
 
                     <Fluent:Button Name="DatabaseConfigButton" Header="تنظیمات بانک اطلاعاتی" Click="DatabaseConfigButton_Click" LargeIcon="/Fund;component/Resources/Icons/DatabaseConfig80.png" Template="{DynamicResource ButtonControlTemplate}"/>
-
+                    
                 </Fluent:RibbonGroupBox>
 
             </Fluent:RibbonTabItem>
@@ -262,7 +262,7 @@
                         <ColumnDefinition Width="250"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Name="CurrentUserLabel" Margin="4,0" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="0" Text="  کاربر کنونی" Width="130"/>
+                    <TextBlock Name="CurrentUserLabel" FontSize="14" Margin="4,0" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="0" Text="  کاربر کنونی" Width="130"/>
                     
                     <Button Name="UserLogoutButton" Grid.Column="1" Content="خروج" Margin="4" Click="UserLogoutButton_Click"/>
                     
@@ -272,11 +272,11 @@
               
             </Fluent:StatusBarItem>
 
-            <Fluent:StatusBarItem Name="TodayLabel" Width="120" FontWeight="Bold" TextBlock.TextAlignment="Center"  Content="تاریخ کنونی" HorizontalAlignment="Right" />
+            <Fluent:StatusBarItem Name="TodayLabel" Width="120" FontSize="14" FontWeight="Bold" TextBlock.TextAlignment="Center"  Content="تاریخ کنونی" HorizontalAlignment="Right" />
 
             <Separator HorizontalAlignment="Right" />
 
-            <Fluent:StatusBarItem Name="CurrentTimeLabel" Width="100" FontWeight="Bold" TextBlock.TextAlignment="Center" HorizontalAlignment="Right" Value="ساعت کنونی" />
+            <Fluent:StatusBarItem Name="CurrentTimeLabel" Width="100" FontSize="14" FontWeight="Bold" TextBlock.TextAlignment="Center" HorizontalAlignment="Right" Value="ساعت کنونی" />
             
         </Fluent:StatusBar>
 

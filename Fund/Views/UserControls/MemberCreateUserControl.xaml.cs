@@ -129,7 +129,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -164,14 +164,45 @@ namespace Fund
 
             if (oOpenFileDialog.ShowDialog() == true)
             {
-                MemberImage.Source = new System.Windows.Media.Imaging.BitmapImage(new System.Uri(oOpenFileDialog.FileName));
-                IsPictureSelected = true;
+                System.Windows.Media.Imaging.BitmapImage oBitmapImage = new System.Windows.Media.Imaging.BitmapImage(new System.Uri(oOpenFileDialog.FileName));
+
+                if (oBitmapImage.PixelWidth >= 1000 && oBitmapImage.PixelHeight >= 1000)
+                {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "حداکثر اندازه عکس انتخاب شده بایست 1000*1000 پیکسل باشد.");
+
+                    return;
+                }
+                else
+                {
+                    MemberImage.Source = oBitmapImage;
+                    IsPictureSelected = true;
+                }
             }
         }
 
         private void LoadGenderComboBox()
         {
             GendersCombobox.ItemsSource = Infrastructure.Gender.GendersList;
+        }
+
+        private void nationalCodeTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            Utility.NumericTextBoxOnly(e);
+        }
+
+        private void emailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.EmailAddressValidation(sender, e);
+        }
+
+        private void phoneNumberTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.MobileNumberValidation(sender, e);
+        }
+
+        private void nationalCodeTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.NationalCodeValidation(sender, e);
         }
     }
 }

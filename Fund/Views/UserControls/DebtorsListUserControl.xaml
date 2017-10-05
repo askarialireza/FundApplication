@@ -32,6 +32,8 @@
 
                     <DataGridTextColumn Header="مقدار بدهی" Binding="{Binding DebtAmount, Converter={conv:LongToRialStringFormatConverter}}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
 
+                    <DataGridTextColumn Header="موجودی در صندوق" Binding="{Binding Balance, Converter={conv:LongToRialStringFormatConverter}}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
+
                     <DataGridTextColumn Header="تعداد اقساط پرداخت نشده" Binding="{Binding InstallmentCount}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" ElementStyle="{DynamicResource CenterAlignTextBlock}"/>
 
                     <DataGridTextColumn Header="پرداخت بعدی" Binding="{Binding NextPaymentDate, Converter={conv:DateTimeToShortPersianDateStringConverter}}" HeaderStyle="{DynamicResource DataGridViewTextAlign}" ElementStyle="{DynamicResource CenterAlignTextBlock}"/>

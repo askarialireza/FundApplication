@@ -7,24 +7,25 @@
     Loaded="DXWindow_Loaded"
     Title="" 
     Height="310" 
-    Width="300" 
+    Width="340" 
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource WindowStyle}"
     >
 
-    <Grid Style="{StaticResource GridStyle}">
-        
+    <Grid Margin="15">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.7*"/>
             <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
@@ -32,20 +33,20 @@
 
         <Label Grid.Row="0" Content="رمز عبور :" FontSize="14" Style="{StaticResource LabelStyle}"/>
 
-        <PasswordBox x:Name="passwordBox" Grid.Row="0" Style="{StaticResource PasswordBoxStyle}" />
+        <PasswordBox Name="passwordBox" Grid.Row="0" VerticalContentAlignment="Center" Style="{StaticResource PasswordBoxStyle}" />
 
         <Label Grid.Row="2" Content="کد امنیتی :" FontSize="14" Style="{StaticResource LabelStyle}"/>
-        
-        <Fund:Captcha x:Name="Captcha" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" Margin="5" FontSize="48" FlowDirection="LeftToRight"/>
 
-        <Label Grid.Row="5" Content="درج کد امنیتی :" FontSize="14" Style="{StaticResource LabelStyle}"/>
-        
-        <TextBox Name="CaptchaValueTextBox" Grid.Row="5" FontSize="14" Style="{StaticResource LtrTextBoxStyle}"/>
-        
-        <Button Grid.Row="7" Click="AcceptButton_Click" Style="{StaticResource DefaultButtonStyle}"/>
+        <Fund:Captcha x:Name="Captcha" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" Margin="0" FontSize="48" FlowDirection="LeftToRight"/>
 
-        <Button Grid.Row="7" Margin="0,0,83,0" Click="CancelButton_Click" Style="{StaticResource CancelButtonStyle}"/>
-    
+        <Label Grid.Row="6" Content="درج کد امنیتی :" FontSize="14" Style="{StaticResource LabelStyle}"/>
+
+        <TextBox Name="CaptchaValueTextBox" Grid.Row="6" VerticalContentAlignment="Center" FontSize="14" Style="{StaticResource LtrTextBoxStyle}"/>
+
+        <Button Grid.Row="8" Click="AcceptButton_Click" Style="{StaticResource DefaultButtonStyle}" Margin="0,0,0,4"/>
+
+        <Button Grid.Row="8" Margin="0,0,85,4" Click="CancelButton_Click" Style="{StaticResource CancelButtonStyle}"/>
+
     </Grid>
 
 </Window>

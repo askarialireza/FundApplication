@@ -1,16 +1,12 @@
 ﻿#pragma warning disable 0618
-using System;
-using System.Text;
-using System.Runtime.InteropServices;
-using System.Security.Permissions;
 
-[assembly: SecurityPermission(SecurityAction.RequestMinimum, UnmanagedCode = true)]
+[assembly: System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.RequestMinimum, UnmanagedCode = true)]
 namespace Infrastructure
 {
     public class MessageBoxManager
     {
-        private delegate IntPtr HookProc(int nCode, IntPtr wParam, IntPtr lParam);
-        private delegate bool EnumChildProc(IntPtr hWnd, IntPtr lParam);
+        private delegate System.IntPtr HookProc(int nCode, System.IntPtr wParam, System.IntPtr lParam);
+        private delegate bool EnumChildProc(System.IntPtr hWnd, System.IntPtr lParam);
 
         private const int WH_CALLWNDPROCRET = 12;
         private const int WM_DESTROY = 0x0002;
@@ -28,58 +24,58 @@ namespace Infrastructure
         private const int MBNo = 7;
 
 
-        [DllImport("user32.dll")]
-        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern System.IntPtr SendMessage(System.IntPtr hWnd, int Msg, System.IntPtr wParam, System.IntPtr lParam);
 
-        [DllImport("user32.dll")]
-        private static extern IntPtr SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hInstance, int threadId);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern System.IntPtr SetWindowsHookEx(int idHook, HookProc lpfn, System.IntPtr hInstance, int threadId);
 
-        [DllImport("user32.dll")]
-        private static extern int UnhookWindowsHookEx(IntPtr idHook);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int UnhookWindowsHookEx(System.IntPtr idHook);
 
-        [DllImport("user32.dll")]
-        private static extern IntPtr CallNextHookEx(IntPtr idHook, int nCode, IntPtr wParam, IntPtr lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern System.IntPtr CallNextHookEx(System.IntPtr idHook, int nCode, System.IntPtr wParam, System.IntPtr lParam);
 
-        [DllImport("user32.dll", EntryPoint = "GetWindowTextLengthW", CharSet = CharSet.Unicode)]
-        private static extern int GetWindowTextLength(IntPtr hWnd);
+        [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "GetWindowTextLengthW", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+        private static extern int GetWindowTextLength(System.IntPtr hWnd);
 
-        [DllImport("user32.dll", EntryPoint = "GetWindowTextW", CharSet = CharSet.Unicode)]
-        private static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int maxLength);
+        [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "GetWindowTextW", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+        private static extern int GetWindowText(System.IntPtr hWnd,  System.Text.StringBuilder text, int maxLength);
 
-        [DllImport("user32.dll")]
-        private static extern int EndDialog(IntPtr hDlg, IntPtr nResult);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int EndDialog(System.IntPtr hDlg, System.IntPtr nResult);
 
-        [DllImport("user32.dll")]
-        private static extern bool EnumChildWindows(IntPtr hWndParent, EnumChildProc lpEnumFunc, IntPtr lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool EnumChildWindows(System.IntPtr hWndParent, EnumChildProc lpEnumFunc, System.IntPtr lParam);
 
-        [DllImport("user32.dll", EntryPoint = "GetClassNameW", CharSet = CharSet.Unicode)]
-        private static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
+        [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "GetClassNameW", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+        private static extern int GetClassName(System.IntPtr hWnd,  System.Text.StringBuilder lpClassName, int nMaxCount);
 
-        [DllImport("user32.dll")]
-        private static extern int GetDlgCtrlID(IntPtr hwndCtl);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern int GetDlgCtrlID(System.IntPtr hwndCtl);
 
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetDlgItem(IntPtr hDlg, int nIDDlgItem);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern System.IntPtr GetDlgItem(System.IntPtr hDlg, int nIDDlgItem);
 
-        [DllImport("user32.dll", EntryPoint = "SetWindowTextW", CharSet = CharSet.Unicode)]
-        private static extern bool SetWindowText(IntPtr hWnd, string lpString);
+        [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "SetWindowTextW", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+        private static extern bool SetWindowText(System.IntPtr hWnd, string lpString);
 
 
-        [StructLayout(LayoutKind.Sequential)]
+        [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
         public struct CWPRETSTRUCT
         {
-            public IntPtr lResult;
-            public IntPtr lParam;
-            public IntPtr wParam;
+            public System.IntPtr lResult;
+            public System.IntPtr lParam;
+            public System.IntPtr wParam;
             public uint message;
-            public IntPtr hwnd;
+            public System.IntPtr hwnd;
         };
 
         private static HookProc hookProc;
         private static EnumChildProc enumProc;
-        [ThreadStatic]
-        private static IntPtr hHook;
-        [ThreadStatic]
+        [System.ThreadStatic]
+        private static System.IntPtr hHook;
+        [System.ThreadStatic]
         private static int nButton;
 
         /// <summary>
@@ -115,7 +111,7 @@ namespace Infrastructure
         {
             hookProc = new HookProc(MessageBoxHookProc);
             enumProc = new EnumChildProc(MessageBoxEnumProc);
-            hHook = IntPtr.Zero;
+            hHook = System.IntPtr.Zero;
         }
 
         /// <summary>
@@ -127,9 +123,12 @@ namespace Infrastructure
         /// </remarks>
         public static void Register()
         {
-            if (hHook != IntPtr.Zero)
-                throw new NotSupportedException("One hook per thread allowed.");
-            hHook = SetWindowsHookEx(WH_CALLWNDPROCRET, hookProc, IntPtr.Zero, AppDomain.GetCurrentThreadId());
+            if (hHook != System.IntPtr.Zero)
+            {
+                throw new System.NotSupportedException("One hook per thread allowed.");
+            }
+
+            hHook = SetWindowsHookEx(WH_CALLWNDPROCRET, hookProc, System.IntPtr.Zero, System.AppDomain.GetCurrentThreadId());
         }
 
         /// <summary>
@@ -140,35 +139,38 @@ namespace Infrastructure
         /// </remarks>
         public static void Unregister()
         {
-            if (hHook != IntPtr.Zero)
+            if (hHook != System.IntPtr.Zero)
             {
                 UnhookWindowsHookEx(hHook);
-                hHook = IntPtr.Zero;
+
+                hHook = System.IntPtr.Zero;
             }
         }
 
-        private static IntPtr MessageBoxHookProc(int nCode, IntPtr wParam, IntPtr lParam)
+        private static System.IntPtr MessageBoxHookProc(int nCode, System.IntPtr wParam, System.IntPtr lParam)
         {
             if (nCode < 0)
                 return CallNextHookEx(hHook, nCode, wParam, lParam);
 
-            CWPRETSTRUCT msg = (CWPRETSTRUCT)Marshal.PtrToStructure(lParam, typeof(CWPRETSTRUCT));
-            IntPtr hook = hHook;
+            CWPRETSTRUCT msg = (CWPRETSTRUCT)System.Runtime.InteropServices.Marshal.PtrToStructure(lParam, typeof(CWPRETSTRUCT));
+            System.IntPtr hook = hHook;
 
             if (msg.message == WM_INITDIALOG)
             {
                 int nLength = GetWindowTextLength(msg.hwnd);
-                StringBuilder className = new StringBuilder(10);
+                 System.Text.StringBuilder className = new  System.Text.StringBuilder(10);
                 GetClassName(msg.hwnd, className, className.Capacity);
                 if (className.ToString() == "#32770")
                 {
                     nButton = 0;
-                    EnumChildWindows(msg.hwnd, enumProc, IntPtr.Zero);
+                    EnumChildWindows(msg.hwnd, enumProc, System.IntPtr.Zero);
                     if (nButton == 1)
                     {
-                        IntPtr hButton = GetDlgItem(msg.hwnd, MBCancel);
-                        if (hButton != IntPtr.Zero)
+                        System.IntPtr hButton = GetDlgItem(msg.hwnd, MBCancel);
+                        if (hButton != System.IntPtr.Zero)
+                        {
                             SetWindowText(hButton, OK);
+                        }
                     }
                 }
             }
@@ -176,9 +178,9 @@ namespace Infrastructure
             return CallNextHookEx(hook, nCode, wParam, lParam);
         }
 
-        private static bool MessageBoxEnumProc(IntPtr hWnd, IntPtr lParam)
+        private static bool MessageBoxEnumProc(System.IntPtr hWnd, System.IntPtr lParam)
         {
-            StringBuilder className = new StringBuilder(10);
+             System.Text.StringBuilder className = new  System.Text.StringBuilder(10);
             GetClassName(hWnd, className, className.Capacity);
             if (className.ToString() == "Button")
             {

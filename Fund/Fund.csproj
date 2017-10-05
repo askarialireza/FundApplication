@@ -155,9 +155,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Events.cs" />
     <Compile Include="Infrastructure\MessageBoxManager.cs" />
-    <Compile Include="Infrastructure\Validation\RegexValidationRule.cs" />
-    <Compile Include="Infrastructure\Validation\RegexValidator.cs" />
+    <Compile Include="Infrastructure\RegularExpressions.cs" />
+    <Compile Include="Infrastructure\Validation.cs" />
     <Compile Include="Views\UserControls\MemberDepositUserControl.xaml.cs">
       <DependentUpon>MemberDepositUserControl.xaml</DependentUpon>
     </Compile>
@@ -240,7 +241,6 @@
     <Compile Include="Infrastructure\Font.cs" />
     <Compile Include="Infrastructure\Gender.cs" />
     <Compile Include="Infrastructure\PersianCalendar\PersianDatePicker.cs" />
-    <Compile Include="Infrastructure\Text.cs" />
     <Compile Include="Infrastructure\UserType.cs" />
     <Compile Include="Views\Windows\ShowInstallmentsListPerLoanWindow.xaml.cs">
       <DependentUpon>ShowInstallmentsListPerLoanWindow.xaml</DependentUpon>

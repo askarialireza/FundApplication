@@ -4,11 +4,13 @@
     x:Class="Fund.CreateAdminWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="ساخت یوزر کاربری" Height="610" Width="350" 
+    Title="ساخت یوزر کاربری" Height="610" Width="400" 
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource WindowStyle}"
     Closing="DXWindow_Closing"
     FontFamily="{DynamicResource FaGlobalFontFamily}"
+    ShowInTaskbar="True"
+    Topmost="False"
     >
     <Window.Resources>
         <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
@@ -113,15 +115,15 @@
         
         <TextBox Name="LastNameTextBox" Style="{DynamicResource RtlTextBox}" Grid.Row="4" />
         
-        <TextBox Name="UsernameTextBox" Style="{DynamicResource MaskedTextBoxStyle}" Grid.Row="6"/>
-        
-        <PasswordBox Name="PasswordTextBox" Style="{DynamicResource PasswordTextBox }" Grid.Row="7" />
-        
-        <PasswordBox Name="ConfirmPasswordTextBox" Style="{DynamicResource PasswordTextBox }" Grid.Row="8" />
+        <TextBox Name="UsernameTextBox" VerticalContentAlignment="Center" PreviewLostKeyboardFocus="UsernameTextBox_PreviewLostKeyboardFocus" Style="{DynamicResource MaskedTextBoxStyle}" Grid.Row="6"/>
+
+        <PasswordBox Name="PasswordTextBox" VerticalContentAlignment="Center" Style="{DynamicResource PasswordTextBox }" Grid.Row="7" />
+
+        <PasswordBox Name="ConfirmPasswordTextBox" VerticalContentAlignment="Center" Style="{DynamicResource PasswordTextBox }" Grid.Row="8" />
 
         <Grid Grid.Row="10" Grid.Column="1">
 
-            <TextBox Name="EmailAddressTextBox" FlowDirection="LeftToRight" FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{DynamicResource MaskedTextBoxStyle}" GotKeyboardFocus="EmailAddressTextBox_GotKeyboardFocus"/>
+            <TextBox Name="EmailAddressTextBox" FlowDirection="LeftToRight" VerticalContentAlignment="Center" PreviewLostKeyboardFocus="EmailAddressTextBox_PreviewLostKeyboardFocus" FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{DynamicResource MaskedTextBoxStyle}" GotKeyboardFocus="EmailAddressTextBox_GotKeyboardFocus"/>
 
             <Popup Grid.Row="10" Grid.Column="2" Name="EmailPopup" IsOpen="False" StaysOpen="True" PopupAnimation="Fade" AllowsTransparency="True" Width="200" Height="auto">
                 <Border Background="White" BorderThickness="2" BorderBrush="DarkGray">

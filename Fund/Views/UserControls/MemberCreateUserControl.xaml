@@ -8,6 +8,7 @@
     xmlns:local="clr-namespace:Fund"
     mc:Ignorable="d" 
     d:DesignHeight="800" d:DesignWidth="1500"
+    xmlns:inf="clr-namespace:Infrastructure"
     Style="{DynamicResource UserControlStyle}"
     Loaded="userControlLoaded"
     >
@@ -73,47 +74,47 @@
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Content="نام :" Style="{DynamicResource LabelCol1}"/>
+            <Label Grid.Row="0" Content="نام :" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
             
             <TextBox x:Name="firstNameTextBox" Grid.Row="0" Style="{DynamicResource TextEditCol2}"/>
             
             <Label Grid.Row="0" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Grid.Row="1" Content="نام خانوادگی :" Style="{DynamicResource LabelCol1}"/>
+            <Label Grid.Row="1" Content="نام خانوادگی :" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
             <TextBox x:Name="lastNameTextBox" Grid.Row="1"  Style="{DynamicResource TextEditCol2}"/>
             
             <Label Grid.Row="1" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Grid.Row="2" Content="نام پدر :" Style="{DynamicResource LabelCol1}"/>
+            <Label Grid.Row="2" Content="نام پدر :" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
             <TextBox x:Name="fatherNameTextBox" Grid.Row="2"  Style="{DynamicResource TextEditCol2}"/>
             
             <Label Grid.Row="2" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Grid.Row="4" Content="کد ملی :" Style="{DynamicResource LabelCol1}"/>
+            <Label Grid.Row="4" Content="کد ملی :" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
-            <TextBox Name="nationalCodeTextBox" Grid.Row="4" MaxLength="10" Style="{DynamicResource TextEditCol2}" FlowDirection="LeftToRight" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
+            <TextBox Name="nationalCodeTextBox" Grid.Row="4" MaxLength="10" Style="{DynamicResource TextEditCol2}" FlowDirection="LeftToRight" PreviewKeyDown="nationalCodeTextBox_PreviewKeyDown" PreviewLostKeyboardFocus="nationalCodeTextBox_PreviewLostKeyboardFocus" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
             
             <Label Grid.Row="4" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Grid.Row="5" Content="جنسیت :" Style="{DynamicResource LabelCol1}"/>
+            <Label Grid.Row="5" Content="جنسیت :" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
-            <ComboBox Name="GendersCombobox" Grid.Row="5" Grid.Column="2" Margin="0,5" Style="{DynamicResource GendersComboBoxEditStyle}" />
+            <ComboBox Name="GendersCombobox" Grid.Row="5" Grid.Column="2" Margin="0,2" Style="{DynamicResource GendersComboBoxEditStyle}" />
 
-            <Label Grid.Row="7" Content="شماره تلفن همراه :" Style="{DynamicResource LabelCol1}"/>
-            <TextBox Name="phoneNumberTextBox" Grid.Row="7" MaxLength="11" Style="{DynamicResource TextEditCol2}" TextAlignment="Right" FontFamily="{DynamicResource FaGlobalFontFamily}" />
+            <Label Grid.Row="7" Content="شماره تلفن همراه :" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
+            <TextBox Name="phoneNumberTextBox" Grid.Row="7" MaxLength="11" Style="{DynamicResource TextEditCol2}" PreviewKeyDown="nationalCodeTextBox_PreviewKeyDown" PreviewLostKeyboardFocus="phoneNumberTextBox_PreviewLostKeyboardFocus" TextAlignment="Right" FontFamily="{DynamicResource FaGlobalFontFamily}" />
             <Label Grid.Row="7" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Grid.Row="8" Content="پست الکترونیکی :" Style="{DynamicResource LabelCol1}"/>
-            <TextBox Name="emailAddressTextBox" VerticalContentAlignment="Center" Grid.Row="8" FlowDirection="LeftToRight" FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{DynamicResource TextEditCol2}"/>
+            <Label Grid.Row="8" Content="پست الکترونیکی :" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
+            <TextBox Name="emailAddressTextBox" VerticalContentAlignment="Center" Grid.Row="8" FlowDirection="LeftToRight" PreviewLostKeyboardFocus="emailAddressTextBox_PreviewLostKeyboardFocus"  FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{DynamicResource TextEditCol2}"/>
             <Label Grid.Row="8" Style="{DynamicResource StarsStyle}"/>
 
-            <Label Grid.Row="10" Content="تاریخ عضویت :" Style="{DynamicResource LabelCol1}"/>
+            <Label Grid.Row="10" Content="تاریخ عضویت :" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
             <local:DatePicker x:Name="DatePicker" Grid.Row="10" Grid.Column="2" Margin="0,5"/>
 
-            <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="7">
+            <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="7" Width="250" Grid.ColumnSpan="3" HorizontalAlignment="Left">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="240"/>
                     <RowDefinition Height="40"/>

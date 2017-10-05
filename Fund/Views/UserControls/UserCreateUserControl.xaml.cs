@@ -166,5 +166,10 @@ namespace Fund
 
             EmailPopup.IsOpen = false;
         }
+
+        private void UsernameTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.UsernameValidation(sender, e);
+        }
     }
 }

@@ -27,9 +27,13 @@ namespace ViewModels
                 if (oMember != null)
                 {
                     MemberPhoto = oMember.Picture;
+
+                    Balance = oMember.Balance;
                 }
             }
         }
+
+        public long Balance { get; set; }
 
         public byte[] MemberPhoto { get; set; }
 

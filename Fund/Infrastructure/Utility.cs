@@ -301,19 +301,6 @@ namespace Fund
             return imgSrc;
         }
 
-        public static void SetThemeBackground(string applicationThemeName)
-        {
-            System.Windows.Media.ImageBrush oImageBrush =
-                App.Current.Resources[applicationThemeName + "Background"] as System.Windows.Media.ImageBrush;
-
-            App.Current.Resources[Infrastructure.Text.BackgroundResources] = oImageBrush;
-
-            System.Windows.Media.LinearGradientBrush oLinearGradientBrush =
-                App.Current.Resources[applicationThemeName + "PanelGradient"] as System.Windows.Media.LinearGradientBrush;
-
-            App.Current.Resources[Infrastructure.Text.GradientResources] = oLinearGradientBrush;
-        }
-
         public static void Close(this System.Windows.Controls.UserControl userControl)
         {
             System.Windows.Controls.Panel oPanel = userControl.Parent as System.Windows.Controls.Panel;
@@ -531,6 +518,32 @@ namespace Fund
             };
 
             oDispatcherTimer.Start();
+        }
+
+        public static void NumericTextBoxOnly(System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Back | e.Key == System.Windows.Input.Key.Tab | e.Key == System.Windows.Input.Key.Delete)
+            {
+                e.Handled = false;
+
+                return;
+            }
+            else if (e.Key >= System.Windows.Input.Key.NumPad0 && e.Key <= System.Windows.Input.Key.NumPad9)
+            {
+                e.Handled = false;
+
+                return;
+            }
+            else if (System.Char.IsDigit((char)System.Windows.Input.KeyInterop.VirtualKeyFromKey(e.Key)) == true)
+            {
+                e.Handled = false;
+
+                return;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         #endregion /Methods

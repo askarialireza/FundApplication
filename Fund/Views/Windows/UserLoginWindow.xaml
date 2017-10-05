@@ -5,10 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Fund"
     Title="صفحه ورود" 
-    Height="170" Width="360" 
+    Height="190" Width="360" 
     WindowStartupLocation="CenterScreen"
     Style="{DynamicResource WindowStyle}"
-    Loaded="WindowLoaded" 
+    Loaded="WindowLoaded"
+    Topmost="False"
+    ShowInTaskbar="True"
     >
 
     <Grid Margin="15">
@@ -26,17 +28,17 @@
 
         <Label Grid.Row="0" Content="نام کاربری :" FontSize="14" Style="{StaticResource LabelStyle}" Margin="0"/>
 
-        <TextBox x:Name="usernameTextBox" Grid.Row="0" Style="{StaticResource LtrTextBoxStyle}"/>
+        <TextBox Name="usernameTextBox" VerticalContentAlignment="Center" Grid.Row="0" FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{StaticResource LtrTextBoxStyle}"/>
 
         <Label Grid.Row="1" FontSize="14" Content="رمز عبور :" Style="{StaticResource LabelStyle}" Margin="0"/>
 
-        <PasswordBox x:Name="passwordTextBox" Grid.Row="1" Style="{StaticResource PasswordBoxStyle}"/>
+        <PasswordBox Name="passwordTextBox" VerticalContentAlignment="Center" Grid.Row="1" Style="{StaticResource PasswordBoxStyle}"/>
 
-        <Button x:Name="loginButton" Content="ورود" Click="LoginClick" Style="{StaticResource DefaultButtonStyle}" Grid.Row="2" Margin="0,0,0,2" Width="62"/>
+        <Button Name="loginButton" Content="ورود" Click="LoginClick" Style="{StaticResource DefaultButtonStyle}" Grid.Row="2" Margin="0,0,0,2" Width="62"/>
 
-        <Button x:Name="exitButton" Content="خروج" Click="ExitClick" Margin="0,0,67,2" Style="{StaticResource CancelButtonStyle}" Grid.Row="2" Width="57"/>
+        <Button Name="exitButton" Content="خروج" Click="ExitClick" Margin="0,0,67,2" Style="{StaticResource CancelButtonStyle}" Grid.Row="2" Width="57"/>
 
-        <Button x:Name="forgetPasswordButton" Content="رمز عبور را فراموش کرده‌اید"  Width="160" Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Margin="0,0,154,2" Grid.ColumnSpan="2" Click="forgetPasswordButton_Click"/>
+        <Button Name="forgetPasswordButton" Content="رمز عبور را فراموش کرده‌اید"  Width="160" Style="{StaticResource ButtonStyle}" Grid.Row="2" Grid.Column="0" Margin="0,0,154,2" Grid.ColumnSpan="2" Click="forgetPasswordButton_Click"/>
 
     </Grid>
 

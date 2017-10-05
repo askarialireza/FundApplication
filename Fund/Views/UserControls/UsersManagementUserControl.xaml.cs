@@ -303,7 +303,6 @@ namespace Fund
 
                         oUserLoginWindow.Show();
                     }
-
                 }
 
                 oUnitOfWork.Save();
@@ -322,6 +321,8 @@ namespace Fund
             }
 
             RefreshGridControl();
+
+            UsersGridControl.SelectedIndex = 0;
         }
 
         private void RefreshGridControl()
@@ -431,6 +432,11 @@ namespace Fund
 
                 DeleteButton.IsEnabled = (EditItemsToggleSwitch.IsChecked == true) ? ((Utility.AdminUserId == _currentId) ? false : true) : false;
             }
+        }
+
+        private void EmailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            Infrastructure.Validation.EmailAddressValidation(sender, e);
         }
     }
 }

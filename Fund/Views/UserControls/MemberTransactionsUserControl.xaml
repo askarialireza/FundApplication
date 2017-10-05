@@ -77,15 +77,14 @@
                 <ListBox Name="MembersListBox" FontSize="14" FontWeight="Bold" Grid.Row="1" Margin="5" SelectionChanged="MembersListBox_SelectionChanged"  Style="{DynamicResource EmptyListBox}"/>
 
 
-                <GroupBox Grid.Row="2" Margin="5" FontSize="14" FontWeight="Bold" Header="مشخصات" TextBlock.TextAlignment="Center">
+                <GroupBox Grid.Row="2" Margin="5" FontSize="16" FontWeight="Bold" Header="مشخصات" TextBlock.TextAlignment="Center">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <Grid x:Name="MemberViewGrid">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="200"/>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="35"/>
-                                <RowDefinition Height="35"/>
-                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
 
@@ -94,18 +93,15 @@
                             </Border>
 
                             <Label Name="MemberNameLabel" Grid.Row="2" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
                             <Label Name="MemberNationalCodeLabel" Grid.Row="3" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
                             <Label Name="MembershipDateLabel" Grid.Row="4" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
                         </Grid>
                     </ScrollViewer>
                 </GroupBox>
 
             </Grid>
 
-            <GridSplitter Grid.Column="1" Width="5" ResizeBehavior="PreviousAndNext" Opacity="0" />
+            <GridSplitter Grid.Column="1" Grid.Row="1" Style="{DynamicResource VerticalGridSplitter}"/>
 
             <Grid Grid.Column="2">
 

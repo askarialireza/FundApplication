@@ -132,7 +132,7 @@ namespace Fund
             }
             catch (System.Exception ex)
             {
-                Infrastructure.MessageBox.Show(ex.Message);;
+                Infrastructure.MessageBox.Show(ex.Message); ;
             }
             finally
             {
@@ -168,6 +168,18 @@ namespace Fund
         {
             if (string.IsNullOrWhiteSpace(((System.Windows.Controls.TextBox)sender).Text) == false)
             {
+                System.Text.RegularExpressions.Regex oRegex =
+                    new System.Text.RegularExpressions.Regex(Infrastructure.Text.RegularExpressions.NumbersOnly);
+
+                if (oRegex.IsMatch(((System.Windows.Controls.TextBox)sender).Text) == false)
+                {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "فقط درج اعداد قابل قبول می‌باشد.");
+
+                    ((System.Windows.Controls.TextBox)sender).Focus();
+
+                    return;
+                }
+
                 long value = System.Convert.ToInt64(((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
 
                 ((System.Windows.Controls.TextBox)sender).Text = value.ToRialStringFormat();
@@ -176,6 +188,29 @@ namespace Fund
             {
                 long zero = 0;
                 ((System.Windows.Controls.TextBox)sender).Text = zero.ToRialStringFormat();
+            }
+        }
+
+        private void fundBalanceTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            Utility.NumericTextBoxOnly(e);
+        }
+
+        private void PercentTextBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex oRegex =
+                new System.Text.RegularExpressions.Regex(Infrastructure.Text.RegularExpressions.PercentValue);
+
+            if (oRegex.IsMatch(((System.Windows.Controls.TextBox)sender).Text.Trim()) == false)
+            {
+                Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "مقدار درصد باید عددی بین 0 تا 100 باشد.");
+
+                Dispatcher.BeginInvoke((System.Threading.ThreadStart)delegate
+                {
+                    ((System.Windows.Controls.TextBox)sender).Focus();
+                });
+
+                return;
             }
         }
     }

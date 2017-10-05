@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:Class="Fund.MembershipCardPrintWindow"
-    Title="چاپ کارت عضویت" Height="440" Width="300"
+    Title="چاپ کارت عضویت" Height="455" Width="320"
     WindowStartupLocation="CenterScreen"
     Loaded="DXWindow_Loaded"
     Style="{DynamicResource WindowStyle}"
@@ -81,11 +81,11 @@
 
         <Grid Grid.Row="3">
 
-            <Button x:Name="closeButton" Style="{StaticResource CancelButtonStyle}" Click="closeButton_Click" Margin="0,0,4,8" Height="32" Grid.Column="0"/>
+            <Button x:Name="closeButton" Style="{StaticResource CancelButtonStyle}" Click="closeButton_Click" Margin="0,0,5,8" Height="32" Grid.Column="0"/>
 
-            <Button x:Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Margin="0,0,163,8" Click="ExportToPdfButton_Click" Grid.Column="0"/>
+            <Button x:Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Margin="0,1,90,8" Click="ExportToPdfButton_Click" Grid.Column="0"/>
 
-            <Button x:Name="PrintButton" Style="{DynamicResource PrintButtonStyle}" ToolTip="چاپ" Margin="0,0,216,8" Click="PrintButton_Click" Grid.Column="0" />
+            <Button x:Name="PrintButton" Style="{DynamicResource PrintButtonStyle}" ToolTip="چاپ" Margin="0,1,143,8" Click="PrintButton_Click" Grid.Column="0" />
 
         </Grid>
 

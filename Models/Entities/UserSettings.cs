@@ -23,8 +23,6 @@
             GridWidth = new ComplexTypes.GridWidth();
 
             GridHeight = new ComplexTypes.GridHeight();
-
-            Theme = new ComplexTypes.Theme();
         }
 
         [System.ComponentModel.DataAnnotations.Key]
@@ -37,8 +35,6 @@
         public Models.ComplexTypes.GridWidth GridWidth { get; set; }
 
         public Models.ComplexTypes.GridHeight GridHeight { get; set; }
-
-        public Models.ComplexTypes.Theme Theme { get; set; }
 
         public int PersianCalendarHijriAdjustment { get; set; }
 
