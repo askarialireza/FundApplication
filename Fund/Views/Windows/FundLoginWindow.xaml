@@ -26,17 +26,17 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="صندوق :" Grid.Row="0" Style="{StaticResource LabelStyle}"/>
-           
+
         <ComboBox x:Name="FundsComboBox" Height="32" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" SelectedIndex="0"/>
-        
+
         <Label Content="رمز عبور :" Grid.Row="1" Style="{StaticResource LabelStyle}"/>
-        
+
         <PasswordBox x:Name="passwordBox" Grid.Row="1" Style="{StaticResource PasswordBoxStyle}"/>
 
-        <Button x:Name="loginButton" Grid.Row="2" Content="ورود" Click="LoginFundClick" Style="{StaticResource DefaultButtonStyle}" Margin="0,0,0,2"/>
+        <Button x:Name="loginButton" Grid.Row="2" Content="ورود" Click="LoginFundClick" Style="{StaticResource DefaultButtonStyle}" Margin="0,0,2,4" Grid.Column="1"/>
 
-        <Button x:Name="cancelButton" Grid.Row="2" Content="لغو" Click="CancelClick" Style="{StaticResource CancelButtonStyle}" Margin="0,0,85,2"/>
+        <Button x:Name="cancelButton" Grid.Row="2" Content="لغو" Click="CancelClick" Style="{StaticResource CancelButtonStyle}" Margin="0,0,87,4" Grid.Column="1"/>
 
     </Grid>
-    
+
 </Window>

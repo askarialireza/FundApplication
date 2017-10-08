@@ -118,7 +118,7 @@
 
         <Grid Height="40" Margin="10,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Width="auto">
             
-            <Button x:Name="CloseButton" Content="بستن" Height="32" Width="90" FontWeight="Bold" TabIndex="8" IsCancel="True" Margin="0,4,10,4" HorizontalAlignment="Right" Click="CloseButton_Click" />
+            <Button x:Name="CloseButton" Height="32" Width="90" FontWeight="Bold" TabIndex="8" Style="{DynamicResource CancelButtonStyle}"  Margin="0,4,10,4" HorizontalAlignment="Right" Click="CloseButton_Click" />
         
         </Grid>
         

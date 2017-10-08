@@ -6,6 +6,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="ساخت یوزر کاربری" Height="610" Width="400" 
     WindowStartupLocation="CenterScreen"
+    xmlns:AAx="clr-namespace:Infrastructure.Controls"
     Style="{DynamicResource WindowStyle}"
     Closing="DXWindow_Closing"
     FontFamily="{DynamicResource FaGlobalFontFamily}"
@@ -115,7 +116,7 @@
         
         <TextBox Name="LastNameTextBox" Style="{DynamicResource RtlTextBox}" Grid.Row="4" />
         
-        <TextBox Name="UsernameTextBox" VerticalContentAlignment="Center" PreviewLostKeyboardFocus="UsernameTextBox_PreviewLostKeyboardFocus" Style="{DynamicResource MaskedTextBoxStyle}" Grid.Row="6"/>
+        <AAx:TextBox x:Name="UsernameTextBox" MaskType="Regex" RegEx="Username" VerticalContentAlignment="Center" Style="{DynamicResource MaskedTextBoxStyle}" Grid.Row="6"/>
 
         <PasswordBox Name="PasswordTextBox" VerticalContentAlignment="Center" Style="{DynamicResource PasswordTextBox }" Grid.Row="7" />
 
@@ -123,7 +124,7 @@
 
         <Grid Grid.Row="10" Grid.Column="1">
 
-            <TextBox Name="EmailAddressTextBox" FlowDirection="LeftToRight" VerticalContentAlignment="Center" PreviewLostKeyboardFocus="EmailAddressTextBox_PreviewLostKeyboardFocus" FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{DynamicResource MaskedTextBoxStyle}" GotKeyboardFocus="EmailAddressTextBox_GotKeyboardFocus"/>
+            <AAx:TextBox x:Name="EmailAddressTextBox" MaskType="Regex" RegEx="EmailAddress" FlowDirection="LeftToRight" VerticalContentAlignment="Center" FontFamily="{DynamicResource EnGlobalFontFamily}" Style="{DynamicResource MaskedTextBoxStyle}" GotKeyboardFocus="EmailAddressTextBox_GotKeyboardFocus"/>
 
             <Popup Grid.Row="10" Grid.Column="2" Name="EmailPopup" IsOpen="False" StaysOpen="True" PopupAnimation="Fade" AllowsTransparency="True" Width="200" Height="auto">
                 <Border Background="White" BorderThickness="2" BorderBrush="DarkGray">
@@ -143,9 +144,9 @@
 
         </Grid>
 
-        <Fund:Captcha x:Name="Captcha" Grid.Row="12" Grid.Column="1" Grid.RowSpan="4" Margin="5" FlowDirection="LeftToRight" CaptchaRefreshed="Captcha_CaptchaRefreshed" FontSize="50" />
+        <AAx:Captcha x:Name="Captcha" Grid.Row="12" Grid.Column="1" Grid.RowSpan="4" Margin="5" FlowDirection="LeftToRight" FontSize="50" />
         
-        <TextBox Name="CaptchaValueTextBox" Style="{DynamicResource LtrTextBox}" Grid.Row="16" ToolTip="کد امنیتی حساس به حروف کوچک و بزرگ نیست" />
+        <TextBox Name="CaptchaValueTextBox" VerticalContentAlignment="Center" Style="{DynamicResource LtrTextBox}" Grid.Row="16" ToolTip="کد امنیتی حساس به حروف کوچک و بزرگ نیست" />
         
         <Button Style="{DynamicResource ButtonStyle}" Content="ایجاد حساب کاربری" Grid.Row="19" Click="SimpleButton_Click" />
         

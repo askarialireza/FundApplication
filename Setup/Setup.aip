@@ -15,8 +15,8 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll" Value="..\packages\EntityFramework.6.1.3\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServerCompact.dll" Value="..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.dll" Value="..\packages\EntityFramework.6.1.3\lib\net45"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_FarsiLibrary.Localization.dll_1" Value="..\packages\Farsi.Library.2.7.0\lib\net46"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_FarsiLibrary.Utils.dll_1" Value="..\packages\Farsi.Library.2.7.0\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_FarsiLibrary.Localization.dll_1" Value="..\packages\Farsi.Library.2.7.0\lib\net46" MultiBuildValue="DefaultBuild:..\packages\Farsi.Library.WPF.2.7.0\lib\net46#MsiBuild:..\packages\Farsi.Library.WPF.2.7.0\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_FarsiLibrary.Utils.dll_1" Value="..\packages\Farsi.Library.2.7.0\lib\net46" MultiBuildValue="DefaultBuild:..\packages\Farsi.Library.WPF.2.7.0\lib\net46#MsiBuild:..\packages\Farsi.Library.WPF.2.7.0\lib\net46"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Fluent.dll" Value="..\packages\Fluent.Ribbon.5.0.2.46\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Fund.exe" Value="..\Fund\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Fund.exe.config" Value="..\Fund\bin\Debug"/>
@@ -89,7 +89,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="AI_CustomARPName" ComponentId="{63D2FFBA-F667-41AB-9B2D-375F82A46DD8}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{58864A20-3B67-40EA-8226-E4423CDFAC80}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
-    <ROW Component="BYagutBold_p30download.com.ttf" ComponentId="{71364428-1C1A-4503-BF44-55B72BBED02F}" Directory_="FontsFolder" Attributes="0" Type="0"/>
+    <ROW Component="BYagutBold_p30download.com.ttf" ComponentId="{71364428-1C1A-4503-BF44-55B72BBED02F}" Directory_="FontsFolder" Attributes="16" Type="0"/>
     <ROW Component="Database" ComponentId="{BF9F4142-AF49-4FEA-B607-EC48711BFC3D}" Directory_="Database_Dir" Attributes="0"/>
     <ROW Component="Fund_PrimaryOutput" ComponentId="{129DC06D-AAAB-4B36-A875-B79D7E0CA8D1}" Directory_="Fund_Dir" Attributes="0" KeyPath="Fund.exe"/>
     <ROW Component="Fund_References" ComponentId="{641AE8D4-7247-4BEE-BC94-1B525164439E}" Directory_="Fund_Dir" Attributes="0" KeyPath="FarsiLibrary.Localization.dll_1"/>
@@ -109,8 +109,8 @@
     <ROW File="EntityFramework.SqlServer.dll" Component_="Fund_References" FileName="ENTITY~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Attributes="2" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll&gt;" SelfReg="false" NextFile="EntityFramework.SqlServerCompact.dll"/>
     <ROW File="EntityFramework.SqlServerCompact.dll" Component_="Fund_References" FileName="ENTITY~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServerCompact.dll]" Attributes="2" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.SqlServerCompact.dll&gt;" SelfReg="false" NextFile="Fluent.dll"/>
     <ROW File="EntityFramework.dll" Component_="Fund_References" FileName="ENTITY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll]" Attributes="2" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.dll&gt;" SelfReg="false" NextFile="EntityFramework.SqlServer.dll"/>
-    <ROW File="FarsiLibrary.Localization.dll_1" Component_="Fund_References" FileName="FARSIL~1.DLL|FarsiLibrary.Localization.dll" Attributes="2" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Localization.dll_1&gt;" SelfReg="false" NextFile="FarsiLibrary.Utils.dll_1"/>
-    <ROW File="FarsiLibrary.Utils.dll_1" Component_="Fund_References" FileName="FARSIL~4.DLL|FarsiLibrary.Utils.dll" Attributes="2" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Utils.dll_1&gt;" SelfReg="false" NextFile="Models.dll"/>
+    <ROW File="FarsiLibrary.Localization.dll_1" Component_="Fund_References" FileName="FARSIL~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FarsiLibrary.Localization.dll_1]" Attributes="2" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Localization.dll_1&gt;" SelfReg="false" NextFile="FarsiLibrary.Utils.dll_1"/>
+    <ROW File="FarsiLibrary.Utils.dll_1" Component_="Fund_References" FileName="FARSIL~1.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FarsiLibrary.Utils.dll_1]" Attributes="2" SourcePath="&lt;AI_APPPATH_PERBUILD_FarsiLibrary.Utils.dll_1&gt;" SelfReg="false" NextFile="Models.dll"/>
     <ROW File="Fluent.dll" Component_="Fund_References" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Fluent.dll]" Attributes="2" SourcePath="&lt;AI_APPPATH_PERBUILD_Fluent.dll&gt;" SelfReg="false" NextFile="Stimulsoft.Base.dll"/>
     <ROW File="Fund.exe" Component_="Fund_PrimaryOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Fund.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Fund.exe&gt;" SelfReg="false" NextFile="Fund.exe.config" DigSign="true"/>
     <ROW File="Fund.exe.config" Component_="Fund_PrimaryOutput" FileName="FUNDEX~2.CON|[|AI_PROPPATH_FILENAME_PERBUILD_Fund.exe.config]" Attributes="2" SourcePath="&lt;AI_APPPATH_PERBUILD_Fund.exe.config&gt;" SelfReg="false" NextFile="ControlzEx.dll"/>
@@ -389,7 +389,7 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.VsProjectComponent">
-    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="PrimaryOutput" OutputFile="Fund.exe" OutputFileShortcut="Fund"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="PrimaryOutput" OutputFile="Fund.exe" OutputFileShortcut="AI_PROPPATH_FILENAME_PERBUILD_Fund.exe"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="PrimaryOutput" OutputFile="Fund.exe.config"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="ControlzEx.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="Dtx.dll"/>
@@ -409,5 +409,7 @@
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="FarsiLibrary.Utils.dll_1"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="Models.dll"/>
     <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="ViewModels.dll"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="FarsiLibrary.Localization.dll_1"/>
+    <ROW ProjectId="{a57f383c-4b54-4381-ba73-4633004c42fa}" ProjectName="Fund" OutputGroup="References" OutputFile="FarsiLibrary.Utils.dll_1"/>
   </COMPONENT>
 </DOCUMENT>

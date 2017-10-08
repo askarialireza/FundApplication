@@ -141,7 +141,7 @@ namespace Fund
 
             oStiReport.RegBusinessObject("MemberBalance", varObject);
             oStiReport.Compile();
-            oStiReport.RenderWithWpf();
+            oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
             oStiReport.DoAction(action: reportType, fileName: "تراز مالی " + Utility.CurrentMember.FullName.ToString());
         }
@@ -216,7 +216,7 @@ namespace Fund
 
                 oStiReport.RegBusinessObject("MemberBalance", varObject);
                 oStiReport.Compile();
-                oStiReport.RenderWithWpf();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
                 System.IO.MemoryStream oMemoryStream = new System.IO.MemoryStream();
 

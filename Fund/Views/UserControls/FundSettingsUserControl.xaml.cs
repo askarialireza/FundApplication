@@ -354,10 +354,6 @@ namespace Fund
                     }
 
                 }
-                if (oResult == System.Windows.MessageBoxResult.No)
-                {
-                    return;
-                }
 
                 oUnitOfWork.Save();
 
@@ -450,10 +446,7 @@ namespace Fund
 
                     }
                 }
-                if (oResult == System.Windows.MessageBoxResult.No)
-                {
-                    return;
-                }
+
 
                 oUnitOfWork.Save();
 
@@ -516,10 +509,6 @@ namespace Fund
 
                     }
                 }
-                if (oResult == System.Windows.MessageBoxResult.No)
-                {
-                    return;
-                }
 
                 oUnitOfWork.Save();
             }
@@ -570,6 +559,8 @@ namespace Fund
                                 text: "صندوق با موفقیت حذف گردید."
                             );
 
+                        this.Close();
+
                         Utility.CurrentFund = null;
 
                         Utility.MainWindow.RefreshUserInterface();
@@ -592,40 +583,11 @@ namespace Fund
 
             }
 
-            this.Close();
-        }
-
-        private void FundDepositBalanceTextBox_GotFocus(object sender, System.Windows.RoutedEventArgs e)
-        {
-            ((System.Windows.Controls.TextBox)sender).Text =
-                ((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
         }
 
         private void FundDepositBalanceTextBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(((System.Windows.Controls.TextBox)sender).Text) == false)
-            {
-                long value = System.Convert.ToInt64(((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
-
-                ((System.Windows.Controls.TextBox)sender).Text = value.ToRialStringFormat();
-            }
-            else
-            {
-                long zero = 0;
-                ((System.Windows.Controls.TextBox)sender).Text = zero.ToRialStringFormat();
-            }
-
             RefreshLabels();
-        }
-
-        private void FundPercentTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            Utility.NumericTextBoxOnly(e);
-        }
-
-        private void FundPercentTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.PercentValueValidation(sender, e);
         }
     }
 }

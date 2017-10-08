@@ -9,13 +9,6 @@ namespace Fund
             InitializeComponent();
         }
 
-        private void Captcha_CaptchaRefreshed(object sender, System.EventArgs e)
-        {
-            FirstNameTextBox.Focus();
-
-            CaptchaValueTextBox.Clear();
-        }
-
         private void SimpleButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             #region Error Handling Messages
@@ -145,17 +138,9 @@ namespace Fund
 
         private void EmailAddressTextBox_GotKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
         {
+            base.OnGotKeyboardFocus(e);
+
             EmailPopup.Show();
-        }
-
-        private void EmailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.EmailAddressValidation(sender, e);
-        }
-
-        private void UsernameTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.UsernameValidation(sender, e);
         }
     }
 }

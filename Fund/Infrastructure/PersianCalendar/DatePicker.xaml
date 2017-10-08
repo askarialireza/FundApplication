@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:AAx="clr-namespace:Infrastructure.Controls"
     xmlns:local="clr-namespace:Fund"
     mc:Ignorable="d" 
     d:DesignHeight="50" d:DesignWidth="300"
@@ -91,8 +92,9 @@
             <ColumnDefinition Width="32"/>
         </Grid.ColumnDefinitions>
 
+        <Border BorderThickness="1" BorderBrush="DarkGray" Background="White" Grid.ColumnSpan="2" />
 
-        <TextBox Name="PersianDateTextBox" Grid.Column="0" Grid.ColumnSpan="2" FlowDirection="LeftToRight" TextBlock.TextAlignment="Right" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Center" />
+        <AAx:TextBox x:Name="PersianDateTextBox" MaskType="Regex" RegEx="ShamsiDate" Grid.Column="0" FlowDirection="LeftToRight" FontWeight="Bold" FontSize="17" VerticalContentAlignment="Center" />
 
         <Button Name="ToggleButton" Grid.Column="1" Margin="2" Click="ToggleButton_Click">
             <Image Source="/Fund;component/Resources/Icons/Expand%20Arrow_52px.png"/>

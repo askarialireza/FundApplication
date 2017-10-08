@@ -46,6 +46,9 @@ namespace Fund
 
                 LoansGridControl.ItemsSource = varList;
 
+                ExportToPdfButton.IsEnabled = (varList.Count == 0) ? false : true;
+                PrintButton.IsEnabled = (varList.Count == 0) ? false : true;
+
                 oUnitOfWork.Save();
             }
             catch (System.Exception ex)
@@ -115,7 +118,7 @@ namespace Fund
             oStiReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
             oStiReport.RegBusinessObject("Loans", varList);
             oStiReport.Compile();
-            oStiReport.RenderWithWpf();
+            oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
             oStiReport.DoAction(action: reportType, fileName: "گزارش وام‌های پرداختی");
         }

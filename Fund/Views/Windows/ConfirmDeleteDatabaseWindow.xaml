@@ -4,6 +4,7 @@
     x:Class="Fund.ConfirmDeleteDatabaseWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:AAx="clr-namespace:Infrastructure.Controls"
     Loaded="DXWindow_Loaded"
     Title="" 
     Height="310" 
@@ -37,7 +38,7 @@
 
         <Label Grid.Row="2" Content="کد امنیتی :" FontSize="14" Style="{StaticResource LabelStyle}"/>
 
-        <Fund:Captcha x:Name="Captcha" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" Margin="0" FontSize="48" FlowDirection="LeftToRight"/>
+        <AAx:Captcha x:Name="Captcha" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" Margin="0" FontSize="48" FlowDirection="LeftToRight"/>
 
         <Label Grid.Row="6" Content="درج کد امنیتی :" FontSize="14" Style="{StaticResource LabelStyle}"/>
 

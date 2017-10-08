@@ -131,6 +131,11 @@ namespace Fund
                         MembersLoanGridControl.ItemsSource = null;
                     }
 
+                    PrintButton.IsEnabled = (varResult.Count > 0) ? true : false;
+                    SendEmailButton.IsEnabled = (varResult.Count > 0) ? true : false;
+                    ExportToPdfButton.IsEnabled = (varResult.Count > 0) ? true : false;
+                    LoanStatusComboBox.IsEnabled = (varResult.Count > 0) ? true : false;
+
                     oUnitOfWork.Save();
                 }
                 catch (System.Exception ex)
@@ -303,7 +308,7 @@ namespace Fund
             oStiReport.Dictionary.Variables.Add("LoanStatus", LoanStatusComboBox.Text);
             oStiReport.RegBusinessObject("Loans", varList);
             oStiReport.Compile();
-            oStiReport.RenderWithWpf();
+            oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
             string fileName = string.Format("گزارش {0} {1}", LoanStatusComboBox.Text, Utility.CurrentMember.FullName.ToString());
 
@@ -394,7 +399,7 @@ namespace Fund
                 oStiReport.Dictionary.Variables.Add("LoanStatus", LoanStatusComboBox.Text);
                 oStiReport.RegBusinessObject("Loans", varList);
                 oStiReport.Compile();
-                oStiReport.RenderWithWpf();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
                 string fileName = string.Format("گزارش {0} {1}", LoanStatusComboBox.Text, Utility.CurrentMember.FullName.ToString());
 

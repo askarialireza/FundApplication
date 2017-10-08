@@ -99,14 +99,7 @@ namespace Fund
                     Models.Fund oFund = oUnitOfWork.FundRepository
                         .GetById(Utility.CurrentFund.Id);
 
-                    Models.Member oMember = oUnitOfWork.MemberRepository
-                        .GetById(oInstallment.Loan.Member.Id);
-
                     oFund.Balance += oInstallment.PaymentAmount;
-
-                    oMember.Balance -= oInstallment.PaymentAmount;
-
-                    oUnitOfWork.MemberRepository.Update(oMember);
 
                     oUnitOfWork.FundRepository.Update(oFund);
 
@@ -214,7 +207,7 @@ namespace Fund
 
             oStiReport.RegBusinessObject("InstallmentsList", varList);
             oStiReport.Compile();
-            oStiReport.RenderWithWpf();
+            oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
             oStiReport.DoAction(action: reportType, fileName: "گزارش لیست اقساط");
         }
 
@@ -288,7 +281,7 @@ namespace Fund
 
                 oStiReport.RegBusinessObject("InstallmentsList", varList);
                 oStiReport.Compile();
-                oStiReport.RenderWithWpf();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
                 System.IO.MemoryStream oMemoryStream = new System.IO.MemoryStream();
 

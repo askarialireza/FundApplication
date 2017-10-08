@@ -101,31 +101,47 @@ namespace Fund
             {
                 oUnitOfWork = new DAL.UnitOfWork();
 
-                Models.Member oMember = new Models.Member();
+                string nationalCode = nationalCodeTextBox.Text.Trim();
 
-                oMember.FullName.FirstName = firstNameTextBox.Text.Trim();
-                oMember.FullName.LastName = lastNameTextBox.Text.Trim();
-                oMember.FatherName = fatherNameTextBox.Text.Trim();
-                oMember.Gender = ((GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender);
-                oMember.NationalCode = nationalCodeTextBox.Text.Trim();
-                oMember.EmailAddress = emailAddressTextBox.Text.Trim();
-                oMember.PhoneNumber = phoneNumberTextBox.Text.Trim();
-                System.Windows.Media.Imaging.BmpBitmapEncoder oBmpBitmapEncoder = new System.Windows.Media.Imaging.BmpBitmapEncoder();
-                oMember.Picture = (IsPictureSelected == false) ? null : Utility.ImageToBytes(encoder: oBmpBitmapEncoder, imageSource: MemberImage.Source);
-                oMember.MembershipDate = DatePicker.SelectedDateTime;
-                oMember.FundId = Utility.CurrentFund.Id;
+                Models.Member varMember = oUnitOfWork.MemberRepository
+                    .Get()
+                    .Where(current => current.NationalCode == nationalCode)
+                    .FirstOrDefault();
 
-                oUnitOfWork.MemberRepository.Insert(oMember);
+                if(varMember !=null)
+                {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "عضوی با شماره ملی درج شده در صندوق موجود می‌باشد.");
 
-                oUnitOfWork.Save();
+                    return;
+                }
+                else
+                {
+                    Models.Member oMember = new Models.Member();
 
-                Infrastructure.MessageBox.Show
-                    (
-                        caption: Infrastructure.MessageBox.Caption.Information,
-                        text: "عضو جدید با موفقیت در بانک اطلاعاتی ایجاد گردید"
-                    );
+                    oMember.FullName.FirstName = firstNameTextBox.Text.Trim();
+                    oMember.FullName.LastName = lastNameTextBox.Text.Trim();
+                    oMember.FatherName = fatherNameTextBox.Text.Trim();
+                    oMember.Gender = ((GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender);
+                    oMember.NationalCode = nationalCodeTextBox.Text.Trim();
+                    oMember.EmailAddress = emailAddressTextBox.Text.Trim();
+                    oMember.PhoneNumber = phoneNumberTextBox.Text.Trim();
+                    System.Windows.Media.Imaging.BmpBitmapEncoder oBmpBitmapEncoder = new System.Windows.Media.Imaging.BmpBitmapEncoder();
+                    oMember.Picture = (IsPictureSelected == false) ? null : Utility.ImageToBytes(encoder: oBmpBitmapEncoder, imageSource: MemberImage.Source);
+                    oMember.MembershipDate = DatePicker.SelectedDateTime;
+                    oMember.FundId = Utility.CurrentFund.Id;
 
-                Utility.MainWindow.RefreshUserInterface();
+                    oUnitOfWork.MemberRepository.Insert(oMember);
+
+                    oUnitOfWork.Save();
+
+                    Infrastructure.MessageBox.Show
+                        (
+                            caption: Infrastructure.MessageBox.Caption.Information,
+                            text: "عضو جدید با موفقیت در بانک اطلاعاتی ایجاد گردید"
+                        );
+
+                    Utility.MainWindow.RefreshUserInterface();
+                }
             }
             catch (System.Exception ex)
             {
@@ -183,26 +199,6 @@ namespace Fund
         private void LoadGenderComboBox()
         {
             GendersCombobox.ItemsSource = Infrastructure.Gender.GendersList;
-        }
-
-        private void nationalCodeTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            Utility.NumericTextBoxOnly(e);
-        }
-
-        private void emailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.EmailAddressValidation(sender, e);
-        }
-
-        private void phoneNumberTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.MobileNumberValidation(sender, e);
-        }
-
-        private void nationalCodeTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.NationalCodeValidation(sender, e);
         }
     }
 }

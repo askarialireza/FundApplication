@@ -175,7 +175,7 @@ namespace Fund
             oStiReport.Dictionary.Variables.Add("ToDate", varList.Select(current => current.PersianDate).LastOrDefault());
             oStiReport.RegBusinessObject("Transactions", varList);
             oStiReport.Compile();
-            oStiReport.RenderWithWpf();
+            oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
             oStiReport.DoAction(action: reportType, fileName: "گزارش ریز حساب صندوق");
         }
 

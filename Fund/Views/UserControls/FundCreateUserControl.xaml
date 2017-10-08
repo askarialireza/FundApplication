@@ -4,6 +4,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Fund"
+    xmlns:AAx="clr-namespace:Infrastructure.Controls"
     x:Class="Fund.FundCreateUserControl"
     mc:Ignorable="d" 
     d:DesignHeight="800" d:DesignWidth="1500"
@@ -92,7 +93,7 @@
 
                 <Label Content="سال تاسیس صندوق :" Grid.Row="1" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
-                <TextBox x:Name="fundBuildYearTextBox" Style="{DynamicResource TextEditCol2}" PreviewKeyDown="fundBalanceTextBox_PreviewKeyDown" Grid.Row="1"/>
+                <AAx:TextBox x:Name="fundBuildYearTextBox" FlowDirection="LeftToRight" MaskType="Numeric" MaxLength="4" Style="{DynamicResource TextEditCol2}" Grid.Row="1"/>
 
                 <Label Grid.Row="1" Style="{DynamicResource StarsStyle}"/>
 
@@ -104,13 +105,13 @@
 
                 <Label Content="سرمایه صندوق :" Grid.Row="4" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
-                <TextBox Name="fundBalanceTextBox" Grid.Row="4" MaxLength="16" GotFocus="fundBalanceTextBox_GotFocus" PreviewKeyDown="fundBalanceTextBox_PreviewKeyDown" LostFocus="fundBalanceTextBox_LostFocus" Style="{DynamicResource TextEditCol2}"/>
+                <AAx:TextBox x:Name="fundBalanceTextBox" FlowDirection="LeftToRight" Grid.Row="4" MaxLength="16" Style="{DynamicResource TextEditCol2}" MaskType="Numeric" IsMoneyValue="True"/>
 
                 <Label Grid.Row="4" Style="{DynamicResource StarsStyle}"/>
 
                 <Label Content="سقف پرداخت وام :" Grid.Row="5" Grid.ColumnSpan="2" Style="{DynamicResource LabelCol0}"/>
 
-                <TextBox x:Name="fundRemovalLimitTextBox" MaxLength="16" GotFocus="fundBalanceTextBox_GotFocus" PreviewKeyDown="fundBalanceTextBox_PreviewKeyDown" LostFocus="fundBalanceTextBox_LostFocus" Grid.Row="5" Style="{DynamicResource TextEditCol2}"/>
+                <AAx:TextBox x:Name="fundRemovalLimitTextBox" FlowDirection="LeftToRight" MaxLength="16" Grid.Row="5" Style="{DynamicResource TextEditCol2}" MaskType="Numeric" IsMoneyValue="True" />
 
                 <Label Grid.Row="5" Style="{DynamicResource StarsStyle}"/>
 
@@ -137,7 +138,7 @@
 
                     <CheckBox Name="PercentCheckBox" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="13" Checked="ToggleSwitch_Checked" Unchecked="ToggleSwitch_Unchecked" Style="{DynamicResource CheckBoxStyle}" />
 
-                    <TextBox Name="PercentTextBox" Grid.Column="1" VerticalAlignment="Center" MaxLength="3" FontSize="17" Margin="2,0" LostFocus="PercentTextBox_LostFocus" PreviewKeyDown="fundBalanceTextBox_PreviewKeyDown" Visibility="Hidden"/>
+                    <AAx:TextBox x:Name="PercentTextBox" FlowDirection="LeftToRight" Grid.Column="1" MaskType="Regex" RegEx="PercentValue" HorizontalContentAlignment="Center" VerticalAlignment="Center" MaxLength="3" FontSize="17" Margin="2,0" Visibility="Hidden"/>
 
                     <Label Name="PercentLabel" Grid.Column="2" Content="درصد" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden" />
 
@@ -148,9 +149,9 @@
 
         <Grid Grid.Row="4">
             
-            <Button x:Name="CloseButton" Content="بستن" Margin="0,0,85,4" Click="CloseClick" Style="{StaticResource CancelButtonStyle}" Height="32" Grid.Column="0"/>
+            <Button x:Name="CloseButton" Margin="0,0,85,4" Click="CloseClick" Style="{StaticResource CancelButtonStyle}" Height="32" Grid.Column="0"/>
 
-            <Button x:Name="AcceptButton" Content="تایید" Margin="0,4,0,4" Click="AcceptClick" Style="{StaticResource CancelButtonStyle}" Height="32"/>
+            <Button x:Name="AcceptButton" Content="تایید" Margin="0,2,0,6" Click="AcceptClick" Style="{StaticResource DefaultButtonStyle}" Height="32"/>
 
             <Label Content="تکمیل فیلد‌های ستاره‌دار (*) الزامی می‌باشد" TextBlock.Foreground="Red" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" />
 

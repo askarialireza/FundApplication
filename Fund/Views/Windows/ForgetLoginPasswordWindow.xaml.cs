@@ -140,10 +140,5 @@ namespace Fund
         {
             EmailRecoveryCode = Dtx.Guid.NewGuidWithoutDash;
         }
-
-        private void EmailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.EmailAddressValidation(sender, e);
-        }
     }
 }

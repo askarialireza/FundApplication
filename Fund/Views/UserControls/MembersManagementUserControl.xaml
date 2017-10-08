@@ -5,6 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Fund"
+    xmlns:AAx="clr-namespace:Infrastructure.Controls"
     xmlns:converter="clr-namespace:Infrastructure.Converter"
     x:Class="Fund.MembersManagementUserControl"
     mc:Ignorable="d" 
@@ -130,7 +131,7 @@
 
             </Grid>
 
-            <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" Opacity="1" />
+            <GridSplitter Grid.Column="1"  Style="{DynamicResource VerticalGridSplitter}" />
 
             <Grid Grid.Column="2">
 
@@ -203,7 +204,7 @@
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="4"/>
 
-                                <TextBox x:Name="NationalCodeTextBox" Grid.Row="4" Style="{DynamicResource TextBoxesStyle}" PreviewLostKeyboardFocus="NationalCodeTextBox_PreviewLostKeyboardFocus" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
+                                <AAx:TextBox x:Name="NationalCodeTextBox" MaskType="Regex" RegEx="NationalCode" FlowDirection="LeftToRight" Grid.Row="4" Style="{DynamicResource TextBoxesStyle}" MaxLength="10" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
 
                                 <Label x:Name="GenderTypeLabel" Content="جنسیت :" Grid.Row="5" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
@@ -213,13 +214,13 @@
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="7"/>
 
-                                <TextBox Name="emailAddressTextBox" VerticalContentAlignment="Center" PreviewLostKeyboardFocus="emailAddressTextBox_PreviewLostKeyboardFocus" Grid.Row="7" Style="{DynamicResource TextEditsStyle}"/>
+                                <AAx:TextBox x:Name="emailAddressTextBox" MaskType="Regex" RegEx="EmailAddress" VerticalContentAlignment="Center" Grid.Row="7" Style="{DynamicResource TextEditsStyle}"/>
 
                                 <Label x:Name="PhoneNumberLabel" Content="شماره تلفن :" Grid.Row="8" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
                                 <Label Style="{DynamicResource StarsStyle}" Grid.Row="8"/>
 
-                                <TextBox Name="phoneNumberTextBox" Grid.Row="8" MaxLength="11" Style="{DynamicResource TextEditsStyle}" PreviewLostKeyboardFocus="phoneNumberTextBox_PreviewLostKeyboardFocus" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
+                                <AAx:TextBox x:Name="phoneNumberTextBox" MaskType="Regex" RegEx="IranMobileNumber" FlowDirection="LeftToRight" Grid.Row="8" MaxLength="11" Style="{DynamicResource TextEditsStyle}" FontFamily="{DynamicResource FaGlobalFontFamily}"/>
 
                                 <Label x:Name="PictureLabel" Content="عکس :" Grid.Row="10" VerticalAlignment="Top" Style="{DynamicResource GroupBoxLabelsStyle}"/>
 
@@ -276,7 +277,7 @@
 
                 </GroupBox>
 
-                <Button x:Name="closeButton" Grid.Row="1" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick" Margin="0,0,5,3"/>
+                <Button x:Name="closeButton" Grid.Row="1" Style="{DynamicResource CancelButtonStyle}" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick" Margin="0,0,4,4"/>
 
             </Grid>
 

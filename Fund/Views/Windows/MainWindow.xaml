@@ -187,6 +187,26 @@
 
             </Fluent:RibbonTabItem>
 
+            <Fluent:RibbonTabItem FontWeight="Bold" Header="مدیر" Name="AdminRibbonPage">
+
+                <Fluent:RibbonGroupBox Header="کاربران">
+
+                    <Fluent:Button Name="UsersViewButton" Header="مدیریت کاربران" Click="UsersViewButton_Click" LargeIcon="/Fund;component/Resources/Icons/EditUser80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="CreateUserButton" Header="ایجاد حساب کاربری جدید" Click="CreateUserButton_Click" LargeIcon="/Fund;component/Resources/Icons/AddUser80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                </Fluent:RibbonGroupBox>
+
+                <Fluent:RibbonGroupBox Header="بانک اطلاعاتی">
+
+                    <Fluent:Button Name="DeleteDatabase" Header="حذف بانک اطلاعاتی" Click="DeleteDatabase_Click" LargeIcon="/Fund;component/Resources/Icons/DeleteDatabase80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+
+                    <Fluent:Button Name="DatabaseConfigButton" Header="تنظیمات بانک اطلاعاتی" Click="DatabaseConfigButton_Click" LargeIcon="/Fund;component/Resources/Icons/DatabaseConfig80.png" Template="{DynamicResource ButtonControlTemplate}"/>
+                    
+                </Fluent:RibbonGroupBox>
+
+            </Fluent:RibbonTabItem>
+
             <Fluent:RibbonTabItem FontWeight="Bold" Header="سایر">
 
                 <Fluent:RibbonGroupBox Name="ToolsPageGroup" Header="مرتبط با صندوق">
@@ -207,26 +227,6 @@
 
                     <Fluent:Button Name="AboutSoftwareButton" Header="درباره نرم افزار" Click="AboutSoftwareButton_Click" LargeIcon="/Fund;component/Resources/Icons/Info_80px.png" Template="{DynamicResource ButtonControlTemplate}"/>
 
-                </Fluent:RibbonGroupBox>
-
-            </Fluent:RibbonTabItem>
-
-            <Fluent:RibbonTabItem FontWeight="Bold" Header="مدیر" Name="AdminRibbonPage">
-
-                <Fluent:RibbonGroupBox Header="کاربران">
-
-                    <Fluent:Button Name="UsersViewButton" Header="مدیریت کاربران" Click="UsersViewButton_Click" LargeIcon="/Fund;component/Resources/Icons/EditUser80.png" Template="{DynamicResource ButtonControlTemplate}"/>
-
-                    <Fluent:Button Name="CreateUserButton" Header="ایجاد حساب کاربری جدید" Click="CreateUserButton_Click" LargeIcon="/Fund;component/Resources/Icons/AddUser80.png" Template="{DynamicResource ButtonControlTemplate}"/>
-
-                </Fluent:RibbonGroupBox>
-
-                <Fluent:RibbonGroupBox Header="بانک اطلاعاتی">
-
-                    <Fluent:Button Name="DeleteDatabase" Header="حذف بانک اطلاعاتی" Click="DeleteDatabase_Click" LargeIcon="/Fund;component/Resources/Icons/DeleteDatabase80.png" Template="{DynamicResource ButtonControlTemplate}"/>
-
-                    <Fluent:Button Name="DatabaseConfigButton" Header="تنظیمات بانک اطلاعاتی" Click="DatabaseConfigButton_Click" LargeIcon="/Fund;component/Resources/Icons/DatabaseConfig80.png" Template="{DynamicResource ButtonControlTemplate}"/>
-                    
                 </Fluent:RibbonGroupBox>
 
             </Fluent:RibbonTabItem>

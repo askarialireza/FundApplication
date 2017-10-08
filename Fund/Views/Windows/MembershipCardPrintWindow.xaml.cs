@@ -153,7 +153,7 @@ namespace Fund
                 oStiReport.Load(Properties.Resources.MembershipCardReport);
                 oStiReport.RegBusinessObject("MembershipCard", varData);
                 oStiReport.Compile();
-                oStiReport.RenderWithWpf();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
                 oStiReport.DoAction(reportType, string.Format("{0} {1}", "کارت عضویت", oMember.FullName.FirstName + "" + oMember.FullName.LastName));
 

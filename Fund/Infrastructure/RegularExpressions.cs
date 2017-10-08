@@ -7,12 +7,14 @@ namespace Infrastructure.Text
 
         public const string PersianDate = @"[1-4]\d{3}\/((0?[1-6]\/((3[0-1])|([1-2][0-9])|(0?[1-9])))|((1[0-2]|(0?[7-9]))\/(30|([1-2][0-9])|(0?[1-9]))))";
 
-        public const string Username = "[a-zA-Z0-9_]";
+        public const string Username = "[a-zA-Z0-9_]{3,20}";
 
         public const string EmailAddress = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
 
         public const string NumbersOnly = "^[0-9]*$";
 
         public const string PercentValue = "^[1-9][0-9]?$|^100|^0$";
+
+        public const string NationalCode = "\\d{10}";
     }
 }

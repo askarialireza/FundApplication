@@ -83,7 +83,7 @@
 
             <Button Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Margin="0,0,148,3" Click="ExportToPdfButton_Click"/>
 
-            <Button Name="closeButton" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Margin="0,0,0,6" Click="closeButton_Click"/>
+            <Button Name="closeButton" Style="{DynamicResource CancelButtonStyle}" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Margin="0,0,0,6" Click="closeButton_Click"/>
 
         </Grid>
 

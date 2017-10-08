@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:Fund"
     x:Class="Fund.SchedulerUserControl"
     mc:Ignorable="d" 
+    d:DesignHeight="400" d:DesignWidth="1000"
     Style="{DynamicResource UserControlStyle}"
     >
 
@@ -22,7 +23,7 @@
         </ScrollViewer>
 
         <Grid Height="40" Grid.Row="1">
-            <Button x:Name="CloseControlButton" Content="بستن" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick"/>
+            <Button x:Name="CloseControlButton" Style="{DynamicResource CancelButtonStyle}" HorizontalAlignment="Right" Height="32" VerticalAlignment="Bottom" Width="90" FontWeight="Bold" Click="CloseClick"/>
         </Grid>
 
     </Grid>

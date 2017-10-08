@@ -123,11 +123,14 @@ namespace Fund
                     {
                         MembersListBox.SelectedIndex = 0;
                         MemberViewGrid.Visibility = System.Windows.Visibility.Visible;
+                        AcceptButton.IsEnabled = true;
                     }
                     else
                     {
                         MemberViewGrid.Visibility = System.Windows.Visibility.Hidden;
                         MembersLoanGridControl.ItemsSource = null;
+                        AcceptButton.IsEnabled = false;
+
                     }
 
                     oUnitOfWork.Save();
@@ -319,7 +322,7 @@ namespace Fund
 
                         oStiReport.RegBusinessObject("InstallmentsList", varList);
                         oStiReport.Compile();
-                        oStiReport.RenderWithWpf();
+                        oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
                         System.IO.MemoryStream oMemoryStream = new System.IO.MemoryStream();
 
@@ -364,9 +367,6 @@ namespace Fund
             DAL.UnitOfWork oUnitOfWork = null;
 
             oUnitOfWork = new DAL.UnitOfWork();
-
-            Models.Member oMember = oUnitOfWork.MemberRepository
-                .GetById(Utility.CurrentMember.Id);
 
             Models.Fund oFund = oUnitOfWork.FundRepository
                 .GetById(Utility.CurrentFund.Id);
@@ -462,10 +462,6 @@ namespace Fund
             }
 
             Utility.CurrentLoan = oLoan;
-
-            oMember.Balance += oLoan.LoanAmount;
-
-            oUnitOfWork.MemberRepository.Update(oMember);
 
             oUnitOfWork.Save();
         }
@@ -606,45 +602,9 @@ namespace Fund
             }
         }
 
-        private void LoanAmountTextBox_GotFocus(object sender, System.Windows.RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            ((System.Windows.Controls.TextBox)sender).Text =
-                ((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
-        }
-
-        private void LoanAmountTextBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(((System.Windows.Controls.TextBox)sender).Text) == false)
-            {
-                System.Text.RegularExpressions.Regex oRegex =
-                    new System.Text.RegularExpressions.Regex(Infrastructure.Text.RegularExpressions.NumbersOnly);
-
-                if (oRegex.IsMatch(((System.Windows.Controls.TextBox)sender).Text) == false)
-                {
-                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "فقط درج اعداد قابل قبول می‌باشد.");
-
-                    Dispatcher.BeginInvoke((System.Threading.ThreadStart)delegate
-                    {
-                        ((System.Windows.Controls.TextBox)sender).Focus();
-                    });
-
-                    return;
-                }
-
-                long value = System.Convert.ToInt64(((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
-
-                ((System.Windows.Controls.TextBox)sender).Text = value.ToRialStringFormat();
-            }
-            else
-            {
-                long zero = 0;
-                ((System.Windows.Controls.TextBox)sender).Text = zero.ToRialStringFormat();
-            }
-        }
-
-        private void LoanAmountTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            Utility.NumericTextBoxOnly(e);
+            CalculatePercentCheckBox.IsEnabled = (Utility.CurrentFund.Percent > 0) ? true : false;
         }
     }
 }

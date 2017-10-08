@@ -372,15 +372,15 @@ namespace Fund
                     })
                     .ToList();
 
-                Stimulsoft.Report.StiReport usersReport = new Stimulsoft.Report.StiReport();
+                Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
 
-                usersReport.Load(Properties.Resources.UsersViewReport);
-                usersReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
-                usersReport.RegBusinessObject("Users", varListToReport);
-                usersReport.Compile();
-                usersReport.RenderWithWpf();
+                oStiReport.Load(Properties.Resources.UsersViewReport);
+                oStiReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
+                oStiReport.RegBusinessObject("Users", varListToReport);
+                oStiReport.Compile();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
-                usersReport.DoAction(reportType, "گزارش کاربران");
+                oStiReport.DoAction(reportType, "گزارش کاربران");
 
                 oUnitOfWork.Save();
             }
@@ -432,11 +432,6 @@ namespace Fund
 
                 DeleteButton.IsEnabled = (EditItemsToggleSwitch.IsChecked == true) ? ((Utility.AdminUserId == _currentId) ? false : true) : false;
             }
-        }
-
-        private void EmailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.EmailAddressValidation(sender, e);
         }
     }
 }

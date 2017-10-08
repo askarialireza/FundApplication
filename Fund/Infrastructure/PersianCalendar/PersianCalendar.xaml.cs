@@ -1208,6 +1208,7 @@ namespace Fund
 
                 int count = oUnitOfWork.RemainderRepository
                     .GetByPersianDate(year, month, day)
+                    .Where(current => current.FundId == Utility.CurrentFund.Id)
                     .Count();
 
                 return count;

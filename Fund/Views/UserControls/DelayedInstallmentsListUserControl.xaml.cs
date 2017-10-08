@@ -99,6 +99,8 @@ namespace Fund
                         oUnitOfWork.Save();
                     }
 
+                    RefreshGridControl();
+
                     Utility.MainWindow.RefreshUserInterface();
                     (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).MiniPersianSchedulerReminder.RefreshMonth();
                     (Utility.MainWindow.SthPanel.Children[0] as MainPanelContentUserControl).RefreshSchedulerListBox();

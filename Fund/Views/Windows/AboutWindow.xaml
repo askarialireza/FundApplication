@@ -51,11 +51,10 @@
         <StackPanel Grid.Row="2" Grid.RowSpan="2" Margin="10,0" HorizontalAlignment="Left">
 
             <TextBlock Text="ویژگی‌ها :" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
-            <TextBlock Text="* استفاده همزمان چندین کاربر" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="10,5"/>
-            <TextBlock Text="* مدیریت صندوق‌های برای هر کاربر" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="10,5"/>
+            <TextBlock Text="* قابل استفاده برای چندین کاربر" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="10,5"/>
+            <TextBlock Text="* مدیریت صندوق‌های متعدد برای هر کاربر" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="10,5"/>
             <TextBlock Text="* مدیریت وام‌ها و اقساط صندوق" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="10,5"/>
-            <TextBlock Text="* تقویم یادآور شمسی برای ثبت تاریخ اقساط" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="10,5"/>
-            <TextBlock Text="* شخصی سازی محیط برنامه برای هر کاربر" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="10,5"/>
+            <TextBlock Text="* تقویم یادآور شمسی برای ثبت تاریخ اقساط، رویدادها و یادداشت‌ها" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="10,5"/>
             <TextBlock Text="* ارسال و چاپ گزارشات متنوع مرتبط به صندوق" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Margin="10,5"/>
 
         </StackPanel>

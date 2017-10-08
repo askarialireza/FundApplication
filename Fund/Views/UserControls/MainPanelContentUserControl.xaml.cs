@@ -50,6 +50,7 @@ namespace Fund
 
                 var varList = oUnitOfWork.RemainderRepository
                     .GetByPersianDate(Year, Month, Day)
+                    .Where(current=>current.FundId == Utility.CurrentFund.Id)
                     .Select(current => new ViewModels.EventTypeViewModel()
                     {
                         Id = current.Id,

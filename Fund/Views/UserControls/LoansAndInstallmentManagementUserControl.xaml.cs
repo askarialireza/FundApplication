@@ -93,13 +93,6 @@ namespace Fund
 
                     oUnitOfWork.InstallmentRepository.Update(oInstallment);
 
-                    Models.Member oMember = oUnitOfWork.MemberRepository
-                        .GetById(oInstallment.Loan.Member.Id);
-
-                    oMember.Balance -= oInstallment.PaymentAmount;
-
-                    oUnitOfWork.MemberRepository.Update(oMember);
-
                     Models.Fund oFund = oUnitOfWork.FundRepository
                         .GetById(Utility.CurrentFund.Id);
 
@@ -405,16 +398,6 @@ namespace Fund
                             .Where(current => current.InstallmentId == oInstallment.Id)
                             .FirstOrDefault();
 
-                        Models.Member oMember = oUnitOfWork.MemberRepository
-                            .GetById(Utility.CurrentLoan.MemberId);
-
-                        if (oInstallment.IsPayed == true)
-                        {
-                            oMember.Balance += oInstallment.PaymentAmount;
-
-                            oUnitOfWork.MemberRepository.Update(oMember);
-                        }
-
                         if (oTransaction != null)
                         {
                             oUnitOfWork.TransactionRepository.Delete(oTransaction);
@@ -456,10 +439,6 @@ namespace Fund
                         .Where(current => current.LoanId == oLoan.Id)
                         .FirstOrDefault();
 
-
-                    Models.Member oMember = oUnitOfWork.MemberRepository
-                        .GetById(Utility.CurrentLoan.Member.Id);
-
                     oUnitOfWork.LoanRepository.Delete(oLoan);
 
                     if (oTransaction != null)
@@ -470,10 +449,8 @@ namespace Fund
                     oUnitOfWork.Save();
 
                     oFund.Balance += oLoan.LoanAmount;
-                    oMember.Balance -= oLoan.LoanAmount;
 
                     oUnitOfWork.FundRepository.Update(oFund);
-                    oUnitOfWork.MemberRepository.Update(oMember);
                 }
 
                 oUnitOfWork.Save();
@@ -603,7 +580,7 @@ namespace Fund
 
                 oStiReport.RegBusinessObject("InstallmentsList", varList);
                 oStiReport.Compile();
-                oStiReport.RenderWithWpf();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
                 oStiReport.DoAction(action: reportType, fileName: "گزارش لیست اقساط");
             }
 
@@ -624,10 +601,109 @@ namespace Fund
                 return;
             }
         }
-
-        private void LoansDataGrid_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        private void SendEmailButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            bool internetConnected = Utility.CheckForInternetConnection();
 
+            if (internetConnected == true)
+            {
+                EnterEmailPasswordWindow oEnterEmailPasswordWindow = new EnterEmailPasswordWindow();
+
+                if (oEnterEmailPasswordWindow.ShowDialog() == true)
+                {
+                    Utility.MainWindow.MainProgressBar.IsIndeterminate = true;
+                    Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Visible;
+
+                    System.ComponentModel.BackgroundWorker oBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+
+                    oBackgroundWorker.DoWork += OBackgroundWorker_DoWork1; ;
+                    oBackgroundWorker.RunWorkerAsync(oEnterEmailPasswordWindow);
+
+                }
+                else
+                {
+                    Utility.MainWindow.MainProgressBar.IsIndeterminate = false;
+                    Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Hidden;
+
+                    return;
+                }
+            }
+            else
+            {
+                Utility.MainWindow.MainProgressBar.IsIndeterminate = false;
+                Utility.MainWindow.MainProgressBar.Visibility = System.Windows.Visibility.Hidden;
+
+                Infrastructure.MessageBox.Show
+                    (
+                        caption: Infrastructure.MessageBox.Caption.Error,
+                        text: "اتصال به اینترنت برقرار نمی‌باشد. از اتصال دستگاه خود با اینترنت اطمینان حاصل فرمایید."
+                    );
+
+                return;
+            }
+
+
+        }
+
+        private void OBackgroundWorker_DoWork1(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                EnterEmailPasswordWindow oEnterEmailPasswordWindow = e.Argument as EnterEmailPasswordWindow;
+
+                if (InstallmentPerLoanGridControl.ItemsSource == null)
+                {
+                    return;
+                }
+                else
+                {
+                    var varList = (InstallmentPerLoanGridControl.ItemsSource as System.Collections.Generic.List<ViewModels.InstallmentViewModel>)
+                        .Select(current => new
+                        {
+                            current.AmountRialFormat,
+                            current.PersianInstallmentDate,
+                            current.PersianPaymentDate,
+                            current.IsPayedDescription,
+                        })
+                        .ToList();
+
+                    Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
+
+                    oStiReport.Load(Properties.Resources.InstallmentListReport);
+
+                    oStiReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
+                    oStiReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
+                    oStiReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
+                    oStiReport.Dictionary.Variables.Add("MemberName", Utility.CurrentLoan.Member.FullName.ToString());
+                    oStiReport.Dictionary.Variables.Add("LoanAmount", (new ViewModels.LoanViewModel { LoanAmount = Utility.CurrentLoan.LoanAmount }).LoanAmountRialFormat);
+                    oStiReport.Dictionary.Variables.Add("RefundAmount", (new ViewModels.LoanViewModel { RefundAmount = Utility.CurrentLoan.RefundAmount }).RefundAmountRialFormat);
+
+                    oStiReport.RegBusinessObject("InstallmentsList", varList);
+                    oStiReport.Compile();
+                    oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
+
+                    System.IO.MemoryStream oMemoryStream = new System.IO.MemoryStream();
+
+                    oStiReport.ExportDocument(Stimulsoft.Report.StiExportFormat.Pdf, oMemoryStream);
+
+                    oMemoryStream.Seek(0, System.IO.SeekOrigin.Begin);
+
+                    Utility.SendEmail
+                    (
+                        senderEmail: Utility.CurrentUser.EmailAddress,
+                        senderPassword: oEnterEmailPasswordWindow.EmailPassword,
+                        displayName: Utility.CurrentUser.FullName.ToString(),
+                        receiverEmail: Utility.CurrentMember.EmailAddress,
+                        subject: Utility.CurrentFund.Name + " | " + "لیست اقساط وام " + Utility.CurrentMember.FullName.ToString(),
+                        body: "لیست اقساط وام " + Utility.CurrentMember.FullName.ToString() +
+                                System.Environment.NewLine +
+                                new FarsiLibrary.Utils.PersianDate(System.DateTime.Now).ToString(),
+                        attachment: oMemoryStream,
+                        attachmentName: "لیست اقساط وام " + Utility.CurrentMember.FullName.ToString()
+                    );
+
+                }
+            });
         }
     }
 }

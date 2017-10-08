@@ -54,6 +54,10 @@ namespace Fund
                 .AsEnumerable()
                 ;
 
+            var TextBoxes2 = MainGroupBoxGrid.Children
+                .OfType<Infrastructure.Controls.TextBox>()
+                .AsEnumerable()
+                ;
 
             var Lables = MainGroupBoxGrid.Children
                 .OfType<System.Windows.Controls.Label>()
@@ -73,6 +77,11 @@ namespace Fund
             foreach (System.Windows.Controls.TextBox textbox in TextBoxes)
             {
                 textbox.IsEnabled = true;
+            }
+
+            foreach (Infrastructure.Controls.TextBox Textbox in TextBoxes2)
+            {
+                Textbox.IsEnabled = true;
             }
 
             foreach (System.Windows.Controls.Label label in Lables)
@@ -109,6 +118,11 @@ namespace Fund
                 .AsEnumerable()
                 ;
 
+            var TextBoxes2 = MainGroupBoxGrid.Children
+                .OfType<Infrastructure.Controls.TextBox>()
+                .AsEnumerable()
+                ;
+
             var Lables = MainGroupBoxGrid.Children
                 .OfType<System.Windows.Controls.Label>()
                 .AsEnumerable()
@@ -127,6 +141,11 @@ namespace Fund
             foreach (System.Windows.Controls.TextBox textbox in TextBoxes)
             {
                 textbox.IsEnabled = false;
+            }
+
+            foreach (Infrastructure.Controls.TextBox Textbox in TextBoxes2)
+            {
+                Textbox.IsEnabled = false;
             }
 
             foreach (System.Windows.Controls.Label label in Lables)
@@ -231,36 +250,53 @@ namespace Fund
             {
                 oUnitOfWork = new DAL.UnitOfWork();
 
-                Models.Member oMember = oUnitOfWork.MemberRepository
-                    .GetById(CurrentId);
 
-                if (oMember != null)
+                string nationalCode = NationalCodeTextBox.Text.Trim();
+
+                Models.Member varMember = oUnitOfWork.MemberRepository
+                    .Get()
+                    .Where(current => current.NationalCode == nationalCode)
+                    .FirstOrDefault();
+
+                if (varMember != null)
                 {
+                    Infrastructure.MessageBox.Show(caption: Infrastructure.MessageBox.Caption.Error, text: "عضوی با شماره ملی درج شده در صندوق موجود می‌باشد.");
 
-                    oMember.FullName.FirstName = FirstNameTextBox.Text.Trim();
-                    oMember.FullName.LastName = LastNameTextBox.Text.Trim();
-                    oMember.FatherName = FatherNameTextBox.Text.Trim();
-                    oMember.Gender = (GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender;
-                    oMember.NationalCode = NationalCodeTextBox.Text.Trim();
-                    oMember.EmailAddress = emailAddressTextBox.Text.Trim();
-                    oMember.PhoneNumber = phoneNumberTextBox.Text.Trim();
-                    System.Windows.Media.Imaging.BmpBitmapEncoder oBmpBitmapEncoder = new System.Windows.Media.Imaging.BmpBitmapEncoder();
+                    return;
+                }
+                else
+                {
+                    Models.Member oMember = oUnitOfWork.MemberRepository
+                        .GetById(CurrentId);
 
-                    if (IsPictureChanged == true)
+                    if (oMember != null)
                     {
-                        oMember.Picture = (IsPictureDeleted == true) ? null : Utility.ImageToBytes(encoder: oBmpBitmapEncoder, imageSource: MemberImage.Source);
+
+                        oMember.FullName.FirstName = FirstNameTextBox.Text.Trim();
+                        oMember.FullName.LastName = LastNameTextBox.Text.Trim();
+                        oMember.FatherName = FatherNameTextBox.Text.Trim();
+                        oMember.Gender = (GendersCombobox.SelectedItem as ViewModels.GenderViewModel).Gender;
+                        oMember.NationalCode = NationalCodeTextBox.Text.Trim();
+                        oMember.EmailAddress = emailAddressTextBox.Text.Trim();
+                        oMember.PhoneNumber = phoneNumberTextBox.Text.Trim();
+                        System.Windows.Media.Imaging.BmpBitmapEncoder oBmpBitmapEncoder = new System.Windows.Media.Imaging.BmpBitmapEncoder();
+
+                        if (IsPictureChanged == true)
+                        {
+                            oMember.Picture = (IsPictureDeleted == true) ? null : Utility.ImageToBytes(encoder: oBmpBitmapEncoder, imageSource: MemberImage.Source);
+                        }
+
+                        oUnitOfWork.MemberRepository.Update(oMember);
+                        oUnitOfWork.Save();
+
+                        Infrastructure.MessageBox.Show
+                            (
+                                caption: Infrastructure.MessageBox.Caption.Information,
+                                text: "مشخصات عضو صندوق با موفقیت ویرایش گردید."
+                            );
+
+                        Utility.MainWindow.RefreshUserInterface();
                     }
-
-                    oUnitOfWork.MemberRepository.Update(oMember);
-                    oUnitOfWork.Save();
-
-                    Infrastructure.MessageBox.Show
-                        (
-                            caption: Infrastructure.MessageBox.Caption.Information,
-                            text: "مشخصات عضو صندوق با موفقیت ویرایش گردید."
-                        );
-
-                    Utility.MainWindow.RefreshUserInterface();
                 }
             }
             catch (System.Exception ex)
@@ -448,16 +484,16 @@ namespace Fund
                     .MembersToReport()
                     .ToList();
 
-                Stimulsoft.Report.StiReport oReport = new Stimulsoft.Report.StiReport();
+                Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
 
-                oReport.Load(Properties.Resources.MembersViewReport);
-                oReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
-                oReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
-                oReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
-                oReport.RegBusinessObject("Members", varList);
-                oReport.Compile();
-                oReport.RenderWithWpf();
-                oReport.DoAction(reportType, string.Format("گزارش اعضا ({0}) ", Utility.CurrentFund.Name));
+                oStiReport.Load(Properties.Resources.MembersViewReport);
+                oStiReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
+                oStiReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
+                oStiReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
+                oStiReport.RegBusinessObject("Members", varList);
+                oStiReport.Compile();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
+                oStiReport.DoAction(reportType, string.Format("گزارش اعضا ({0}) ", Utility.CurrentFund.Name));
 
                 oUnitOfWork.Save();
             }
@@ -518,21 +554,6 @@ namespace Fund
                 MemberImage.Source = (oMember.Picture == null) ? new System.Windows.Media.Imaging.BitmapImage(uriSource) : Utility.BytesToImage(oMember.Picture);
                 CurrentId = oMember.Id;
             }
-        }
-
-        private void NationalCodeTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.NationalCodeValidation(sender, e);
-        }
-
-        private void emailAddressTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.EmailAddressValidation(sender, e);
-        }
-
-        private void phoneNumberTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.MobileNumberValidation(sender, e);
         }
     }
 }

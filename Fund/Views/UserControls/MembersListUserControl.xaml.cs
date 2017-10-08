@@ -61,19 +61,19 @@ namespace Fund
                     })
                     .ToList();
 
-                Stimulsoft.Report.StiReport oReport = new Stimulsoft.Report.StiReport();
+                Stimulsoft.Report.StiReport oStiReport = new Stimulsoft.Report.StiReport();
 
                 string genderTitle = (GenderComboBox.SelectedIndex == 2) ? "اعضای خانم صندوق" : (GenderComboBox.SelectedIndex == 1) ? "اعضای آقا عضو صندوق" : "همه اعضای صندوق";
 
-                oReport.Load(Properties.Resources.MembersListReport);
-                oReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
-                oReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
-                oReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
-                oReport.Dictionary.Variables.Add("Gender", genderTitle);
-                oReport.RegBusinessObject("Members", varMembersToReport);
-                oReport.Compile();
-                oReport.RenderWithWpf();
-                oReport.DoAction(reportType, string.Format("گزارش اعضا ({0}) ", Utility.CurrentFund.Name));
+                oStiReport.Load(Properties.Resources.MembersListReport);
+                oStiReport.Dictionary.Variables.Add("Today", System.DateTime.Now.ToPersianDate());
+                oStiReport.Dictionary.Variables.Add("FundName", Utility.CurrentFund.Name);
+                oStiReport.Dictionary.Variables.Add("FundManagerName", Utility.CurrentFund.ManagerName);
+                oStiReport.Dictionary.Variables.Add("Gender", genderTitle);
+                oStiReport.RegBusinessObject("Members", varMembersToReport);
+                oStiReport.Compile();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
+                oStiReport.DoAction(reportType, string.Format("گزارش اعضا ({0}) ", Utility.CurrentFund.Name));
 
                 oUnitOfWork.Save();
             }

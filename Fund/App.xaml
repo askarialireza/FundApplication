@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib"
     xmlns:resource="clr-namespace:Fund.Properties"
+    xmlns:AAx="clr-namespace:Infrastructure.Controls"
     xmlns:ribbon="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" 
     xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent" 
     xmlns:local="clr-namespace:Fund">

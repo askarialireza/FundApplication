@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Fund"
     xmlns:conv="clr-namespace:Infrastructure.Converter"
+    xmlns:AAx="clr-namespace:Infrastructure.Controls"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
     mc:Ignorable="d" 
     d:DesignHeight="500" d:DesignWidth="800"
@@ -110,9 +111,10 @@
 
                 <Grid Grid.Row="0">
                     <Label Content="مبلغ واریزی :" FontSize="15" Margin="5" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" />
-                    <TextBox Name="DepositAmountTextBox" Width="300" FontSize="15" VerticalContentAlignment="Center" Margin="93,5,0,5" MaxLength="16" GotFocus="DepositAmountTextBox_GotFocus" PreviewKeyDown="DepositAmountTextBox_PreviewKeyDown" LostFocus="DepositAmountTextBox_LostFocus" HorizontalAlignment="Left"/>
 
-                    <Button Margin="5" Width="120" HorizontalAlignment="Right" Content="واریز به صندوق" FontWeight="Bold" FontSize="13" Click="SimpleButton_Click" />
+                    <AAx:TextBox x:Name="DepositAmountTextBox" MaskType="Numeric"  IsMoneyValue="True" FlowDirection="LeftToRight" Width="300" FontSize="15" VerticalContentAlignment="Center" Margin="93,5,0,5" MaxLength="16" HorizontalAlignment="Left"/>
+
+                    <Button Name="AcceptButton" Margin="5" Width="120" HorizontalAlignment="Right" Content="واریز به صندوق" Style="{DynamicResource DefaultButtonStyle}" FontWeight="Bold" FontSize="13" Click="SimpleButton_Click" />
 
                 </Grid>
 
@@ -145,7 +147,7 @@
 
             <Button x:Name="SendEmailButton" Style="{DynamicResource SendEmailButtonStyle}" Margin="0,0,196,8" Click="SendEmailButton_Click" Grid.Column="0"/>
 
-            <Button x:Name="CancelButton" Style="{DynamicResource CancelButtonStyle}" Height="32" Grid.Column="0" Click="CancelButton_Click" Margin="0,0,5,8"/>
+            <Button x:Name="CancelButton" Style="{DynamicResource CancelButtonStyle}" Height="32" Grid.Column="0" Click="CancelButton_Click" Margin="695,0,5,8"/>
 
         </Grid>
 

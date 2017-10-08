@@ -83,9 +83,9 @@
 
             <Button x:Name="closeButton" Style="{StaticResource CancelButtonStyle}" Click="closeButton_Click" Margin="0,0,5,8" Height="32" Grid.Column="0"/>
 
-            <Button x:Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Margin="0,1,90,8" Click="ExportToPdfButton_Click" Grid.Column="0"/>
+            <Button x:Name="ExportToPdfButton" Style="{DynamicResource ExportPdfButtonStyle}" Margin="0,0,90,9" Click="ExportToPdfButton_Click" Grid.Column="0"/>
 
-            <Button x:Name="PrintButton" Style="{DynamicResource PrintButtonStyle}" ToolTip="چاپ" Margin="0,1,143,8" Click="PrintButton_Click" Grid.Column="0" />
+            <Button x:Name="PrintButton" Style="{DynamicResource PrintButtonStyle}" ToolTip="چاپ" Margin="0,0,143,9" Click="PrintButton_Click" Grid.Column="0" />
 
         </Grid>
 

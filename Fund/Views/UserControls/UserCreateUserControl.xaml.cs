@@ -155,11 +155,6 @@ namespace Fund
             EmailPopup.Show();
         }
 
-        private void emailAddressTextBox_LostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            //EmailPopup.IsOpen = false;
-        }
-
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://myaccount.google.com/lesssecureapps");
@@ -167,9 +162,5 @@ namespace Fund
             EmailPopup.IsOpen = false;
         }
 
-        private void UsernameTextBox_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
-        {
-            Infrastructure.Validation.UsernameValidation(sender, e);
-        }
     }
 }

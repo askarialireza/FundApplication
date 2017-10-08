@@ -103,6 +103,10 @@ namespace Fund
                         GridControl.ItemsSource = null;
                     }
 
+                    PrintButton.IsEnabled = (varResult.Count > 0) ? true : false;
+                    SendEmailButton.IsEnabled = (varResult.Count > 0) ? true : false;
+                    ExportToPdfButton.IsEnabled = (varResult.Count > 0) ? true : false;
+
                     oUnitOfWork.Save();
                 }
                 catch (System.Exception ex)
@@ -178,7 +182,7 @@ namespace Fund
             oStiReport.Dictionary.Variables.Add("MemberName", Utility.CurrentMember.FullName.ToString());
             oStiReport.RegBusinessObject("Transactions", varList);
             oStiReport.Compile();
-            oStiReport.RenderWithWpf();
+            oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
             oStiReport.DoAction(action: reportType, fileName: "گزارش ریز حساب اعضا");
         }
 
@@ -302,7 +306,7 @@ namespace Fund
                 oStiReport.Dictionary.Variables.Add("MemberName", Utility.CurrentMember.FullName.ToString());
                 oStiReport.RegBusinessObject("Transactions", varList);
                 oStiReport.Compile();
-                oStiReport.RenderWithWpf();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
                 System.IO.MemoryStream oMemoryStream = new System.IO.MemoryStream();
 

@@ -126,6 +126,12 @@ namespace Fund
                         GridControl.ItemsSource = null;
                     }
 
+                    PrintButton.IsEnabled = (varResult.Count > 0) ? true : false;
+                    SendEmailButton.IsEnabled = (varResult.Count > 0) ? true : false;
+                    ExportToPdfButton.IsEnabled = (varResult.Count > 0) ? true : false;
+                    AcceptButton.IsEnabled = (varResult.Count > 0) ? true : false;
+
+
                     oUnitOfWork.Save();
                 }
                 catch (System.Exception ex)
@@ -180,7 +186,7 @@ namespace Fund
             oStiReport.Dictionary.Variables.Add("MemberName", Utility.CurrentMember.FullName.ToString());
             oStiReport.RegBusinessObject("Transactions", varList);
             oStiReport.Compile();
-            oStiReport.RenderWithWpf();
+            oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
             oStiReport.DoAction(action: reportType, fileName: "گزارش واریز اعضا");
         }
 
@@ -368,7 +374,7 @@ namespace Fund
                 oStiReport.Dictionary.Variables.Add("MemberName", Utility.CurrentMember.FullName.ToString());
                 oStiReport.RegBusinessObject("Transactions", varList);
                 oStiReport.Compile();
-                oStiReport.RenderWithWpf();
+                oStiReport.RenderWithWpf(); oStiReport.WriteToReportRenderingMessages("در حال تهیه گزارش ...");
 
                 System.IO.MemoryStream oMemoryStream = new System.IO.MemoryStream();
 
@@ -389,32 +395,6 @@ namespace Fund
                     attachmentName: "لیست واریز های " + Utility.CurrentMember.FullName.ToString()
                 );
             });
-        }
-
-        private void DepositAmountTextBox_GotFocus(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(((System.Windows.Controls.TextBox)sender).Text) == false)
-            {
-                long value = System.Convert.ToInt64(((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty));
-
-                ((System.Windows.Controls.TextBox)sender).Text = value.ToRialStringFormat();
-            }
-            else
-            {
-                long zero = 0;
-                ((System.Windows.Controls.TextBox)sender).Text = zero.ToRialStringFormat();
-            }
-        }
-
-        private void DepositAmountTextBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
-        {
-            ((System.Windows.Controls.TextBox)sender).Text =
-                ((System.Windows.Controls.TextBox)sender).Text.Replace(" ریال", string.Empty).Replace(",", string.Empty);
-        }
-
-        private void DepositAmountTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            Utility.NumericTextBoxOnly(e);
         }
     }
 }

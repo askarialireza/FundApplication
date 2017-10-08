@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    xmlns:local="clr-namespace:Fund"  
+    xmlns:local="clr-namespace:Fund" 
+    xmlns:AAx="clr-namespace:Infrastructure.Controls"
     x:Class="Fund.PersianCalendar"
     mc:Ignorable="d" 
     Style="{DynamicResource UserControlStyle}"
@@ -363,7 +364,7 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBox x:Name="textBoxYear" Grid.Column="0" FontWeight="Bold" Height="32" FontSize="14" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,19,5,19" Width="67" />
+                <AAx:TextBox x:Name="textBoxYear" MaskType="Numeric" Grid.Column="0" FontWeight="Bold" Height="32" FontSize="14" MaxLength="4" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,19,5,19" Width="67" />
                 <ComboBox Grid.Column="1" FontSize="13" FontWeight="Bold" Height="32" VerticalAlignment="Center" FlowDirection="RightToLeft" IsSynchronizedWithCurrentItem="True" x:Name="comboBoxMonths" Margin="12,19">
                     <ComboBoxItem Content="فروردین" IsSelected="True"/>
                     <ComboBoxItem Content="اردیبهشت"/>
